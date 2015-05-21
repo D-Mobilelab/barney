@@ -1,0 +1,17 @@
+{
+  "name": "barney",
+  "version": "0.0.0",
+  "authors": [
+    "roberto.bon@buongiorno.com",
+    "aurelio.merenda@buongiorno.com"
+  ],
+  "description": "Common lib for Buongiorno products",
+  "main": "main.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "buongiorno"
+  ],
+  "license": "MIT"
+}
