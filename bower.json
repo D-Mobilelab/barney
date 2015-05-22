@@ -13,5 +13,6 @@
   "keywords": [
     "buongiorno"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "ignore": []
 }
