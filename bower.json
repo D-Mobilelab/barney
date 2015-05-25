@@ -14,5 +14,8 @@
     "buongiorno"
   ],
   "license": "MIT",
-  "ignore": []
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.2.16"
+  }
 }
