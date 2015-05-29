@@ -1,0 +1,13 @@
+{
+  "name": "barney",
+  "version": "0.0.0",
+  "dependencies": {},
+  "repository": {},
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "engines": {
+    "node": "0.10.25"
+  },
+  "scripts": {}
+}
