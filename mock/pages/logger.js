@@ -21,23 +21,23 @@ angular.module('mock').controller('LoggerCtrl', [
 		}
 
 		$scope.log = function(){
-			Logger.log("LOGGER", {key: "value", key2: "value2"}, $scope.string);
+			Logger.log($scope.string, {key: "value"}, [1,2,3]);
 		}
 
 		$scope.info = function(){
-			Logger.info("LOGGER", {key: "value", key2: "value2"}, $scope.string);
+			Logger.info($scope.string, {key: "value"}, [1,2,3]);
 		}
 
 		$scope.debug = function(){
-			Logger.debug("LOGGER", {key: "value", key2: "value2"}, $scope.string);
+			Logger.debug($scope.string, {key: "value"}, [1,2,3]);
 		}
 
 		$scope.warn = function(){
-			Logger.warn("LOGGER", {key: "value", key2: "value2"}, $scope.string);
+			Logger.warn($scope.string, {key: "value"}, [1,2,3]);
 		}
 
 		$scope.error = function(){
-			Logger.error("LOGGER", {key: "value", key2: "value2"}, $scope.string);
+			Logger.error($scope.string, {key: "value"}, [1,2,3]);
 		}
 	}
 ]);
