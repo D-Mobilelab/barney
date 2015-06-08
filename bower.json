@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     "roberto.bon@buongiorno.com",
     "aurelio.merenda@buongiorno.com"
@@ -14,5 +14,11 @@
     "buongiorno"
   ],
   "license": "MIT",
-  "ignore": []
+  "ignore": [],
+  "dependencies": {
+    "angular": ">= 1.2.16"
+  },
+  "devDependencies": {
+    "angular-route": "1.2.16"
+  }
 }
