@@ -36,6 +36,7 @@ module.exports = function (grunt) {
             server:{
                 files:[
                     '<%= mockPath %>pages/*.js',
+                    '<%= mockPath %>pages/*.html',
                     '<%= mockPath %>*.js',
                     '<%= mockPath %>*.html'
                 ],
