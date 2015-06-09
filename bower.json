@@ -6,7 +6,13 @@
     "aurelio.merenda@buongiorno.com"
   ],
   "description": "Common lib for Buongiorno products",
-  "main": "main.js",
+  "main": [
+    "modules/config/config.mod.js",
+    "modules/config/config.pro.js",
+    "modules/config/config.fil.js",
+    "modules/logger/logger.mod.js",
+    "modules/logger/logger.ser.js"
+  ],
   "moduleType": [
     "globals"
   ],
