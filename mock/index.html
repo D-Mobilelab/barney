@@ -5,8 +5,24 @@
 		<title></title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
-	</head>
+		<style>
+			nav {
+				border-bottom: 1px solid #CCC;
+				padding: 10px 0;
+				margin-bottom: 20px;
+			}
+
+			nav a {
+				display: inline;
+				margin: 0 10px;
+			}
+		</style>
+		</head>
 	<body ng-app="mock">
+		<nav>
+			<a href="#/logger">Logger</a>
+			<a href="#/config">Config</a>
+		</nav>
 		<div ng-view=""></div>
 		<script src="global.js"></script>
 		<script src="../bower_components/angular/angular.js"></script>
