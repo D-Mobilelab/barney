@@ -1,0 +1,7 @@
+<button ng-click="list()">Get config object</button><br /><br />
+{{listObject}}<br /><br />
+<div ng-show="listObject">
+    Filter test printing ENABLE_LOGIN value: {{'ENABLE_LOGIN' | config}}<br /><br />
+    <input type="text" ng-model="string" placeholder="Insert key to print value" /><button ng-click="value()">Print value</button><br /><br />
+    {{configValue}}
+</div>
