@@ -5,8 +5,10 @@ angular.module('mock', [
     'barney.logger',
     'barney.config'
 ])
+
 .config(['$routeProvider',
 	function ($routeProvider) {
+		
 		$routeProvider
 			.when('/logger', {
 				templateUrl: 'pages/logger.html',
