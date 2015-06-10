@@ -18,6 +18,7 @@ module.exports = function (grunt) {
 
 	grunt.initConfig({
         mockPath: 'mock/',
+        modulesPath: 'modules/',
         connect:{
             server: {
                 options:{
@@ -35,10 +36,10 @@ module.exports = function (grunt) {
         watch:{
             server:{
                 files:[
-                    '<%= mockPath %>pages/*.js',
-                    '<%= mockPath %>pages/*.html',
-                    '<%= mockPath %>*.js',
-                    '<%= mockPath %>*.html'
+                    '<%= mockPath %>**/*.js',
+                    '<%= mockPath %>**/*.html',
+                    '<%= modulesPath %>**/*.js',
+                    '<%= modulesPath %>**/*.html'
                 ],
                 options:{
                     livereload: true
