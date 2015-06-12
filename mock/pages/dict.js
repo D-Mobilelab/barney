@@ -1,20 +1,21 @@
 'use strict';
 
 angular.module('mock').controller('DictCtrl', [
-	'$scope', 'BarneyDict',
-	function($scope, Dict){
-        
-        $scope.mode = 'normal';
+	'$scope', '$location', 'BarneyDict',
+	function($scope, $location, Dict){
 
-        $scope.$watch('mode', function(){
-        	Dict.init({
-				showKey: $scope.mode
-			})
-			try {
-				$scope.$digest();
-			} 
-			catch(err) {}
-        });
+		$scope.mode = (!!$location.search().mode) ? $location.search().mode : 'normal'
+
+		Dict.init({
+			showKey: $scope.mode
+		});
+
+		console.log("VALUED_KEY", Dict.get('VALUED_KEY'));
+		console.log("VOID_KEY", Dict.get('VOID_KEY'));
+
+		$scope.updateMode = function(){
+			$location.search('mode', $scope.mode);
+		}
 
 	}
 ]);

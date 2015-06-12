@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.1.1",
+  "version": "0.3.0",
   "authors": [
     "roberto.bon@buongiorno.com",
     "aurelio.merenda@buongiorno.com"
@@ -11,7 +11,11 @@
     "modules/config/config.pro.js",
     "modules/config/config.fil.js",
     "modules/logger/logger.mod.js",
-    "modules/logger/logger.ser.js"
+    "modules/logger/logger.ser.js",
+    "modules/dict/dict.mod.js",
+    "modules/dict/dict.pro.js",
+    "modules/dict/dict.fil.js",
+    "modules/dict/dict.dir.js"
   ],
   "moduleType": [
     "globals"

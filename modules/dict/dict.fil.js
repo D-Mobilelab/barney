@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('barney.dict').filter('barney_dict', 
+angular.module('barney.dict').filter('dict', 
 	['BarneyDict', 
 	function(Dict) {
 
