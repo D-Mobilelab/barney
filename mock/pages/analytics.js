@@ -3,8 +3,10 @@
 angular.module('mock').controller('AnalyticsCtrl', [
 	'BarneyAnalytics',
 	function(Analytics){
-	   
-		
+
+		Analytics.init({
+			
+		})
 	   
 	}
 ]);
