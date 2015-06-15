@@ -4,7 +4,8 @@ angular.module('mock', [
 	'ngRoute',
 	'barney.logger',
 	'barney.config',
-	'barney.dict'
+	'barney.dict',
+	'barney.analytics'
 ])
 
 .config(['$routeProvider',
@@ -22,6 +23,10 @@ angular.module('mock', [
 			.when('/dict', {
 				templateUrl: 'pages/dict.html',
 				controller: 'DictCtrl'
+			})
+			.when('/analytics', {
+				templateUrl: 'pages/analytics.html',
+				controller: 'AnalyticsCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
