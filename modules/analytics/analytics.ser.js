@@ -4,34 +4,58 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 	function(){
 
 		this.dimensions = {};
+		this.enabled = true;
 		this.verbose = false;
-		this.logger = console;
+		this.logger = window.console;
 
 		this.init = function(options){
 			if(options){
 				if(options.dimensions){
 					this.dimensions = options.dimensions;
 				}
-				if(options.verbose){
+				if(typeof(options.enabled) != "undefined"){
+					this.enabled = options.enabled;
+				}
+				if(typeof(options.verbose) != "undefined"){
 					this.verbose = options.verbose;
 				}
-				if(options.logger){
+				if(typeof(options.logger) != "undefined"){
 					this.logger = options.logger;
 				}
 			}
 
-			this.logger.log("BarneyAnalytics", "init", this);
+			if(this.verbose){
+				this.logger.log("BarneyAnalytics", "init", this);
+			}
 		};
 
-		this.setDimension = function(newDimensions){
-			if(newDimensions){
-				for(var key in newDimensions){
-					var value = newDimensions[key];
-					this.dimensions[key] = value;
+		this.setId = function(id){
+			if(id){
+				if(this.verbose){
+					this.logger.log("BarneyAnalytics", "set id", id);
+				}
+
+				if(this.enabled){
+					ga('set', '&uid', id);
 				}
 			}
+		};
 
-			this.logger.log("BarneyAnalytics", "setDimension", this.dimensions);
+		this.setDimension = function(dimensions){
+			if(dimensions){
+				for(var key in dimensions){
+					var slot = this.dimensions[key];
+					var value = dimensions[key];
+
+					if(this.verbose){
+						this.logger.log("BarneyAnalytics", "set dimension", slot, value);
+					}
+
+					if(this.enabled){
+						ga('set', 'dimension' + slot, value);
+					}
+				}
+			}
 		};
 
 		this.trackPage = function(options){
@@ -53,9 +77,13 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 				}
 			}
 
-			this.logger.log("BarneyAnalytics", "trackPage", properties);
+			if(this.verbose){
+				this.logger.log("BarneyAnalytics", "track pageview", properties);
+			}
 
-			// ga('send', properties);
+			if(this.enabled){
+				ga('send', properties);
+			}
 		};
 
 		this.trackEvent = function(options){
@@ -83,9 +111,13 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 				}
 			}
 
-			this.logger.log("BarneyAnalytics", "trackEvent", properties);
+			if(this.verbose){
+				this.logger.log("BarneyAnalytics", "track event", properties);
+			}
 
-			// ga('send', properties);
+			if(this.enabled){
+				ga('send', properties);
+			}
 		};
 
 		return this;
