@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "authors": [
     "roberto.bon@buongiorno.com",
     "aurelio.merenda@buongiorno.com"
@@ -15,7 +15,9 @@
     "modules/dict/dict.mod.js",
     "modules/dict/dict.pro.js",
     "modules/dict/dict.fil.js",
-    "modules/dict/dict.dir.js"
+    "modules/dict/dict.dir.js",
+    "modules/analytics/analytics.mod.js",
+    "modules/analytics/analytics.ser.js"
   ],
   "moduleType": [
     "globals"
