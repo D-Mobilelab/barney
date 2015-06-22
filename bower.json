@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "authors": [
     "roberto.bon@buongiorno.com",
     "aurelio.merenda@buongiorno.com"
@@ -17,7 +17,10 @@
     "modules/dict/dict.fil.js",
     "modules/dict/dict.dir.js",
     "modules/analytics/analytics.mod.js",
-    "modules/analytics/analytics.ser.js"
+    "modules/analytics/analytics.ser.js",
+    "modules/newtontrack/newtontrack.mod.js",
+    "modules/newtontrack/newtontrack.ser.js",
+    "modules/newtontrack/newtontrack.dir.js"
   ],
   "moduleType": [
     "globals"
@@ -31,6 +34,6 @@
     "angular": ">= 1.2.16"
   },
   "devDependencies": {
-    "angular-route": "1.2.16"
+    "angular-route": ">= 1.2.16"
   }
 }
