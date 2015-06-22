@@ -1,0 +1,22 @@
+<div>
+	<h1>Newton track</h1>
+	<div>first track (action and properties): {{track1}}</div><br>
+	<div>second track (only action): {{track2}}</div><br>
+	
+	<div>
+		<strong>Link with ng-click directive:</strong> <br>
+		
+		<button newton-track="ctrl-function" newton-properties="{one:'first one', two:'second one'}"  type="button" ng-click="chiliSpicy()">Change</button> &nbsp; <span>{{spice}}</span>
+		
+		
+		<br /><br />
+		<strong>Link with external url:</strong><br />
+		
+		<a href="http://google.it" newton-track="externalLink"  newton-properties="{one:'first one', two:'second one'}"  >track me before go</a>
+		
+		
+		<br /><br />
+		<strong>Link with internal url:</strong> <br>
+		<a newton-track="internalLink"   newton-properties="{one:'first one', two:'second one'}"  href="#/analytics">Tack internal link</a>
+	</div>
+</div>
