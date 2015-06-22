@@ -1,6 +1,7 @@
 var CONFIG = {
 	'ENABLE_LOGIN': 1,
-	'ENABLE_PIPPO': 0
+	'ENABLE_PIPPO': 0,
+	'NEWTON_SECRET_KEY': '<sec_ret>'
 };
 var DICTIONARY = {
 	'VALUED_KEY': 'Hello world!',
