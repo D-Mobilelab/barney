@@ -17,6 +17,12 @@
 				display: inline;
 				margin: 0 10px;
 			}
+
+			.item {
+				border: 1px solid #CCC;
+				padding: 20px;
+				width: 200px;
+			}
 		</style>
 	</head>
 	<body ng-app="mock">
@@ -26,6 +32,7 @@
 			<a href="#/dict">Dict</a>
 			<a href="#/analytics">Analytics</a>
 			<a href="#/newtontrack">Newton Track</a>
+			<a href="#/masonry">Masonry</a>
 		</nav>
 
 		<div ng-view=""></div>
@@ -46,6 +53,8 @@
 		<script src="../modules/newtontrack/newtontrack.mod.js"></script>
 		<script src="../modules/newtontrack/newtontrack.ser.js"></script>
 		<script src="../modules/newtontrack/newtontrack.dir.js"></script>
+		<script src="../modules/masonry/masonry.mod.js"></script>
+		<script src="../modules/masonry/masonry.dir.js"></script>
 		
 		<script src="app.js"></script>
 		<script src="pages/logger.js"></script>
@@ -53,8 +62,10 @@
 		<script src="pages/dict.js"></script>
 		<script src="pages/analytics.js"></script>
 		<script src="pages/newtontrack.js"></script>
+		<script src="pages/masonry.js"></script>
 		
-	
+		<script src="//static.newton.pm/js/current/newton.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.js"></script>
 
 		<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -20,7 +20,9 @@
     "modules/analytics/analytics.ser.js",
     "modules/newtontrack/newtontrack.mod.js",
     "modules/newtontrack/newtontrack.ser.js",
-    "modules/newtontrack/newtontrack.dir.js"
+    "modules/newtontrack/newtontrack.dir.js",
+    "modules/masonry/masonry.mod.js",
+    "modules/masonry/masonry.dir.js"
   ],
   "moduleType": [
     "globals"

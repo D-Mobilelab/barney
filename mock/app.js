@@ -6,7 +6,8 @@ angular.module('mock', [
 	'barney.config',
 	'barney.dict',
 	'barney.analytics',
-	'barney.newtontrack' 
+	'barney.newtontrack',
+	'barney.masonry' 
 ])
 
 .config(['$routeProvider',
@@ -32,6 +33,10 @@ angular.module('mock', [
 			.when('/newtontrack', {
 				templateUrl: 'pages/newtontrack.html',
 				controller: 'NewtontrackCtrl'
+			})
+			.when('/masonry', {
+				templateUrl: 'pages/masonry.html',
+				controller: 'MasonryCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
