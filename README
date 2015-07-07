@@ -1,4 +1,7 @@
 ** 0.6.0 **
+- Added timeout (100ms) to masonry
+
+** 0.6.0 **
 - Masonry module
 
 ** 0.5.0 **

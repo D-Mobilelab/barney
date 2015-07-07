@@ -15,8 +15,16 @@ angular.module('barney.masonry').directive('barneyMasonry',
 						var parent = element.parent();
 						var masonry = new Masonry(parent[0], {
 							itemSelector: '.' + className
+							// isAnimated: true,
+							// animationOptions: {
+							// 	duration: 750,
+							// 	easing: 'linear',
+							// 	queue: false
+							// },
+							// transitionDuration : "0.4s",
+							// isResizable: false
 						});
-					});
+					}, 100);
 				}
 			}
 		};
