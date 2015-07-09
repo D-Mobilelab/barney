@@ -47,7 +47,7 @@ angular.module('barney.config').provider('BarneyConfig',
     // richiama il myProvider riportato sopra,
     // in questo modo si possono chiamare i methods da .run()
     this.$get = [function() {
-    	return myProvider;
+    	return this;
     }];
 
 }]);

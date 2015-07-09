@@ -61,7 +61,7 @@ angular.module('barney.dict').provider('BarneyDict',
 	// richiama il myProvider riportato sopra,
 	// in questo modo si possono chiamare i methods da .run()
 	this.$get = [function() {
-		return myProvider;
+		return this;
 	}];
 
 }]);
