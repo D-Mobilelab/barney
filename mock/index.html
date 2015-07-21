@@ -1,9 +1,10 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="mock">
 	<head>
 		<meta charset="utf-8">
-		<title></title>
-		<meta name="description" content="">
+		<title ng-bind="meta.title"></title>
+		<meta name="description" content="{{ meta.description }}">
+		<meta name="og:image" content="{{ meta.image }}">
 		<meta name="viewport" content="width=device-width">
 
 		<style>
@@ -25,7 +26,7 @@
 			}
 		</style>
 	</head>
-	<body ng-app="mock">
+	<body>
 		<nav>
 			<a href="#/logger">Logger</a>
 			<a href="#/config">Config</a>
@@ -33,6 +34,7 @@
 			<a href="#/analytics">Analytics</a>
 			<a href="#/newtontrack">Newton Track</a>
 			<a href="#/masonry">Masonry</a>
+			<a href="#/meta">Meta</a>
 		</nav>
 
 		<div ng-view=""></div>
@@ -55,6 +57,8 @@
 		<script src="../modules/newtontrack/newtontrack.dir.js"></script>
 		<script src="../modules/masonry/masonry.mod.js"></script>
 		<script src="../modules/masonry/masonry.dir.js"></script>
+		<script src="../modules/meta/meta.mod.js"></script>
+		<script src="../modules/meta/meta.ser.js"></script>
 		
 		<script src="app.js"></script>
 		<script src="pages/logger.js"></script>
@@ -63,6 +67,8 @@
 		<script src="pages/analytics.js"></script>
 		<script src="pages/newtontrack.js"></script>
 		<script src="pages/masonry.js"></script>
+		<script src="pages/meta.js"></script>
+		<script src="pages/meta2.js"></script>
 		
 		<script src="//static.newton.pm/js/current/newton.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.js"></script>
