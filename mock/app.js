@@ -8,7 +8,8 @@ angular.module('mock', [
 	'barney.analytics',
 	'barney.newtontrack',
 	'barney.masonry', 
-	'barney.meta' 
+	'barney.meta',
+	'barney.utility'  
 ])
 
 .config(['$routeProvider',
@@ -46,6 +47,10 @@ angular.module('mock', [
 			.when('/meta2', {
 				templateUrl: 'pages/meta.html',
 				controller: 'MetaTwoCtrl'
+			})
+			.when('/utility', {
+				templateUrl: 'pages/utility.html',
+				controller: 'UtilityCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'

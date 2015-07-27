@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "authors": [
     "roberto.bon@buongiorno.com",
     "aurelio.merenda@buongiorno.com"
@@ -22,7 +22,9 @@
     "modules/newtontrack/newtontrack.ser.js",
     "modules/newtontrack/newtontrack.dir.js",
     "modules/meta/meta.mod.js",
-    "modules/meta/meta.ser.js"
+    "modules/meta/meta.ser.js",
+    "modules/utility/utility.mod.js",
+    "modules/utility/utility.ser.js"
   ],
   "moduleType": [
     "globals"
