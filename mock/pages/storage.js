@@ -4,20 +4,31 @@ angular.module('mock').controller('StorageCtrl', [
 	'$scope', 'BarneyStorage',
 	function($scope, Storage){
 
-		Storage.set('true-key', 'pippo');
-		console.log("true-key", Storage.get('true-key'));
+		$scope.typeStorage = 'localStorage';
 
-		Storage.set('deleted-key', 'pluto');
-		Storage.delete('deleted-key');
-		console.log("deleted-key", Storage.get('deleted-key'));
+		$scope.initStorage = function(){
+			Storage.init({
+				type: $scope.typeStorage
+			});
+			console.log("init storage", $scope.typeStorage);
 
-		Storage.setMultiple({
-			first: 'one',
-			second: 'two'
-		});
-		console.log("first", Storage.get('first'));
-		console.log("second", Storage.get('second'));
+			Storage.set('true-key', 'pippo');
+			console.log("true-key", Storage.get('true-key'));
 
-		console.log("inexistent-key", Storage.get('inexistent-key'));
+			Storage.set('deleted-key', 'pluto');
+			Storage.delete('deleted-key');
+			console.log("deleted-key", Storage.get('deleted-key'));
+
+			Storage.setMultiple({
+				first: 'one',
+				second: 'two'
+			});
+			console.log("first", Storage.get('first'));
+			console.log("second", Storage.get('second'));
+
+			console.log("inexistent-key", Storage.get('inexistent-key'));
+		}
+
+		
 	}
 ]);
