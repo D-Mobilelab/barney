@@ -16,7 +16,7 @@ angular.module('barney.storage').provider('BarneyStorage',
 
 		set: function(key, value){
 			if(this.options.type == 'localStorage'){
-				window.localStorage.setItem(key, value);
+				window.localStorage.setItem(key, JSON.stringify(value));
 			} else if(this.options.type == 'jsObject'){
 				this.jsObject[key] = value;
 			}
@@ -24,7 +24,7 @@ angular.module('barney.storage').provider('BarneyStorage',
 
 		get: function(key){
 			if(this.options.type == 'localStorage'){
-				return window.localStorage.getItem(key);
+				return JSON.parse(window.localStorage.getItem(key));
 			} else if(this.options.type == 'jsObject'){
 				return this.jsObject[key];
 			}
