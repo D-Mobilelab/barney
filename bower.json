@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "authors": [
     "roberto.bon@buongiorno.com",
     "aurelio.merenda@buongiorno.com"
@@ -24,7 +24,9 @@
     "modules/meta/meta.mod.js",
     "modules/meta/meta.ser.js",
     "modules/utility/utility.mod.js",
-    "modules/utility/utility.ser.js"
+    "modules/utility/utility.ser.js",
+    "modules/storage/storage.mod.js",
+    "modules/storage/storage.ser.js"
   ],
   "moduleType": [
     "globals"

@@ -9,7 +9,8 @@ angular.module('mock', [
 	'barney.newtontrack',
 	'barney.masonry', 
 	'barney.meta',
-	'barney.utility'  
+	'barney.utility',  
+	'barney.storage'  
 ])
 
 .config(['$routeProvider',
@@ -51,6 +52,10 @@ angular.module('mock', [
 			.when('/utility', {
 				templateUrl: 'pages/utility.html',
 				controller: 'UtilityCtrl'
+			})
+			.when('/storage', {
+				templateUrl: 'pages/storage.html',
+				controller: 'StorageCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
