@@ -46,6 +46,12 @@ angular.module('barney.utility').factory('BarneyUtility',
 			}
 		};
 
+		this.arrayDiff = function(first, second){
+			return first.filter(function(i) {
+				return second.indexOf(i) < 0;
+			});
+		};
+
 		return this;
 
 	}
