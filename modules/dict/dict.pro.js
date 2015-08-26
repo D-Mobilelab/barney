@@ -11,7 +11,9 @@ angular.module('barney.dict').provider('BarneyDict',
 		},
 
 		init: function(options){
-			this.options = options;
+			if(options){
+				this.options = options;
+			}
 		},
 
 		get: function(key){

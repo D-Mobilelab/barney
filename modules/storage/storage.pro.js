@@ -11,7 +11,9 @@ angular.module('barney.storage').provider('BarneyStorage',
 		},
 
 		init: function(options){
-			this.options = options;
+			if(options){
+				this.options = options;
+			}
 		},
 
 		set: function(key, value){

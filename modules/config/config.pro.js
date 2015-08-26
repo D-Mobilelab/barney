@@ -9,7 +9,9 @@ angular.module('barney.config').provider('BarneyConfig',
 			notExistValue:null
 		},
 		init: function(options){
-			this.options = options;
+			if(options){
+				this.options = options;
+			}
 		},
 		nocache: function(nocacheatall) {
 			if(nocacheatall){
