@@ -1,3 +1,6 @@
+** 0.10.0 **
+- Stargate module
+
 ** 0.9.4 **
 - Fixed void init case for config, dict and storage
 
