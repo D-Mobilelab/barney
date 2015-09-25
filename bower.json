@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "authors": [
     "roberto.bon@buongiorno.com",
     "aurelio.merenda@buongiorno.com"
@@ -44,6 +44,6 @@
   "devDependencies": {
     "angular": ">=1.2.16",
     "angular-route": ">=1.2.16",
-    "stargateJs": "git+https://bitbucket.org/ibridi/stargatejs-wa#0.0.1"
+    "stargateJs": "git+https://bitbucket.org/ibridi/stargatejs-wa#0.1.0"
   }
 }

@@ -4,12 +4,22 @@ angular.module('mock').controller('StargateCtrl', [
 	'$scope', 'BarneyStargate',
 	function($scope, Stargate){
 
-		$scope.activate = function(){
-			Stargate.activate();
+		$scope.isActive = function(){
+			Stargate.isActive(function(value){
+				console.log("isActive: " + value);
+			});
 		}
 
 		$scope.init = function(){
 			Stargate.init();
+		}
+
+		$scope.initCallback = function(){
+			Stargate.init({
+				onHandshake: function(){
+					console.log("onHandshake");
+				}
+			});
 		}
 
 		$scope.openUrl = function(){

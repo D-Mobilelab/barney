@@ -1,40 +1,55 @@
 'use strict';
 
 angular.module('barney.stargate').factory('BarneyStargate',
-	['$window', 
-	function ($window) {
+	['$window', '$q',
+	function ($window, $q) {
 	
 	var service = {
-		active: false,
 		instance: null,
+		waitMe: $q.defer(),
 
-		activate: function(flag){
-			this.active = true;
+		isActive: function(callback){
+			var _this = this;
+			
+			_this.waitMe.promise.then(function(){
+				callback(_this.instance.isOpen());
+			});
 		},
 
 		// init({ configurations: ..., publicKey: ..., onHandshake: ... })
 		init: function(options){
-			if(this.active){
-				if(!!options){
-					this.instance = Stargate.initialize(options.configurations, options.publicKey, options.onHandshake);
-				} else {
-					this.instance = Stargate.initialize();
-				}
-			}
+			var _this = this;
+			
+			options = options || new Object();
+			options.configurations = options.configurations || new Object();
+			options.publicKey = options.configurations || "";
+			options.onHandshake = options.onHandshake || function(){};
+			
+			_this.instance = Stargate.initialize(options.configurations, options.publicKey, function(){
+				_this.waitMe.resolve();			
+				options.onHandshake();
+			}, function(){
+				_this.waitMe.resolve();			
+				options.onHandshake();
+			});
 		},
 
 		// openUrl({ url: 'http://www.google.it' });
 		// openUrl({ fallback: function(){ window.open('http://www.google.com'); } });
 		openUrl: function(options){
-			if(this.active && this.instance){
-				this.instance.openUrl(options.url);
-			} else {
-				if(!!options.fallback){
-					options.fallback();
+			var _this = this;
+			
+			options.fallback = options.fallback || function(){
+				$window.location.href = options.url;
+			};
+
+			_this.isActive(function(active){
+				if(active){
+					_this.instance.openUrl(options.url);
 				} else {
-					$window.location.href = options.url;
+					options.fallback();
 				}
-			}
+			});			
 		}
 	}
     
