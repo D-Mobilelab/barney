@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('barney.utility').factory('BarneyUtility',
-	['$location',
-	function($location){
+	['$location', '$window',
+	function($location, $window){
 
 		this.addQueryParams = function(newParams){
 			// get existing query params
@@ -51,6 +51,14 @@ angular.module('barney.utility').factory('BarneyUtility',
 				return second.indexOf(i) < 0;
 			});
 		};
+
+		this.brutalRedirect = function(url){
+			$window.location.href = url;
+			// reload for Safari
+			if(navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+				$window.location.reload(true);
+			}
+		}
 
 		return this;
 
