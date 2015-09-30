@@ -11,7 +11,8 @@ angular.module('mock', [
 	'barney.meta',
 	'barney.utility',  
 	'barney.storage',  
-	'barney.stargate'  
+	'barney.stargate',  
+	'barney.callbacky'  
 ])
 
 .config(['$routeProvider',
@@ -61,6 +62,9 @@ angular.module('mock', [
 			.when('/stargate', {
 				templateUrl: 'pages/stargate.html',
 				controller: 'StargateCtrl'
+			})
+			.when('/callbacky', {
+				templateUrl: 'pages/callbacky.html'
 			})
 			.otherwise({
 				redirectTo: '/'

@@ -1,0 +1,21 @@
+<div>
+	<div ng-controller="CallbackyBindCtrl">
+		<h1>I'm first controller</h1>
+		<p><i>I don't know any controllers</i></p>
+		<div>
+			<input type="text" ng-model="blueText" />
+			<button ng-click="bindBlue()">BIND BLUE</button>
+		</div>
+		<div>
+			<input type="text" ng-model="redText" />
+			<button ng-click="bindRed()">BIND RED</button>
+		</div>
+	</div>
+	<br/><hr>
+	<div ng-controller="CallbackyTriggerCtrl">
+		<h1>I'm second controller</h1>
+		<p><i>I don't know any controllers</i></p>
+		<button ng-click="triggerBlue()">TRIGGER BLUE</button>
+		<button ng-click="triggerRed()">TRIGGER RED</button>
+	</div>
+</div>

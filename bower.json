@@ -28,7 +28,9 @@
     "modules/storage/storage.mod.js",
     "modules/storage/storage.pro.js",
     "modules/stargate/stargate.mod.js",
-    "modules/stargate/stargate.pro.js"
+    "modules/stargate/stargate.pro.js",
+    "modules/callbacky/callbacky.mod.js",
+    "modules/callbacky/callbacky.pro.js"
   ],
   "moduleType": [
     "globals"
