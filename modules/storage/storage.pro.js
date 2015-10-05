@@ -3,8 +3,6 @@
 angular.module('barney.storage').provider('BarneyStorage',
 	[function () {
 
-	'use strict'
-
 	var Dixie = function(){
 
 		var dixieInstance = this;
@@ -281,6 +279,10 @@ angular.module('barney.storage').provider('BarneyStorage',
 			else {
 				logger.log("Dixie", "init", "default options");
 			}
+		}
+		// init with arguments passed in the constructor
+		if (arguments[0]){
+			dixieInstance.init(arguments[0]);
 		}
 
 		////////////////////////////////////////
