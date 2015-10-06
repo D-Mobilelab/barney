@@ -7,9 +7,6 @@ angular.module('barney.storage').provider('BarneyStorage',
 	var Storage = {
 
 		selectedStorage: null,
-		// options: {
-		// 	type: 'localStorage'
-		// },
 		logger: {
 			log: function(){},
 			info: function(){},
@@ -17,31 +14,6 @@ angular.module('barney.storage').provider('BarneyStorage',
 			error: function(){}
 		},
 		
-		// StandardLogger: new function(){
-		// 	this.log = function(){ console.log(arguments); };
-		// 	this.info = function(){ console.info(arguments); }; 
-		// 	this.warn = function(){ console.warn(arguments); }; 
-		// 	this.error = function(){ console.error(arguments); }; 
-		// },
-
-		// this.MuteLogger: new function(){
-		// 	this.log = function(){};
-		// 	this.info = function(){}; 
-		// 	this.warn = function(){};
-		// 	this.error = function(){}; 
-		// },
-
-		// default: no log messages
-		// logger: this.MuteLogger,
-
-		// this.selectStorage = function(type){
-		// 	selectedStorage = storages[type];
-		// 	// update config
-		// 	options.type = type;
-		// },
-
-		// this.selectStorage(options.type),
-
 		storages: {
 			'cookie': Biscuit,
 			'localStorage': Depot,
@@ -49,17 +21,12 @@ angular.module('barney.storage').provider('BarneyStorage',
 		},
 
 		init: function(params){
-			// update options
 			if (params){
 				// SETUP STORAGE TYPE
 				if(!!params.type){
 					this.selectedStorage = this.storages[params.type];
 				}
 				
-				// if (typeof(params.type) != "undefined"){
-				// 	dixieInstance.selectStorage(params.type);
-				// }
-
 				// SETUP LOGGER
 				if(!!params.logger){
 					if(params.logger == true){
@@ -68,68 +35,61 @@ angular.module('barney.storage').provider('BarneyStorage',
 						this.logger = params.logger;
 					}
 				}
-				
-				// if(typeof(params.logger) != "undefined"){
-				// 	if (params.logger == true){
-				// 		logger = dixieInstance.StandardLogger;
-				// 	} else if (params.logger == false){
-				// 		logger = dixieInstance.MuteLogger;
-				// 	} else {
-				// 		var validLogger = typeof params.logger.log != 'undefined' 
-				// 							&& typeof params.logger.info != 'undefined' 
-				// 							&& typeof params.logger.warn != 'undefined' 
-				// 							&& typeof params.logger.error != 'undefined';
-				// 		if (validLogger){						
-				// 			logger = params.logger;
-				// 		} else {
-				// 			console.error('Dixie', 'init', 'illegal logger param value')
-				// 		}
-				// 	}
-				// }
 			}
-
 			this.logger.log("BarneyStorage", "init", params, this.selectedStorage, this.logger);
 		},
-		
-		// init with arguments passed in the constructor
-		// if (arguments[0]){
-		// 	dixieInstance.init(arguments[0]);
-		// }
 
-		set: function(key, value, exdays){
-			this.selectedStorage.set(key, value, exdays);
-			this.logger.log("BarneyStorage", "set", key, value, exdays);
+		set: function(key, value, options){
+			if(!!options && !!options.type){
+				this.storages[options.type].set(key, value, options);
+			} else {
+				this.selectedStorage.set(key, value, options);
+			}
+			// this.selectedStorage.set(key, value, exdays);
+			this.logger.log("BarneyStorage", "set", key, value, options);
 		},
 
-		get: function(key){
-			var value = this.selectedStorage.get(key);
-			this.logger.log("BarneyStorage", "get", key, value);
+		get: function(key, options){
+			if(!!options && !!options.type){
+				var value = this.storages[options.type].get(key, value, options);
+			} else {
+				var value = this.selectedStorage.get(key, options);
+			}
+			// var value = this.selectedStorage.get(key);
+			this.logger.log("BarneyStorage", "get", key, value, options);
 			return value;
 		},
 
-		getMultiple: function(keys){
-			var values = this.selectedStorage.getMultiple(keys);
-			this.logger.log("BarneyStorage", "getMultiple", keys, values);
+		getMultiple: function(keys, options){
+			if(!!options && !!options.type){
+				var values = this.storages[options.type].getMultiple(keys, options);
+			} else {
+				var values = this.selectedStorage.getMultiple(keys, options);
+			}
+			// var values = this.selectedStorage.getMultiple(keys);
+			this.logger.log("BarneyStorage", "getMultiple", keys, values, options);
 			return values;
 		},
 
-		setMultiple: function(params, exdays){
-			this.selectedStorage.setMultiple(params, exdays);
-			this.logger.log("BarneyStorage", "setMultiple", params, exdays);
+		setMultiple: function(params, options){
+			if(!!options && !!options.type){
+				this.storages[options.type].setMultiple(params, options);
+			} else {
+				this.selectedStorage.setMultiple(params, options);
+			}
+			// this.selectedStorage.setMultiple(params, exdays);
+			this.logger.log("BarneyStorage", "setMultiple", params, options);
 		},
 
-		delete: function(key){
-			this.selectedStorage.delete(key);
-			this.logger.log("BarneyStorage", "delete", key);
+		delete: function(key, options){
+			if(!!options && !!options.type){
+				this.storages[options.type].delete(key, options);
+			} else {
+				this.selectedStorage.delete(key, options);
+			}
+			// this.selectedStorage.delete(key);
+			this.logger.log("BarneyStorage", "delete", key, options);
 		}
-
-		// getConfig: function(){
-		// 	logger.log("BarneyStorage", "getConfig", this.selectedStorage, this.logger);
-		// 	// READONLY config
-		// 	// stringify and parse to create a new object
-		// 	// we don't want to expose the real configuration publicly
-		// 	return JSON.parse(JSON.stringify(this.options));
-		// }
 
 	}
 

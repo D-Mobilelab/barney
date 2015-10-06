@@ -43,7 +43,7 @@ angular.module('barney.storage.subset').provider('BarneyStorageChicken',
 		}
 	}
 
-    // aggiunge a this l'oggetto Dixie riportato sopra,
+    // aggiunge a this l'oggetto Chicken riportato sopra,
     // in questo modo si possono chiamare i methods da .config()
     angular.extend(this, Chicken);
     // richiama il myProvider riportato sopra,

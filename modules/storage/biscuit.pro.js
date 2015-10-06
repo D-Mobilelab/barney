@@ -22,11 +22,11 @@ angular.module('barney.storage.subset').provider('BarneyStorageBiscuit',
 			return undefined;
 		},
 
-		set: function(key, value, exdays){
+		set: function(key, value, options){
 			var newCookie = key + "=" + JSON.stringify(value);
 			    
 		    // set default exdays value
-		    exdays = exdays ? exdays : this.DEFAULT_EXPIRATION_TIME;
+		    var exdays = (!!options && !!options.exdays) ? options.exdays : this.DEFAULT_EXPIRATION_TIME;
 
 		    // set expiration date
 	    	var d = new Date();
@@ -51,14 +51,14 @@ angular.module('barney.storage.subset').provider('BarneyStorageBiscuit',
 		    return toReturn;
 		},
 
-		setMultiple: function(params, exdays){
+		setMultiple: function(params, options){
 			for (var key in params){
-				this.set(key, params[key], exdays);
+				this.set(key, params[key], options);
 			}
 		},
 
 		delete: function(key){
-			this.set(key, '', -1);
+			this.set(key, '', { exdays: -1 });
 		}
 	}
 
@@ -104,7 +104,7 @@ angular.module('barney.storage.subset').provider('BarneyStorageBiscuit',
 		return new CookieIterator();
 	}
 
-    // aggiunge a this l'oggetto Dixie riportato sopra,
+    // aggiunge a this l'oggetto Biscuit riportato sopra,
     // in questo modo si possono chiamare i methods da .config()
     angular.extend(this, Biscuit);
     // richiama il myProvider riportato sopra,

@@ -33,6 +33,21 @@ angular.module('mock').controller('StorageCtrl', [
 			console.log("inexistent-key", Storage.get('inexistent-key'));
 		}
 
+		$scope.getLocalStorageKey = function(){
+			Storage.set('local-storage-key', 'pippo', { type: 'localStorage' });
+			console.log('local-storage-key', Storage.get('local-storage-key', { type: 'localStorage' }));
+		}
+
+		$scope.getJsObjectKey = function(){
+			Storage.set('local-jsobject-key', 'pippo', { type: 'jsObject' });
+			console.log('local-jsobject-key', Storage.get('local-jsobject-key', { type: 'jsObject' }));
+		}
+
+		$scope.getCookieKey = function(){
+			Storage.set('local-cookie-key', 'pippo', { type: 'cookie' });
+			console.log('local-cookie-key', Storage.get('local-cookie-key', { type: 'cookie' }));
+		}
+
 		
 	}
 ]);

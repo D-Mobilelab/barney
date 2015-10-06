@@ -50,7 +50,7 @@ angular.module('barney.storage.subset').provider('BarneyStorageDepot',
 		}
 	}
 
-    // aggiunge a this l'oggetto Dixie riportato sopra,
+    // aggiunge a this l'oggetto Depot riportato sopra,
     // in questo modo si possono chiamare i methods da .config()
     angular.extend(this, Depot);
     // richiama il myProvider riportato sopra,
