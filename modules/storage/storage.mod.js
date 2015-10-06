@@ -1,1 +1,1 @@
-angular.module('barney.storage', []);
+angular.module('barney.storage', ['barney.storage.subset']);

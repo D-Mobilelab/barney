@@ -1,9 +1,9 @@
 {
   "name": "barney",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "authors": [
-    "roberto.bon@buongiorno.com",
-    "aurelio.merenda@buongiorno.com"
+    "aurelio.merenda@buongiorno.com",
+    "fabio.fognani@buongiorno.com"    
   ],
   "description": "Common lib for Buongiorno products",
   "main": [
@@ -26,7 +26,11 @@
     "modules/utility/utility.mod.js",
     "modules/utility/utility.ser.js",
     "modules/storage/storage.mod.js",
+    "modules/storage/storage-subset.mod.js",
     "modules/storage/storage.pro.js",
+    "modules/storage/chicken.pro.js",
+    "modules/storage/depot.pro.js",
+    "modules/storage/biscuit.pro.js",
     "modules/stargate/stargate.mod.js",
     "modules/stargate/stargate.pro.js",
     "modules/callbacky/callbacky.mod.js",

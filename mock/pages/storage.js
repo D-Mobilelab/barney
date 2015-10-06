@@ -1,17 +1,21 @@
 'use strict';
 
 angular.module('mock').controller('StorageCtrl', [
-	'$scope', 'BarneyStorage',
-	function($scope, Storage){
+	'$scope', 'BarneyLogger', 'BarneyStorage',
+	function($scope, Logger, Storage){
 
 		$scope.typeStorage = 'localStorage';
 
+		Logger.init({
+			enabled: true
+		});
+
 		$scope.initStorage = function(){
 			Storage.init({
-				type: $scope.typeStorage
+				type: $scope.typeStorage,
+				logger: Logger
 			});
-			console.log("init storage", $scope.typeStorage);
-
+			
 			Storage.set('true-key', 'pippo');
 			console.log("true-key", Storage.get('true-key'));
 
