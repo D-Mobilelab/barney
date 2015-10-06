@@ -89,6 +89,18 @@ angular.module('barney.storage').provider('BarneyStorage',
 			}
 			// this.selectedStorage.delete(key);
 			this.logger.log("BarneyStorage", "delete", key, options);
+		},
+
+		isLocalStorageSupported: function(){
+			var name = 'test';
+			try {
+				localStorage.setItem(name, name);
+				localStorage.getItem(name);
+				localStorage.removeItem(name);
+				return true;
+			} catch (e) {
+				return false;
+			}
 		}
 
 	}

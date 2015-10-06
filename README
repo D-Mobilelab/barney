@@ -1,3 +1,6 @@
+** 0.13.2 **
+- New method in storage module: isLocalStorageSupported
+
 ** 0.13.1 **
 - Utility.addQueryParams accepts an url different from current
 
