@@ -4,9 +4,13 @@ angular.module('barney.utility').factory('BarneyUtility',
 	['$location', '$window',
 	function($location, $window){
 
-		this.addQueryParams = function(newParams){
+		this.addQueryParams = function(newParams, newUrl){
 			// get existing query params
-			var queryString = $location.search();
+			if(!!newUrl){
+				var queryString = getQueryString(newUrl);
+			} else {
+				var queryString = $location.search();
+			}
 			
 			// encode and add newParams to query params
 			for(var key in newParams){
@@ -17,7 +21,11 @@ angular.module('barney.utility').factory('BarneyUtility',
 			}
 			
 			// get url without query string and add ? to url
-			var url = $location.absUrl();
+			if(!!newUrl){
+				var url = newUrl;
+			} else {
+				var url = $location.absUrl();
+			}
 			if(url.indexOf('?') > -1){
 				url = url.substr(0, url.indexOf('?')+1);
 			} else {
@@ -43,6 +51,23 @@ angular.module('barney.utility').factory('BarneyUtility',
 				} catch(e) {
 					return string;
 				}
+			}
+
+			function getQueryString(url) {
+				var vars = [], hash;
+				if(url.indexOf('?') != -1){
+					var querystring = url.slice(url.indexOf('?') + 1);
+					if(!!querystring){
+						var hashes = querystring.split('&');
+						console.log(hashes);
+						for(var i = 0; i < hashes.length; i++){
+							hash = hashes[i].split('=');
+							// vars.push(hash[0]);
+							vars[hash[0]] = hash[1];
+						}
+					}
+				}
+				return vars;
 			}
 		};
 
