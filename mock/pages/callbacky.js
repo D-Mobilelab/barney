@@ -1,8 +1,17 @@
 'use strict';
 
 angular.module('mock').controller('CallbackyBindCtrl', [
-	'$scope', 'BarneyCallbacky',
-	function($scope, Callbacky){
+	'$scope', 'BarneyCallbacky', 'BarneyLogger',
+	function($scope, Callbacky, Logger){
+
+		Logger.init({
+			enabled: true
+		})
+
+		Callbacky.init({
+			verbose: true,
+			logger: Logger
+		})
 
 		$scope.bindBlue = function(){
 			var name = $scope.blueText;

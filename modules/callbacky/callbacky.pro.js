@@ -7,11 +7,36 @@ angular.module('barney.callbacky').provider('BarneyCallbacky',
 
 		set: {},
 
+		verbose: false,
+		logger: {
+			log: function(){},
+			info: function(){},
+			warn: function(){},
+			error: function(){}
+		},
+
+		init: function(options){
+			if(options){
+				if(typeof(options.verbose) != "undefined"){
+					this.verbose = options.verbose;
+				}
+				if(typeof(options.logger) != "undefined"){
+					this.logger = options.logger;
+				}
+			}
+			if(this.verbose){
+				this.logger.log("BarneyCallbacky", "init", this);
+			}
+		},
+
 		bind: function(key, method){
 			if(!this.set[key]){ 
 				this.set[key] = [];
 			}
 			this.set[key].push(method);
+			if(this.verbose){
+				this.logger.log("BarneyCallbacky", "bind", key, method);
+			}
 		},
 
 		trigger: function(key, arg){
@@ -20,11 +45,17 @@ angular.module('barney.callbacky').provider('BarneyCallbacky',
 					this.set[key][i].call(arg);
 				}
 			}
+			if(this.verbose){
+				this.logger.log("BarneyCallbacky", "trigger", key, arg);
+			}
 		},
 
 		clean: function(key){
 			if(this.set[key]){
 				this.set[key] = [];
+			}
+			if(this.verbose){
+				this.logger.log("BarneyCallbacky", "clean", key);
 			}
 		}
 

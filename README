@@ -1,3 +1,9 @@
+** 0.14.1 **
+- Callbacky.init new method, it gets verbose and logger arguments
+
+** 0.14.0 **
+- New Newton module
+
 ** 0.13.2 **
 - New method in storage module: isLocalStorageSupported
 
