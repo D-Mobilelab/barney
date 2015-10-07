@@ -6,7 +6,7 @@ angular.module('mock', [
 	'barney.config',
 	'barney.dict',
 	'barney.analytics',
-	'barney.newtontrack',
+	'barney.newton',
 	'barney.masonry', 
 	'barney.meta',
 	'barney.utility',  
@@ -35,9 +35,9 @@ angular.module('mock', [
 				templateUrl: 'pages/analytics.html',
 				controller: 'AnalyticsCtrl'
 			})
-			.when('/newtontrack', {
-				templateUrl: 'pages/newtontrack.html',
-				controller: 'NewtontrackCtrl'
+			.when('/newton', {
+				templateUrl: 'pages/newton.html',
+				controller: 'NewtonCtrl'
 			})
 			.when('/masonry', {
 				templateUrl: 'pages/masonry.html',

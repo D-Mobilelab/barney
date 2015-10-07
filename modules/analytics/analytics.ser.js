@@ -6,7 +6,12 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 		this.dimensions = {};
 		this.enabled = true;
 		this.verbose = false;
-		this.logger = window.console;
+		this.logger = {
+			log: function(){},
+			info: function(){},
+			warn: function(){},
+			error: function(){}
+		},
 
 		this.init = function(options){
 			if(options){

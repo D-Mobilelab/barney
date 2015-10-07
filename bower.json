@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.13.2",
+  "version": "0.14.0",
   "authors": [
     "aurelio.merenda@buongiorno.com",
     "fabio.fognani@buongiorno.com"    
@@ -18,9 +18,8 @@
     "modules/dict/dict.dir.js",
     "modules/analytics/analytics.mod.js",
     "modules/analytics/analytics.ser.js",
-    "modules/newtontrack/newtontrack.mod.js",
-    "modules/newtontrack/newtontrack.ser.js",
-    "modules/newtontrack/newtontrack.dir.js",
+    "modules/newton/newton.mod.js",
+    "modules/newton/newton.ser.js",
     "modules/meta/meta.mod.js",
     "modules/meta/meta.ser.js",
     "modules/utility/utility.mod.js",
