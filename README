@@ -1,3 +1,6 @@
+** 0.14.2 **
+- Utility.clickAndGo
+
 ** 0.14.1 **
 - Callbacky.init new method, it gets verbose and logger arguments
 
