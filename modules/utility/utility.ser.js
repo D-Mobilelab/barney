@@ -85,6 +85,30 @@ angular.module('barney.utility').factory('BarneyUtility',
 			}
 		}
 
+		this.clickAndGo = function(event){
+			if(event.target.tagName == "A"){
+				$location.url(event.target.hash.replace("#!", ""));
+			} else if(!!event.path){
+				for(var k=0; k < event.path.length; k++){
+					console.log(event.path[k]);
+					if(event.path[k].tagName == "A"){
+						$location.url(event.path[k].hash.replace("#!", ""));
+						break;
+					}
+				}
+			} else {
+				var parentElement = event.target.parentElement
+				while(parentElement){
+					if(parentElement.tagName == "A"){
+						$location.url(parentElement.hash.replace("#!", ""));
+						break;
+					} else {
+						parentElement = parentElement.parentElement;
+					}
+				}
+			}		
+		}
+
 		return this;
 
 	}
