@@ -90,7 +90,6 @@ angular.module('barney.utility').factory('BarneyUtility',
 				$location.url(event.target.hash.replace("#!", ""));
 			} else if(!!event.path){
 				for(var k=0; k < event.path.length; k++){
-					console.log(event.path[k]);
 					if(event.path[k].tagName == "A"){
 						$location.url(event.path[k].hash.replace("#!", ""));
 						break;
