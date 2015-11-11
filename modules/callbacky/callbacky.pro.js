@@ -42,7 +42,7 @@ angular.module('barney.callbacky').provider('BarneyCallbacky',
 		trigger: function(key, arg){
 			if(this.set[key] && this.set[key].length > 0){
 				for(var i in this.set[key]){
-					this.set[key][i].call(arg);
+					this.set[key][i].call(this, arg);
 				}
 			}
 			if(this.verbose){
