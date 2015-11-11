@@ -45,6 +45,12 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             }
+        },
+        eslint: {
+            target: [
+                'modules/**/*.js'
+                // 'modules/analytics/*.js'
+            ]
         }
     });
 
@@ -56,5 +62,9 @@ module.exports = function (grunt) {
         'connect:server',
         'open:server',
         'watch:server'
+    ]);
+
+    grunt.registerTask('lint',[
+        'eslint'
     ]);
 }
