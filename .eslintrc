@@ -8,7 +8,7 @@
 		// you can use unamed functions ( this.init = function(options){..} )
 		"func-names": 0,
 		// error if trailing comma is present ( [1,2,] )
-		"comma-dangle": [0, "never"],
+		"comma-dangle": [2, "never"],
 		// warning if you use "for in" loop and include prototype properties of object
 		"guard-for-in": 1,
 
@@ -24,7 +24,7 @@
 		// warning if you declare a variable not at the top of a function scope
 		"vars-on-top": 1,
 		// you can re-assign a function parameter ( function(b){ b++; } )
-		"no-param-reassign": 0,
+		"no-param-reassign": 1,
 		// you can use "else" after a return
 		"no-else-return": 0,
 
@@ -42,7 +42,7 @@
 		// trailing-space at end of line is allowed ( window.alert();* )
 		"no-trailing-spaces": 0,
 		// warning if blocks are padded by blank lines
-		"padded-blocks": 1,
+		"padded-blocks": [1, "never"],
 
 		/*** ANGULAR ***/
 		// limit component for page to 1
@@ -51,15 +51,15 @@
 		"angular/controller-name": [2, "/(Ctrl)$/"],
 		// all services must start with a uppercase letter
 		"angular/service-name": [2, "/^[A-Z].*$/"],
-		// all services must start with a lowercase letter
+		// all directives must start with a lowercase letter
 		"angular/directive-name": [2, "/^[a-z].*$/"],
 		// warning if there're unused dependencies
 		"angular/di-unused": 1,
 		// error if you give a name to component function
 		"angular/function-type": [2, "anonymous"],
-		// error if you use setTimeout instead of $timeout angular wrapper
-		"angular/interval-service": 2,
 		// error if you use setInterval instead of $interval angular wrapper
+		"angular/interval-service": 2,
+		// error if you use setTimeout instead of $timeout angular wrapper
 		"angular/timeout-service": 2,
 		// error if you use a variable to set and get a module and not angular.module
 		"angular/module-getter": 2,
