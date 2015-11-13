@@ -34,13 +34,13 @@ module.exports = function(config) {
       "mock/global.js",
 
       // modules    
-      "modules/*/*.mod.js",  
-      "modules/*/*.pro.js",  
-      "modules/*/*.ser.js",  
-      "modules/*/*.fil.js",
+      "modules/2/*/*.mod.js",  
+      "modules/2/*/*.pro.js",  
+      "modules/2/*/*.ser.js",  
+      "modules/2/*/*.fil.js",
 
       // test
-      "test/**/*.js"
+      "test/**/*.test.js"
 
       // END YOUR JS FILES
     ],
