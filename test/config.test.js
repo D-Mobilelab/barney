@@ -1,23 +1,18 @@
 'use strict';
 
-describe('CONFIG', function () {
+describe('CONFIG -', function () {
 
 	// load the controller's module
 	beforeEach(module('barney.config'));
 
-	var ConfigProvider, scope;
+	var ConfigProvider;
 
 	beforeEach(inject(function (_BarneyConfig_) {
 		ConfigProvider = _BarneyConfig_;
+		ConfigProvider.init({
+			config: CONFIG
+		});
 	}));
-
-	// Initialize the controller and a mock scope
-	// beforeEach(inject(function ($controller, $rootScope) {
-	// 	scope = $rootScope.$new();
-	// 	HomepageCtrl = $controller('HomepageCtrl', {
-	// 		$scope: scope
-	// 	});
-	// }));
 
 	it('if key value is a void string, then return false', function () {
 		expect(ConfigProvider.get('KEY_VOID_STRING')).toBe(false);
@@ -45,6 +40,22 @@ describe('CONFIG', function () {
 
 	it('if key value is "false", then return false', function () {
 		expect(ConfigProvider.get('KEY_FALSE_STRING')).toBe(false);
+	});
+
+	it('if key value is true, then return true', function () {
+		expect(ConfigProvider.get('KEY_TRUE')).toBe(true);
+	});
+
+	it('if key value is a string, then return it', function () {
+		expect(ConfigProvider.get('KEY_VALUE')).toBe(CONFIG.KEY_VALUE);
+	});
+
+	it('if you use a lowercase key, then return the value of uppercase key', function () {
+		expect(ConfigProvider.get('key_value')).toBe(CONFIG.KEY_VALUE);
+	});
+
+	it('if you ask the list of config keys, then return it', function () {
+		expect(ConfigProvider.list()).toBe(CONFIG);
 	});
 
 });

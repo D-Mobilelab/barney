@@ -41,8 +41,8 @@
 		"space-before-function-paren": 0,
 		// trailing-space at end of line is allowed ( window.alert();* )
 		"no-trailing-spaces": 0,
-		// warning if blocks are padded by blank lines
-		"padded-blocks": [1, "never"],
+		// blocks could be padded by blank lines
+		"padded-blocks": [0, "never"],
 
 		/*** ANGULAR ***/
 		// limit component for page to 1
