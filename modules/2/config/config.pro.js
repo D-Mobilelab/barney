@@ -10,11 +10,12 @@
             },
 
             get: function(value){
+                value = value.toUpperCase();
                 var falseValues = ['', 0, '0', null, 'null', false, 'false'];
                 if(falseValues.indexOf(this.config[value]) !== -1){
                     return false;
                 } else {
-                    return this.config[value.toUpperCase()];
+                    return this.config[value];
                 }
             },
 

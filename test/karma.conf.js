@@ -87,7 +87,7 @@ module.exports = function(config) {
       'coverage'
     ],
     preprocessors: {
-      'modules/**/*.js': ['coverage']
+      'modules/2/**/*.js': ['coverage']
     },
     coverageReporter: {
       type : 'html',
