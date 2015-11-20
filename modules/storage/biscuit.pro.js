@@ -23,7 +23,7 @@ angular.module('barney.storage.subset').provider('BarneyStorageBiscuit',
 
 		set: function(key, value, options){
 			var newCookie = key + "=" + JSON.stringify(value);
-			    
+			
 		    // set default exdays value
 		    if (!!options && typeof options.exdays != 'undefined'){
 		    	// set expiration date
