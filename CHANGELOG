@@ -1,3 +1,6 @@
+** 0.16.0 **
+- Utility: new getCurrentQueryString() method
+
 ** 0.15.1 **
 - Callbacky: fixed trigger arguments bug
 
