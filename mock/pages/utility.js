@@ -5,11 +5,20 @@ angular.module('mock').controller('UtilityCtrl', [
 	function($scope, $rootScope, $location, Utility){
 
 		$scope.oldUrl = $location.absUrl();
-
 		$scope.newUrl = Utility.addQueryParams({
 			ciao: 'mondo',
 			pippo: 'pluto'
-		}, 'http://www.google.it');
+		});
+
+		$scope.oldUrlTwo = 'http://www.google.com';
+		$scope.newUrlTwo = Utility.addQueryParams({
+			ciao: 'mondo',
+			pippo: 'pluto'
+		}, 'http://www.google.com');
+		
+		$scope.getCurrentQueryString = function(){
+			$scope.queryStrings = Utility.getCurrentQueryString();
+		}
 
 		var array_uno = [1, 2, 3, 'a'];
 		var array_due = [1, 2, 'b'];

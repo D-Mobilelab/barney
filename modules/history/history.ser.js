@@ -11,7 +11,9 @@ angular.module('barney.history').factory('BarneyHistory',
 			init: function(){
 				var _this = this;
 				$rootScope.$on('$locationChangeSuccess', function(event, newurl, oldurl){
-					_this.previousPath = oldurl.substr(oldurl.indexOf("#!")+2);
+					if(newurl != oldurl){
+						_this.previousPath = oldurl.substr(oldurl.indexOf("#!")+2);
+					}
 				});
 			},
 

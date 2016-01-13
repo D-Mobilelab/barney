@@ -26,12 +26,12 @@ angular.module('barney.storage.subset').provider('BarneyStorageBiscuit',
 			var newCookie = key + "=" + JSON.stringify(value);
 			    
 		    // set default exdays value
-		    var exdays = (!!options && !!options.exdays) ? options.exdays : this.DEFAULT_EXPIRATION_TIME;
-
-		    // set expiration date
-	    	var d = new Date();
-		    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-		    newCookie += "; expires=" + d.toUTCString();
+		    if (!!options && typeof options.exdays != 'undefined'){
+				// set expiration date
+				var d = new Date();
+					d.setTime(d.getTime() + (options.exdays*24*60*60*1000));
+					newCookie += "; expires=" + d.toUTCString();
+				}
 
 		    // set cookie
 		    document.cookie = newCookie;
