@@ -34,10 +34,10 @@ module.exports = function(config) {
       "mock/global.js",
 
       // modules    
-      "modules/2/*/*.mod.js",  
-      "modules/2/*/*.pro.js",  
-      "modules/2/*/*.ser.js",  
-      "modules/2/*/*.fil.js",
+      "modules/config/*.mod.js",  
+      "modules/config/*.pro.js",  
+      "modules/config/*.ser.js",  
+      "modules/config/*.fil.js",
 
       // test
       "test/**/*.test.js"
@@ -87,7 +87,7 @@ module.exports = function(config) {
       'coverage'
     ],
     preprocessors: {
-      'modules/2/**/*.js': ['coverage']
+      'modules/**/*.js': ['coverage']
     },
     coverageReporter: {
       type : 'html',

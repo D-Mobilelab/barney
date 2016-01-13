@@ -63,8 +63,9 @@ module.exports = function (grunt) {
         },
         eslint: {
             target: [
-                'modules/2/**/*.js'
-                // 'modules/analytics/*.js'
+                // 'modules/**/*.js'
+                'modules/analytics/*.js',
+                'modules/config/*.js'
             ]
         },
         karma: {

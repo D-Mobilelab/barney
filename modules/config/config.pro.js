@@ -1,55 +1,35 @@
-'use strict';
+angular.module('barney.config').provider('BarneyConfig', function(){        
+    
+    var myProvider = {
+        init: function(options){
+            if(options && options.config){
+                this.config = options.config;
+            }
+        },
 
-angular.module('barney.config').provider('BarneyConfig',
-	['ConfObj',
-	function (ConfObj) {
-	// METODI DEL PROVIDER
-	var myProvider = {
-		options: {
-			notExistValue:null
-		},
-		init: function(options){
-			if(options){
-				this.options = options;
-			}
-		},
-		nocache: function(nocacheatall) {
-			if(nocacheatall){
-				ConfObj['nocacheatall'] = "&nocacheatall=1";
-			} else {
-				ConfObj['nocacheatall'] = "";
-			}
-		},
-		get: function(input) {
-			if(!!input){
-				var value = ConfObj[input];
-				if (typeof value === 'undefined'){
-					input = input.toUpperCase();
-					value = ConfObj[input];
-					if (typeof value === 'undefined'){
-						return this.options.notExistValue;
-					}
-				}
-				return value;
-			} else {
-				return null;
-			}
-		},
-		list: function() {
-			var value = ConfObj;
-			if(typeof ConfObj === 'undefined'){
-				value = [];
-			}
-			return value;
-		}
-	}
+        get: function(value){
+            var falseValues = ['', 0, '0', null, 'null', false, 'false'];
+            value = value.toUpperCase();
+            if(falseValues.indexOf(this.config[value]) !== -1){
+                return false;
+            } else {
+                return this.config[value];
+            }
+        },
+
+        list: function(){
+            return this.config;
+        }
+    };
+
     // aggiunge a this il myProvider riportato sopra,
     // in questo modo si possono chiamare i methods da .config()
     angular.extend(this, myProvider);
+
     // richiama il myProvider riportato sopra,
     // in questo modo si possono chiamare i methods da .run()
     this.$get = [function() {
-    	return this;
+        return this;
     }];
 
-}]);
+});
