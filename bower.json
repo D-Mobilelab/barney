@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "0.14.3",
+  "version": "1.0.0",
   "authors": [
     "aurelio.merenda@buongiorno.com",
     "fabio.fognani@buongiorno.com"    
@@ -33,7 +33,9 @@
     "modules/stargate/stargate.mod.js",
     "modules/stargate/stargate.pro.js",
     "modules/callbacky/callbacky.mod.js",
-    "modules/callbacky/callbacky.pro.js"
+    "modules/callbacky/callbacky.pro.js",
+    "modules/history/history.mod.js",
+    "modules/history/history.ser.js"
   ],
   "moduleType": [
     "globals"

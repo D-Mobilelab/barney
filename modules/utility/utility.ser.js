@@ -4,6 +4,36 @@ angular.module('barney.utility').factory('BarneyUtility',
 	['$location', '$window',
 	function($location, $window){
 
+		this.getCurrentQueryString = function(){
+			// get current url
+			var url = $location.absUrl();
+
+			// get normalized query string after #!
+			var vars = $location.search();
+
+			// get un-normalized query string before #!
+			var queryStringBef = window.location.search;
+			
+			// check if window.location is empty
+			if(queryStringBef !== ''){
+				// remove ? from querystring
+				queryStringBef = queryStringBef.slice(1);
+				// queryStringBef = queryStringBef.slice(queryStringBef.indexOf('?') + 1);
+
+				if(!!queryStringBef){
+					// create an array of query strings
+					var hashes = queryStringBef.split('&');
+					
+					// loop query strings to split them
+					for(var i = 0; i < hashes.length; i++){
+						var hash = hashes[i].split('=');
+						vars[hash[0]] = hash[1];
+					}
+				}
+			}
+			return vars;
+		};
+
 		this.addQueryParams = function(newParams, newUrl){
 			// get existing query params
 			if(!!newUrl){
@@ -59,7 +89,6 @@ angular.module('barney.utility').factory('BarneyUtility',
 					var querystring = url.slice(url.indexOf('?') + 1);
 					if(!!querystring){
 						var hashes = querystring.split('&');
-						console.log(hashes);
 						for(var i = 0; i < hashes.length; i++){
 							hash = hashes[i].split('=');
 							// vars.push(hash[0]);
