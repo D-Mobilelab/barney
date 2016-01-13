@@ -1,2 +1,1 @@
-angular.module('barney.config', [])
-.constant('ConfObj', CONFIG);
+angular.module('barney.config', []);

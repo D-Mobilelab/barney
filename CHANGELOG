@@ -1,3 +1,11 @@
+** 1.1.0 **
+- New Config module
+- Installed esLint and test environment
+- Biscuit fix
+
+** 1.0.0 **
+- History init bugfix
+
 ** 0.16.0 **
 - Utility: new getCurrentQueryString() method
 

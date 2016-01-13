@@ -1,1 +1,112 @@
-Write me
+# How to clone Barney project
+
+## SSH Keys
+1. Go to [http://review.buongiorno.com/](http://review.buongiorno.com/)
+2. Sign in (top-right link)
+3. Click on your name (top right)
+4. Click "Settings"
+5. Click "SSH Public Keys"
+6. Follow instructions to generate a new SSH key
+
+## Clone Barney
+1. Clone Barney project, replacing name.surname:
+```
+git clone ssh://name.surname@review.buongiorno.com:29418/frontdev/barney barney
+```
+2. Install npm modules (you must install Node and NPM in your local machine, before)
+```
+npm install
+```
+3. Install bower components (you must install Bower in your local machine, before)
+```
+bower install
+```
+
+4. You can develop on Barney Project now! ;)
+
+# How to create a new feature
+1. Checkout develop branch
+```
+git checkout develop
+git pull
+```
+2. Create a new feature branch, replacing newfeature:
+```
+git checkout -b feature/newfeature
+```
+3. Create your new feature
+4. Add new files and commit modified files on git
+```
+git add newfile.js
+git commit -a -m "New feature"
+```
+5. Push commits on feature branch
+```
+git push origin feature/newfeature
+```
+5. When feature is ready, merge to develop branch
+```
+git checkout develop
+git merge feature/newfeature
+```
+6. Delete local and remote feature branch
+7. Merge develop branch to master branch
+```
+git checkout master
+git merge develop
+```
+8. Create a new version of Barney
+
+# How to create a new version
+1. Checkout to master branch
+2. Choose a new version name, according to semantic version http://semver.org/(http://semver.org/) 
+3. Add new version on CHANGELOG file and describe it
+4. Change version field in bower.json file
+5. If you have added new files to Barney (modules, not mock), add them to bower.json main field
+6. Commit and push CHANGELOG and bower.json
+7. Create a new git tag with new version name
+```
+git tag 1.1.0
+```
+8. Push your tag
+```
+git push --tags origin
+```
+
+# How to install Barney to your project
+1. Go to your project folder, where there's bower.json file (i.e. /dadanet2/wl2/webstore_clipjoy/js/webstore_clipjoy)
+2. Add to bower.json the URL of Barney with last version
+```
+"barney": "git+http://review.buongiorno.com/frontdev/barney#0.15.1",
+```
+3. Execute bower install
+```
+bower install
+```
+4. Execute grunt wiredep to add barney files to index.html or add them manually
+```
+grunt wiredep
+```
+5. Add barney modules you want use to app.js file
+```
+angular.module('clipjoy', [ ..., 'barney.logger'])
+```
+
+# How to update Barney in your project
+1. Go to your project folder, where there's bower.json file (i.e. /dadanet2/wl2/webstore_clipjoy/js/webstore_clipjoy)
+2. Update barney version in your bower.json file
+```
+"barney": "git+http://review.buongiorno.com/frontdev/barney#0.16.0",
+```
+3. Execute bower install
+```
+bower install
+```
+4. Execute grunt wiredep to add new barney files to index.html or add them manually
+```
+grunt wiredep
+```
+5. Add new barney modules to app.js file, if necessary
+```
+angular.module('clipjoy', [ ..., 'barney.logger'])
+```

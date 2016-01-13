@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "authors": [
     "aurelio.merenda@buongiorno.com",
-    "fabio.fognani@buongiorno.com"    
+    "fabio.fognani@buongiorno.com"
   ],
   "description": "Common lib for Buongiorno products",
   "main": [
@@ -51,6 +51,7 @@
   "devDependencies": {
     "angular": ">=1.2.16",
     "angular-route": ">=1.2.16",
-    "stargateJs": "git+https://bitbucket.org/ibridi/stargatejs-wa#0.1.0"
+    "stargateJs": "git+https://bitbucket.org/ibridi/stargatejs-wa#0.1.0",
+    "angular-mocks": "~1.4.7"
   }
 }

@@ -15,7 +15,7 @@ angular.module('mock').controller('UtilityCtrl', [
 			ciao: 'mondo',
 			pippo: 'pluto'
 		}, 'http://www.google.com');
-
+		
 		$scope.getCurrentQueryString = function(){
 			$scope.queryStrings = Utility.getCurrentQueryString();
 		}
