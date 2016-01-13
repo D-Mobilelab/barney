@@ -16,6 +16,7 @@ module.exports = function (grunt) {
         mockPath: 'mock/',
         modulesPath: 'modules/',
         testPath: 'test/',
+        docPath: 'docs/',
         connect:{
             server: {
                 options:{
@@ -30,6 +31,13 @@ module.exports = function (grunt) {
                     port: 9010,
                     livereload: true
                 }
+            },
+            doc: {
+                options:{
+                    hostname: 'localhost',
+                    port: 9020,
+                    livereload: true
+                }
             }
         },
         open:{
@@ -38,6 +46,9 @@ module.exports = function (grunt) {
             },
             coverage:{
                 path: 'http://localhost:9010/<%= testPath %>coverage/'
+            },
+            doc:{
+                path: 'http://localhost:9020/<%= docPath %>'
             }
         },
         watch:{
@@ -59,6 +70,15 @@ module.exports = function (grunt) {
                 options:{
                     livereload: true
                 }
+            },
+            doc:{
+                files:[
+                    '<%= modulesPath %>/**/*.js'
+                ],
+                tasks: ['ngdocs'],
+                options:{
+                    livereload: true
+                }
             }
         },
         eslint: {
@@ -73,6 +93,9 @@ module.exports = function (grunt) {
                 configFile: '<%= testPath %>/karma.conf.js',
                 singleRun: true
             }
+        },
+        ngdocs: {
+            all: ['modules/**/*.js']
         }
     });
 
@@ -98,5 +121,12 @@ module.exports = function (grunt) {
         'connect:coverage',
         'open:coverage',
         'watch:coverage'
+    ]);
+
+    grunt.registerTask('doc',[
+        'ngdocs',
+        'connect:doc',
+        'open:doc',
+        'watch:doc'
     ]);
 }
