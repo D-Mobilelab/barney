@@ -1,0 +1,150 @@
+<h1><code ng:non-bindable="">BarneyAnalytics</code>
+<div><span class="hint">service in module <code ng:non-bindable="">barney.analytics</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="barney-analytics-barneyanalytics-page"><p>Track page and event, set custom dimensions and set id</p>
+<p>To use Analytics service, you have to add BarneyAnalytics dependency to your component (directive, controller...).
+In this example, I have added dependency of BarneyAnalytics to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyAnalytics', '$scope',
+    function(Analytics, $scope){
+        // we can use "Analytics" object here
+    }
+]);
+</pre>
+Note that I included BarneyAnalytics as dependency but I have renamed it as Analytics to use it more easily in controller code.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="barney-analytics-barneyanalytics-init-page"><p>Init analytics service</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-analytics-barneyanalytics-init-page"><p>(see attributes below)</p>
+</div></td></tr><tr><td>options.enabled</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="barney-analytics-barneyanalytics-init-page"><p>enable/disable tracking on Google Analytics</p>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>options.verbose</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="barney-analytics-barneyanalytics-init-page"><p>enable/disable verbose mode, with logging</p>
+</div> <p><em>(default: false)</em></p></td></tr><tr><td>options.logger</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-analytics-barneyanalytics-init-page"><p>logging methods to use for verbose mode (see example below)</p>
+</div> <p><em>(default: Object())</em></p></td></tr><tr><td>options.dimensions</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-analytics-barneyanalytics-init-page"><p>list of custom dimensions that will be used in the app (see example below)</p>
+<ul>
+<li><em>key</em>: custom dimension name</li>
+<li><em>value</em>: slot id</li>
+</ul>
+</div> <p><em>(default: Object())</em></p></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="barney-analytics-barneyanalytics-init-page"><h5 id="methods_init_example_logger">Logger</h5>
+<p>Logger with window.console
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyAnalytics', '$window', '$scope',
+    function(Analytics, $window, $scope){
+  
+        Analytics.init({
+            verbose: true,
+            logger: $window.console
+        });
+  
+    }
+]);
+</pre>
+<p>Logger with BarneyLogger
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyAnalytics', 'BarneyLogger', '$scope',
+    function(Analytics, Logger, $scope){
+  
+        Logger.init({ enabled: true });
+         
+        Analytics.init({
+            verbose: true,
+            logger: Logger
+        });
+  
+    }
+]);
+</pre>
+<h5 id="methods_init_example_custom-dimensions">Custom Dimensions</h5>
+<p>In analytics initialization phase, you have to define all custom dimensions that you will use in application.</p>
+<p><strong><em>Init method don&#39;t set custom dimension on Google Analytics, it only saves custom dimension for future use (for example in event tracking).</em></strong></p>
+<p>You have to pass a pair (custom dimension name, slot id), where slot id is the slot of custom dimension assigned from Google Analytics before.</p>
+<p>In this example, I set two custom dimensions (&quot;UserStatus&quot; with slot number 1 and &quot;Valuable&quot; with slot number 5):
+<pre class="prettyprint linenums">
+Analytics.init({
+    dimensions: {
+        'UserStatus' : 1,
+        'Valuable' : 5
+    }
+});
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_setdimension">setDimension(dimensions)</h3>
+<div class="setdimension"><div class="barney-analytics-barneyanalytics-setdimension-page"><p>Set a user/session (not hit) custom dimension.</p>
+</div><h5 id="methods_setdimension_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>dimensions</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-analytics-barneyanalytics-setdimension-page"><ul>
+<li><em>key</em>: custom dimension name</li>
+<li><em>value</em>: custom dimension value</li>
+</ul>
+</div></td></tr></tbody></table><h4 id="methods_setdimension_example">Example</h4>
+<div class="example"><div class="barney-analytics-barneyanalytics-setdimension-page"><p><strong>The custom dimension has to be defined in init method before</strong> and, after, you have to use same custom dimension name.</p>
+<p>For example, in the following code, I set <em>UserStatus</em> on slot number 1 and I assigned value <em>logged</em>:
+<pre class="prettyprint linenums">
+// before, I save UserStatus custom dimension with slot "1"
+Analytics.init({
+    dimensions: {
+        'UserStatus' : 1
+    }
+});
+  
+// after, I set custom dimension with value "logged"
+Analytics.setDimension({
+    'UserStatus' : 'logged'
+});
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_setid">setId(id)</h3>
+<div class="setid"><div class="barney-analytics-barneyanalytics-setid-page"><p>Set analytics user id</p>
+</div><h5 id="methods_setid_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>id</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-analytics-barneyanalytics-setid-page"><p>user id</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_trackevent">trackEvent(options)</h3>
+<div class="trackevent"><div class="barney-analytics-barneyanalytics-trackevent-page"><p>Track an event</p>
+</div><h5 id="methods_trackevent_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-analytics-barneyanalytics-trackevent-page"><p>(see attributes below)</p>
+</div></td></tr><tr><td>options.category</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-analytics-barneyanalytics-trackevent-page"><p>event category</p>
+</div></td></tr><tr><td>options.action</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-analytics-barneyanalytics-trackevent-page"><p>event action</p>
+</div></td></tr><tr><td>options.label</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-analytics-barneyanalytics-trackevent-page"><p>event label</p>
+</div></td></tr><tr><td>options.value</td><td><a href="" class="label type-hint type-hint-integer">integer</a></td><td><div class="barney-analytics-barneyanalytics-trackevent-page"><p>event value</p>
+</div></td></tr><tr><td>options.dimensions</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-analytics-barneyanalytics-trackevent-page"><ul>
+<li><em>key</em>: custom dimension name</li>
+<li><em>value</em>: custom dimension value</li>
+</ul>
+</div></td></tr></tbody></table><h4 id="methods_trackevent_example">Example</h4>
+<div class="example"><div class="barney-analytics-barneyanalytics-trackevent-page"><pre class="prettyprint linenums">
+Analytics.trackEvent({
+    category: 'UI',
+    action: 'open',
+    label: 'menu',
+    value: 7,
+    dimensions: {
+        'Valuable': 'yes'
+    }
+});
+</pre>
+Note: the custom dimension (in this example Valuable) has to defined in init method before and you have to use same custom dimension name.</p>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_trackpage">trackPage(options)</h3>
+<div class="trackpage"><div class="barney-analytics-barneyanalytics-trackpage-page"><p>To track a pageview</p>
+</div><h5 id="methods_trackpage_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="barney-analytics-barneyanalytics-trackpage-page"><p>(see attributes below)</p>
+</div></td></tr><tr><td>options.page</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-analytics-barneyanalytics-trackpage-page"><p>event page (e.g. &#39;/category/7888&#39;)</p>
+</div></td></tr><tr><td>options.title</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-analytics-barneyanalytics-trackpage-page"><p>event page title (e.g. &#39;Home Page&#39;)</p>
+</div></td></tr><tr><td>options.dimensions</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-analytics-barneyanalytics-trackpage-page"><ul>
+<li><em>key</em>: custom dimension name</li>
+<li><em>value</em>: custom dimension value</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+</div>
