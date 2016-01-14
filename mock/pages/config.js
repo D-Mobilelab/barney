@@ -8,7 +8,7 @@ angular.module('mock').controller('ConfigCtrl', [
 		Call init method to set notExistValue param
 		Allowed notExistValue values: null, false, 0 or string
 		*/
-		Config.init({notExistValue:null});
+		Config.init({config:CONFIG});
 
 		$scope.list = function(){
             $scope.listObject = JSON.stringify(Config.list(),null,2);
