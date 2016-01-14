@@ -1,47 +1,43 @@
-'use strict';
+angular.module('barney.storage.subset').provider('BarneyStorageChicken', function () {
 
-angular.module('barney.storage.subset').provider('BarneyStorageChicken',
-	[function () {
+    // Chicken: Object-based storage
 
-	///////////////////////////////////
-	// Chicken: Object-based storage //
-	///////////////////////////////////
+    var Chicken = {
+        jsObj: {},
 
-	var Chicken = {
-		jsObj: {},
+        get: function(key){
+            return this.jsObj[key];
+        },
 
-		get: function(key){
-			return this.jsObj[key];
-		},
+        set: function(key, value){
+            this.jsObj[key] = value;
+        },
 
-		set: function(key, value){
-			this.jsObj[key] = value;
-		},
+        getMultiple: function(keys){
+            var toReturn = {};
+            var key;
+            if (!!keys){
+                for (key in keys){
+                    toReturn[key] = this.jsObj[key];
+                }
+            } else {
+                for (key in this.jsObj){
+                    toReturn[key] = this.jsObj[key];
+                }
+            }
+            return toReturn;
+        },
 
-		getMultiple: function(keys){
-			var toReturn = {};
-			if (!!keys){
-				for (var key in keys){
-					toReturn[key] = this.jsObj[key];
-				}
-			} else {
-				for (var key in this.jsObj){
-					toReturn[key] = this.jsObj[key];
-				}
-			}
-			return toReturn;
-		},
+        setMultiple: function(params){
+            for (var key in params){
+                this.set(key, params[key]);
+            }
+        },
 
-		setMultiple: function(params){
-			for (var key in params){
-				this.set(key, params[key]);
-			}
-		},
-
-		delete: function(key){
-			delete this.jsObj[key];
-		}
-	}
+        delete: function(key){
+            delete this.jsObj[key];
+        }
+    };
 
     // aggiunge a this l'oggetto Chicken riportato sopra,
     // in questo modo si possono chiamare i methods da .config()
@@ -49,7 +45,7 @@ angular.module('barney.storage.subset').provider('BarneyStorageChicken',
     // richiama il myProvider riportato sopra,
     // in questo modo si possono chiamare i methods da .run()
     this.$get = [function() {
-    	return this;
+        return this;
     }];
 
-}]);
+});

@@ -1,107 +1,102 @@
-'use strict';
+angular.module('barney.storage.subset').provider('BarneyStorageBiscuit', function () {
 
-angular.module('barney.storage.subset').provider('BarneyStorageBiscuit',
-	[function () {
+    // Biscuit: cookie-based storage 
 
-	///////////////////////////////////
-	// Biscuit: cookie-based storage //
-	///////////////////////////////////
+    var Biscuit = {
 
-	var Biscuit = {
+        get: function(key){
+            var iter = newCookieIterator();
+            var result = iter.next();
 
-		get: function(key){
-			var iter = newCookieIterator();
-			var result;
+            while (result){
+                if (result[0] === key){
+                    return tryParse(result[1]);
+                }
+                result = iter.next();
+            }
+            return undefined;
+        },
 
-			while (result = iter.next()){
-				if (result[0] == key){
-					return tryParse(result[1]);
-				}
-			}
-			return undefined;
-		},
+        set: function(key, value, options){
+            var newCookie = key + '=' + JSON.stringify(value);
+            
+            // set default exdays value
+            if (!!options && typeof options.exdays !== 'undefined'){
+                // set expiration date
+                var d = new Date();
+                d.setTime(d.getTime() + (options.exdays * 24 * 60 * 60 * 1000));
+                newCookie += '; expires=' + d.toUTCString();
+            }
+                
+            // set cookie
+            document.cookie = newCookie;
+        },
 
-		set: function(key, value, options){
-			var newCookie = key + "=" + JSON.stringify(value);
-			
-		    // set default exdays value
-		    if (!!options && typeof options.exdays != 'undefined'){
-				// set expiration date
-				var d = new Date();
-				d.setTime(d.getTime() + (options.exdays*24*60*60*1000));
-				newCookie += "; expires=" + d.toUTCString();
-			}
-				
-		    // set cookie
-		    document.cookie = newCookie;
-		},
+        getMultiple: function(keys){
+            var toReturn = {};
+            var iter = newCookieIterator();
+            var result = iter.next();
+            while (result) {
+                if (!keys || keys.indexOf(result[0]) > 0) {
+                    logger.log('Biscuit', 'getMultiple', result);
+                    toReturn[result[0]] = tryParse(result[1]);
+                }
+                result = iter.next();
+            }
+            return toReturn;
+        },
 
-		getMultiple: function(keys){
-			var toReturn = {};
-		    var iter = newCookieIterator();
-		    var result;
+        setMultiple: function(params, options){
+            for (var key in params){
+                this.set(key, params[key], options);
+            }
+        },
 
-			while (result = iter.next()) {
-				if (!keys || keys.indexOf(result[0]) > 0) {
-					logger.log("Biscuit", 'getMultiple', result)
-					toReturn[result[0]] = tryParse(result[1]);
-				}
-			}
-		    return toReturn;
-		},
+        delete: function(key){
+            this.set(key, '', { exdays: -1 });
+        }
+    };
 
-		setMultiple: function(params, options){
-			for (var key in params){
-				this.set(key, params[key], options);
-			}
-		},
+    var tryParse = function(value){
+        try { 
+            return JSON.parse(value);
+        } catch (err) {
+            return value;
+        }
+    };
 
-		delete: function(key){
-			this.set(key, '', { exdays: -1 });
-		}
-	}
+    var CookieIterator = function(){
+        var cookiesList = document.cookie.split(';');
 
-	var tryParse = function(value){
-		try { 
-			return JSON.parse(value)
-		} catch (err) {
-			return value;
-		}
-	}
+        this.hasNext = function(){
+            return cookiesList.length > 0;
+        };
 
-	var CookieIterator = function(){
-		var iteratorInstance = this;
-		var cookiesList = document.cookie.split(';');
+        this.next = function(){
+            // return undefined if the list is empty
+            if (cookiesList.length === 0) {
+                return undefined;
+            }
 
-		this.hasNext = function(){
-			return cookiesList.length > 0;
-		}
+            // dequeue first element of cookiesList
+            var toReturn = cookiesList.shift();
 
-		this.next = function(){
-			// return undefined if the list is empty
-			if (cookiesList.length == 0) {
-				return undefined;
-			}
+            // remove leading whitespaces only
+            var charPos = 0;
+            while (toReturn[charPos] === ' '){
+                charPos++;
+            }
+            toReturn = toReturn.substring(charPos);
 
-			// dequeue first element of cookiesList
-			var toReturn = cookiesList.shift();
+            // split 'key=value' string by first '=' occurrence (regex greedy operator)
+            var values = toReturn.split(/=(.+)?/);
+            return [values[0], values[1]];
+        };
+    };
 
-			// remove leading whitespaces only
-			var charPos = 0;
-			while (toReturn[charPos] == ' '){
-				charPos++;
-			}
-			toReturn = toReturn.substring(charPos);
-
-			// split 'key=value' string by first '=' occurrence (regex greedy operator)
-	        var values = toReturn.split(/=(.+)?/);
-	        return [values[0], values[1]];
-		}
-	}
-
-	var newCookieIterator = function(){
-		return new CookieIterator();
-	}
+    var newCookieIterator = function(){
+        return new CookieIterator();
+    };
 
     // aggiunge a this l'oggetto Biscuit riportato sopra,
     // in questo modo si possono chiamare i methods da .config()
@@ -109,7 +104,7 @@ angular.module('barney.storage.subset').provider('BarneyStorageBiscuit',
     // richiama il myProvider riportato sopra,
     // in questo modo si possono chiamare i methods da .run()
     this.$get = [function() {
-    	return this;
+        return this;
     }];
 
-}]);
+});

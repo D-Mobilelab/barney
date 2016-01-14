@@ -65,7 +65,17 @@ module.exports = function (grunt) {
             target: [
                 // 'modules/**/*.js'
                 'modules/analytics/*.js',
-                'modules/config/*.js'
+                'modules/config/*.js',
+                'modules/callbacky/*.js',
+                'modules/dict/*.js',
+                'modules/history/*.js',
+                'modules/logger/*.js',
+                'modules/meta/*.js',
+                'modules/newton/*.js',
+                'modules/stargate/*.js',
+                'modules/storage/*.js',
+                'modules/utility/*.js'
+
             ]
         },
         karma: {

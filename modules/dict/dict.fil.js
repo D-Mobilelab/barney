@@ -1,11 +1,9 @@
-'use strict';
+angular.module('barney.dict').filter('dict', [
+    'BarneyDict', 
+    function(Dict) {
 
-angular.module('barney.dict').filter('dict', 
-	['BarneyDict', 
-	function(Dict) {
-
-	return function(key) {
-		return Dict.get(key);
-	}
-
-}]);
+        return function(key) {
+            return Dict.get(key);
+        };
+    }
+]);
