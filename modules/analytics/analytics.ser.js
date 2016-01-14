@@ -1,22 +1,23 @@
 /**
- * @ngdoc directive
- * @name rfx.directive:rAutogrow
- * @element textarea
- * @function
+ * @ngdoc object
+ * @name barney.analytics.BarneyAnalytics
  *
  * @description
- * Resize textarea automatically to the size of its text content.
+ * Track page and event, set custom dimensions and set id
  *
- * **Note:** ie<9 needs pollyfill for window.getComputedStyle
- *
- * @example
-   <example module="rfx">
-     <file name="index.html">
-         <textarea ng-model="text" r-autogrow class="input-block-level"></textarea>
-         <pre>{{text}}aaab</pre>
-     </file>
-   </example>
+ * To use Analytics service, you have to add BarneyAnalytics dependency to your component (directive, controller...).
+ * In this example, I have added dependency of BarneyAnalytics to a controller:
+ * <pre>
+ * angular.module('mock').controller('HomePageController', [
+ *     'BarneyAnalytics', '$scope',
+ *     function(Analytics, $scope){
+ *         // we can use "Analytics" object here
+ *     }
+ * ]);
+ * </pre>
+ * Note that I included BarneyAnalytics as dependency but I have renamed it as Analytics to use it more easily in controller code.
  */
+
 angular.module('barney.analytics').factory('BarneyAnalytics', [
     function(){
         this.dimensions = {};
@@ -29,6 +30,73 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
             error: function() {}
         };
 
+        /**
+         * @ngdoc function
+         * @name barney.analytics.BarneyAnalytics#init
+         * @methodOf barney.analytics.BarneyAnalytics
+         *
+         * @description Init analytics service
+         *
+         * @param {Object} options (see attributes below)
+         * @param {boolean} [options.enabled=true] enable/disable tracking on Google Analytics
+         * @param {boolean} [options.verbose=false] enable/disable verbose mode, with logging
+         * @param {Object} [options.logger=Object()] logging methods to use for verbose mode (see example below)
+         * @param {Object} [options.dimensions=Object()] list of custom dimensions that will be used in the app (see example below)
+         
+         * - *key*: custom dimension name
+         * - *value*: slot id
+         *
+         * @example
+         * # Logger 
+         * Logger with window.console
+         * <pre>
+         * angular.module('mock').controller('HomePageController', [
+         *     'BarneyAnalytics', '$window', '$scope',
+         *     function(Analytics, $window, $scope){
+         *   
+         *         Analytics.init({
+         *             verbose: true,
+         *             logger: $window.console
+         *         });
+         *   
+         *     }
+         * ]);
+         * </pre>
+         *
+         * Logger with BarneyLogger
+         * <pre>
+         * angular.module('mock').controller('HomePageController', [
+         *     'BarneyAnalytics', 'BarneyLogger', '$scope',
+         *     function(Analytics, Logger, $scope){
+         *   
+         *         Logger.init({ enabled: true });
+         *          
+         *         Analytics.init({
+         *             verbose: true,
+         *             logger: Logger
+         *         });
+         *   
+         *     }
+         * ]);
+         * </pre>
+         *
+         * # Custom Dimensions
+         * In analytics initialization phase, you have to define all custom dimensions that you will use in application.
+         *
+         * ***Init method don't set custom dimension on Google Analytics, it only saves custom dimension for future use (for example in event tracking).***
+         *
+         * You have to pass a pair (custom dimension name, slot id), where slot id is the slot of custom dimension assigned from Google Analytics before.
+         *
+         * In this example, I set two custom dimensions ("UserStatus" with slot number 1 and "Valuable" with slot number 5):
+         * <pre>
+         * Analytics.init({
+         *     dimensions: {
+         *         'UserStatus' : 1,
+         *         'Valuable' : 5
+         *     }
+         * });
+         * </pre>
+         */
         this.init = function(options) {
             if(options) {
                 if(options.dimensions){
@@ -50,6 +118,15 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
             }
         };
 
+        /**
+         * @ngdoc function
+         * @name barney.analytics.BarneyAnalytics#setId
+         * @methodOf barney.analytics.BarneyAnalytics
+         *
+         * @description Set analytics user id
+         *
+         * @param {string} id user id
+         */
         this.setId = function(id){
             if(id){
                 if(this.verbose){
@@ -62,6 +139,36 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
             }
         };
 
+        /**
+         * @ngdoc function
+         * @name barney.analytics.BarneyAnalytics#setDimension
+         * @methodOf barney.analytics.BarneyAnalytics
+         *
+         * @description 
+         * Set a user/session (not hit) custom dimension.
+         *
+         * @param {Object} dimensions 
+         * - *key*: custom dimension name
+         * - *value*: custom dimension value
+         *
+         * @example
+         * **The custom dimension has to be defined in init method before** and, after, you have to use same custom dimension name.
+         *
+         * For example, in the following code, I set *UserStatus* on slot number 1 and I assigned value *logged*:
+         * <pre>
+         * // before, I save UserStatus custom dimension with slot "1"
+         * Analytics.init({
+         *     dimensions: {
+         *         'UserStatus' : 1
+         *     }
+         * });
+         *   
+         * // after, I set custom dimension with value "logged"
+         * Analytics.setDimension({
+         *     'UserStatus' : 'logged'
+         * });
+         * </pre>
+         */
         this.setDimension = function(dimensions){
             if(dimensions){
                 var key, slot, value;
@@ -80,6 +187,21 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
             }
         };
 
+        /**
+         * @ngdoc function
+         * @name barney.analytics.BarneyAnalytics#trackPage
+         * @methodOf barney.analytics.BarneyAnalytics
+         *
+         * @description To track a pageview
+         *
+         * @param {object} options (see attributes below)
+         *
+         * @param {string} options.page event page (e.g. '/category/7888')
+         * @param {string} options.title event page title (e.g. 'Home Page')
+         * @param {Object} options.dimensions 
+         * - *key*: custom dimension name
+         * - *value*: custom dimension value
+         */
         this.trackPage = function(options){
             var properties = { 
                 'hitType': 'pageview'
@@ -109,6 +231,36 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
             }
         };
 
+        /**
+         * @ngdoc function
+         * @name barney.analytics.BarneyAnalytics#trackEvent
+         * @methodOf barney.analytics.BarneyAnalytics
+         *
+         * @description Track an event
+         *
+         * @param {Object} options (see attributes below)
+         * @param {string} options.category event category
+         * @param {string} options.action event action
+         * @param {string} options.label event label
+         * @param {integer} options.value event value
+         * @param {Object} options.dimensions 
+         * - *key*: custom dimension name
+         * - *value*: custom dimension value
+         *
+         * @example
+         * <pre>
+         * Analytics.trackEvent({
+         *     category: 'UI',
+         *     action: 'open',
+         *     label: 'menu',
+         *     value: 7,
+         *     dimensions: {
+         *         'Valuable': 'yes'
+         *     }
+         * });
+         * </pre>
+         * Note: the custom dimension (in this example Valuable) has to defined in init method before and you have to use same custom dimension name.
+         */
         this.trackEvent = function(options){
             var properties = { 
                 'hitType': 'event'

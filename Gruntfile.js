@@ -75,7 +75,7 @@ module.exports = function (grunt) {
                 files:[
                     '<%= modulesPath %>/**/*.js'
                 ],
-                tasks: ['ngdocs'],
+                tasks: ['clean:doc', 'ngdocs'],
                 options:{
                     livereload: true
                 }
@@ -83,9 +83,9 @@ module.exports = function (grunt) {
         },
         eslint: {
             target: [
-                // 'modules/**/*.js'
-                'modules/analytics/*.js',
-                'modules/config/*.js'
+                'modules/**/*.js',
+                '!modules/newtontrack_deprecated/*.js',
+                '!modules/masonry/*.js'
             ]
         },
         karma: {
@@ -95,8 +95,20 @@ module.exports = function (grunt) {
             }
         },
         ngdocs: {
-            all: ['modules/**/*.js']
-        }
+            options: {
+                dest: '<%= docPath %>',
+                html5Mode: false,
+                title: 'Barney',
+                startPage: '/api/'
+            },
+            api: {
+                src: ['<%= modulesPath %>/**/*.js'],
+                title: 'API Reference'
+            }
+        },
+        clean: {
+            doc: ["<%= docPath %>"]
+        },
     });
 
 	/*************************************
@@ -124,6 +136,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('doc',[
+        'clean:doc',
         'ngdocs',
         'connect:doc',
         'open:doc',
