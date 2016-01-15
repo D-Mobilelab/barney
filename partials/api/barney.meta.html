@@ -1,0 +1,39 @@
+<h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><div class="barney-meta-page"><p>Meta is the module of Barney to fill meta tags dinamically.
+Meta can be used to manage different metatags for each page.</p>
+<h2 id="import-module">Import module</h2>
+<p>To import meta module, include barney.meta module to 
+your web application module (usually in app.js file)
+<pre class="prettyprint linenums">
+angular.module('yourApplicationModule', [
+    'barney.meta'
+])
+</pre>
+<h2 id="init-meta">Init meta</h2>
+<p>Before using meta module, it must be initialized.
+It&#39;s recommended to inizialize it in the app module run.
+To inizialize it, you have to:</p>
+<ul>
+<li>include BarneyMeta component in your run methodT</li>
+<li>use <a href="#/api/barney.meta.BarneyMeta#methods_init">init</a> method and pass it an object with free keys.</li>
+</ul>
+<p>The object will contain standard keys that you will use in your product.</p>
+</div><h2 id="example">Example</h2>
+<div class="example"><div class="barney-meta-page"><pre class="prettyprint linenums">
+angular.module('mock').run(['BarneyMeta',
+  function(Meta){
+       
+      Meta.init({
+          title: 'Standard title',
+          description: 'Standard description',
+          image: 'standard-image.jpg'
+      });
+
+  }
+]);
+</pre>
+</div></div>
+</div>

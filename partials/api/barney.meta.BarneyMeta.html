@@ -1,0 +1,133 @@
+<h1><code ng:non-bindable="">BarneyMeta</code>
+<div><span class="hint">service in module <code ng:non-bindable="">barney.meta</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="barney-meta-barneymeta-page"><p>Meta is the module of Barney to fill meta tags dinamically.
+Meta can be used to manage different metatags for each page.</p>
+<p>To use Meta service, you have to add BarneyMeta dependency to your component (directive, controller...). In this example, I have added dependency of BarneyMeta to a controller:</p>
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+  'BarneyMeta', '$scope',
+  function(Meta, $scope){
+      // we can use "Meta" object here
+  }
+]);
+</pre>
+<p>Note that I included BarneyMeta as dependency but I have renamed it as Meta to use it more easily in controller code.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_default">default()</h3>
+<div class="default"><div class="barney-meta-barneymeta-default-page"><p>To print a list of all standard keys, passed to init method, you can use Meta.defaults() method.</p>
+</div><h4 id="methods_default_example">Example</h4>
+<div class="example"><div class="barney-meta-barneymeta-default-page"><pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+'BarneyMeta', '$scope',
+ function(Meta, $scope){
+
+       console.log( Meta.defaults() );
+
+ }
+]);
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_get">get(key)</h3>
+<div class="get"><div class="barney-meta-barneymeta-get-page"><p>To print a single current key, you can use Meta.get() method, passing key name.</p>
+</div><h5 id="methods_get_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-meta-barneymeta-get-page"><p>key&#39; s name</p>
+</div></td></tr></tbody></table><h4 id="methods_get_example">Example</h4>
+<div class="example"><div class="barney-meta-barneymeta-get-page"><pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+'BarneyMeta', '$scope',
+ function(Meta, $scope){
+
+     console.log( Meta.get('title') );
+  
+ }
+]);
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_init">init(metatags)</h3>
+<div class="init"><div class="barney-meta-barneymeta-init-page"><p><strong>It&#39;s recommended to inizialize it in the app module run</strong>.</p>
+<p>To inizialize it, you have to:</p>
+<ul>
+<li>include BarneyMeta component in your run method</li>
+<li>use init method and pass it an object with <strong>free</strong> keys</li>
+</ul>
+<p>The object will contain standard keys that you will use in your product.</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>metatags</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-meta-barneymeta-init-page"><p>(free keys and values)</p>
+</div></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="barney-meta-barneymeta-init-page"><pre class="prettyprint linenums">
+angular.module('mock').run(['BarneyMeta',
+function(Meta){
+
+   Meta.init({
+       title: 'Standard title',
+       description: 'Standard description',
+       image: 'standard-image.jpg'
+  });
+
+  }
+]);
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_lsit">lsit()</h3>
+<div class="lsit"><div class="barney-meta-barneymeta-lsit-page"><p>To print a list of all current keys, you can use Meta.list() method.</p>
+</div><h4 id="methods_lsit_example">Example</h4>
+<div class="example"><div class="barney-meta-barneymeta-lsit-page"><pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+'BarneyMeta', '$scope',
+ function(Meta, $scope){
+
+       console.log( Meta.list() );
+
+ }
+]);
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_revert">revert()</h3>
+<div class="revert"><div class="barney-meta-barneymeta-revert-page"><p>Restore the previous default values (setted with init)</p>
+</div><h4 id="methods_revert_example">Example</h4>
+<div class="example"><div class="barney-meta-barneymeta-revert-page"><pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+'BarneyMeta', '$scope',
+ function(Meta, $scope){
+
+       Meta.revert();
+
+ }
+]);
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_set">set(metatags)</h3>
+<div class="set"><div class="barney-meta-barneymeta-set-page"><p>To set one or more current keys, you can use Meta.set() method, passing an object with keys and their values.</p>
+</div><h5 id="methods_set_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>metatags</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="barney-meta-barneymeta-set-page"><p>new keys values</p>
+</div></td></tr></tbody></table><h4 id="methods_set_example">Example</h4>
+<div class="example"><div class="barney-meta-barneymeta-set-page"><pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+'BarneyMeta', '$scope',
+ function(Meta, $scope){
+
+     Meta.set({key1 : 'value1',
+               key2 : 'value2'
+     });
+  
+ }
+]);
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
