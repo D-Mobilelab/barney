@@ -23,6 +23,33 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "barney.config",
+      "shortName": "barney.config",
+      "type": "overview",
+      "moduleName": "barney.config",
+      "shortDescription": "Config is the Barney module used to get variables or specific environment settings. It read a JSON object where all environment variables and settings are stored.",
+      "keywords": "allow allowed angular api app application barney barneyconfig config confobj constant defined definition doesn enable_login environment example exist false file global import include including init js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string method methods_init module newton_secret_key notexistvalue null object order overview param passing pretty read response set settings specific stored string true values var variable variables web yourapplicationmodule"
+    },
+    {
+      "section": "api",
+      "id": "barney.config.BarneyConfig",
+      "shortName": "barney.config.BarneyConfig",
+      "type": "object",
+      "moduleName": "barney.config",
+      "shortDescription": "Use Config service",
+      "keywords": "$scope add allow allowed angular api barney barneyconfig barneyconifg code component config conifg console controller dependency doesn easily enable_login example exist false function homepagecontroller included including init key list log method mock module note notexistvalue null object options order param passing pretty renamed response return service set specific string values variable"
+    },
+    {
+      "section": "api",
+      "id": "barney.config.filter:BarneyConfig",
+      "shortName": "BarneyConfig",
+      "type": "filter",
+      "moduleName": "barney.config",
+      "shortDescription": "You can get a config value also using a custom config filter",
+      "keywords": "api barney config custom enable_login filter"
+    },
+    {
+      "section": "api",
       "id": "barney.dict",
       "shortName": "barney.dict",
       "type": "overview",
