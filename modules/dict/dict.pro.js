@@ -17,7 +17,6 @@
  * </pre>
  * Note that I included BarneyDict as dependency but I have renamed it as Dict to use it more easily in controller code.
  */
-
 angular.module('barney.dict').provider('BarneyDict', [
     'DictObj',
     function (DictObj) {
