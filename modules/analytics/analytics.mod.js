@@ -12,7 +12,7 @@
  * - track an event
  * 
  * # Import module
- * To import logger module, include barney.analytics module to 
+ * To import analytics module, include barney.analytics module to 
  * your web application module (usually in app.js file)
  * <pre>
  * angular.module('yourApplicationModule', [
