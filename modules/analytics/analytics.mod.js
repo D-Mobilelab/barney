@@ -19,5 +19,9 @@
  *     'barney.analytics'
  * ])
  * </pre>
+ * 
+ * # Init Analytics
+ * Before using Analytics module, it must be initialized. 
+ * To initialize Analytics you can use the Analytics method {@link barney.analytics.BarneyAnalytics#methods_init init}.
  */
  angular.module('barney.analytics', []);

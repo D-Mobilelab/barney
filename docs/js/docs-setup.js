@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "barney.analytics",
       "shortDescription": "Analytics is the module of Barney for Google Analytics.",
-      "keywords": "analytics angular api app application barney custom dimension event file google import include js module overview session set track user web yourapplicationmodule"
+      "keywords": "analytics angular api app application barney barneyanalytics custom dimension event file google import include init initialize initialized js method methods_init module overview session set track user web yourapplicationmodule"
     },
     {
       "section": "api",
@@ -28,7 +28,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "barney.dict",
       "shortDescription": "Dict is the module of Barney to show dictionary keys.",
-      "keywords": "angular api app application barney dict dictionary directive file filter import include js module overview provider web yourapplicationmodule"
+      "keywords": "angular api app application barney barneydict dict dictionary directive file filter import include init initialize initialized js method methods_init module overview provider web yourapplicationmodule"
     },
     {
       "section": "api",
@@ -56,6 +56,24 @@ NG_DOCS={
       "moduleName": "barney.dict",
       "shortDescription": "BarneyDict as a filter is useful if:",
       "keywords": "api attribute barney barneydict case code dict dictionary doesn examples filter html key print tag template text type valued_key"
+    },
+    {
+      "section": "api",
+      "id": "barney.meta",
+      "shortName": "barney.meta",
+      "type": "overview",
+      "moduleName": "barney.meta",
+      "shortDescription": "Meta is the module of Barney to fill meta tags dinamically.",
+      "keywords": "angular api app application barney barneymeta component description dinamically file fill free function image import include init initialized inizialize jpg js manage meta metatags method methods_init methodt mock module object overview pass product recommended standard standard-image tags title web yourapplicationmodule"
+    },
+    {
+      "section": "api",
+      "id": "barney.meta.BarneyMeta",
+      "shortName": "barney.meta.BarneyMeta",
+      "type": "object",
+      "moduleName": "barney.meta",
+      "shortDescription": "Meta is the module of Barney to fill meta tags dinamically.",
+      "keywords": "$scope add angular api app barney barneymeta code component console controller current default defaults dependency description dinamically easily example fill function homepagecontroller image include included init inizialize jpg key key2 list log lsit manage meta metatags method mock module note object pass passed passing previous print product recommended renamed restore revert service set single standard standard-image tags title value1 value2 values"
     }
   ],
   "apis": {
