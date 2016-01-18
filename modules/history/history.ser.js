@@ -6,6 +6,7 @@ angular.module('barney.history').factory('BarneyHistory',
 
             previousPath: null,
             
+            // inizializza il modulo
             init: function(){
                 var _this = this;
                 $rootScope.$on('$locationChangeSuccess', function(event, newurl, oldurl){
@@ -15,11 +16,13 @@ angular.module('barney.history').factory('BarneyHistory',
                 });
             },
 
+            // restituisce la URL dell'ultima pagina visitata
             get: function(){
                 var _this = this;
                 return _this.previousPath;
             },
 
+            // torna indietro all'ultima pagina visitata
             goBack: function(){
                 var _this = this;
                 $location.url(_this.previousPath);

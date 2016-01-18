@@ -18,6 +18,10 @@ angular.module('barney.storage').provider('BarneyStorage',
                 'jsObject': Chicken
             },
 
+            // questo metodo inizializza lo storage
+            // accetta come parametri:
+            // "type" definisce lo storage predefinito per salvare variabili e può essere "cookie", "localStorage" e "jsObject" (default: null)
+            // "logger" definisce l'insieme di funzioni usate come logger, se true prende window.console (deafult: null)
             init: function(params){
                 if (params){
                     // SETUP STORAGE TYPE
@@ -37,6 +41,8 @@ angular.module('barney.storage').provider('BarneyStorage',
                 this.logger.log('BarneyStorage', 'init', params, this.selectedStorage, this.logger);
             },
 
+            // setta una variabile (definita da key e value) nello storage predefinito
+            // se definito options.type allora la setta nello storage passato ("cookie", "localStorage" o "jsObject")
             set: function(key, value, options){
                 if(!!options && !!options.type){
                     this.storages[options.type].set(key, value, options);
@@ -47,6 +53,8 @@ angular.module('barney.storage').provider('BarneyStorage',
                 this.logger.log('BarneyStorage', 'set', key, value, options);
             },
 
+            // prende una variabile (definita da key) dallo storage predefinito
+            // se definito options.type allora la prende dallo storage passato ("cookie", "localStorage" o "jsObject")
             get: function(key, options){
                 var value;
                 if(!!options && !!options.type){
@@ -59,6 +67,8 @@ angular.module('barney.storage').provider('BarneyStorage',
                 return value;
             },
 
+            // prende più variabili (definite dall'array keys) dallo storage predefinito
+            // se definito options.type allora le prende dallo storage passato ("cookie", "localStorage" o "jsObject")
             getMultiple: function(keys, options){
                 var values;
                 if(!!options && !!options.type){
@@ -71,6 +81,8 @@ angular.module('barney.storage').provider('BarneyStorage',
                 return values;
             },
 
+            // setta più variabili (definite dall'array keys) nello storage predefinito
+            // se definito options.type allora le setta nello storage passato ("cookie", "localStorage" o "jsObject")
             setMultiple: function(params, options){
                 if(!!options && !!options.type){
                     this.storages[options.type].setMultiple(params, options);
@@ -81,6 +93,8 @@ angular.module('barney.storage').provider('BarneyStorage',
                 this.logger.log('BarneyStorage', 'setMultiple', params, options);
             },
 
+            // cancella una variabile (definita dalla chiave key) dallo storage predefinito
+            // se definito options.type allora la cancella dallo storage passato ("cookie", "localStorage" o "jsObject")
             delete: function(key, options){
                 if(!!options && !!options.type){
                     this.storages[options.type].delete(key, options);
@@ -91,6 +105,7 @@ angular.module('barney.storage').provider('BarneyStorage',
                 this.logger.log('BarneyStorage', 'delete', key, options);
             },
 
+            // dici se il localstorage è supportato o no
             isLocalStorageSupported: function(){
                 var name = 'test';
                 try {

@@ -2,6 +2,9 @@ angular.module('barney.utility').factory('BarneyUtility',
     ['$location', '$window',
     function($location, $window){
 
+        // questa funzione ritorna le query string dalla URL, sia prima che dopo l'hashbang (#!)
+        // per esempio, sia in http://foo.com/?hello=world#!/category che in http://foo.com/#!/category/?hello=world
+        // restituisce l'oggetto { hello: 'world' }
         this.getCurrentQueryString = function(){
 
             // get normalized query string after #!
@@ -30,6 +33,14 @@ angular.module('barney.utility').factory('BarneyUtility',
             return vars;
         };
 
+        // questa funzione aggiunge uno o più parametri di query string alla URL attuale o ad una nuova URL, se esplicitata
+        // per esempio:
+        // se la URL attuale è http://foo.com?mars=earth e chiamiamo addQueryParams({ hello: 'world' })
+        // allora la URL restituita sarà  http://foo.com?mars=earth&hello=world
+        // se la URL attuale è http://foo.com?mars=earth e chiamiamo addQueryParams({ hello: 'world' }, 'http://var.com')
+        // allora la URL restituita sarà http://var.com?hello=world
+        // se la URL attuale è http://foo.com?mars=earth e chiamiamo addQueryParams({ hello: 'world' }, 'http://var.com?venus=sun')
+        // allora la URL restituita sarà http://var.com?venus=sun&hello=world
         this.addQueryParams = function(newParams, newUrl){
             
             // get existing query params
@@ -100,12 +111,16 @@ angular.module('barney.utility').factory('BarneyUtility',
             }
         };
 
+        // questa funzione sottrae dal primo array gli elementi del secondo
+        // esempio: arrayUno=[1, 2, 5] e arrayDue=[2, 5] 
+        // allora arrayDiff(arrayUno, arrayDue) = [1]
         this.arrayDiff = function(first, second){
             return first.filter(function(i) {
                 return second.indexOf(i) < 0;
             });
         };
 
+        // questa funzione fa un redirect "brutale" alla url che li viene passata, utile soprattutto per iOs
         this.brutalRedirect = function(url){
             $window.location.href = url;
             // reload for Safari
@@ -114,6 +129,8 @@ angular.module('barney.utility').factory('BarneyUtility',
             }
         };
 
+        // questa funzione si assicura che un link venga seguito dal browser al click dell'utente,
+        // anche se l'elemento cliccato contiene ng-click
         this.clickAndGo = function(event){
             if(event.target.tagName === 'A'){
                 $location.url(event.target.hash.replace('#!', ''));
