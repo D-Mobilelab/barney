@@ -3,7 +3,7 @@
 ## SSH Keys
 1. Go to [http://review.buongiorno.com/](http://review.buongiorno.com/)
 2. Sign in (top-right link)
-3. Click on your name (top right)
+3. Click on your name (top right) 
 4. Click "Settings"
 5. Click "SSH Public Keys"
 6. Follow instructions to generate a new SSH key
