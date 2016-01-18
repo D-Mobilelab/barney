@@ -1,0 +1,211 @@
+'use strict';
+
+describe('CALLBACKY -', function () {
+
+	var StorageService;	
+
+	beforeEach(module('barney.storage'));
+
+	beforeEach(inject(function (_BarneyStorage_) {
+		StorageService = _BarneyStorage_;
+	}));
+
+	describe('cookie -', function(){
+		beforeEach(function() {
+			StorageService.init({
+				type: 'cookie'
+			})
+		});
+
+		it('if save and get a key, it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue);
+			expect(StorageService.get(keyName)).toEqual(keyValue);
+		});
+
+		xit('if save and get multiple keys, it returns saved keys', function(){
+			var keys = { hello: 'world', mars: 'earth' };
+			StorageService.setMultiple(keys);
+			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
+		});	
+
+		it('if save, delete and get a key, it returns undefined', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue);
+			StorageService.delete(keyName);
+			expect(StorageService.get(keyName)).toBeUndefined();
+		});	
+
+		xit('if save and get a key (as localStorage), it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue, { type: 'localStorage' });
+			expect(StorageService.get(keyName, { type: 'localStorage' })).toEqual(keyValue);
+			StorageService.delete(keyName, { type: 'localStorage' });
+			expect(StorageService.get(keyName, { type: 'localStorage' })).toBeUndefined();
+		});
+
+		it('if save and get a key (as jsObject), it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue, { type: 'jsObject' });
+			expect(StorageService.get(keyName, { type: 'jsObject' })).toEqual(keyValue);
+			StorageService.delete(keyName, { type: 'jsObject' });
+			expect(StorageService.get(keyName, { type: 'jsObject' })).toBeUndefined();
+		});
+	});
+
+	describe('localStorage -', function(){
+		beforeEach(function() {
+			StorageService.init({
+				type: 'localStorage'
+			})
+		});
+
+		it('if save and get a key, it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue);
+			expect(StorageService.get(keyName)).toEqual(keyValue);
+		});
+
+		xit('if save and get multiple keys, it returns saved keys', function(){
+			var keys = { hello: 'world', mars: 'earth' };
+			StorageService.setMultiple(keys);
+			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
+		});	
+
+		xit('if save, delete and get a key, it returns undefined', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue);
+			StorageService.delete(keyName);
+			expect(StorageService.get(keyName)).toBeUndefined();
+		});	
+
+		it('if save and get a key (as cookie), it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue, { type: 'cookie' });
+			expect(StorageService.get(keyName, { type: 'cookie' })).toEqual(keyValue);
+			StorageService.delete(keyName, { type: 'cookie' });
+			expect(StorageService.get(keyName, { type: 'cookie' })).toBeUndefined();
+		});
+
+		it('if save and get a key (as jsObject), it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue, { type: 'jsObject' });
+			expect(StorageService.get(keyName, { type: 'jsObject' })).toEqual(keyValue);
+			StorageService.delete(keyName, { type: 'jsObject' });
+			expect(StorageService.get(keyName, { type: 'jsObject' })).toBeUndefined();
+		});
+	});
+
+	describe('jsObject -', function(){
+		beforeEach(function() {
+			StorageService.init({
+				type: 'jsObject'
+			})
+		});
+
+		it('if save and get a key, it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue);
+			expect(StorageService.get(keyName)).toEqual(keyValue);
+		});
+
+		xit('if save and get multiple keys, it returns saved keys', function(){
+			var keys = { hello: 'world', mars: 'earth' };
+			StorageService.setMultiple(keys);
+			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
+		});	
+
+		it('if save, delete and get a key, it returns undefined', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue);
+			StorageService.delete(keyName);
+			expect(StorageService.get(keyName)).toBeUndefined();
+		});	
+
+		it('if save and get a key (as cookie), it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue, { type: 'cookie' });
+			expect(StorageService.get(keyName, { type: 'cookie' })).toEqual(keyValue);
+			StorageService.delete(keyName, { type: 'cookie' });
+			expect(StorageService.get(keyName, { type: 'cookie' })).toBeUndefined();
+		});
+
+		xit('if save and get a key (as localStorage), it returns saved key', function(){
+			var keyName = 'hello';
+			var keyValue = 'world';
+			StorageService.set(keyName, keyValue, { type: 'localStorage' });
+			expect(StorageService.get(keyName, { type: 'localStorage' })).toEqual(keyValue);
+			StorageService.delete(keyName, { type: 'localStorage' });
+			expect(StorageService.get(keyName, { type: 'localStorage' })).toBeUndefined();
+		});
+	});
+
+	describe('logger -', function(){
+		var logger;
+
+		beforeEach(function() {
+			logger = {
+				log: function(){},
+				info: function(){},
+				warn: function(){},
+				error: function(){}
+			};
+
+			spyOn(logger, 'log');
+
+			StorageService.init({
+				type: 'cookie',
+				logger: logger
+			})
+		});
+
+		it('init method logs', function(){
+			expect(logger.log.calls.count()).toEqual(1);
+		});
+
+		it('set method logs key, value and options', function(){
+			var key = 'hello', value = 'world', options = { type: 'jsObject' };
+			StorageService.set(key, value, options);
+			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'set', key, value, options);
+		});
+
+		it('get method logs key, value and options', function(){
+			var key = 'hello', value = 'world', options = { type: 'jsObject' };
+			StorageService.set(key, value, options);
+			StorageService.get(key, options);
+			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'get', key, value, options);
+		});
+
+		it('delete method logs key and options', function(){
+			var key = 'hello', value = 'world', options = { type: 'jsObject' };
+			StorageService.set(key, value, options);
+			StorageService.delete(key, options);
+			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'delete', key, options);
+		});
+
+		it('setMultiple method logs keys, values and options', function(){
+			var keys = {hello: 'world', mars: 'earth'}, options = { type: 'jsObject' };
+			StorageService.setMultiple(keys, options);
+			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'setMultiple', keys, options);
+		});
+
+		xit('getMultiple method logs key, value and options', function(){
+			var keys = {hello: 'world', mars: 'earth'}, options = { type: 'jsObject' };
+			StorageService.setMultiple(keys, options);
+			StorageService.getMultiple(['hello', 'mars'], options);
+			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'getMultiple', ['hello', 'mars'], ['world', 'earth'], options);
+		});
+	});
+
+});
