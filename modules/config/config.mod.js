@@ -12,13 +12,6 @@
  *     'barney.config'
  * ])
  * </pre>
- * 
- * In the module definition a ConfObj has been defined with a global var CONFIG. CONFIG is the JSON object where all environment variables and settings are stored.
- *
- * <pre>
- * angular.module('barney.config', [])
- * .constant('ConfObj', CONFIG);
- * </pre>
  *
  * # Init Config
  * In order to allow a pretty response from the config module if a variable doesn't exist, you can set this by passing an object to the init method including the notExistValue param. The allowed values are null, false, 0 or a string.
@@ -27,7 +20,7 @@
  * # Config Values
  * Here is an example of Config object: 
  * <pre>
- * 	Config{
+ * 	var CONFIG = {
  * 		'ENABLE_LOGIN': 1,
  * 		'NEWTON_SECRET_KEY': '<sec_ret>',
  * 		'KEY_TRUE': true,

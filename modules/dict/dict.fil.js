@@ -1,6 +1,6 @@
 /**
  * @ngdoc filter
- * @name barney.dict.filter:BarneyDict
+ * @name barney.dict.filter:dict
  *
  * @description
  * BarneyDict as a filter is useful if:

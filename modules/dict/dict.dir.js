@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name barney.dict.directive:BarneyDict
+ * @name barney.dict.directive:dict
  * 
  *
  * @restrict E

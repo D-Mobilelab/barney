@@ -10,18 +10,13 @@ angular.module('yourApplicationModule', [
     'barney.config'
 ])
 </pre>
-<p>In the module definition a ConfObj has been defined with a global var CONFIG. CONFIG is the JSON object where all environment variables and settings are stored.</p>
-<pre class="prettyprint linenums">
-angular.module('barney.config', [])
-.constant('ConfObj', CONFIG);
-</pre>
 <h2 id="init-config">Init Config</h2>
 <p>In order to allow a pretty response from the config module if a variable doesn&#39;t exist, you can set this by passing an object to the init method including the notExistValue param. The allowed values are null, false, 0 or a string.
  <a href="#/api/barney.config.BarneyConfig#methods_init">init</a>. </p>
 <h2 id="config-values">Config Values</h2>
 <p>Here is an example of Config object: 
 <pre class="prettyprint linenums">
-	Config{
+	var CONFIG = {
 		'ENABLE_LOGIN': 1,
 		'NEWTON_SECRET_KEY': '&lt;sec_ret&gt;',
 		'KEY_TRUE': true,

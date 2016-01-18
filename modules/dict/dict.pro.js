@@ -43,8 +43,15 @@ angular.module('barney.dict').provider('BarneyDict', [
              *
              * @example
              * # Dict Init 
+             * if: 
+             * <pre>
+             * // Dict.existKey = 'Hello';
+             * // Dict.notExistKey = undefined; 
+             * </pre>
+             *
              * Dict with *default* showKey
              * <pre>
+             *
              * angular.module('mock').controller('HomePageController', [
              *     'BarneyDict', '$window', '$scope',
              *     function(Dict, $window, $scope){
@@ -55,6 +62,10 @@ angular.module('barney.dict').provider('BarneyDict', [
              *   
              *     }
              * ]);
+             *
+             * // DICT PRINTS:
+             * // Dict.existKey -> Hello
+             * // Dict.notExistKey -> 
              * </pre>
              *
              * Dict with *all* showKey
@@ -69,6 +80,10 @@ angular.module('barney.dict').provider('BarneyDict', [
              *   
              *     }
              * ]);
+             *
+             * // DICT PRINTS:
+             * // Dict.existKey -> [[existKey]]
+             * // Dict.notExistKey -> [[notExistKey]]
              * </pre>
              *
              * Dict with *missing* showKey
@@ -83,6 +98,10 @@ angular.module('barney.dict').provider('BarneyDict', [
              *   
              *     }
              * ]);
+             *
+             * // DICT PRINTS:
+             * // Dict.existKey -> Hello
+             * // Dict.notExistKey -> [[notExistKey]]
              * </pre>
              */
             init: function(options){

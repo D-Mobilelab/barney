@@ -1,6 +1,6 @@
 /**
  * @ngdoc filter
- * @name barney.config.filter:BarneyConfig
+ * @name barney.config.filter:config
  *
  * @description
  * You can get a config value also using a custom config filter
