@@ -1,3 +1,22 @@
+/**
+ * @ngdoc object
+ * @name barney.callbacky.BarneyCallbacky
+ *
+ * @description
+ * Use Callbacky service
+ *
+ * To use Callbacky service, you have to add BarneyCallbacky dependency to your component (i.e: directive, controller...).
+ * In this example, I have added dependency of BarneyCallbacky to a controller:
+ * <pre>
+ * angular.module('mock').controller('HomePageController', [
+ *     'BarneyCallbacky', '$scope',
+ *     function(Callbacky, $scope){
+ *         // we can use "Callbacky" object here
+ *     }
+ * ]);
+ * </pre>
+ * Note that I included BarneyCallbacky as dependency but I have renamed it as Callbacky to use it more easily in controller code.
+ */
 angular.module('barney.callbacky').provider('BarneyCallbacky', function () {
     
     var myProvider = {
@@ -12,9 +31,41 @@ angular.module('barney.callbacky').provider('BarneyCallbacky', function () {
             error: function(){}
         },
 
-        // inizializza il modulo, prende come parametri:
-        // - verbose: logga tutte le operazioni eseguite sul modulo (default: false)
-        // - logger: oggetto che si occuperà di loggare (per esempio window.console o BarneyLogger, default: null)
+        /**
+         * @ngdoc function
+         * @name barney.callbacky.BarneyCallbacky#init
+         * @methodOf barney.callbacky.BarneyCallbacky
+         *
+         * @description 
+         * This method is used to initialize the Callbacky module and it
+         * requires an object that contains two values:
+         *
+         * - verbose: if true, log all the instruction done by the module, else logs nothing (default: false);
+         * - logger: Object that logs.
+         *
+         * @param {Object} options (see attributes below)
+         * @param {boolean} [options.verbose=false]
+         *
+         * - **true**: the Callbacky module logs all the instruction done;
+         * - **false**: the Callbacky module logs nothing.
+         * 
+         * @param {Object} [options.logger=null]
+         *
+         * Object that logs (i.e: window.console, BarneyLogger, ...)
+         *
+         * @example
+         * # Config Init 
+         * Here is an example of the init method.
+         * <pre>
+         * 
+         *   Callbacky.init({
+         *       verbose:true, //it logs all the work
+         *       logger: window.console //set as a logger the window.console logger
+         *    });
+         *
+         * </pre>
+         * 
+        */
         init: function(options){
             if(options){
                 if(typeof(options.verbose) !== 'undefined'){
@@ -29,9 +80,33 @@ angular.module('barney.callbacky').provider('BarneyCallbacky', function () {
             }
         },
 
-        // associa una funzione (method) ad una stringa (key),
-        // in questo modo quando viene chiamato trigger() sulla quella stringa, viene chiamata la funzione passata
-        // esempio: bind('hello', function(){ alert('world')) } > trigger('hello') > esegue alert('world')
+        /**
+         * @ngdoc function
+         * @name barney.callbacky.BarneyCallbacky#bind
+         * @methodOf barney.callbacky.BarneyCallbacky
+         *
+         * @description 
+         * Bind one function to a string.
+         *
+         * By this way, on the trigger event (with the relative string), the bound function can be called
+         * everywhere in your code.
+         *
+         * @param {string} key Unique key to identify the function
+         * @param {method} method Function to call when triggered
+         * 
+         * @example
+         * # Bind 
+         * Here is an example of the bind method.
+         * <pre>
+         * 
+         *  Callbacky.bind('hello', function(args){ 
+         *       console.log(args)) 
+         *       };
+         *
+         * </pre>
+         * 
+         * **Remember**: You have to do the bind of a function only once!
+         */
         bind: function(key, method){
             if(!this.set[key]){ 
                 this.set[key] = [];
@@ -40,12 +115,35 @@ angular.module('barney.callbacky').provider('BarneyCallbacky', function () {
             if(this.verbose){
                 this.logger.log('BarneyCallbacky', 'bind', key, method);
             }
-        },
+        }, 
 
-        // esegue una funzione precedentemente associata con bind() alla stringa passata, parametri:
-        // - key: stringa precedentemente associata con bind alla funzione da eseguire
-        // - arg: argomenti da passare alla funzione da eseguire
-        // esempio: bind('hello', function(args){ alert(args)) } > trigger('hello', 'world') > esegue alert('world')
+        /**
+         * @ngdoc function
+         * @name barney.callbacky.BarneyCallbacky#trigger
+         * @methodOf barney.callbacky.BarneyCallbacky
+         *
+         * @description 
+         * Call the function bound with the given string.
+         *
+         * On the trigger event, the corresponding function is called.
+         *
+         * @param {string} key Unique key to identify the function
+         * @param {*} arg Arguments of the function;
+         *
+         * 
+         * @example
+         * # Trigger
+         * Here is an example of the trigger method (the bind is in the example of {@link barney.callbacky.BarneyCallbacky#methods_bind bind} docs).
+         * <pre>
+         * 
+         *  Callbacky.trigger('hello', 'world');
+         *
+         * </pre>
+         * (After the bind) It logs 'world'. 
+         *
+         * **Remember**: before call trigger somewhere in your code you have to do the relative {@link barney.callbacky.BarneyCallbacky#methods_bind bind} method!
+         */
+
         trigger: function(key, arg){
             if(this.set[key] && this.set[key].length > 0){
                 for(var i in this.set[key]){
@@ -57,7 +155,25 @@ angular.module('barney.callbacky').provider('BarneyCallbacky', function () {
             }
         },
 
-        // elimina la funzione precedentemente associata, con bind, alla stringa "key"
+        /**
+         * @ngdoc function
+         * @name barney.callbacky.BarneyCallbacky#clean
+         * @methodOf barney.callbacky.BarneyCallbacky
+         *
+         * @description 
+         * Remove the bound function from the given string 
+         *
+         * @param {string} key Unique key to identify the function
+         *
+         * @example
+         * # Clean
+         * Here is an example of the clean method (the bind is in the example of {@link barney.callbacky.BarneyCallbacky#methods_bind bind} docs).
+         * <pre>
+         * 
+         *  Callbacky.clean('hello');
+         *
+         * </pre>
+         */
         clean: function(key){
             if(this.set[key]){
                 this.set[key] = [];

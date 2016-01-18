@@ -1,10 +1,49 @@
+/**
+ * @ngdoc object
+ * @name barney.utility.BarneyUtility
+ *
+ * @description
+ * Use Utility service
+ *
+ * To use Utility service, you have to add BarneyUtility dependency to your component (i.e: directive, controller...).
+ *
+ * In this example, I have added dependency of BarneyUtility to a controller:
+ * <pre>
+ * angular.module('mock').controller('HomePageController', [
+ *     'BarneyUtility', '$scope',
+ *     function(Utility, $scope){
+ *         // we can use "Utility" object here
+ *     }
+ * ]);
+ * </pre>
+ * Note that I included BarneyUtility as dependency but I have renamed it as Utility to use it more easily in controller code.
+ */
 angular.module('barney.utility').factory('BarneyUtility',
     ['$location', '$window',
     function($location, $window){
 
-        // questa funzione ritorna le query string dalla URL, sia prima che dopo l'hashbang (#!)
-        // per esempio, sia in http://foo.com/?hello=world#!/category che in http://foo.com/#!/category/?hello=world
-        // restituisce l'oggetto { hello: 'world' }
+        /**
+         * @ngdoc function
+         * @name barney.utility.BarneyUtility#getCurrentQueryString
+         * @methodOf barney.utility.BarneyUtility
+         *
+         * @description 
+         * This method return the query string from the URL, before and after the hashbang (#!).
+         *
+         * @example
+         * # Utility getCurrentQueryString 
+         * Here is an example of the getCurrentQueryString method.
+         *
+         * ***?hello=world/#!/category*** or in ***\#!/category/?hello=world***
+         * 
+         * <pre>
+         * 
+         *   Utility.getCurrentQueryString(); //return {hello: 'world'} as an object
+         *
+         * </pre>
+         * 
+        */
+
         this.getCurrentQueryString = function(){
 
             // get normalized query string after #!
@@ -33,14 +72,40 @@ angular.module('barney.utility').factory('BarneyUtility',
             return vars;
         };
 
-        // questa funzione aggiunge uno o più parametri di query string alla URL attuale o ad una nuova URL, se esplicitata
-        // per esempio:
-        // se la URL attuale è http://foo.com?mars=earth e chiamiamo addQueryParams({ hello: 'world' })
-        // allora la URL restituita sarà  http://foo.com?mars=earth&hello=world
-        // se la URL attuale è http://foo.com?mars=earth e chiamiamo addQueryParams({ hello: 'world' }, 'http://var.com')
-        // allora la URL restituita sarà http://var.com?hello=world
-        // se la URL attuale è http://foo.com?mars=earth e chiamiamo addQueryParams({ hello: 'world' }, 'http://var.com?venus=sun')
-        // allora la URL restituita sarà http://var.com?venus=sun&hello=world
+        /**
+         * @ngdoc function
+         * @name barney.utility.BarneyUtility#addQueryParams
+         * @methodOf barney.utility.BarneyUtility
+         *
+         * @description 
+         * This method add one or more query string params to the 
+         * current URL or to a new URL
+         *
+         * @param {Object} newParams Object with params
+         * @param {string} newUrl New URL
+         *
+         * @example
+         * # Utility addQueryParams 
+         * Here is an example of the addQueryParams method.
+         *
+         * <pre>
+         * 
+         *   //current URL =  http://foo.com?mars=earth 
+         *   Utility.addQueryParams({ hello: 'world' })
+         *   //new URL =   http://foo.com?mars=earth&hello=world
+         *
+         *   //current URL = http://foo.com?mars=earth 
+         *   Utility.addQueryParams({ hello: 'world' }, 'http://var.com')
+         *   //new URL = http://var.com?hello=world
+         *
+         *   //current URL = 'http://foo.com?mars=earth' 
+         *   Utility.addQueryParams({ hello: 'world' }, 'http://var.com?venus=sun')
+         *   //new URL = 'http://var.com?venus=sun&hello=world'
+         *   
+         *
+         * </pre>
+         * 
+        */
         this.addQueryParams = function(newParams, newUrl){
             
             // get existing query params
@@ -111,16 +176,62 @@ angular.module('barney.utility').factory('BarneyUtility',
             }
         };
 
-        // questa funzione sottrae dal primo array gli elementi del secondo
-        // esempio: arrayUno=[1, 2, 5] e arrayDue=[2, 5] 
-        // allora arrayDiff(arrayUno, arrayDue) = [1]
+        /**
+         * @ngdoc function
+         * @name barney.utility.BarneyUtility#arrayDiff
+         * @methodOf barney.utility.BarneyUtility
+         *
+         * @description 
+         * This method removes from the first array the element of the second
+         *
+         * @param {array} first first array 
+         * @param {array} second second (contain the elements to remove)
+         *
+         * @example
+         * # Utility arrayDiff 
+         * Here is an example of the arrayDiff method.
+         *
+         * <pre>
+         *  var array1 = ['1','2','3']
+         *  var array2 = ['2'];
+         * 
+         *  Utility.arrayDiff(array1, array2); //array 1: ['1', '3'];
+         *   
+         *
+         * </pre>
+         * 
+        */
+
         this.arrayDiff = function(first, second){
             return first.filter(function(i) {
                 return second.indexOf(i) < 0;
             });
         };
 
-        // questa funzione fa un redirect "brutale" alla url che li viene passata, utile soprattutto per iOs
+        /**
+         * @ngdoc function
+         * @name barney.utility.BarneyUtility#brutalRedirect
+         * @methodOf barney.utility.BarneyUtility
+         *
+         * @description 
+         * This method does a brutal redirect to the given URL.
+         *
+         * ***Usefull for ios***
+         *
+         * @param {string} url New url to redirect to
+         *
+         * @example
+         * # Utility brutalRedirect 
+         * Here is an example of the brutalRedirect method.
+         *
+         * <pre>
+         *   
+         *  Utility.brutalRedirect('http://my_new.url')
+         *
+         * </pre>
+         * 
+        */
+        
         this.brutalRedirect = function(url){
             $window.location.href = url;
             // reload for Safari
@@ -129,8 +240,30 @@ angular.module('barney.utility').factory('BarneyUtility',
             }
         };
 
-        // questa funzione si assicura che un link venga seguito dal browser al click dell'utente,
-        // anche se l'elemento cliccato contiene ng-click
+
+        /**
+         * @ngdoc function
+         * @name barney.utility.BarneyUtility#clickAndGo
+         * @methodOf barney.utility.BarneyUtility
+         *
+         * @description 
+         * This function makes sure that a link is followed by the browser
+         * to the user click , even if the item clicked contains ***ng-click***
+         *
+         *
+         * @param {string} event Event to catch
+         *
+         * @example
+         * # Utility clickAndGo 
+         * Here is an example of the clickAndGo method.
+         *
+         * <pre>
+         *   
+         *  Utility.clickAndGo('myEvent')
+         *
+         * </pre>
+         * 
+        */
         this.clickAndGo = function(event){
             if(event.target.tagName === 'A'){
                 $location.url(event.target.hash.replace('#!', ''));

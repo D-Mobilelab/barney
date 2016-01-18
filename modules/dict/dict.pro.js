@@ -32,7 +32,8 @@ angular.module('barney.dict').provider('BarneyDict', [
              * @name barney.dict.BarneyDict#init
              * @methodOf barney.dict.BarneyDict
              *
-             * @description Init dict service
+             * @description 
+             * Init dict service
              *
              * @param {Object} options (see attributes below)
              * @param {string} [options.showKey='default']
