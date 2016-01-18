@@ -38,6 +38,10 @@ module.exports = function(config) {
       "modules/config/*.pro.js",  
       "modules/config/*.ser.js",  
       "modules/config/*.fil.js",
+      "modules/callbacky/*.mod.js",  
+      "modules/callbacky/*.pro.js",  
+      "modules/callbacky/*.ser.js",  
+      "modules/callbacky/*.fil.js",
 
       // test
       "test/**/*.test.js"
