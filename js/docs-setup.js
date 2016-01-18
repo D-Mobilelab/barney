@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "barney.analytics",
       "shortDescription": "Track page and event, set custom dimensions and set id",
-      "keywords": "$scope $window action add analytics angular api app application assigned attributes barney barneyanalytics barneylogger category code component console controller custom define defined dependency dimension dimensions don easily enable enabled event example function future google hit homepagecontroller included init initialization label list logged logger logging menu method methods mock mode module note number object open options pageview pair pass phase renamed save saves service set setdimension setid slot title track trackevent tracking trackpage true ui user userstatus valuable verbose window"
+      "keywords": "$scope $window action add analytics angular api app application assigned attributes barney barneyanalytics barneylogger category code component console controller custom define defined dependency dimension dimensions doesn easily enable enabled event example function future google hit homepagecontroller included init initialization label list logged logger logging menu method methods mock mode module note number object open options pageview pair pass phase renamed save saves service set setdimension setid slot title track trackevent tracking trackpage true ui user userstatus valuable verbose window"
     },
     {
       "section": "api",
@@ -28,7 +28,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "barney.config",
       "shortDescription": "Config is the Barney module used to get variables or specific environment settings. It read a JSON object where all environment variables and settings are stored.",
-      "keywords": "allow allowed angular api app application barney barneyconfig config doesn enable_login environment example exist false file import include including init js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string method methods_init module newton_secret_key notexistvalue null object order overview param passing pretty read response set settings specific stored string true values var variable variables web yourapplicationmodule"
+      "keywords": "angular api app application barney barneyconfig config define enable_login environment example false file free import include init js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string method methods_init module newton_secret_key null object order overview pass read settings specific stored true var variables web yourapplicationmodule"
     },
     {
       "section": "api",
@@ -37,7 +37,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "barney.config",
       "shortDescription": "Use Config service",
-      "keywords": "$scope add allow allowed angular api barney barneyconfig barneyconifg code component config conifg console controller dependency doesn easily enable_login example exist false function homepagecontroller included including init key list log method mock module note notexistvalue null object options order param passing pretty renamed response return service set specific string values variable"
+      "keywords": "$scope add angular api barney barneyconfig barneyconifg code component config config_key conifg console controller dependency easily enable_login example false function homepagecontroller included init initialize key key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string list log method mock module newton_secret_key note null object options renamed requires return service specific true values"
     },
     {
       "section": "api",
@@ -64,7 +64,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "barney.dict",
       "shortDescription": "Use dictionary service",
-      "keywords": "$scope $window add angular api attributes barney barneydict code component console controller default dependency dict dictionary easily example existkey function hello homepagecontroller included init key list log missing mock module note notexistkey object options prints provider renamed service showkey undefined valued valued_key"
+      "keywords": "$scope $window add angular api attributes barney barneydict code component console controller default dependency dict dictionary easily example existkey function hello homepagecontroller included init key list log method missing mock module note notexistkey object options prints provider renamed service showkey undefined valued valued_key"
     },
     {
       "section": "api",
@@ -91,7 +91,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "barney.meta",
       "shortDescription": "Meta is the module of Barney to fill meta tags dinamically.",
-      "keywords": "angular api app application barney barneymeta component description dinamically file fill free function image import include init initialized inizialize jpg js manage meta metatags method methods_init methodt mock module object overview pass product recommended standard standard-image tags title web yourapplicationmodule"
+      "keywords": "angular api app application barney barneymeta component description dinamically file fill free function image import include init initialized inizialize jpg js manage meta metatags method methods_init mock module object overview pass product recommended standard standard-image tags title web yourapplicationmodule"
     },
     {
       "section": "api",
@@ -100,7 +100,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "barney.meta",
       "shortDescription": "Meta is the module of Barney to fill meta tags dinamically.",
-      "keywords": "$scope add angular api app barney barneymeta code component console controller current default defaults dependency description dinamically easily example fill function homepagecontroller image include included init inizialize jpg key key2 list log lsit manage meta metatags method mock module note object pass passed passing previous print product recommended renamed restore revert service set single standard standard-image tags title value1 value2 values"
+      "keywords": "$scope add angular api app barney barneymeta code component console controller current default defaults dependency description dinamically easily example fill function homepagecontroller image include included init inizialize jpg key key2 list log manage meta metatags method mock module note object pass passed passing previous print product recommended renamed restore revert service set single standard standard-image tags title value1 value2 values"
     }
   ],
   "apis": {
