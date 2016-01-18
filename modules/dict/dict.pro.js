@@ -49,7 +49,7 @@ angular.module('barney.dict').provider('BarneyDict', [
              * // Dict.notExistKey = undefined; 
              * </pre>
              *
-             * Dict with *default* showKey
+             * Dict with ***default*** showKey
              * <pre>
              *
              * angular.module('mock').controller('HomePageController', [
@@ -68,7 +68,7 @@ angular.module('barney.dict').provider('BarneyDict', [
              * // Dict.notExistKey -> 
              * </pre>
              *
-             * Dict with *all* showKey
+             * Dict with ***all*** showKey
              * <pre>
              * angular.module('mock').controller('HomePageController', [
              *     'BarneyDict', '$window', '$scope',
@@ -86,7 +86,7 @@ angular.module('barney.dict').provider('BarneyDict', [
              * // Dict.notExistKey -> [[notExistKey]]
              * </pre>
              *
-             * Dict with *missing* showKey
+             * Dict with ***missing*** showKey
              * <pre>
              * angular.module('mock').controller('HomePageController', [
              *     'BarneyDict', '$window', '$scope',
@@ -127,7 +127,7 @@ angular.module('barney.dict').provider('BarneyDict', [
              * 'BarneyDict', '$scope',
              *   function(Dict, $scope){
              *
-             *      console.log( Dict.get("VALUED_KEY") );
+             *      console.log(Dict.get('VALUED_KEY'));
              *
              *  }
              * ]);
@@ -177,12 +177,13 @@ angular.module('barney.dict').provider('BarneyDict', [
              *
              * @example 
              * # Dict list
+             * This is an example of how to use list method.
              * <pre>
              * angular.module('mock').controller('HomePageController', [
              * 'BarneyDict', '$scope',
              *   function(Dict, $scope){
              *
-             *      console.log( Dict.list() );
+             *      console.log(Dict.list());
              *
              *  }
              * ]);

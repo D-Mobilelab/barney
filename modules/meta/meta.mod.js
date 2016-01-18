@@ -21,7 +21,7 @@
  * It's recommended to inizialize it in the app module run.
  * To inizialize it, you have to:
  * 
- * - include BarneyMeta component in your run methodT
+ * - include BarneyMeta component in your run method
  * - use {@link barney.meta.BarneyMeta#methods_init init} method and pass it an object with free keys.
  *
  * The object will contain standard keys that you will use in your product.

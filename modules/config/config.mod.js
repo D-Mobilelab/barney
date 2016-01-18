@@ -13,13 +13,13 @@
  * ])
  * </pre>
  *
- * # Init Config
- * In order to allow a pretty response from the config module if a variable doesn't exist, you can set this by passing an object to the init method including the notExistValue param. The allowed values are null, false, 0 or a string.
- *  {@link barney.config.BarneyConfig#methods_init init}. 
- * 
- * # Config Values
- * Here is an example of Config object: 
- * <pre>
+ * # Init module
+ * In order to use Config module you have to define an object with free keys and pass it 
+ * to the {@link barney.config.BarneyConfig#methods_init init} method.
+ *  
+ *  @example
+ *  Here is an example of how the Config object must be: 
+ *  <pre>
  * 	var CONFIG = {
  * 		'ENABLE_LOGIN': 1,
  * 		'NEWTON_SECRET_KEY': '<sec_ret>',
@@ -30,8 +30,9 @@
  * 		'KEY_NULL': null,
  * 		'KEY_NULL_STRING': 'null',
  * 		'KEY_FALSE': false,
- * 		'KEY_FALSE_STRING': 'false'
+ * 		'KEY_FALSE_STRING': 'false',
+ * 		...
  * 	}
- * </pre>
+ *  </pre>
  */
 angular.module('barney.config', []);

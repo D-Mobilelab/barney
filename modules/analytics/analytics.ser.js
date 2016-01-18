@@ -83,7 +83,7 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
          * # Custom Dimensions
          * In analytics initialization phase, you have to define all custom dimensions that you will use in application.
          *
-         * ***Init method don't set custom dimension on Google Analytics, it only saves custom dimension for future use (for example in event tracking).***
+         * ***Init method doesn't set custom dimension on Google Analytics, it only saves custom dimension for future use (for example in event tracking).***
          *
          * You have to pass a pair (custom dimension name, slot id), where slot id is the slot of custom dimension assigned from Google Analytics before.
          *

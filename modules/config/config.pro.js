@@ -26,19 +26,27 @@ angular.module('barney.config').provider('BarneyConfig', function(){
              * @methodOf barney.config.BarneyConfig
              *
              * @description 
-             * In order to allow a pretty response from the config module if a variable doesn't exist, you can set this by passing an object to the init method including the notExistValue param. 
-             *  
-             * The allowed values are null, false, 0 or a string.
+             * This method requires an object that contains all your keys and their values
+             * to initialize the Config module.
              * 
-             * @param {Object} options ({CONFIG_KEY:value})
+             * @param {Object} options ({ 'CONFIG_KEY' : value })
              *
              * @example
              * # Config Init 
              * Here is an example of init method.
              * <pre>
              *  Config.init({
-             *     notExistValue:null // Allowed notExistValue values: null, false, 0 or string
-             *  });
+             *      'ENABLE_LOGIN': 1,
+             *      'NEWTON_SECRET_KEY': '<sec_ret>',
+             *      'KEY_TRUE': true,
+             *      'KEY_VOID_STRING': '',
+             *      'KEY_ZERO': 0,
+             *      'KEY_ZERO_STRING': '0',
+             *      'KEY_NULL': null,
+             *      'KEY_NULL_STRING': 'null',
+             *      'KEY_FALSE': false,
+             *      'KEY_FALSE_STRING': 'false'
+             *      });
              * </pre>
              */
         init: function(options){
@@ -55,7 +63,7 @@ angular.module('barney.config').provider('BarneyConfig', function(){
          * @description 
          * This method is used to get the value of a specific key in the CONFIG object;
          * 
-         * @param {string} value (key)
+         * @param {string} key Specific key
          *
          * @example
          * # Conifg get  
@@ -86,7 +94,7 @@ angular.module('barney.config').provider('BarneyConfig', function(){
          *
          * @example
          * # Conifg list  
-         * Here is an example of list method.
+         * Here is an example of how to use list method.
          * <pre>
          *      console.log( Config.list() );
          * </pre>

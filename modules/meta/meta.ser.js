@@ -128,7 +128,7 @@ angular.module('barney.meta').factory('BarneyMeta', [
 
         /**
          * @ngdoc function
-         * @name barney.meta.BarneyMeta#lsit
+         * @name barney.meta.BarneyMeta#list
          * @methodOf barney.meta.BarneyMeta
          *
          * @description 
