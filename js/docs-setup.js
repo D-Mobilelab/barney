@@ -28,7 +28,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "barney.config",
       "shortDescription": "Config is the Barney module used to get variables or specific environment settings. It read a JSON object where all environment variables and settings are stored.",
-      "keywords": "allow allowed angular api app application barney barneyconfig config confobj constant defined definition doesn enable_login environment example exist false file global import include including init js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string method methods_init module newton_secret_key notexistvalue null object order overview param passing pretty read response set settings specific stored string true values var variable variables web yourapplicationmodule"
+      "keywords": "allow allowed angular api app application barney barneyconfig config doesn enable_login environment example exist false file import include including init js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string method methods_init module newton_secret_key notexistvalue null object order overview param passing pretty read response set settings specific stored string true values var variable variables web yourapplicationmodule"
     },
     {
       "section": "api",
@@ -41,8 +41,8 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "barney.config.filter:BarneyConfig",
-      "shortName": "BarneyConfig",
+      "id": "barney.config.filter:config",
+      "shortName": "config",
       "type": "filter",
       "moduleName": "barney.config",
       "shortDescription": "You can get a config value also using a custom config filter",
@@ -64,12 +64,12 @@ NG_DOCS={
       "type": "object",
       "moduleName": "barney.dict",
       "shortDescription": "Use dictionary service",
-      "keywords": "$scope $window add angular api attributes barney barneydict code component console controller default dependency dict dictionary easily example function homepagecontroller included init key list log missing mock module note object options prints provider renamed service showkey valued valued_key"
+      "keywords": "$scope $window add angular api attributes barney barneydict code component console controller default dependency dict dictionary easily example existkey function hello homepagecontroller included init key list log missing mock module note notexistkey object options prints provider renamed service showkey undefined valued valued_key"
     },
     {
       "section": "api",
-      "id": "barney.dict.directive:BarneyDict",
-      "shortName": "BarneyDict",
+      "id": "barney.dict.directive:dict",
+      "shortName": "dict",
       "type": "directive",
       "moduleName": "barney.dict",
       "shortDescription": "To use BarneyDict as a directive you can use it in your template files (html).",
@@ -77,8 +77,8 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "barney.dict.filter:BarneyDict",
-      "shortName": "BarneyDict",
+      "id": "barney.dict.filter:dict",
+      "shortName": "dict",
       "type": "filter",
       "moduleName": "barney.dict",
       "shortDescription": "BarneyDict as a filter is useful if:",

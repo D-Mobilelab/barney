@@ -40,15 +40,21 @@ angular.module('mock').controller('HomePageController', [
 <li><h3 id="methods_init">init(options)</h3>
 <div class="init"><div class="barney-dict-barneydict-init-page"><p>Init dict service</p>
 </div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-dict-barneydict-init-page"><p>(see attributes below)</p>
-</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>showKey</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-dict-barneydict-init-page"><ul>
+</div></td></tr><tr><td>options.showKey</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-dict-barneydict-init-page"><ul>
 <li><strong>default</strong>: the dictionary module prints the value of the dictionary key if it&#39;s valued, else it prints nothing</li>
 <li><strong>all</strong>:  the dictionary module prints the name of the key, for all keys (valued and not valued keys)</li>
 <li><strong>missing</strong>: the dictionary module prints the value of the dictionary key if it&#39;s valued, else it prints the name of the key</li>
 </ul>
-</div> <p><em>(default: 'default')</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+</div> <p><em>(default: 'default')</em></p></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
 <div class="example"><div class="barney-dict-barneydict-init-page"><h5 id="methods_init_example_dict-init">Dict Init</h5>
+<p>if: 
+<pre class="prettyprint linenums">
+// Dict.existKey = 'Hello';
+// Dict.notExistKey = undefined; 
+</pre>
 <p>Dict with <em>default</em> showKey
 <pre class="prettyprint linenums">
+
 angular.module('mock').controller('HomePageController', [
     'BarneyDict', '$window', '$scope',
     function(Dict, $window, $scope){
@@ -59,6 +65,10 @@ angular.module('mock').controller('HomePageController', [
   
     }
 ]);
+
+// DICT PRINTS:
+// Dict.existKey -&gt; Hello
+// Dict.notExistKey -&gt; 
 </pre>
 <p>Dict with <em>all</em> showKey
 <pre class="prettyprint linenums">
@@ -72,6 +82,10 @@ angular.module('mock').controller('HomePageController', [
   
     }
 ]);
+
+// DICT PRINTS:
+// Dict.existKey -&gt; [[existKey]]
+// Dict.notExistKey -&gt; [[notExistKey]]
 </pre>
 <p>Dict with <em>missing</em> showKey
 <pre class="prettyprint linenums">
@@ -85,6 +99,10 @@ angular.module('mock').controller('HomePageController', [
   
     }
 ]);
+
+// DICT PRINTS:
+// Dict.existKey -&gt; Hello
+// Dict.notExistKey -&gt; [[notExistKey]]
 </pre>
 </div></div>
 </div>
