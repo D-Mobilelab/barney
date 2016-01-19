@@ -4,7 +4,7 @@
  *
  *
  * @description
- * Utility is the module of Barney used to 
+ * Utility is the module of Barney used to provide commons utilities.
  *
  * # Import module
  * To import Utility module, include barney.utility to 

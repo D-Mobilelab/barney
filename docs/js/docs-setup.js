@@ -158,6 +158,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "barney.stargate",
+      "shortName": "barney.stargate",
+      "type": "overview",
+      "moduleName": "barney.stargate",
+      "shortDescription": "Stargate is the module of Barney used to communicate with Stargate.",
+      "keywords": "angular api app application barney coming communicate file import include js module overview stargate web yourapplicationmodule"
+    },
+    {
+      "section": "api",
+      "id": "barney.stargate.BarneyStargate",
+      "shortName": "barney.stargate.BarneyStargate",
+      "type": "object",
+      "moduleName": "barney.stargate",
+      "shortDescription": "Use Stargate service",
+      "keywords": "$scope add angular api barney barneystargate call callback code component configuration configurations controller dependency directive easily example examples fallback function google handshake homepagecontroller http included init initialize key method mock module note object onhandshake open openurl options params pasquale products public publickey reasons renamed security service stargate url window"
+    },
+    {
+      "section": "api",
       "id": "barney.storage",
       "shortName": "barney.storage",
       "type": "overview",
@@ -180,8 +198,8 @@ NG_DOCS={
       "shortName": "barney.utility",
       "type": "overview",
       "moduleName": "barney.utility",
-      "shortDescription": "Utility is the module of Barney used to ",
-      "keywords": "angular api app application barney file import include js module overview utility web yourapplicationmodule"
+      "shortDescription": "Utility is the module of Barney used to provide commons utilities.",
+      "keywords": "angular api app application barney commons file import include js module overview provide utilities utility web yourapplicationmodule"
     },
     {
       "section": "api",

@@ -1,0 +1,112 @@
+<h1><code ng:non-bindable="">BarneyUtility</code>
+<div><span class="hint">service in module <code ng:non-bindable="">barney.utility</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="barney-utility-barneyutility-page"><p>Use Utility service</p>
+<p>To use Utility service, you have to add BarneyUtility dependency to your component (i.e: directive, controller...).</p>
+<p>In this example, I have added dependency of BarneyUtility to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyUtility', '$scope',
+    function(Utility, $scope){
+        // we can use "Utility" object here
+    }
+]);
+</pre>
+Note that I included BarneyUtility as dependency but I have renamed it as Utility to use it more easily in controller code.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_addqueryparams">addQueryParams(newParams, newUrl)</h3>
+<div class="addqueryparams"><div class="barney-utility-barneyutility-addqueryparams-page"><p>This method add one or more query string params to the 
+current URL or to a new URL</p>
+</div><h5 id="methods_addqueryparams_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>newParams</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="barney-utility-barneyutility-addqueryparams-page"><p>Object with params</p>
+</div></td></tr><tr><td>newUrl</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-utility-barneyutility-addqueryparams-page"><p>New URL</p>
+</div></td></tr></tbody></table><h4 id="methods_addqueryparams_example">Example</h4>
+<div class="example"><div class="barney-utility-barneyutility-addqueryparams-page"><h5 id="methods_addqueryparams_example_utility-addqueryparams">Utility addQueryParams</h5>
+<p>Here is an example of the addQueryParams method.</p>
+<pre class="prettyprint linenums">
+
+  //current URL =  http://foo.com?mars=earth 
+  Utility.addQueryParams({ hello: 'world' })
+  //new URL =   http://foo.com?mars=earth&hello=world
+
+  //current URL = http://foo.com?mars=earth 
+  Utility.addQueryParams({ hello: 'world' }, 'http://var.com')
+  //new URL = http://var.com?hello=world
+
+  //current URL = 'http://foo.com?mars=earth' 
+  Utility.addQueryParams({ hello: 'world' }, 'http://var.com?venus=sun')
+  //new URL = 'http://var.com?venus=sun&hello=world'
+  
+
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_arraydiff">arrayDiff(first, second)</h3>
+<div class="arraydiff"><div class="barney-utility-barneyutility-arraydiff-page"><p>This method removes from the first array the element of the second</p>
+</div><h5 id="methods_arraydiff_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>first</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="barney-utility-barneyutility-arraydiff-page"><p>first array</p>
+</div></td></tr><tr><td>second</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="barney-utility-barneyutility-arraydiff-page"><p>second (contain the elements to remove)</p>
+</div></td></tr></tbody></table><h4 id="methods_arraydiff_example">Example</h4>
+<div class="example"><div class="barney-utility-barneyutility-arraydiff-page"><h5 id="methods_arraydiff_example_utility-arraydiff">Utility arrayDiff</h5>
+<p>Here is an example of the arrayDiff method.</p>
+<pre class="prettyprint linenums">
+ var array1 = ['1','2','3']
+ var array2 = ['2'];
+
+ Utility.arrayDiff(array1, array2); //array 1: ['1', '3'];
+  
+
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_brutalredirect">brutalRedirect(url)</h3>
+<div class="brutalredirect"><div class="barney-utility-barneyutility-brutalredirect-page"><p>This method does a brutal redirect to the given URL.</p>
+<p><strong><em>Usefull for ios</em></strong></p>
+</div><h5 id="methods_brutalredirect_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-utility-barneyutility-brutalredirect-page"><p>New url to redirect to</p>
+</div></td></tr></tbody></table><h4 id="methods_brutalredirect_example">Example</h4>
+<div class="example"><div class="barney-utility-barneyutility-brutalredirect-page"><h5 id="methods_brutalredirect_example_utility-brutalredirect">Utility brutalRedirect</h5>
+<p>Here is an example of the brutalRedirect method.</p>
+<pre class="prettyprint linenums">
+  
+ Utility.brutalRedirect('http://my_new.url')
+
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_clickandgo">clickAndGo(event)</h3>
+<div class="clickandgo"><div class="barney-utility-barneyutility-clickandgo-page"><p>This function makes sure that a link is followed by the browser
+to the user click , even if the item clicked contains <strong><em>ng-click</em></strong></p>
+</div><h5 id="methods_clickandgo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>event</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="barney-utility-barneyutility-clickandgo-page"><p>Event to catch</p>
+</div></td></tr></tbody></table><h4 id="methods_clickandgo_example">Example</h4>
+<div class="example"><div class="barney-utility-barneyutility-clickandgo-page"><h5 id="methods_clickandgo_example_utility-clickandgo">Utility clickAndGo</h5>
+<p>Here is an example of the clickAndGo method.</p>
+<pre class="prettyprint linenums">
+  
+ Utility.clickAndGo('myEvent')
+
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getcurrentquerystring">getCurrentQueryString()</h3>
+<div class="getcurrentquerystring"><div class="barney-utility-barneyutility-getcurrentquerystring-page"><p>This method return the query string from the URL, before and after the hashbang (#!).</p>
+</div><h4 id="methods_getcurrentquerystring_example">Example</h4>
+<div class="example"><div class="barney-utility-barneyutility-getcurrentquerystring-page"><h5 id="methods_getcurrentquerystring_example_utility-getcurrentquerystring">Utility getCurrentQueryString</h5>
+<p>Here is an example of the getCurrentQueryString method.</p>
+<p><strong><em>?hello=world/#!/category</em></strong> or in <strong><em>#!/category/?hello=world</em></strong></p>
+<pre class="prettyprint linenums">
+
+  Utility.getCurrentQueryString(); //return {hello: 'world'} as an object
+
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
