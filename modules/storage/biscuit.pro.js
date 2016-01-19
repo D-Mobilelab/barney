@@ -38,7 +38,6 @@ angular.module('barney.storage.subset').provider('BarneyStorageBiscuit', functio
             var result = iter.next();
             while (result) {
                 if (!keys || keys.indexOf(result[0]) > 0) {
-                    logger.log('Biscuit', 'getMultiple', result);
                     toReturn[result[0]] = tryParse(result[1]);
                 }
                 result = iter.next();

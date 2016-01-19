@@ -65,8 +65,11 @@ module.exports = function (grunt) {
             },
             coverage:{
                 files:[
-                    '<%= testPath %>coverage/**/*.*'
+                    '<%= mockPath %>**/*',
+                    '<%= modulesPath %>**/*',
+                    '<%= testPath %>modules/**/*'
                 ],
+                tasks: ['clean:coverage', 'karma'],
                 options:{
                     livereload: true
                 }
@@ -107,7 +110,8 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            doc: ["<%= docPath %>"]
+            doc: ["<%= docPath %>"],
+            coverage: ["<%= testPath %>coverage"]
         },
     });
 
@@ -130,6 +134,8 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('coverage',[
+        'clean:coverage',
+        'karma',
         'connect:coverage',
         'open:coverage',
         'watch:coverage'

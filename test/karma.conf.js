@@ -34,10 +34,10 @@ module.exports = function(config) {
       "mock/global.js",
 
       // modules    
-      "modules/config/*.mod.js",  
-      "modules/config/*.pro.js",  
-      "modules/config/*.ser.js",  
-      "modules/config/*.fil.js",
+      "modules/*/*.mod.js",  
+      "modules/*/*.pro.js",  
+      "modules/*/*.ser.js",  
+      "modules/*/*.fil.js",
 
       // test
       "test/**/*.test.js"
@@ -47,7 +47,9 @@ module.exports = function(config) {
 
     // list of files / patterns to exclude
     exclude: [
-      "test/coverage/**/*.*"
+      "test/coverage/*",
+      "modules/masonry/*",
+      "modules/newtontrack_deprecated/*"
     ],
 
     // web server port

@@ -48,9 +48,9 @@ angular.module('barney.utility').factory('BarneyUtility',
 
             // get normalized query string after #!
             var vars = $location.search();
-
+            
             // get un-normalized query string before #!
-            var queryStringBef = window.location.search;
+            var queryStringBef = $window.location.search;
             
             // check if window.location is empty
             if(queryStringBef !== ''){
