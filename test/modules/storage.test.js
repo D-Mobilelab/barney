@@ -24,7 +24,7 @@ describe('CALLBACKY -', function () {
 			expect(StorageService.get(keyName)).toEqual(keyValue);
 		});
 
-		xit('if save and get multiple keys, it returns saved keys', function(){
+		it('if save and get multiple keys, it returns saved keys', function(){
 			var keys = { hello: 'world', mars: 'earth' };
 			StorageService.setMultiple(keys);
 			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
@@ -38,7 +38,7 @@ describe('CALLBACKY -', function () {
 			expect(StorageService.get(keyName)).toBeUndefined();
 		});	
 
-		xit('if save and get a key (as localStorage), it returns saved key', function(){
+		it('if save and get a key (as localStorage), it returns saved key', function(){
 			var keyName = 'hello';
 			var keyValue = 'world';
 			StorageService.set(keyName, keyValue, { type: 'localStorage' });
@@ -71,13 +71,13 @@ describe('CALLBACKY -', function () {
 			expect(StorageService.get(keyName)).toEqual(keyValue);
 		});
 
-		xit('if save and get multiple keys, it returns saved keys', function(){
+		it('if save and get multiple keys, it returns saved keys', function(){
 			var keys = { hello: 'world', mars: 'earth' };
 			StorageService.setMultiple(keys);
 			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
 		});	
 
-		xit('if save, delete and get a key, it returns undefined', function(){
+		it('if save, delete and get a key, it returns undefined', function(){
 			var keyName = 'hello';
 			var keyValue = 'world';
 			StorageService.set(keyName, keyValue);
@@ -102,6 +102,10 @@ describe('CALLBACKY -', function () {
 			StorageService.delete(keyName, { type: 'jsObject' });
 			expect(StorageService.get(keyName, { type: 'jsObject' })).toBeUndefined();
 		});
+
+		it('check if local storage is supported', function(){
+			expect(StorageService.isLocalStorageSupported()).toBe(true);
+		});
 	});
 
 	describe('jsObject -', function(){
@@ -118,7 +122,7 @@ describe('CALLBACKY -', function () {
 			expect(StorageService.get(keyName)).toEqual(keyValue);
 		});
 
-		xit('if save and get multiple keys, it returns saved keys', function(){
+		it('if save and get multiple keys, it returns saved keys', function(){
 			var keys = { hello: 'world', mars: 'earth' };
 			StorageService.setMultiple(keys);
 			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
@@ -141,7 +145,7 @@ describe('CALLBACKY -', function () {
 			expect(StorageService.get(keyName, { type: 'cookie' })).toBeUndefined();
 		});
 
-		xit('if save and get a key (as localStorage), it returns saved key', function(){
+		it('if save and get a key (as localStorage), it returns saved key', function(){
 			var keyName = 'hello';
 			var keyValue = 'world';
 			StorageService.set(keyName, keyValue, { type: 'localStorage' });
@@ -200,7 +204,7 @@ describe('CALLBACKY -', function () {
 			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'setMultiple', keys, options);
 		});
 
-		xit('getMultiple method logs key, value and options', function(){
+		it('getMultiple method logs key, value and options', function(){
 			var keys = {hello: 'world', mars: 'earth'}, options = { type: 'jsObject' };
 			StorageService.setMultiple(keys, options);
 			StorageService.getMultiple(['hello', 'mars'], options);
