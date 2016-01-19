@@ -1,6 +1,6 @@
 'use strict';
 
-describe('CALLBACKY -', function () {
+describe('STORAGE -', function () {
 
 	var StorageService;	
 

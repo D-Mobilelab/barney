@@ -22,6 +22,10 @@ describe('DICT -', function () {
 		it('if get a inexistent key, then it returns void string', function(){
 			expect(DictProvider.get('NULL_KEY')).toEqual('');
 		});
+
+		it('if call list(), then it returns list keys', function(){
+			expect(DictProvider.list()).toEqual(DICTIONARY);
+		});
 	});
 
 	describe('all -', function () {
