@@ -31,7 +31,7 @@ module.exports = function(config) {
       // YOUR JS FILES
 
       // mock
-      "mock/global.js",
+      "test/mock.js",
 
       // modules    
       "modules/*/*.mod.js",  
