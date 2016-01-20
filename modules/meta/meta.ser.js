@@ -38,7 +38,7 @@ angular.module('barney.meta').factory('BarneyMeta', [
          * To inizialize it, you have to:
          * 
          *  - include BarneyMeta component in your run method
-         *  - use init method and pass it an object with **free** keys
+         *  - use init method and pass to it an object with **free** keys
          * 
          * The object will contain standard keys that you will use in your product.
          *
@@ -102,7 +102,7 @@ angular.module('barney.meta').factory('BarneyMeta', [
          * @methodOf meta.BarneyMeta
          *
          * @description 
-         * To set one or more current keys, you can use Meta.set() method, passing an object with keys and their values.
+         * To set one or more current keys, passing an object with keys and their values.
          *
          * @param  {object} metatags new keys values
          *
@@ -179,8 +179,10 @@ angular.module('barney.meta').factory('BarneyMeta', [
          * @name meta.BarneyMeta#revert
          * @methodOf meta.BarneyMeta
          *
-         * @description 
-         * Restore the previous default values (setted with init)
+         * @description
+         * **It's recommended to use it in locationSuccess event**.
+         * 
+         * Restore the keys to default values (set before with init)
          *
          * @example
          * <pre>

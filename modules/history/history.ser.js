@@ -32,18 +32,14 @@ angular.module('barney.history').factory('BarneyHistory',
              * @methodOf history.BarneyHistory
              *
              * @description 
-             * This method is used to initialize the History module.
+             * When this method is called, the last visited page is saved and 
+             * it can be used by get() and goBack() methods.
              *
              * @example
-             * # History Init 
-             * Here is an example of the init method.
              * <pre>
-             * 
              *   History.init();
-             *
              * </pre>
-             * 
-            */
+             */
             init: function(){
                 var _this = this;
                 $rootScope.$on('$locationChangeSuccess', function(event, newurl, oldurl){
@@ -60,6 +56,8 @@ angular.module('barney.history').factory('BarneyHistory',
              *
              * @description 
              * This method is used to get the URL of the last visited page.
+             *
+             * To use this method, the init method must be called before.
              *
              * @example
              * # History Get 
@@ -83,6 +81,8 @@ angular.module('barney.history').factory('BarneyHistory',
              *
              * @description 
              * This method is used to go back to the last visited page.
+             *
+             * To use this method, the init method must be called before.
              *
              * @example
              * # History goBack 

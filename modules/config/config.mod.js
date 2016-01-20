@@ -3,7 +3,8 @@
  * @name config
  *
  * @description
- * Config is the Barney module used to get variables or specific environment settings. It reads a JSON object where all environment variables and settings are stored.
+ * Config is the Barney module used to get environment variables. 
+ * It reads a JSON object where all environment variables are stored.
  * 
  * You can use it:
  *

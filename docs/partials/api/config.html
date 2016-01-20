@@ -2,7 +2,13 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="barney-config-page"><p>Config is the Barney module used to get variables or specific environment settings. It read a JSON object where all environment variables and settings are stored.</p>
+<div><div class="config-page"><p>Config is the Barney module used to get environment variables. 
+It reads a JSON object where all environment variables are stored.</p>
+<p>You can use it:</p>
+<ul>
+<li>as a provider</li>
+<li>as a filter</li>
+</ul>
 <h2 id="import-module">Import module</h2>
 <p>To import Config module, include barney.config module to your web application module (usually in app.js file)
 <pre class="prettyprint linenums">
@@ -11,10 +17,9 @@ angular.module('yourApplicationModule', [
 ])
 </pre>
 <h2 id="init-module">Init module</h2>
-<p>In order to use Config module you have to define an object with free keys and pass it 
-to the <a href="#/api/barney.config.BarneyConfig#methods_init">init</a> method.</p>
+<p>In order to use Config module you have to use <a href="#/api/config.BarneyConfig#methods_init">init</a> method.</p>
 </div><h2 id="example">Example</h2>
-<div class="example"><div class="barney-config-page"><p>Here is an example of how the Config object must be: 
+<div class="example"><div class="config-page"><p>Here is an example of how the Config object must be: 
 <pre class="prettyprint linenums">
 var CONFIG = {
 	'ENABLE_LOGIN': 1,

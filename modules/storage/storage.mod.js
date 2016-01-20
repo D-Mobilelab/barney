@@ -2,7 +2,6 @@
  * @ngdoc overview
  * @name storage
  *
- *
  * @description
  * Storage is the module of Barney used to set and get values from 3 different storage:
  *

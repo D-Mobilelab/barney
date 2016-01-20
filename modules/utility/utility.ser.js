@@ -37,9 +37,8 @@ angular.module('barney.utility').factory('BarneyUtility',
          * ***?hello=world/#!/category*** or in ***\#!/category/?hello=world***
          * 
          * <pre>
-         * 
-         *   Utility.getCurrentQueryString(); //return {hello: 'world'} as an object
-         *
+         *   Utility.getCurrentQueryString(); 
+         *   // it returns { hello: 'world' }
          * </pre>
          * 
         */
@@ -85,9 +84,6 @@ angular.module('barney.utility').factory('BarneyUtility',
          * @param {string} newUrl New URL
          *
          * @example
-         * # Utility addQueryParams 
-         * Here is an example of the addQueryParams method.
-         *
          * <pre>
          * 
          *   //current URL =  http://foo.com?mars=earth 
@@ -188,16 +184,12 @@ angular.module('barney.utility').factory('BarneyUtility',
          * @param {array} second second (contain the elements to remove)
          *
          * @example
-         * # Utility arrayDiff 
-         * Here is an example of the arrayDiff method.
-         *
          * <pre>
          *  var array1 = ['1','2','3']
          *  var array2 = ['2'];
          * 
-         *  Utility.arrayDiff(array1, array2); //array 1: ['1', '3'];
-         *   
-         *
+         *  Utility.arrayDiff(array1, array2); 
+         *  // it returns an array ['1', '3']
          * </pre>
          * 
         */
@@ -221,13 +213,8 @@ angular.module('barney.utility').factory('BarneyUtility',
          * @param {string} url New url to redirect to
          *
          * @example
-         * # Utility brutalRedirect 
-         * Here is an example of the brutalRedirect method.
-         *
          * <pre>
-         *   
          *  Utility.brutalRedirect('http://my_new.url')
-         *
          * </pre>
          * 
         */
@@ -248,19 +235,13 @@ angular.module('barney.utility').factory('BarneyUtility',
          *
          * @description 
          * This function makes sure that a link is followed by the browser
-         * to the user click , even if the item clicked contains ***ng-click***
+         * when the user clicks on it, even if the item clicked contains ***ng-click***
          *
-         *
-         * @param {string} event Event to catch
+         * @param {*} event Event to catch
          *
          * @example
-         * # Utility clickAndGo 
-         * Here is an example of the clickAndGo method.
-         *
          * <pre>
-         *   
-         *  Utility.clickAndGo('myEvent')
-         *
+         *  Utility.clickAndGo(myEvent)
          * </pre>
          * 
         */

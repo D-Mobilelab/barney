@@ -3,14 +3,12 @@
  * @name config.BarneyConfig
  *
  * @description
- * Use Config service
- *
  * To use Config service, you have to add BarneyConfig dependency to your component (directive, controller...).
  * In this example, I have added dependency of BarneyConfig to a controller:
  * <pre>
  * angular.module('mock').controller('HomePageController', [
  *     'BarneyConfig', '$scope',
- *     function(Conifg, $scope){
+ *     function(Config, $scope){
  *         // we can use "Config" object here
  *     }
  * ]);
@@ -27,9 +25,9 @@ angular.module('barney.config').provider('BarneyConfig', function(){
              *
              * @description 
              * This method requires an object that contains all your keys and their values
-             * to initialize the Config module.
+             * to initialize the Config service.
              * 
-             * @param {Object} options ({ 'CONFIG_KEY' : value })
+             * @param {Object} options config object
              *
              * @example
              * # Config Init 
@@ -61,16 +59,19 @@ angular.module('barney.config').provider('BarneyConfig', function(){
          * @methodOf config.BarneyConfig
          *
          * @description 
-         * This method is used to get the value of a specific key in the CONFIG object;
+         * This method is used to get the value of a specific configuration key
          * 
          * @param {string} key Specific key
          *
          * @example
-         * # Conifg get  
+         * # Config get  
          * Here is an example of get method.
          * <pre>
-         *  Config.get('ENABLE_LOGIN');
-         *  // 1
+         * // Config.init({ 'ENABLE_LOGIN': 1 })
+         *
+         * Config.get('ENABLE_LOGIN');
+         *
+         * // 1
          * </pre>
          */
         get: function(value){
@@ -89,14 +90,17 @@ angular.module('barney.config').provider('BarneyConfig', function(){
          * @methodOf config.BarneyConfig
          *
          * @description 
-         * This method return the CONFIG object list.
+         * This method return the Configuration list.
          * 
-         *
          * @example
          * # Conifg list  
          * Here is an example of how to use list method.
          * <pre>
-         *      console.log( Config.list() );
+         * // Config.init({ 'ENABLE_LOGIN': 1 })
+         *
+         * Config.get('ENABLE_LOGIN');
+         *
+         * // { 'ENABLE_LOGIN': 1 }
          * </pre>
          */
         list: function(){

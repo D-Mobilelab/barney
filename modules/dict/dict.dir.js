@@ -2,7 +2,6 @@
  * @ngdoc directive
  * @name dict.directive:dict
  * 
- *
  * @restrict E
  *
  * @description
@@ -14,13 +13,13 @@
  * <dict key="VALUED_KEY"></dict>
  * 
  * @example
- * In this case I use dict as a directive
  * <pre>
- *   <dict key="VALUED_KEY"></dict>
+ * // "VALUED_KEY": 'hello <b>world</b>'
+ * <dict key="VALUED_KEY"></dict>
  * </pre>
  * it prints:
  * <pre>
- *   <span>value of VALUED_KEY</span>
+ *   <span>hello <b>world</b></span>
  * </pre>
  */
 angular.module('barney.dict').directive('dict', [

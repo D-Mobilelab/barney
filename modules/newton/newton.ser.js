@@ -3,8 +3,6 @@
  * @name newton.BarneyNewton
  *
  * @description
- * Use Newton service
- *
  * To use Newton service, you have to add BarneyNewton dependency to your component (i.e: directive, controller...).
  *
  * In this example, I have added dependency of BarneyNewton to a controller:
@@ -37,19 +35,19 @@ angular.module('barney.newton').factory('BarneyNewton', function(){
      * @description 
      * This method is used to initialize the Newton module. It requires 3 parameters:
      *
-     * - enabled: enables or disables the module (default: true)
-     * - verbose: logs all the works done by the module (default: false)
-     * - logger: object that logs (i.e: window.console, BarneyLogger, ...) (default: null)
+     * - **enabled**: enable or disable the module (default: true)
+     * - **verbose**: logs all the works done by the module (default: false)
+     * - **logger**: object that logs (i.e: window.console, BarneyLogger, ...) (default: null)
      *
      * @param {Object} options (see attributes below)
      * @param {boolean} [options.enabled=true]
      *
-     * - **true**: enables the module
-     * - **false**: disables the module
+     * - **true**: enable the module
+     * - **false**: disable the module
      *
      * @param {boolean} [options.verbose=true]
      *
-     * - **true**: logs all the work
+     * - **true**: log all the work
      * - **false**: do nothing
      *
      * @param {Object} [options.logger=null]
@@ -57,18 +55,33 @@ angular.module('barney.newton').factory('BarneyNewton', function(){
      * Object used to log (i.e: window.console, BarneyLogger, ...)
      *
      * @example
-     * # Newton Init 
-     * Here is an example of the init method.
+     * # Logger 
+     * Logger with window.console
      * <pre>
-     * 
      *   Newton.init({
-     *      enabled: true, //enable newton
-     *      verbose: true, //enable log
-     *      logger: BarneyLogger //set BarneyLogger as the logger
+     *      enabled: true,
+     *      verbose: true,
+     *      logger: BarneyLogger
      *  });
-     *
      * </pre>
      * 
+     * Logger with BarneyLogger
+     * <pre>
+     * angular.module('mock').controller('HomePageController', [
+     *     'BarneyNewton', 'BarneyLogger', '$scope',
+     *     function(Newton, Logger, $scope){
+     *   
+     *         Logger.init({ enabled: true });
+     *          
+     *         Newton.init({
+     *             enabled: true,
+     *             verbose: true,
+     *             logger: Logger
+     *         });
+     *   
+     *     }
+     * ]);
+     * </pre>
     */
 
     this.init = function(options){

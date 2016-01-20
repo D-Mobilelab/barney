@@ -8,8 +8,6 @@
  *
  * @usage
  * {{'ENABLE_LOGIN' | config}}
- *	// 1
- *
  */
 angular.module('barney.config').filter('config', [
     'BarneyConfig',

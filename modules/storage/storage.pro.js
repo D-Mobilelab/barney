@@ -3,8 +3,6 @@
  * @name storage.BarneyStorage
  *
  * @description
- * Use Storage service
- *
  * To use Storage service, you have to add BarneyStorage dependency to your component (i.e: directive, controller...).
  *
  * In this example, I have added dependency of BarneyStorage to a controller:
@@ -47,27 +45,23 @@ angular.module('barney.storage').provider('BarneyStorage',
              * @description 
              * This method is used to initialize the Storage module.
              *
-             *
              * @param {Object} params (see attributes below)
-             * @param {Object} [params.type=null] Define the storage type used to save data and can be:
+             * @param {string} [params.type=null] Define the storage type used to save and get data. It can be:
              *
-             * - Local Storage,
-             * - Cookie,
+             * - localStorage,
+             * - cookie,
              * - jsObject
              *
              * @param {Object} [params.logger=null] Object used to log (i.e: window.console, BarneyLogger, ...)
              *
              * @example
-             * # Storage Init 
-             * Here is an example of the init method.
-             *
-             *
-             * In this example I set CookieManager as default storage and BarneyLogger as default logger
+             * In this example I set cookie as default storage and BarneyLogger as default logger
              *
              * <pre>
-             * 
-             *   Storage.init(CookieManager, BarneyLogger);
-             *
+             *  Storage.init({
+             *    type: 'cookie',
+             *    logger: BarneyLogger
+             * });
              * </pre>
              * 
             */
@@ -97,28 +91,20 @@ angular.module('barney.storage').provider('BarneyStorage',
              * @methodOf storage.BarneyStorage
              *
              * @description 
-             * This method is used to set a value in the Storage.
-             *
+             * This method is used to set a value in the storage.
              *
              * @param {string} key Key to identify value
              * @param {*} value Value to store
              * @param {Object} options (see param below)
-             * @param {Object} [options.type=null] If defined, options.type sets value in the defined storage, 
-             * else it stores in the default storage
+             * @param {string} [options.type=null] If options.type is defined, it sets value in the defined storage, 
+             * else it stores in the default storage (defined in init method before)
              *
              * @example
-             * # Storage set 
-             * Here is an example of the set method.
-             * 
-             * In this example I set in cookie 
-             * the value 'value' identified by the key 'key'
+             * In this example I set the key 'key' with value 'value', in cookie storage
              * <pre>
-             * 
-             *   Storage.set('key', 'value', {type: Cookie});
-             *
+             * Storage.set('key', 'value', {type: 'cookie'});
              * </pre>
-             * 
-            */
+             */
 
             set: function(key, value, options){
                 if(!!options && !!options.type){
@@ -136,27 +122,20 @@ angular.module('barney.storage').provider('BarneyStorage',
              * @methodOf storage.BarneyStorage
              *
              * @description 
-             * This method is used to get a setted value in the Storage.
-             *
+             * This method is used to get a value from the storage.
              *
              * @param {string} key Key to identify value
              * @param {Object} options (see param below)
-             * @param {Object} [options.type=null] If defined, options.type gets value in the defined storage, 
-             * else it gets in the default storage
+             * @param {string} [options.type=null] If options.type is defined, it gets value in the defined storage, 
+             * else it gets in the default storage (defined in init method before)
              *
              * @example
              * # Storage get 
-             * Here is an example of the get method.
-             * 
-             * In this example I get from cookie 
-             * the value 'value' identified by the key 'key'
+             * In this example I get the key 'key' from cookie storage
              * <pre>
-             * 
-             *   Storage.get('key', {type: Cookie}); //get the value 'value'
-             *
+             * Storage.get('key', {type: 'cookie'});
              * </pre>
-             * 
-            */
+             */
 
             get: function(key, options){
                 var value;
@@ -178,20 +157,15 @@ angular.module('barney.storage').provider('BarneyStorage',
              * @description 
              * This method is used to get multiple values in the Storage.
              *
-             *
              * @param {array} keys Array with keys to identify values
              * @param {Object} options (see param below)
-             * @param {Object} [options.type=null] If defined, options.type gets values in the defined storage, 
-             * else it gets in the default storage
+             * @param {string} [options.type=null] If options.type is defined, it gets values from the defined storage, 
+             * else it gets from the default storage (defined in init method before)
              *
              * @example
              * # Storage getMultiple 
-             * Here is an example of the getMultiple method.
-             * 
              * <pre>
-             * 
-             *   Storage.getMultiple(['key1', 'key2', ...], {type: Cookie});
-             *
+             *   Storage.getMultiple(['key1', 'key2', ...], {type: 'cookie'});
              * </pre>
              * 
             */
@@ -214,21 +188,17 @@ angular.module('barney.storage').provider('BarneyStorage',
              * @methodOf storage.BarneyStorage
              *
              * @description 
-             * This method is used to set multiple values in the Storage.
+             * This method is used to set multiple values in the storage.
              *
              * @param {Object} params Object with keys and values
              * @param {Object} options (see param below)
-             * @param {Object} [options.type=null] If defined, options.type sets value in the defined storage, 
-             * else it stores in the default storage
+             * @param {string} [options.type=null] If options.type is defined, it sets value in the defined storage, 
+             * else it stores in the default storage (defined in init method before)
              *
              * @example
              * # Storage setMultiple 
-             * Here is an example of the setMultiple method.
-             * 
              * <pre>
-             * 
-             *   Storage.setMultiple({'key1':1, 'key2':2, ...},{type: Cookie});
-             *
+             *   Storage.setMultiple({'key1':1, 'key2':2, ...},{type: 'cookie'});
              * </pre>
              * 
             */
@@ -251,22 +221,18 @@ angular.module('barney.storage').provider('BarneyStorage',
              * @description 
              * This method is used to delete a stored value in the default Storage.
              *
-             *
              * @param {string} key Key to identify value
              * @param {Object} options (see param below)
-             * @param {Object} [options.type=null] If defined, options.type deletes value in the defined storage, 
-             * else it deletes in the default storage
+             * @param {string} [options.type=null] If options.type is defined, it deletes the key
+             * from defined storage, else it deletes it from the default storage (defined in init method before)
              *
              * @example
              * # Storage delete 
              * Here is an example of the delete method.
              * 
-             * In this example I delete from cookie 
-             * the value 'value' identified by the key 'key';
+             * In this example I delete from cookie the key called 'key';
              * <pre>
-             * 
-             *   Storage.delete('key', {type: Cookie});
-             *
+             * Storage.delete('key', {type: Cookie});
              * </pre>
              * 
             */
@@ -287,21 +253,15 @@ angular.module('barney.storage').provider('BarneyStorage',
              * @methodOf storage.BarneyStorage
              *
              * @description 
-             * This method is used to know if local storage is supported.
-             *
+             * This method is used to know if the browser support the local storage
              *
              * @example
-             * # Storage isLocalStorageSupported 
-             * Here is an example of the isLocalStorageSupported method.
-             * 
              * <pre>
-             * 
              *  if(isLocalStorageSupported()) {
-             *       //store something
+             *       // store a localstorage key
              *   } else {
              *       alert('local storage is not supported');
              *   }
-             *
              * </pre>
              * 
             */

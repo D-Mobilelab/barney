@@ -3,9 +3,7 @@
  * @name dict.BarneyDict
  *
  * @description
- * Use dictionary service
- *
- * To use Dict service, you have to add BarneyDict dependency to your component (directive, controller...).
+ * To use Dict provider, you have to add BarneyDict dependency to your component (directive, controller...).
  * In this example, I have added dependency of BarneyDict to a controller:
  * <pre>
  * angular.module('mock').controller('HomePageController', [
@@ -15,7 +13,8 @@
  *     }
  * ]);
  * </pre>
- * Note that I included BarneyDict as dependency but I have renamed it as Dict to use it more easily in controller code.
+ * Note that I included BarneyDict as dependency but I have renamed it as Dict 
+ * to use it more easily in controller code.
  */
 angular.module('barney.dict').provider('BarneyDict', [
     'DictObj',
@@ -38,9 +37,12 @@ angular.module('barney.dict').provider('BarneyDict', [
              * @param {Object} options (see attributes below)
              * @param {string} [options.showKey='default']
              *
-             * - **default**: the dictionary module prints the value of the dictionary key if it's valued, else it prints nothing
-             * - **all**:  the dictionary module prints the name of the key, for all keys (valued and not valued keys)
-             * - **missing**: the dictionary module prints the value of the dictionary key if it's valued, else it prints the name of the key
+             * - **default**: the dictionary module prints the value of the dictionary key if it's valued, 
+             * else it prints nothing
+             * - **all**:  the dictionary module prints the name of the key, for all keys 
+             * (valued and not valued keys)
+             * - **missing**: the dictionary module prints the value of the dictionary key if it's valued, 
+             * else it prints the name of the key
              *
              * @example
              * # Dict Init 
@@ -174,7 +176,7 @@ angular.module('barney.dict').provider('BarneyDict', [
              * @name dict.BarneyDict#list
              * @methodOf dict.BarneyDict
              *
-             * @description Get dictionary object
+             * @description Get list of dictionary keys
              *
              * @example 
              * # Dict list

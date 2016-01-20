@@ -2,7 +2,6 @@
  * @ngdoc overview
  * @name utility
  *
- *
  * @description
  * Utility is the module of Barney used to provide commons utilities.
  *

@@ -1,0 +1,103 @@
+<h1><code ng:non-bindable="">BarneyNewton</code>
+<div><span class="hint">service in module <code ng:non-bindable="">newton</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="newton-barneynewton-page"><p>To use Newton service, you have to add BarneyNewton dependency to your component (i.e: directive, controller...).</p>
+<p>In this example, I have added dependency of BarneyNewton to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyNewton', '$scope',
+    function(Newton, $scope){
+        // we can use "Newton" object here
+    }
+]);
+</pre>
+Note that I included BarneyNewton as dependency but I have renamed it as Newton to use it more easily in controller code.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="newton-barneynewton-init-page"><p>This method is used to initialize the Newton module. It requires 3 parameters:</p>
+<ul>
+<li><strong>enabled</strong>: enable or disable the module (default: true)</li>
+<li><strong>verbose</strong>: logs all the works done by the module (default: false)</li>
+<li><strong>logger</strong>: object that logs (i.e: window.console, BarneyLogger, ...) (default: null)</li>
+</ul>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-init-page"><p>(see attributes below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>enabled</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="newton-barneynewton-init-page"><ul>
+<li><strong>true</strong>: enable the module</li>
+<li><strong>false</strong>: disable the module</li>
+</ul>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>verbose</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="newton-barneynewton-init-page"><ul>
+<li><strong>true</strong>: log all the work</li>
+<li><strong>false</strong>: do nothing</li>
+</ul>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>logger</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-init-page"><p>Object used to log (i.e: window.console, BarneyLogger, ...)</p>
+</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="newton-barneynewton-init-page"><h5 id="methods_init_example_logger">Logger</h5>
+<p>Logger with window.console
+<pre class="prettyprint linenums">
+  Newton.init({
+     enabled: true,
+     verbose: true,
+     logger: BarneyLogger
+ });
+</pre>
+<p>Logger with BarneyLogger
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyNewton', 'BarneyLogger', '$scope',
+    function(Newton, Logger, $scope){
+  
+        Logger.init({ enabled: true });
+         
+        Newton.init({
+            enabled: true,
+            verbose: true,
+            logger: Logger
+        });
+  
+    }
+]);
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_trackevent">trackEvent(event, options)</h3>
+<div class="trackevent"><div class="newton-barneynewton-trackevent-page"><p>This method is used to track events.</p>
+</div><h5 id="methods_trackevent_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>event</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-barneynewton-trackevent-page"><p>Generated event</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-trackevent-page"><p>Event params (i.e: event name, ...)</p>
+</div></td></tr></tbody></table><h4 id="methods_trackevent_example">Example</h4>
+<div class="example"><div class="newton-barneynewton-trackevent-page"><h5 id="methods_trackevent_example_newton-trackevent">Newton trackEvent</h5>
+<p>Here is an example of the trackEvent method.
+<pre class="prettyprint linenums">
+
+  Newton.trackEvent('Click', {
+     title: 'generated_event'
+ });
+
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_trackpage">trackPage(options)</h3>
+<div class="trackpage"><div class="newton-barneynewton-trackpage-page"><p>This method is used to track the visited page.</p>
+</div><h5 id="methods_trackpage_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-trackpage-page"><p>Page details (i.e: title page, URL, ...)</p>
+</div></td></tr></tbody></table><h4 id="methods_trackpage_example">Example</h4>
+<div class="example"><div class="newton-barneynewton-trackpage-page"><h5 id="methods_trackpage_example_newton-trackpage">Newton trackPage</h5>
+<p>Here is an example of the trackPage method.
+<pre class="prettyprint linenums">
+
+  Newton.trackPage({
+     title: 'page_pitle',
+     URL: 'http://page_url'
+ });
+
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
