@@ -1,6 +1,6 @@
 /**
  * @ngdoc object
- * @name barney.history.BarneyHistory
+ * @name history.BarneyHistory
  *
  * @description
  * Use History service
@@ -28,8 +28,8 @@ angular.module('barney.history').factory('BarneyHistory',
             
             /**
              * @ngdoc function
-             * @name barney.history.BarneyHistory#init
-             * @methodOf barney.history.BarneyHistory
+             * @name history.BarneyHistory#init
+             * @methodOf history.BarneyHistory
              *
              * @description 
              * This method is used to initialize the History module.
@@ -55,8 +55,8 @@ angular.module('barney.history').factory('BarneyHistory',
 
             /**
              * @ngdoc function
-             * @name barney.history.BarneyHistory#get
-             * @methodOf barney.history.BarneyHistory
+             * @name history.BarneyHistory#get
+             * @methodOf history.BarneyHistory
              *
              * @description 
              * This method is used to get the URL of the last visited page.
@@ -78,8 +78,8 @@ angular.module('barney.history').factory('BarneyHistory',
 
             /**
              * @ngdoc function
-             * @name barney.history.BarneyHistory#goBack
-             * @methodOf barney.history.BarneyHistory
+             * @name history.BarneyHistory#goBack
+             * @methodOf history.BarneyHistory
              *
              * @description 
              * This method is used to go back to the last visited page.

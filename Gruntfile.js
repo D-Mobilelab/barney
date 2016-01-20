@@ -76,7 +76,8 @@ module.exports = function (grunt) {
             },
             doc:{
                 files:[
-                    '<%= modulesPath %>/**/*.js'
+                    '<%= modulesPath %>/**/*.js',
+                    'docindex.js'
                 ],
                 tasks: ['clean:doc', 'ngdocs'],
                 options:{
@@ -102,10 +103,10 @@ module.exports = function (grunt) {
                 dest: '<%= docPath %>',
                 html5Mode: false,
                 title: 'Barney',
-                startPage: '/api/'
+                startPage: '/api/welcome'
             },
             api: {
-                src: ['<%= modulesPath %>/**/*.js'],
+                src: ['docindex.js', '<%= modulesPath %>/**/*.js'],
                 title: 'API Reference'
             }
         },

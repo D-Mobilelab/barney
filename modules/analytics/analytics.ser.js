@@ -1,11 +1,12 @@
 /**
  * @ngdoc object
- * @name barney.analytics.BarneyAnalytics
+ * @name analytics.BarneyAnalytics
  *
  * @description
- * Track page and event, set custom dimensions and set id
+ * Track pageview and event, set custom dimensions and id
  *
- * To use Analytics service, you have to add BarneyAnalytics dependency to your component (directive, controller...).
+ * To use Analytics service, you have to add BarneyAnalytics 
+ * dependency to your component (directive, controller...).
  * In this example, I have added dependency of BarneyAnalytics to a controller:
  * <pre>
  * angular.module('mock').controller('HomePageController', [
@@ -15,7 +16,8 @@
  *     }
  * ]);
  * </pre>
- * Note that I included BarneyAnalytics as dependency but I have renamed it as Analytics to use it more easily in controller code.
+ * Note that I included BarneyAnalytics as dependency but I have renamed it as Analytics 
+ * to use it more easily in controller code.
  */
 
 angular.module('barney.analytics').factory('BarneyAnalytics', [
@@ -32,8 +34,8 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 
         /**
          * @ngdoc function
-         * @name barney.analytics.BarneyAnalytics#init
-         * @methodOf barney.analytics.BarneyAnalytics
+         * @name analytics.BarneyAnalytics#init
+         * @methodOf analytics.BarneyAnalytics
          *
          * @description Init analytics service
          *
@@ -41,7 +43,8 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
          * @param {boolean} [options.enabled=true] enable/disable tracking on Google Analytics
          * @param {boolean} [options.verbose=false] enable/disable verbose mode, with logging
          * @param {Object} [options.logger=Object()] logging methods to use for verbose mode (see example below)
-         * @param {Object} [options.dimensions=Object()] list of custom dimensions that will be used in the app (see example below)
+         * @param {Object} [options.dimensions=Object()] list of custom dimensions 
+         * that will be used in the app, where
          
          * - *key*: custom dimension name
          * - *value*: slot id
@@ -81,13 +84,17 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
          * </pre>
          *
          * # Custom Dimensions
-         * In analytics initialization phase, you have to define all custom dimensions that you will use in application.
+         * In analytics initialization phase, you have to define all custom dimensions 
+         * that you will use in application.
          *
-         * ***Init method doesn't set custom dimension on Google Analytics, it only saves custom dimension for future use (for example in event tracking).***
+         * ***Init method doesn't set custom dimension on Google Analytics, it only saves 
+         * custom dimension for future use (for example in event tracking).***
          *
-         * You have to pass a pair (custom dimension name, slot id), where slot id is the slot of custom dimension assigned from Google Analytics before.
+         * You have to pass a pair (custom dimension name, slot id), where slot id is the slot 
+         * of the custom dimension assigned from Google Analytics before.
          *
-         * In this example, I set two custom dimensions ("UserStatus" with slot number 1 and "Valuable" with slot number 5):
+         * In this example, I set two custom dimensions ("UserStatus" with slot number 1 
+         * and "Valuable" with slot number 5):
          * <pre>
          * Analytics.init({
          *     dimensions: {
@@ -120,8 +127,8 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 
         /**
          * @ngdoc function
-         * @name barney.analytics.BarneyAnalytics#setId
-         * @methodOf barney.analytics.BarneyAnalytics
+         * @name analytics.BarneyAnalytics#setId
+         * @methodOf analytics.BarneyAnalytics
          *
          * @description Set analytics user id
          *
@@ -141,20 +148,22 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 
         /**
          * @ngdoc function
-         * @name barney.analytics.BarneyAnalytics#setDimension
-         * @methodOf barney.analytics.BarneyAnalytics
+         * @name analytics.BarneyAnalytics#setDimension
+         * @methodOf analytics.BarneyAnalytics
          *
          * @description 
          * Set a user/session (not hit) custom dimension.
          *
-         * @param {Object} dimensions 
+         * @param {Array[Object]} dimensions where:
          * - *key*: custom dimension name
          * - *value*: custom dimension value
          *
          * @example
-         * **The custom dimension has to be defined in init method before** and, after, you have to use same custom dimension name.
+         * **The custom dimension has to be defined in init method before** 
+         * and, after, you have to use same custom dimension name.
          *
-         * For example, in the following code, I set *UserStatus* on slot number 1 and I assigned value *logged*:
+         * For example, in the following code, I set *UserStatus* on slot number 1 and 
+         * I assigned it value *logged*:
          * <pre>
          * // before, I save UserStatus custom dimension with slot "1"
          * Analytics.init({
@@ -189,16 +198,15 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 
         /**
          * @ngdoc function
-         * @name barney.analytics.BarneyAnalytics#trackPage
-         * @methodOf barney.analytics.BarneyAnalytics
+         * @name analytics.BarneyAnalytics#trackPage
+         * @methodOf analytics.BarneyAnalytics
          *
          * @description To track a pageview
          *
          * @param {object} options (see attributes below)
-         *
          * @param {string} options.page event page (e.g. '/category/7888')
          * @param {string} options.title event page title (e.g. 'Home Page')
-         * @param {Object} options.dimensions 
+         * @param {Array[Object]} options.dimensions where:
          * - *key*: custom dimension name
          * - *value*: custom dimension value
          */
@@ -233,8 +241,8 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
 
         /**
          * @ngdoc function
-         * @name barney.analytics.BarneyAnalytics#trackEvent
-         * @methodOf barney.analytics.BarneyAnalytics
+         * @name analytics.BarneyAnalytics#trackEvent
+         * @methodOf analytics.BarneyAnalytics
          *
          * @description Track an event
          *
@@ -243,7 +251,7 @@ angular.module('barney.analytics').factory('BarneyAnalytics', [
          * @param {string} options.action event action
          * @param {string} options.label event label
          * @param {integer} options.value event value
-         * @param {Object} options.dimensions 
+         * @param {Array[Object]} options.dimensions 
          * - *key*: custom dimension name
          * - *value*: custom dimension value
          *

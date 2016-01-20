@@ -1,9 +1,14 @@
 /**
  * @ngdoc overview
- * @name barney.config
+ * @name config
  *
  * @description
- * Config is the Barney module used to get variables or specific environment settings. It read a JSON object where all environment variables and settings are stored.
+ * Config is the Barney module used to get variables or specific environment settings. It reads a JSON object where all environment variables and settings are stored.
+ * 
+ * You can use it:
+ *
+ * - as a provider
+ * - as a filter
  * 
  * # Import module
  * To import Config module, include barney.config module to your web application module (usually in app.js file)
@@ -14,8 +19,7 @@
  * </pre>
  *
  * # Init module
- * In order to use Config module you have to define an object with free keys and pass it 
- * to the {@link barney.config.BarneyConfig#methods_init init} method.
+ * In order to use Config module you have to use {@link config.BarneyConfig#methods_init init} method.
  *  
  *  @example
  *  Here is an example of how the Config object must be: 

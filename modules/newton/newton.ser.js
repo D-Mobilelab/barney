@@ -1,6 +1,6 @@
 /**
  * @ngdoc object
- * @name barney.newton.BarneyNewton
+ * @name newton.BarneyNewton
  *
  * @description
  * Use Newton service
@@ -31,8 +31,8 @@ angular.module('barney.newton').factory('BarneyNewton', function(){
 
      /**
      * @ngdoc function
-     * @name barney.newton.BarneyNewton#init
-     * @methodOf barney.newton.BarneyNewton
+     * @name newton.BarneyNewton#init
+     * @methodOf newton.BarneyNewton
      *
      * @description 
      * This method is used to initialize the Newton module. It requires 3 parameters:
@@ -91,8 +91,8 @@ angular.module('barney.newton').factory('BarneyNewton', function(){
 
     /**
      * @ngdoc function
-     * @name barney.newton.BarneyNewton#trackPage
-     * @methodOf barney.newton.BarneyNewton
+     * @name newton.BarneyNewton#trackPage
+     * @methodOf newton.BarneyNewton
      *
      * @description 
      * This method is used to track the visited page.
@@ -124,8 +124,8 @@ angular.module('barney.newton').factory('BarneyNewton', function(){
 
     /**
      * @ngdoc function
-     * @name barney.newton.BarneyNewton#trackEvent
-     * @methodOf barney.newton.BarneyNewton
+     * @name newton.BarneyNewton#trackEvent
+     * @methodOf newton.BarneyNewton
      *
      * @description 
      * This method is used to track events.

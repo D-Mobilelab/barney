@@ -1,6 +1,6 @@
 /**
  * @ngdoc overview
- * @name barney.storage
+ * @name storage
  *
  *
  * @description
@@ -21,6 +21,6 @@
  * 
  * # Init Storage
  * Before using Storage module, it must be initialized. 
- * To initialize Storage you can use the Storage method {@link barney.storage.BarneyStorage#methods_init init}.
+ * To initialize Storage you can use the Storage method {@link storage.BarneyStorage#methods_init init}.
  */
 angular.module('barney.storage', ['barney.storage.subset']);

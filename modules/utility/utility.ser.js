@@ -1,6 +1,6 @@
 /**
  * @ngdoc object
- * @name barney.utility.BarneyUtility
+ * @name utility.BarneyUtility
  *
  * @description
  * Use Utility service
@@ -24,8 +24,8 @@ angular.module('barney.utility').factory('BarneyUtility',
 
         /**
          * @ngdoc function
-         * @name barney.utility.BarneyUtility#getCurrentQueryString
-         * @methodOf barney.utility.BarneyUtility
+         * @name utility.BarneyUtility#getCurrentQueryString
+         * @methodOf utility.BarneyUtility
          *
          * @description 
          * This method return the query string from the URL, before and after the hashbang (#!).
@@ -74,8 +74,8 @@ angular.module('barney.utility').factory('BarneyUtility',
 
         /**
          * @ngdoc function
-         * @name barney.utility.BarneyUtility#addQueryParams
-         * @methodOf barney.utility.BarneyUtility
+         * @name utility.BarneyUtility#addQueryParams
+         * @methodOf utility.BarneyUtility
          *
          * @description 
          * This method add one or more query string params to the 
@@ -178,8 +178,8 @@ angular.module('barney.utility').factory('BarneyUtility',
 
         /**
          * @ngdoc function
-         * @name barney.utility.BarneyUtility#arrayDiff
-         * @methodOf barney.utility.BarneyUtility
+         * @name utility.BarneyUtility#arrayDiff
+         * @methodOf utility.BarneyUtility
          *
          * @description 
          * This method removes from the first array the element of the second
@@ -210,8 +210,8 @@ angular.module('barney.utility').factory('BarneyUtility',
 
         /**
          * @ngdoc function
-         * @name barney.utility.BarneyUtility#brutalRedirect
-         * @methodOf barney.utility.BarneyUtility
+         * @name utility.BarneyUtility#brutalRedirect
+         * @methodOf utility.BarneyUtility
          *
          * @description 
          * This method does a brutal redirect to the given URL.
@@ -243,8 +243,8 @@ angular.module('barney.utility').factory('BarneyUtility',
 
         /**
          * @ngdoc function
-         * @name barney.utility.BarneyUtility#clickAndGo
-         * @methodOf barney.utility.BarneyUtility
+         * @name utility.BarneyUtility#clickAndGo
+         * @methodOf utility.BarneyUtility
          *
          * @description 
          * This function makes sure that a link is followed by the browser

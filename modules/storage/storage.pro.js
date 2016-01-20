@@ -1,6 +1,6 @@
 /**
  * @ngdoc object
- * @name barney.storage.BarneyStorage
+ * @name storage.BarneyStorage
  *
  * @description
  * Use Storage service
@@ -41,8 +41,8 @@ angular.module('barney.storage').provider('BarneyStorage',
 
             /**
              * @ngdoc function
-             * @name barney.storage.BarneyStorage#init
-             * @methodOf barney.storage.BarneyStorage
+             * @name storage.BarneyStorage#init
+             * @methodOf storage.BarneyStorage
              *
              * @description 
              * This method is used to initialize the Storage module.
@@ -93,8 +93,8 @@ angular.module('barney.storage').provider('BarneyStorage',
 
             /**
              * @ngdoc function
-             * @name barney.storage.BarneyStorage#set
-             * @methodOf barney.storage.BarneyStorage
+             * @name storage.BarneyStorage#set
+             * @methodOf storage.BarneyStorage
              *
              * @description 
              * This method is used to set a value in the Storage.
@@ -132,8 +132,8 @@ angular.module('barney.storage').provider('BarneyStorage',
 
             /**
              * @ngdoc function
-             * @name barney.storage.BarneyStorage#get
-             * @methodOf barney.storage.BarneyStorage
+             * @name storage.BarneyStorage#get
+             * @methodOf storage.BarneyStorage
              *
              * @description 
              * This method is used to get a setted value in the Storage.
@@ -172,8 +172,8 @@ angular.module('barney.storage').provider('BarneyStorage',
 
             /**
              * @ngdoc function
-             * @name barney.storage.BarneyStorage#getMultiple
-             * @methodOf barney.storage.BarneyStorage
+             * @name storage.BarneyStorage#getMultiple
+             * @methodOf storage.BarneyStorage
              *
              * @description 
              * This method is used to get multiple values in the Storage.
@@ -210,8 +210,8 @@ angular.module('barney.storage').provider('BarneyStorage',
 
             /**
              * @ngdoc function
-             * @name barney.storage.BarneyStorage#setMultiple
-             * @methodOf barney.storage.BarneyStorage
+             * @name storage.BarneyStorage#setMultiple
+             * @methodOf storage.BarneyStorage
              *
              * @description 
              * This method is used to set multiple values in the Storage.
@@ -245,8 +245,8 @@ angular.module('barney.storage').provider('BarneyStorage',
 
             /**
              * @ngdoc function
-             * @name barney.storage.BarneyStorage#delete
-             * @methodOf barney.storage.BarneyStorage
+             * @name storage.BarneyStorage#delete
+             * @methodOf storage.BarneyStorage
              *
              * @description 
              * This method is used to delete a stored value in the default Storage.
@@ -283,8 +283,8 @@ angular.module('barney.storage').provider('BarneyStorage',
 
             /**
              * @ngdoc function
-             * @name barney.storage.BarneyStorage#isLocalStorageSupported
-             * @methodOf barney.storage.BarneyStorage
+             * @name storage.BarneyStorage#isLocalStorageSupported
+             * @methodOf storage.BarneyStorage
              *
              * @description 
              * This method is used to know if local storage is supported.

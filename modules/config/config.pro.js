@@ -1,6 +1,6 @@
 /**
  * @ngdoc object
- * @name barney.config.BarneyConfig
+ * @name config.BarneyConfig
  *
  * @description
  * Use Config service
@@ -22,8 +22,8 @@ angular.module('barney.config').provider('BarneyConfig', function(){
     var myProvider = {
              /**
              * @ngdoc function
-             * @name barney.config.BarneyConfig#init
-             * @methodOf barney.config.BarneyConfig
+             * @name config.BarneyConfig#init
+             * @methodOf config.BarneyConfig
              *
              * @description 
              * This method requires an object that contains all your keys and their values
@@ -57,8 +57,8 @@ angular.module('barney.config').provider('BarneyConfig', function(){
 
         /**
          * @ngdoc function
-         * @name barney.config.BarneyConfig#get
-         * @methodOf barney.config.BarneyConfig
+         * @name config.BarneyConfig#get
+         * @methodOf config.BarneyConfig
          *
          * @description 
          * This method is used to get the value of a specific key in the CONFIG object;
@@ -85,8 +85,8 @@ angular.module('barney.config').provider('BarneyConfig', function(){
 
         /**
          * @ngdoc function
-         * @name barney.config.BarneyConfig#list
-         * @methodOf barney.config.BarneyConfig
+         * @name config.BarneyConfig#list
+         * @methodOf config.BarneyConfig
          *
          * @description 
          * This method return the CONFIG object list.

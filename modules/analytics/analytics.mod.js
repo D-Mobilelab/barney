@@ -1,6 +1,6 @@
 /**
  * @ngdoc overview
- * @name barney.analytics
+ * @name analytics
  *
  * @description
  * Analytics is the module of Barney for Google Analytics.
@@ -22,6 +22,6 @@
  * 
  * # Init Analytics
  * Before using Analytics module, it must be initialized. 
- * To initialize Analytics you can use the Analytics method {@link barney.analytics.BarneyAnalytics#methods_init init}.
+ * To initialize Analytics you can use the Analytics method {@link analytics.BarneyAnalytics#methods_init init}.
  */
  angular.module('barney.analytics', []);

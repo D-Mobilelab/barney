@@ -1,11 +1,11 @@
 /**
  * @ngdoc overview
- * @name barney.callbacky
+ * @name callbacky
  *
  *
  * @description
  * Callbacky is the module of Barney that allow you 
- * to bind and trigger function from different points in your code (i.e: controllers, services, ...).
+ * to bind and trigger a function from different points in your code (i.e: controllers, services, ...).
  * 
  * # Import module
  * To import Callbacky module, include barney.callbacky to 
@@ -18,6 +18,6 @@
  * 
  * # Init Callbacky
  * Before using Callbacky module, it must be initialized. 
- * To initialize Callbacky you can use the Callbacky method {@link barney.callbacky.BarneyCallbacky#methods_init init}.
+ * To initialize Callbacky you can use the Callbacky method {@link callbacky.BarneyCallbacky#methods_init init}.
  */
 angular.module('barney.callbacky', []);

@@ -1,6 +1,6 @@
 /**
  * @ngdoc overview
- * @name barney.utility
+ * @name utility
  *
  *
  * @description

@@ -1,6 +1,6 @@
 /**
  * @ngdoc object
- * @name barney.meta.BarneyMeta
+ * @name meta.BarneyMeta
  *
  * @description
  * Meta is the module of Barney to fill meta tags dinamically.
@@ -29,8 +29,8 @@ angular.module('barney.meta').factory('BarneyMeta', [
 
         /**
          * @ngdoc function
-         * @name barney.meta.BarneyMeta#init
-         * @methodOf barney.meta.BarneyMeta
+         * @name meta.BarneyMeta#init
+         * @methodOf meta.BarneyMeta
          *
          * @description 
          * **It's recommended to inizialize it in the app module run**.
@@ -68,8 +68,8 @@ angular.module('barney.meta').factory('BarneyMeta', [
 
         /**
          * @ngdoc function
-         * @name barney.meta.BarneyMeta#get
-         * @methodOf barney.meta.BarneyMeta
+         * @name meta.BarneyMeta#get
+         * @methodOf meta.BarneyMeta
          *
          * @description 
          * To print a single current key, you can use Meta.get() method, passing key name.
@@ -98,8 +98,8 @@ angular.module('barney.meta').factory('BarneyMeta', [
 
         /**
          * @ngdoc function
-         * @name barney.meta.BarneyMeta#set
-         * @methodOf barney.meta.BarneyMeta
+         * @name meta.BarneyMeta#set
+         * @methodOf meta.BarneyMeta
          *
          * @description 
          * To set one or more current keys, you can use Meta.set() method, passing an object with keys and their values.
@@ -128,8 +128,8 @@ angular.module('barney.meta').factory('BarneyMeta', [
 
         /**
          * @ngdoc function
-         * @name barney.meta.BarneyMeta#list
-         * @methodOf barney.meta.BarneyMeta
+         * @name meta.BarneyMeta#list
+         * @methodOf meta.BarneyMeta
          *
          * @description 
          * To print a list of all current keys, you can use Meta.list() method.
@@ -152,8 +152,8 @@ angular.module('barney.meta').factory('BarneyMeta', [
 
         /**
          * @ngdoc function
-         * @name barney.meta.BarneyMeta#default
-         * @methodOf barney.meta.BarneyMeta
+         * @name meta.BarneyMeta#default
+         * @methodOf meta.BarneyMeta
          *
          * @description 
          * To print a list of all standard keys, passed to init method, you can use Meta.defaults() method.
@@ -176,8 +176,8 @@ angular.module('barney.meta').factory('BarneyMeta', [
 
          /**
          * @ngdoc function
-         * @name barney.meta.BarneyMeta#revert
-         * @methodOf barney.meta.BarneyMeta
+         * @name meta.BarneyMeta#revert
+         * @methodOf meta.BarneyMeta
          *
          * @description 
          * Restore the previous default values (setted with init)

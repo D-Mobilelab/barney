@@ -1,6 +1,6 @@
 /**
  * @ngdoc object
- * @name barney.dict.BarneyDict
+ * @name dict.BarneyDict
  *
  * @description
  * Use dictionary service
@@ -29,8 +29,8 @@ angular.module('barney.dict').provider('BarneyDict', [
 
              /**
              * @ngdoc function
-             * @name barney.dict.BarneyDict#init
-             * @methodOf barney.dict.BarneyDict
+             * @name dict.BarneyDict#init
+             * @methodOf dict.BarneyDict
              *
              * @description 
              * Init dict service
@@ -113,8 +113,8 @@ angular.module('barney.dict').provider('BarneyDict', [
 
             /**
              * @ngdoc function
-             * @name barney.dict.BarneyDict#get
-             * @methodOf barney.dict.BarneyDict
+             * @name dict.BarneyDict#get
+             * @methodOf dict.BarneyDict
              *
              * @description Get value from dictionary key
              *
@@ -171,8 +171,8 @@ angular.module('barney.dict').provider('BarneyDict', [
             },
             /**
              * @ngdoc function
-             * @name barney.dict.BarneyDict#list
-             * @methodOf barney.dict.BarneyDict
+             * @name dict.BarneyDict#list
+             * @methodOf dict.BarneyDict
              *
              * @description Get dictionary object
              *
