@@ -5,210 +5,201 @@ NG_DOCS={
   "pages": [
     {
       "section": "api",
-      "id": "barney.analytics",
-      "shortName": "barney.analytics",
+      "id": "analytics",
+      "shortName": "analytics",
       "type": "overview",
-      "moduleName": "barney.analytics",
+      "moduleName": "analytics",
       "shortDescription": "Analytics is the module of Barney for Google Analytics.",
       "keywords": "analytics angular api app application barney barneyanalytics custom dimension event file google import include init initialize initialized js method methods_init module overview session set track user web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.analytics.BarneyAnalytics",
-      "shortName": "barney.analytics.BarneyAnalytics",
+      "id": "analytics.BarneyAnalytics",
+      "shortName": "analytics.BarneyAnalytics",
       "type": "object",
-      "moduleName": "barney.analytics",
-      "shortDescription": "Track page and event, set custom dimensions and set id",
-      "keywords": "$scope $window action add analytics angular api app application assigned attributes barney barneyanalytics barneylogger category code component console controller custom define defined dependency dimension dimensions doesn easily enable enabled event example function future google hit homepagecontroller included init initialization label list logged logger logging menu method methods mock mode module note number object open options pageview pair pass phase renamed save saves service set setdimension setid slot title track trackevent tracking trackpage true ui user userstatus valuable verbose window"
+      "moduleName": "analytics",
+      "shortDescription": "Track pageview and event, set custom dimensions and id",
+      "keywords": "$scope $window action add analytics angular api app application assigned attributes barneyanalytics barneylogger category code component console controller custom define defined dependency dimension dimensions doesn easily enable enabled event example function future google hit homepagecontroller included init initialization label list logged logger logging menu method methods mock mode module note number object open options pageview pair pass phase renamed save saves service set setdimension setid slot title track trackevent tracking trackpage true ui user userstatus valuable verbose window"
     },
     {
       "section": "api",
-      "id": "barney.callbacky",
-      "shortName": "barney.callbacky",
+      "id": "callbacky",
+      "shortName": "callbacky",
       "type": "overview",
-      "moduleName": "barney.callbacky",
+      "moduleName": "callbacky",
       "shortDescription": "Callbacky is the module of Barney that allow you ",
       "keywords": "allow angular api app application barney barneycallbacky bind callbacky code controllers file function import include init initialize initialized js method methods_init module overview points services trigger web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.callbacky.BarneyCallbacky",
-      "shortName": "barney.callbacky.BarneyCallbacky",
+      "id": "callbacky.BarneyCallbacky",
+      "shortName": "callbacky.BarneyCallbacky",
       "type": "object",
-      "moduleName": "barney.callbacky",
-      "shortDescription": "Use Callbacky service",
-      "keywords": "$scope add angular api arg arguments attributes barney barneycallbacky barneylogger bind bound call callbacky called clean code component config console controller corresponding dependency directive docs easily event example false function hello homepagecontroller identify included init initialize instruction key log logger logs method methods_bind mock module note object options relative remove renamed requires service string trigger triggered true unique values verbose window work world"
+      "moduleName": "callbacky",
+      "shortDescription": "To use Callbacky service, you have to add BarneyCallbacky dependency ",
+      "keywords": "$scope add angular api arg arguments attributes barneycallbacky barneylogger bind bound call callbacky called clean code component console controller corresponding dependency directive easily event example file function hello homepagecontroller identify included init initialize instruction key log logger logs method mock module note object options pass relative remove renamed requires saved second service set string trigger triggered unique values verbose window work world"
     },
     {
       "section": "api",
-      "id": "barney.config",
-      "shortName": "barney.config",
+      "id": "config",
+      "shortName": "config",
       "type": "overview",
-      "moduleName": "barney.config",
-      "shortDescription": "Config is the Barney module used to get variables or specific environment settings. It read a JSON object where all environment variables and settings are stored.",
-      "keywords": "angular api app application barney barneyconfig config define enable_login environment example false file free import include init js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string method methods_init module newton_secret_key null object order overview pass read settings specific stored true var variables web yourapplicationmodule"
+      "moduleName": "config",
+      "shortDescription": "Config is the Barney module used to get environment variables. ",
+      "keywords": "angular api app application barney barneyconfig config enable_login environment example false file filter import include init js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string method methods_init module newton_secret_key null object order overview provider reads stored true var variables web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.config.BarneyConfig",
-      "shortName": "barney.config.BarneyConfig",
+      "id": "config.BarneyConfig",
+      "shortName": "config.BarneyConfig",
       "type": "object",
-      "moduleName": "barney.config",
-      "shortDescription": "Use Config service",
-      "keywords": "$scope add angular api barney barneyconfig barneyconifg code component config config_key conifg console controller dependency easily enable_login example false function homepagecontroller included init initialize key key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string list log method mock module newton_secret_key note null object options renamed requires return service specific true values"
+      "moduleName": "config",
+      "shortDescription": "To use Config service, you have to add BarneyConfig dependency to your component (directive, controller...).",
+      "keywords": "$scope add angular api barneyconfig barneyconifg code component config configuration conifg controller dependency easily enable_login example false function homepagecontroller included init initialize key key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string list method mock module newton_secret_key note null object options renamed requires return service specific true values"
     },
     {
       "section": "api",
-      "id": "barney.config.filter:config",
+      "id": "config.filter:config",
       "shortName": "config",
       "type": "filter",
-      "moduleName": "barney.config",
+      "moduleName": "config",
       "shortDescription": "You can get a config value also using a custom config filter",
-      "keywords": "api barney config custom enable_login filter"
+      "keywords": "api config custom enable_login filter"
     },
     {
       "section": "api",
-      "id": "barney.dict",
-      "shortName": "barney.dict",
+      "id": "dict",
+      "shortName": "dict",
       "type": "overview",
-      "moduleName": "barney.dict",
+      "moduleName": "dict",
       "shortDescription": "Dict is the module of Barney to show dictionary keys.",
       "keywords": "angular api app application barney barneydict dict dictionary directive file filter import include init initialize initialized js method methods_init module overview provider web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.dict.BarneyDict",
-      "shortName": "barney.dict.BarneyDict",
+      "id": "dict.BarneyDict",
+      "shortName": "dict.BarneyDict",
       "type": "object",
-      "moduleName": "barney.dict",
-      "shortDescription": "Use dictionary service",
-      "keywords": "$scope $window add angular api attributes barney barneydict code component console controller default dependency dict dictionary easily example existkey function hello homepagecontroller included init key list log method missing mock module note notexistkey object options prints provider renamed service showkey undefined valued valued_key"
+      "moduleName": "dict",
+      "shortDescription": "To use Dict provider, you have to add BarneyDict dependency to your component (directive, controller...).",
+      "keywords": "$scope $window add angular api attributes barneydict code component console controller default dependency dict dictionary easily example existkey function hello homepagecontroller included init key list log method missing mock module note notexistkey object options prints provider renamed service showkey undefined valued valued_key"
     },
     {
       "section": "api",
-      "id": "barney.dict.directive:dict",
+      "id": "dict.directive:dict",
       "shortName": "dict",
       "type": "directive",
-      "moduleName": "barney.dict",
+      "moduleName": "dict",
       "shortDescription": "To use BarneyDict as a directive you can use it in your template files (html).",
-      "keywords": "api barney barneydict case code dict dictionary directive files html key print prints template valued_key"
+      "keywords": "api barneydict code dict dictionary directive files hello html key print prints template valued_key"
     },
     {
       "section": "api",
-      "id": "barney.dict.filter:dict",
+      "id": "dict.filter:dict",
       "shortName": "dict",
       "type": "filter",
-      "moduleName": "barney.dict",
-      "shortDescription": "BarneyDict as a filter is useful if:",
-      "keywords": "api attribute barney barneydict case code dict dictionary doesn examples filter html key print tag template text type valued_key"
+      "moduleName": "dict",
+      "shortDescription": "With BarneyDict you can print the value of a dictionary key but it hasn&#39;t to contain html code.",
+      "keywords": "api attribute barneydict case code dict dictionary directive filter hasn html key print tag template text type valued_key"
     },
     {
       "section": "api",
-      "id": "barney.history",
-      "shortName": "barney.history",
+      "id": "history",
+      "shortName": "history",
       "type": "overview",
-      "moduleName": "barney.history",
-      "shortDescription": "History is the module of Barney that provide you a simply history.",
-      "keywords": "angular api app application barney barneyhistory file history import include init initialize initialized js method methods_init module overview provide simply web yourapplicationmodule"
+      "moduleName": "history",
+      "shortDescription": "History is the module of Barney that provide you some methods about browser history.",
+      "keywords": "angular api app application barney barneyhistory browser file history import include init initialize initialized js method methods methods_init module overview provide web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.history.BarneyHistory",
-      "shortName": "barney.history.BarneyHistory",
+      "id": "history.BarneyHistory",
+      "shortName": "history.BarneyHistory",
       "type": "object",
-      "moduleName": "barney.history",
+      "moduleName": "history",
       "shortDescription": "Use History service",
-      "keywords": "$scope add angular api barney barneyhistory code component console controller dependency directive easily example function goback history homepagecontroller included init initialize log method mock module note object renamed service url visited"
+      "keywords": "$scope add angular api barneyhistory called code component console controller dependency directive easily example function goback history homepagecontroller included init log method methods mock module note object renamed saved service url visited"
     },
     {
       "section": "api",
-      "id": "barney.meta",
-      "shortName": "barney.meta",
+      "id": "meta",
+      "shortName": "meta",
       "type": "overview",
-      "moduleName": "barney.meta",
+      "moduleName": "meta",
       "shortDescription": "Meta is the module of Barney to fill meta tags dinamically.",
-      "keywords": "angular api app application barney barneymeta component description dinamically file fill free function image import include init initialized inizialize jpg js manage meta metatags method methods_init mock module object overview pass product recommended standard standard-image tags title web yourapplicationmodule"
+      "keywords": "angular api app application barney barneymeta dinamically file fill import include init initialize initialized js manage meta metatags method methods_init module overview tags web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.meta.BarneyMeta",
-      "shortName": "barney.meta.BarneyMeta",
+      "id": "meta.BarneyMeta",
+      "shortName": "meta.BarneyMeta",
       "type": "object",
-      "moduleName": "barney.meta",
+      "moduleName": "meta",
       "shortDescription": "Meta is the module of Barney to fill meta tags dinamically.",
-      "keywords": "$scope add angular api app barney barneymeta code component console controller current default defaults dependency description dinamically easily example fill function homepagecontroller image include included init inizialize jpg key key2 list log manage meta metatags method mock module note object pass passed passing previous print product recommended renamed restore revert service set single standard standard-image tags title value1 value2 values"
+      "keywords": "$scope add angular api app barney barneymeta code component console controller current default defaults dependency description dinamically easily event example fill function homepagecontroller image include included init inizialize jpg key key2 list locationsuccess log manage meta metatags method mock module note object pass passed passing print product recommended renamed restore revert service set single standard standard-image tags title value1 value2 values"
     },
     {
       "section": "api",
-      "id": "barney.newton",
-      "shortName": "barney.newton",
+      "id": "newton",
+      "shortName": "newton",
       "type": "overview",
-      "moduleName": "barney.newton",
-      "shortDescription": "Newton is the module of Barney that allows you to track events and pages",
-      "keywords": "allows angular api app application barney barneynewton events file import include init initialize initialized js method methods_init module newton overview track web yourapplicationmodule"
+      "moduleName": "newton",
+      "shortDescription": "Newton is the module of Barney that allows you to track events and pages with Newton library",
+      "keywords": "allows angular api app application barney barneynewton events file import include init initialize initialized js library method methods_init module newton overview track web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.newton.BarneyNewton",
-      "shortName": "barney.newton.BarneyNewton",
+      "id": "newton.BarneyNewton",
+      "shortName": "newton.BarneyNewton",
       "type": "object",
-      "moduleName": "barney.newton",
-      "shortDescription": "Use Newton service",
-      "keywords": "$scope add angular api attributes barney barneylogger barneynewton click code component console controller dependency details directive disables easily enabled enables event events example false function generated generated_event homepagecontroller http included init initialize log logger logs method mock module newton note null object options page_pitle parameters params renamed requires service title track trackevent trackpage true url verbose visited window work works"
+      "moduleName": "newton",
+      "shortDescription": "To use Newton service, you have to add BarneyNewton dependency to your component (i.e: directive, controller...).",
+      "keywords": "$scope add angular api attributes barneylogger barneynewton click code component console controller dependency details directive disable easily enable enabled event events example false function generated generated_event homepagecontroller http included init initialize log logger logs method mock module newton note null object options page_pitle parameters params renamed requires service title track trackevent trackpage true url verbose visited window work works"
     },
     {
       "section": "api",
-      "id": "barney.stargate",
-      "shortName": "barney.stargate",
+      "id": "storage",
+      "shortName": "storage",
       "type": "overview",
-      "moduleName": "barney.stargate",
-      "shortDescription": "Stargate is the module of Barney used to communicate with Stargate.",
-      "keywords": "angular api app application barney coming communicate file import include js module overview stargate web yourapplicationmodule"
-    },
-    {
-      "section": "api",
-      "id": "barney.stargate.BarneyStargate",
-      "shortName": "barney.stargate.BarneyStargate",
-      "type": "object",
-      "moduleName": "barney.stargate",
-      "shortDescription": "Use Stargate service",
-      "keywords": "$scope add angular api barney barneystargate call callback code component configuration configurations controller dependency directive easily example examples fallback function google handshake homepagecontroller http included init initialize key method mock module note object onhandshake open openurl options params pasquale products public publickey reasons renamed security service stargate url window"
-    },
-    {
-      "section": "api",
-      "id": "barney.storage",
-      "shortName": "barney.storage",
-      "type": "overview",
-      "moduleName": "barney.storage",
+      "moduleName": "storage",
       "shortDescription": "Storage is the module of Barney used to set and get values from 3 different storage:",
       "keywords": "angular api app application barney barneystorage cookies file import include init initialize initialized js jsobject local method methods_init module overview set storage values web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.storage.BarneyStorage",
-      "shortName": "barney.storage.BarneyStorage",
+      "id": "storage.BarneyStorage",
+      "shortName": "storage.BarneyStorage",
       "type": "object",
-      "moduleName": "barney.storage",
-      "shortDescription": "Use Storage service",
-      "keywords": "$scope add alert angular api array attributes barney barneylogger barneystorage code component console controller cookie cookiemanager data default define defined delete deletes dependency directive easily example function getmultiple homepagecontroller identified identify included init initialize islocalstoragesupported jsobject key key1 key2 local log logger method mock module multiple note object options param params renamed save service set setmultiple sets setted storage store stored stores supported type values window"
+      "moduleName": "storage",
+      "shortDescription": "To use Storage service, you have to add BarneyStorage dependency to your component (i.e: directive, controller...).",
+      "keywords": "$scope add alert angular api array attributes barneylogger barneystorage browser called code component console controller cookie data default define defined delete deletes dependency directive easily example function getmultiple homepagecontroller identify included init initialize islocalstoragesupported jsobject key key1 key2 local localstorage log logger method mock module multiple note object options param params renamed save service set setmultiple sets storage store stored stores support supported type values window"
     },
     {
       "section": "api",
-      "id": "barney.utility",
-      "shortName": "barney.utility",
+      "id": "utility",
+      "shortName": "utility",
       "type": "overview",
-      "moduleName": "barney.utility",
+      "moduleName": "utility",
       "shortDescription": "Utility is the module of Barney used to provide commons utilities.",
       "keywords": "angular api app application barney commons file import include js module overview provide utilities utility web yourapplicationmodule"
     },
     {
       "section": "api",
-      "id": "barney.utility.BarneyUtility",
-      "shortName": "barney.utility.BarneyUtility",
+      "id": "utility.BarneyUtility",
+      "shortName": "utility.BarneyUtility",
       "type": "object",
-      "moduleName": "barney.utility",
+      "moduleName": "utility",
       "shortDescription": "Use Utility service",
-      "keywords": "$scope add addqueryparams angular api array array1 array2 arraydiff barney barneyutility browser brutal brutalredirect catch click clickandgo clicked code component controller current dependency directive easily element elements event example function getcurrentquerystring hashbang hello homepagecontroller http included ios item link method mock module myevent newparams newurl note object params query redirect remove removes renamed return second service string url user utility var world"
+      "keywords": "$scope add addqueryparams angular api array array1 array2 arraydiff barneyutility browser brutal brutalredirect catch clickandgo clicked clicks code component controller current dependency directive easily element elements event example function getcurrentquerystring hashbang hello homepagecontroller http included ios item link method mock module newparams newurl note object params query redirect remove removes renamed return returns second service string url user utility var world"
+    },
+    {
+      "section": "api",
+      "id": "welcome",
+      "shortName": "welcome",
+      "type": "overview",
+      "moduleName": "welcome",
+      "shortDescription": "Welcome to Barney!",
+      "keywords": "api barney click documentation left link menu overview"
     }
   ],
   "apis": {
@@ -216,7 +207,7 @@ NG_DOCS={
   },
   "html5Mode": false,
   "editExample": true,
-  "startPage": "/api/",
+  "startPage": "/api/welcome",
   "scripts": [
     "angular.min.js"
   ]

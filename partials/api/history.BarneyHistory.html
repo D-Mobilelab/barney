@@ -1,10 +1,10 @@
 <h1><code ng:non-bindable="">BarneyHistory</code>
-<div><span class="hint">service in module <code ng:non-bindable="">barney.history</code>
+<div><span class="hint">service in module <code ng:non-bindable="">history</code>
 </span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="barney-history-barneyhistory-page"><p>Use History service</p>
+<div class="description"><div class="history-barneyhistory-page"><p>Use History service</p>
 <p>To use History service, you have to add BarneyHistory dependency to your component (i.e: directive, controller...).</p>
 <p>In this example, I have added dependency of BarneyHistory to a controller:
 <pre class="prettyprint linenums">
@@ -19,9 +19,10 @@ Note that I included BarneyHistory as dependency but I have renamed it as Histor
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
 <ul class="methods"><li><h3 id="methods_get">get()</h3>
-<div class="get"><div class="barney-history-barneyhistory-get-page"><p>This method is used to get the URL of the last visited page.</p>
+<div class="get"><div class="history-barneyhistory-get-page"><p>This method is used to get the URL of the last visited page.</p>
+<p>To use this method, the init method must be called before.</p>
 </div><h4 id="methods_get_example">Example</h4>
-<div class="example"><div class="barney-history-barneyhistory-get-page"><h5 id="methods_get_example_history-get">History Get</h5>
+<div class="example"><div class="history-barneyhistory-get-page"><h5 id="methods_get_example_history-get">History Get</h5>
 <p>Here is an example of the get method.
 <pre class="prettyprint linenums">
 
@@ -32,9 +33,10 @@ Note that I included BarneyHistory as dependency but I have renamed it as Histor
 </div>
 </li>
 <li><h3 id="methods_goback">goBack()</h3>
-<div class="goback"><div class="barney-history-barneyhistory-goback-page"><p>This method is used to go back to the last visited page.</p>
+<div class="goback"><div class="history-barneyhistory-goback-page"><p>This method is used to go back to the last visited page.</p>
+<p>To use this method, the init method must be called before.</p>
 </div><h4 id="methods_goback_example">Example</h4>
-<div class="example"><div class="barney-history-barneyhistory-goback-page"><h5 id="methods_goback_example_history-goback">History goBack</h5>
+<div class="example"><div class="history-barneyhistory-goback-page"><h5 id="methods_goback_example_history-goback">History goBack</h5>
 <p>Here is an example of the goBack method.
 <pre class="prettyprint linenums">
 
@@ -45,14 +47,11 @@ Note that I included BarneyHistory as dependency but I have renamed it as Histor
 </div>
 </li>
 <li><h3 id="methods_init">init()</h3>
-<div class="init"><div class="barney-history-barneyhistory-init-page"><p>This method is used to initialize the History module.</p>
+<div class="init"><div class="history-barneyhistory-init-page"><p>When this method is called, the last visited page is saved and 
+it can be used by get() and goBack() methods.</p>
 </div><h4 id="methods_init_example">Example</h4>
-<div class="example"><div class="barney-history-barneyhistory-init-page"><h5 id="methods_init_example_history-init">History Init</h5>
-<p>Here is an example of the init method.
-<pre class="prettyprint linenums">
-
-  History.init();
-
+<div class="example"><div class="history-barneyhistory-init-page"><pre class="prettyprint linenums">
+History.init();
 </pre>
 </div></div>
 </div>

@@ -1,0 +1,77 @@
+<h1><code ng:non-bindable="">BarneyConfig</code>
+<div><span class="hint">service in module <code ng:non-bindable="">config</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="config-barneyconfig-page"><p>To use Config service, you have to add BarneyConfig dependency to your component (directive, controller...).
+In this example, I have added dependency of BarneyConfig to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyConfig', '$scope',
+    function(Config, $scope){
+        // we can use "Config" object here
+    }
+]);
+</pre>
+Note that I included BarneyConifg as dependency but I have renamed it as Config to use it more easily in controller code.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_get">get(key)</h3>
+<div class="get"><div class="config-barneyconfig-get-page"><p>This method is used to get the value of a specific configuration key</p>
+</div><h5 id="methods_get_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="config-barneyconfig-get-page"><p>Specific key</p>
+</div></td></tr></tbody></table><h4 id="methods_get_example">Example</h4>
+<div class="example"><div class="config-barneyconfig-get-page"><h5 id="methods_get_example_config-get">Config get</h5>
+<p>Here is an example of get method.
+<pre class="prettyprint linenums">
+// Config.init({ 'ENABLE_LOGIN': 1 })
+
+Config.get('ENABLE_LOGIN');
+
+// 1
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="config-barneyconfig-init-page"><p>This method requires an object that contains all your keys and their values
+to initialize the Config service.</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="config-barneyconfig-init-page"><p>config object</p>
+</div></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="config-barneyconfig-init-page"><h5 id="methods_init_example_config-init">Config Init</h5>
+<p>Here is an example of init method.
+<pre class="prettyprint linenums">
+ Config.init({
+     'ENABLE_LOGIN': 1,
+     'NEWTON_SECRET_KEY': '&lt;sec_ret&gt;',
+     'KEY_TRUE': true,
+     'KEY_VOID_STRING': '',
+     'KEY_ZERO': 0,
+     'KEY_ZERO_STRING': '0',
+     'KEY_NULL': null,
+     'KEY_NULL_STRING': 'null',
+     'KEY_FALSE': false,
+     'KEY_FALSE_STRING': 'false'
+     });
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_list">list()</h3>
+<div class="list"><div class="config-barneyconfig-list-page"><p>This method return the Configuration list.</p>
+</div><h4 id="methods_list_example">Example</h4>
+<div class="example"><div class="config-barneyconfig-list-page"><h5 id="methods_list_example_conifg-list">Conifg list</h5>
+<p>Here is an example of how to use list method.
+<pre class="prettyprint linenums">
+// Config.init({ 'ENABLE_LOGIN': 1 })
+
+Config.get('ENABLE_LOGIN');
+
+// { 'ENABLE_LOGIN': 1 }
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
