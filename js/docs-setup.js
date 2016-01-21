@@ -136,7 +136,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "logger",
       "shortDescription": "Use Logger service.",
-      "keywords": "$scope actives add addictional allows angular api app args arguments attributes barneyhistory barneylogger call change code component configuration console controller custom defines dependency directive disabled easily emit emitter enable enabled error errors example examples false function general hello homepagecontroller included info init initialization initialize isenabled js key level levels log logger logs manual message messages method mock module note object options parameter personalized recommended remember renamed sends service site store table true warn warning warnings world"
+      "keywords": "$scope actives add addictional allows angular api app args arguments attributes barneylogger call change code component configuration console controller custom defines dependency directive disabled easily emit emitter enable enabled error errors example examples false function general hello homepagecontroller included info init initialization initialize isenabled js key level levels log logger logs manual message messages method mock module note object options parameter personalized recommended remember renamed sends service site store table true warn warning warnings world"
     },
     {
       "section": "api",
