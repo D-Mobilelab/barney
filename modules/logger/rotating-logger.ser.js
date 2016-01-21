@@ -1,4 +1,4 @@
-angular.module('barney.logger').factory('BarneyLogger', function(){
+angular.module('barney.logger').factory('BarneyRotatingLogger', function(){
 
     /*
     var config = {
@@ -10,7 +10,7 @@ angular.module('barney.logger').factory('BarneyLogger', function(){
         enabled:true
     };
     */
-    var logger = new BaseLogger();
+    var logger = new RotatingLog();
 
     return logger;
 });
