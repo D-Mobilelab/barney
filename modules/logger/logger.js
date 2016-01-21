@@ -1,6 +1,6 @@
     /**
      * @ngdoc object
-     * @name barney.logger.BarneyLogger
+     * @name logger.BarneyLogger
      *
      * @description
      * Use Logger service.
@@ -10,7 +10,7 @@
      * In this example, I have added dependency of BarneyLogger to a controller:
      * <pre>
      * angular.module('mock').controller('HomePageController', [
-     *     'BarneyHistory', '$scope',
+     *     'BarneyLogger', '$scope',
      *     function(Logger, $scope){
      *         // we can use "Logger" object here
      *     }
@@ -49,8 +49,8 @@
 
          /**
          * @ngdoc function
-         * @name barney.logger.BarneyLogger#init
-         * @methodOf barney.logger.BarneyLogger
+         * @name logger.BarneyLogger#init
+         * @methodOf logger.BarneyLogger
          *
          * @description 
          * This method is used to initialize or to change the configuration of 
@@ -197,8 +197,8 @@
 
         /**
          * @ngdoc function
-         * @name barney.logger.BarneyLogger#log
-         * @methodOf barney.logger.BarneyLogger
+         * @name logger.BarneyLogger#log
+         * @methodOf logger.BarneyLogger
          *
          * @description 
          * This method defines a method for each log level.
@@ -229,8 +229,8 @@
 
         /**
          * @ngdoc function
-         * @name barney.logger.BarneyLogger#table
-         * @methodOf barney.logger.BarneyLogger
+         * @name logger.BarneyLogger#table
+         * @methodOf logger.BarneyLogger
          *
          * @description 
          * This method defines a method for each table level.
@@ -257,8 +257,8 @@
 
         /**
          * @ngdoc function
-         * @name barney.logger.BarneyLogger#info
-         * @methodOf barney.logger.BarneyLogger
+         * @name logger.BarneyLogger#info
+         * @methodOf logger.BarneyLogger
          *
          * @description 
          * This method defines a method for each info level.
@@ -285,8 +285,8 @@
         
         /**
          * @ngdoc function
-         * @name barney.logger.BarneyLogger#warn
-         * @methodOf barney.logger.BarneyLogger
+         * @name logger.BarneyLogger#warn
+         * @methodOf logger.BarneyLogger
          *
          * @description 
          * This method defines a method for each warn level.
@@ -313,8 +313,8 @@
         
         /**
          * @ngdoc function
-         * @name barney.logger.BarneyLogger#error
-         * @methodOf barney.logger.BarneyLogger
+         * @name logger.BarneyLogger#error
+         * @methodOf logger.BarneyLogger
          *
          * @description 
          * This method defines a method for each error level.
@@ -341,8 +341,8 @@
 
         /**
          * @ngdoc function
-         * @name barney.logger.BarneyLogger#isEnabled
-         * @methodOf barney.logger.BarneyLogger
+         * @name logger.BarneyLogger#isEnabled
+         * @methodOf logger.BarneyLogger
          *
          * @description 
          * This method defines a method to know if Logger is enabled or not;

@@ -1,6 +1,6 @@
 /**
  * @ngdoc overview
- * @name barney.logger
+ * @name logger
  *
  *
  * @description
@@ -29,6 +29,6 @@
  *
  * # Init Logger
  * Before using Logger module, it must be initialized. 
- * To initialize Logger you can use the Logger method {@link barney.logger.BarneyLogger#methods_init init}.
+ * To initialize Logger you can use the Logger method {@link logger.BarneyLogger#methods_init init}.
  */
 angular.module('barney.logger', []);
