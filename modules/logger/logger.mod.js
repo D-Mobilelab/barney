@@ -7,7 +7,7 @@
  * Logger is the module of Barney that provides you an advanced log system.
  *
  * You can use it as **default** logger or as a **rotating** logger (see the 
- * documentation of the service you want to use one or the other).
+ * documentation of the service you want to use).
  * 
  * To use **BarneyLogger** remember that you have to point to the external javascript files you need:
  *

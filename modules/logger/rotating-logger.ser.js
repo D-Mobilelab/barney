@@ -156,7 +156,7 @@
  *
  * This method store all the previews messages in a JSon file and open a new window to export and to see it.
  *
- * If you're not recording it will shows an error message.
+ * If you're not recording it will show an error message.
  *
  * **Remember that first you have to start a recording with the startRecording method**
  * @example
