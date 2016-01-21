@@ -23,24 +23,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "barney.logger",
-      "shortName": "barney.logger",
-      "type": "overview",
-      "moduleName": "barney.logger",
-      "shortDescription": "Logger is the module of Barney that provides you an advanced log system.",
-      "keywords": "advanced angular api app application barney barneylogger documentation file import include init initialize initialized js levels log logger method methods_init module ordered organized overview relevance relevant remember service sorted system web yourapplicationmodule"
-    },
-    {
-      "section": "api",
-      "id": "barney.logger.BarneyLogger",
-      "shortName": "barney.logger.BarneyLogger",
-      "type": "object",
-      "moduleName": "barney.logger",
-      "shortDescription": "Use Logger service.",
-      "keywords": "$scope actives add addictional allows angular api app args arguments attributes barney barneyhistory barneylogger call change code component configuration console controller custom defines dependency directive disabled easily emit emitter enable enabled error errors example examples false function general hello homepagecontroller included info init initialization initialize isenabled js key level levels log logger logs manual message messages method mock module note object options parameter personalized recommended remember renamed sends service site store table true warn warning warnings world"
-    },
-    {
-      "section": "api",
       "id": "callbacky",
       "shortName": "callbacky",
       "type": "overview",
@@ -137,6 +119,24 @@ NG_DOCS={
       "moduleName": "history",
       "shortDescription": "Use History service",
       "keywords": "$scope add angular api barneyhistory called code component console controller dependency directive easily example function goback history homepagecontroller included init log method methods mock module note object renamed saved service url visited"
+    },
+    {
+      "section": "api",
+      "id": "logger",
+      "shortName": "logger",
+      "type": "overview",
+      "moduleName": "logger",
+      "shortDescription": "Logger is the module of Barney that provides you an advanced log system.",
+      "keywords": "advanced angular api app application barney barneylogger documentation file import include init initialize initialized js levels log logger method methods_init module ordered organized overview relevance relevant remember service sorted system web yourapplicationmodule"
+    },
+    {
+      "section": "api",
+      "id": "logger.BarneyLogger",
+      "shortName": "logger.BarneyLogger",
+      "type": "object",
+      "moduleName": "logger",
+      "shortDescription": "Use Logger service.",
+      "keywords": "$scope actives add addictional allows angular api app args arguments attributes barneyhistory barneylogger call change code component configuration console controller custom defines dependency directive disabled easily emit emitter enable enabled error errors example examples false function general hello homepagecontroller included info init initialization initialize isenabled js key level levels log logger logs manual message messages method mock module note object options parameter personalized recommended remember renamed sends service site store table true warn warning warnings world"
     },
     {
       "section": "api",
