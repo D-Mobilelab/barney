@@ -34,11 +34,15 @@
         this.error = logger.error;
 
         // this will open a new tab showing a chunk of messages in JSON format
-        var saveRecords = function(){
+        var saveRecords = function(msgs){
             var exportData = 'data:text/json;charset=utf-8,';
-            exportData += JSON.stringify(messages, null, 4);
+            exportData += JSON.stringify(msgs, null, 4);
             var encodedUri = encodeURI(exportData);
             window.open(encodedUri, '_blank');
+        };
+
+        var endRotate = function(){
+            saveRecords(messages);
             messages = [];
         };
 
@@ -56,13 +60,13 @@
                 console.warn('RotatingLog :: endRecording called while RotatingLog was not recording');
             }
             isRecording = false;
-            saveRecords();
+            endRotate();
         };
 
         var rotatingEmit = function(level, args){
             if (messages.length >= maxSize){
                 if (!sliding){
-                    saveRecords();
+                    endRotate();
                 } else {
                     messages.shift();
                 }
@@ -76,7 +80,7 @@
             console[level](args);
         };
 
-        this.setup = function(options){
+        this.init = function(options){
             var typeOfMaxSize = typeof options.maxSize;
             var typeOfSliding = typeof options.sliding;
             var typeOfRecEnabled = typeof options.recordingEnabled;
@@ -130,7 +134,7 @@
 
             // this logger works with rotatingEmit
             options.emit = rotatingEmit;
-            logger.setup(options);
+            logger.init(options);
         };
 
     };
