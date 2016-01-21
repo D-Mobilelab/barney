@@ -16,7 +16,7 @@
 *     }
 * ]);
 * </pre>
-* Note that I included BarneyLogger as dependency but I have renamed it as Logger to use it more easily in controller code.
+* Note that I included **BarneyLogger** as dependency but I have renamed it as **Logger** to use it more easily in controller code.
 *
 * # Enable/Disable Logger
 * To **enable** or **disable** logger just call init with enabled:true/false.
@@ -162,6 +162,26 @@
  *
  * <pre>
  *     Logger.info('Hello World!') //Logs Hello World as an info message
+ * </pre>
+ *
+*/
+
+/**
+ * @ngdoc function
+ * @name logger.BarneyLogger#getConfig
+ * @methodOf logger.BarneyLogger
+ *
+ * @description 
+ * This method is a "read-only" getter for config. 
+ *
+ * Get Logger's configuration.
+ *
+ * @example
+ * # Logger getConfig 
+ * Here is one example of the getConfig method.
+ *
+ * <pre>
+ *     console.log( Logger.getConfig() );
  * </pre>
  *
 */
