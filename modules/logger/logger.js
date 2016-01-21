@@ -26,6 +26,7 @@
      *
      *  Logger.init({enabled:false}) //Logger is now disabled
      * </pre>
+     *
      */
 (function(name, parent){
     var BaseLogger = function(){
