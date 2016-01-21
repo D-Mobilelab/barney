@@ -1,0 +1,28 @@
+<h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><div class="barney-logger-page"><p>Logger is the module of Barney that provides you an advanced log system.
+You can use it as <strong>default</strong> logger or as a <strong>rotating</strong> logger (see the 
+documentation of the service you want to use one or the other).</p>
+<p>Remember that <strong>Logger</strong> is organized in <strong>levels</strong>, sorted by relevance: </p>
+<ul>
+<li><strong>Log</strong>;</li>
+<li><strong>Info</strong>;</li>
+<li><strong>Table</strong>;</li>
+<li><strong>Warning</strong>;</li>
+<li><strong>Error</strong>;</li>
+</ul>
+<p><strong><em>Note that is very relevant of how Logger&#39;s levels are ordered!</em></strong></p>
+<h2 id="import-module">Import module</h2>
+<p>To import <strong>Logger</strong> module, include <strong>barney.logger</strong> to 
+your web application module (usually in app.js file)
+<pre class="prettyprint linenums">
+angular.module('yourApplicationModule', [
+    'barney.logger'
+])
+</pre>
+<h2 id="init-logger">Init Logger</h2>
+<p>Before using Logger module, it must be initialized. 
+To initialize Logger you can use the Logger method <a href="#/api/barney.logger.BarneyLogger#methods_init">init</a>.</p>
+</div></div>
