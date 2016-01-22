@@ -108,8 +108,8 @@
  * the configuration in ALL your site ***
  *
  * @param {Object} options (see attributes below)
- * @param {Integer} [options.maxSize=100] maxSize defines the max number of messages recorded
- * @param {boolean} [options.sliding=true] Enables "sliding window" recording
+ * @param {Integer} [options.maxSize=100] maxSize defines the max number of messages recorded.
+ * @param {boolean} [options.sliding=true] Enables "sliding window" recording.
  *
  * If enabled, the logger will record the last records only (<= maxSize)
  *
@@ -118,11 +118,13 @@
  *
  * If disabled, no messages are recorded (even between startRecording and endRecording)
  *
+ * @param {function} [options.saveRecords=exports JSon file] Function used to export recorded messages.
+ *
  * @example
  * # Logger Init 
  * Here is one example of the init method.
  *
- * **Default initialization**
+ * **RotatingLogger initialization**
  * <pre>
  * 
  *   RotatingLogger.init({
@@ -134,6 +136,19 @@
  *
  * </pre>
  * 
+ * **RotatingLogger initialization with custom saveRecords**
+ *
+ * Here is an example of initialization where saveRecords sends messages calling an API.
+ * <pre>
+ * 
+ *   RotatingLogger.init({
+ *      ...,
+ *      saveRecords: function(messages){
+ *          API_send(messages)
+ *      }
+ *   }); 
+ *
+ * </pre>
 */
 
 /**
@@ -154,7 +169,8 @@
  *
  * @description 
  *
- * This method store all the previews messages in a JSon file and open a new window to export and to see it.
+ * This method tells **RotatingLogger** to stop recording messages and 
+ * calls internal function saveRecords (set within init method).
  *
  * If you're not recording it will show an error message.
  *
@@ -164,9 +180,10 @@
  *
  * This is an example of how to use **endRecording** method
  * <pre>
- *  RotatingLogger.endRecording() 
+ *  //Stop recording and saves records
+ *  RotatingLogger.endRecording()  
  *
- *  //Stop recording and open a new window with the JSon file
+ *
  * </pre>
 */
 
@@ -188,6 +205,7 @@
  * <pre>
  *  RotatingLogger.startRecording() // Start recording
  * </pre>
+ *
 */
 
 angular.module('barney.logger').factory('BarneyRotatingLogger', function(){

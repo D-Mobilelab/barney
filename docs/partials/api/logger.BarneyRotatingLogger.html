@@ -28,16 +28,18 @@ Note that I included <strong>BarneyRotatingLogger</strong> as dependency but I h
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
 <ul class="methods"><li><h3 id="methods_endrecording">endRecording()</h3>
-<div class="endrecording"><div class="logger-barneyrotatinglogger-endrecording-page"><p>This method store all the previews messages in a JSon file and open a new window to export and to see it.</p>
+<div class="endrecording"><div class="logger-barneyrotatinglogger-endrecording-page"><p>This method tells <strong>RotatingLogger</strong> to stop recording messages and 
+calls internal function saveRecords (set within init method).</p>
 <p>If you&#39;re not recording it will show an error message.</p>
 <p><strong>Remember that first you have to start a recording with the startRecording method</strong></p>
 </div><h4 id="methods_endrecording_example">Example</h4>
 <div class="example"><div class="logger-barneyrotatinglogger-endrecording-page"><h5 id="methods_endrecording_example_rotatinglogger-endrecording">RotatingLogger endRecording</h5>
 <p>This is an example of how to use <strong>endRecording</strong> method
 <pre class="prettyprint linenums">
- RotatingLogger.endRecording() 
+ //Stop recording and saves records
+ RotatingLogger.endRecording()  
 
- //Stop recording and open a new window with the JSon file
+
 </pre>
 </div></div>
 </div>
@@ -63,16 +65,17 @@ the Rotating Logger&#39;s module. Call init whenever you need to change the Rota
 remember that if you change RotatingLogger&#39; s configuration in a new page you also change 
 the configuration in ALL your site </em></strong></p>
 </div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>(see attributes below)</p>
-</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>maxSize</td><td><a href="" class="label type-hint type-hint-integer">Integer</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>maxSize defines the max number of messages recorded</p>
-</div> <p><em>(default: 100)</em></p></td></tr><tr><td>sliding</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>Enables &quot;sliding window&quot; recording</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>maxSize</td><td><a href="" class="label type-hint type-hint-integer">Integer</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>maxSize defines the max number of messages recorded.</p>
+</div> <p><em>(default: 100)</em></p></td></tr><tr><td>sliding</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>Enables &quot;sliding window&quot; recording.</p>
 <p>If enabled, the logger will record the last records only (&lt;= maxSize)</p>
 <p>If not enabled, the logger will automatically save a list of messages when length = maxSize </p>
 </div> <p><em>(default: true)</em></p></td></tr><tr><td>recordingEnabled</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>Enables message recording</p>
 <p>If disabled, no messages are recorded (even between startRecording and endRecording)</p>
-</div> <p><em>(default: true)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>saveRecords</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>Function used to export recorded messages.</p>
+</div> <p><em>(default: exports JSon file)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
 <div class="example"><div class="logger-barneyrotatinglogger-init-page"><h5 id="methods_init_example_logger-init">Logger Init</h5>
 <p>Here is one example of the init method.</p>
-<p><strong>Default initialization</strong>
+<p><strong>RotatingLogger initialization</strong>
 <pre class="prettyprint linenums">
 
   RotatingLogger.init({
@@ -80,6 +83,18 @@ the configuration in ALL your site </em></strong></p>
      sliding: true, //enables sliding mode
      recordingEnabled: true, //enable recording
      enabled: true //enable logger
+  }); 
+
+</pre>
+<p><strong>RotatingLogger initialization with custom saveRecords</strong></p>
+<p>Here is an example of initialization where saveRecords sends messages calling an API.
+<pre class="prettyprint linenums">
+
+  RotatingLogger.init({
+     ...,
+     saveRecords: function(messages){
+         API_send(messages)
+     }
   }); 
 
 </pre>

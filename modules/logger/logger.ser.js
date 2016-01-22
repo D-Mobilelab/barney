@@ -46,7 +46,7 @@
  * @param {boolean} [options.enabled=true] Enable/Disable the Logger
  * @param {string} [options.level='log'] Actives all levels following the given
  * @param {Object} [options.levels=undefined] Levels contains the manual configuration of the Logger.
- * @param {function} [options.emit=Logger.emit()] Emit is an addictional parameter that allows you to use a custom function as an emitter.
+ * @param {function} [options.emit=Uses window.console] Emit is an addictional parameter that allows you to use a custom function as an emitter.
  *
  * @example
  * # Logger Init 

@@ -136,7 +136,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "logger",
       "shortDescription": "Use Logger service.",
-      "keywords": "$scope actives add addictional allows angular api app args arguments attributes barneylogger call change code component config configuration console controller custom defines dependency directive disabled easily emit emitter enable enabled error errors example examples false function general getconfig getter hello homepagecontroller included info init initialization initialize isenabled js key level levels log logger logs manual message messages method mock module note object options parameter personalized read-only recommended remember renamed sends service site store table true warn warning warnings world"
+      "keywords": "$scope actives add addictional allows angular api app args arguments attributes barneylogger call change code component config configuration console controller custom defines dependency directive disabled easily emit emitter enable enabled error errors example examples false function general getconfig getter hello homepagecontroller included info init initialization initialize isenabled js key level levels log logger logs manual message messages method mock module note object options parameter personalized read-only recommended remember renamed sends service site store table true warn warning warnings window world"
     },
     {
       "section": "api",
@@ -145,7 +145,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "logger",
       "shortDescription": "Use RotatingLogger service.",
-      "keywords": "$scope add adding angular api app attribute attributes automatically barneylogger barneyrotatinglogger baselogger call change click code component configuration configure controller defines dependency directive disabled documentation doesn easily enable enabled enables endrecording error example export file function functionality getconfig homepagecontroller included info init initialization initialize isenabled js json length list log logged logger max maxsize message messages method methods_error methods_getconfig methods_info methods_init methods_isenabled methods_log methods_table methods_warn mock mode module note number object open options original previews recommended record recorded recording recordingenabled records remember renamed requires rotating rotatinglogger save service set site sliding start startrecording starts store table true warn window work wraps"
+      "keywords": "$scope add adding angular api api_send app attribute attributes automatically barneylogger barneyrotatinglogger baselogger call calling calls change click code component configuration configure controller custom defines dependency directive disabled documentation doesn easily enable enabled enables endrecording error example export file function functionality getconfig homepagecontroller included info init initialization initialize internal isenabled js json length list log logged logger max maxsize message messages method methods_error methods_getconfig methods_info methods_init methods_isenabled methods_log methods_table methods_warn mock mode module note number object options original recommended record recorded recording recordingenabled records remember renamed requires rotating rotatinglogger save saverecords saves sends service set site sliding start startrecording starts table tells true warn window work wraps"
     },
     {
       "section": "api",
