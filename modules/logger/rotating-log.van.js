@@ -26,12 +26,35 @@
             return config;
         };
 
+
+        var handleMessages = function(level, args){
+            if (messages.length >= maxSize){
+                if (!sliding){
+                    endRotate();
+                } else {
+                    messages.shift();
+                }
+            }
+
+            logger[level](args);
+        };
+
         // expose Logger's main methods
-        this.log = logger.log;
-        this.info = logger.info;
-        this.table = logger.table;
-        this.warn = logger.warn;
-        this.error = logger.error;
+        this.log = function(){
+            handleMessages('log', arguments);
+        }
+        this.info = function(){
+            handleMessages('info', arguments);
+        }
+        this.table = function(){
+            handleMessages('table', arguments);
+        }
+        this.warn = function(){
+            handleMessages('warn', arguments);
+        }
+        this.error = function(){
+            handleMessages('error', arguments);
+        }
 
         // this will open a new tab showing a chunk of messages in JSON format
         var saveRecords = function(msgs){
@@ -61,23 +84,6 @@
             }
             isRecording = false;
             endRotate();
-        };
-
-        var rotatingEmit = function(level, args){
-            if (messages.length >= maxSize){
-                if (!sliding){
-                    endRotate();
-                } else {
-                    messages.shift();
-                }
-            }
-
-            // record messages
-            if (recordingEnabled && isRecording) {
-                messages.push([new Date(), window.location.href, level, args]);
-            }
-            // also log on console
-            console[level](args);
         };
 
         this.init = function(options){
@@ -132,8 +138,6 @@
                 throw new Error('RotatingLog :: illegal type for saveRecords - expected function, got ' + valueType);
             }
 
-            // this logger works with rotatingEmit
-            options.emit = rotatingEmit;
             logger.init(options);
         };
 
