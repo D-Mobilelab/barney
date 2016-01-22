@@ -222,8 +222,9 @@
         *  each method uses the general function emit to log messages
         */
         this.log = function log(){
+            var args = Array.prototype.slice.call(arguments);
             if (config.enabled && !!config.log){
-                emit('log', arguments);
+                emit('log', args);
             }
         };
 
@@ -250,8 +251,9 @@
          *
         */
         this.table = function table(){
+            var args = Array.prototype.slice.call(arguments);
             if (config.enabled && !!config.table){
-                emit('table', arguments);
+                emit('table', args);
             }    
         };
 
@@ -278,8 +280,9 @@
          *
         */
         this.info = function info(){
+            var args = Array.prototype.slice.call(arguments);
             if (config.enabled && !!config.info){
-                emit('info', arguments);
+                emit('info', args);
             }
         };
         
@@ -306,8 +309,9 @@
          *
         */
         this.warn = function warn(){
+            var args = Array.prototype.slice.call(arguments);
             if (config.enabled && !!config.warn){
-                emit('warn', arguments);
+                emit('warn', args);
             }    
         };
         
@@ -334,8 +338,9 @@
          *
         */
         this.error = function error(){
+            var args = Array.prototype.slice.call(arguments);
             if (config.enabled && !!config.error){
-                emit('error', arguments);
+                emit('error', args);
             }    
         };
 

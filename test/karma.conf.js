@@ -34,6 +34,7 @@ module.exports = function(config) {
       "test/mock.js",
 
       // modules    
+      "modules/*/*.van.js",  
       "modules/*/*.mod.js",  
       "modules/*/*.pro.js",  
       "modules/*/*.ser.js",  
