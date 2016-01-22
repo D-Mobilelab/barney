@@ -2,7 +2,7 @@
 
 describe('LOGGER -', function () {
 
-	var LoggerService, MockConsole;	
+	var LoggerService;	
 
 	beforeEach(function(){
 		module('barney.logger');
@@ -18,10 +18,6 @@ describe('LOGGER -', function () {
 	});
 
 	describe('isEnabled -', function(){
-		beforeEach(function(){
-			
-		});
-
 		it('it returns true if logger is enabled', function(){
 			LoggerService.init({
 				enabled: true
@@ -31,9 +27,9 @@ describe('LOGGER -', function () {
 
 		it('it returns false if logger is not enabled', function(){
 			LoggerService.init({
-				enabled: true
+				enabled: false
 			});
-			expect(LoggerService.isEnabled()).toBe(true);
+			expect(LoggerService.isEnabled()).toBe(false);
 		});
 	});
 
@@ -153,7 +149,7 @@ describe('LOGGER -', function () {
 		});
 	});
 
-	describe('mix -', function(){
+	describe('mix configuration -', function(){
 		beforeEach(function(){
 			LoggerService.init({
 				enabled: true,
@@ -187,7 +183,7 @@ describe('LOGGER -', function () {
 		});
 	});
 
-	describe('mix 2 -', function(){
+	describe('mix configuration 2 -', function(){
 		beforeEach(function(){
 			LoggerService.init({
 				enabled: true,
@@ -218,6 +214,45 @@ describe('LOGGER -', function () {
 		it('logger prints error messages', function(){
 			LoggerService.error('ciao', 'mondo');
 			expect(console.error.calls.count()).toEqual(0);
+		});
+	});
+
+	describe('emit -', function(){
+		var mockEmit;
+
+		beforeEach(function(){
+			mockEmit = {
+				emit: function(){}
+			};
+
+			spyOn(mockEmit, 'emit');
+
+			LoggerService.init({
+				enabled: true,
+				emit: function(level, args){
+					mockEmit.emit(level, args);
+				}
+			});
+		});
+
+		it('emit method has called with log() method', function(){
+			LoggerService.log('ciao', 'mondo');
+			expect(mockEmit.emit).toHaveBeenCalledWith('log', ['ciao', 'mondo']);
+		});
+
+		it('emit method has called with info() method', function(){
+			LoggerService.info('ciao', 'mondo');
+			expect(mockEmit.emit).toHaveBeenCalledWith('info', ['ciao', 'mondo']);
+		});
+
+		it('emit method has called with warn() method', function(){
+			LoggerService.warn('ciao', 'mondo');
+			expect(mockEmit.emit).toHaveBeenCalledWith('warn', ['ciao', 'mondo']);
+		});
+
+		it('emit method has called with error() method', function(){
+			LoggerService.error('ciao', 'mondo');
+			expect(mockEmit.emit).toHaveBeenCalledWith('error', ['ciao', 'mondo']);
 		});
 	});
 

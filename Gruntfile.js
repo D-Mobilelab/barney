@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                     '<%= modulesPath %>**/*.html'
                 ],
                 options:{
-                    livereload: true
+                    livereload: 35729
                 }
             },
             coverage:{
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                 ],
                 tasks: ['clean:coverage', 'karma'],
                 options:{
-                    livereload: true
+                    livereload: 35730
                 }
             },
             doc:{
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
                 ],
                 tasks: ['clean:doc', 'ngdocs'],
                 options:{
-                    livereload: true
+                    livereload: 35731
                 }
             }
         },
