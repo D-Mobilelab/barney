@@ -15,6 +15,18 @@
  * ])
  * </pre>
  *
+ * Remember to include the external javascript files you need:
+ *
+ * <pre>
+ *
+ *	  <!-- Meta module -->
+ *   <script type="text/javascript" src="./bower_components/barney/meta/meta.mod.js"> 
+ *
+ *	  <!-- Meta service -->
+ *   <script type="text/javascript" src="./bower_components/barney/meta/meta.ser.js"> 
+ *
+ * </pre>
+ *
  * # Init meta
  *
  * Before using meta module, it must be initialized. 

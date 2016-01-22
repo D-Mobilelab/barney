@@ -11,6 +11,16 @@ angular.module('yourApplicationModule', [
     'barney.history'
 ])
 </pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- History module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/history/history.mod.js"&gt; 
+
+  &lt;!-- History service --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/history/history.ser.js"&gt; 
+
+</pre>
 <h2 id="init-history">Init History</h2>
 <p>Before using History module, it must be initialized. 
 To initialize History you can use the History method <a href="#/api/history.BarneyHistory#methods_init">init</a>.</p>

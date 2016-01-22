@@ -19,6 +19,19 @@
  *     'barney.analytics'
  * ])
  * </pre>
+ *
+ * Remember to include the external javascript files you need:
+ *
+ * <pre>
+ *
+ *	  <!-- Analytics module -->
+ *   <script type="text/javascript" src="./bower_components/barney/analytics/analytics.mod.js"> 
+ *
+ *	  <!-- Analytics service -->
+ *   <script type="text/javascript" src="./bower_components/barney/analytics/analytics.ser.js"> 
+ *
+ * </pre>
+ *
  * 
  * # Init Analytics
  * Before using Analytics module, it must be initialized. 

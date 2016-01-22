@@ -17,6 +17,18 @@
  *     'barney.storage'
  * ])
  * </pre>
+ *
+ * Remember to include the external javascript files you need:
+ *
+ * <pre>
+ *
+ *	  <!-- Storage module -->
+ *   <script type="text/javascript" src="./bower_components/barney/storage/storage.mod.js"> 
+ *
+ *	  <!-- Storage service -->
+ *   <script type="text/javascript" src="./bower_components/barney/storage/storage.pro.js"> 
+ *
+ * </pre>
  * 
  * # Init Storage
  * Before using Storage module, it must be initialized. 

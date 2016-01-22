@@ -7,11 +7,9 @@ angular.module('mock', [
 	'barney.dict',
 	'barney.analytics',
 	'barney.newton',
-	'barney.masonry', 
 	'barney.meta',
 	'barney.utility',  
-	'barney.storage',  
-	'barney.stargate',  
+	'barney.storage',   
 	'barney.callbacky'  
 ])
 

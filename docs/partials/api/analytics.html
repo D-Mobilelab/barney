@@ -18,6 +18,16 @@ angular.module('yourApplicationModule', [
     'barney.analytics'
 ])
 </pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Analytics module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/analytics/analytics.mod.js"&gt; 
+
+  &lt;!-- Analytics service --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/analytics/analytics.ser.js"&gt; 
+
+</pre>
 <h2 id="init-analytics">Init Analytics</h2>
 <p>Before using Analytics module, it must be initialized. 
 To initialize Analytics you can use the Analytics method <a href="#/api/analytics.BarneyAnalytics#methods_init">init</a>.</p>

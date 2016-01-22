@@ -15,10 +15,10 @@
  * <pre>
  *
  *	  <!-- Base  Logger - REQUIRED -->
- *   <script type="text/javascript" src="../logger/logger.js"> 
+ *   <script type="text/javascript" src="../logger/logger.van.js"> 
  *
  *	  <!-- Rotating Logger -->
- * 	 <script type="text/javascript" src="../logger/rotating-log.js"> 
+ * 	 <script type="text/javascript" src="../logger/rotating-log.van.js"> 
  *
  *	  <!-- logger module -->
  *   <script type="text/javascript" src="../logger/logger.mod.js"> 

@@ -15,6 +15,18 @@
  * ])
  * </pre>
  * 
+ * Remember to include the external javascript files you need:
+ *
+ * <pre>
+ *
+ *	  <!-- History module -->
+ *   <script type="text/javascript" src="./bower_components/barney/history/history.mod.js"> 
+ *
+ *	  <!-- History service -->
+ *   <script type="text/javascript" src="./bower_components/barney/history/history.ser.js"> 
+ *
+ * </pre>
+ *
  * # Init History
  * Before using History module, it must be initialized. 
  * To initialize History you can use the History method {@link history.BarneyHistory#methods_init init}.

@@ -19,6 +19,22 @@
  * ])
  * </pre>
  *
+ * Remember to include the external javascript files you need:
+ *
+ * <pre>
+ *
+ *	  <!-- Config module -->
+ *   <script type="text/javascript" src="./bower_components/barney/config/config.mod.js"> 
+ *
+ *	  <!-- Config service -->
+ *   <script type="text/javascript" src="./bower_components/barney/config/config.pro.js"> 
+ * 
+ *    <!-- Config filter -->
+ * 	 <script type="text/javascript" src="./bower_components/barney/config/config.fil.js">
+ *
+ * </pre>
+ *
+ *
  * # Init module
  * In order to use Config module you have to use {@link config.BarneyConfig#methods_init init} method.
  *  

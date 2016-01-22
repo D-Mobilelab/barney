@@ -13,6 +13,17 @@
  *     'barney.utility'
  * ])
  * </pre>
- * 
+ *
+ * Remember to include the external javascript files you need:
+ *
+ * <pre>
+ *
+ *	  <!-- Utility module -->
+ *   <script type="text/javascript" src="./bower_components/barney/utility/utility.mod.js"> 
+ *
+ *	  <!-- Utility service -->
+ *   <script type="text/javascript" src="./bower_components/barney/utility/utility.ser.js"> 
+ *
+ * </pre>
  */
  angular.module('barney.utility', []);
