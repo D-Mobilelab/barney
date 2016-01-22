@@ -1,0 +1,119 @@
+<h1><code ng:non-bindable="">BarneyRotatingLogger</code>
+<div><span class="hint">service in module <code ng:non-bindable="">logger</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="logger-barneyrotatinglogger-page"><p>Use <strong>RotatingLogger</strong> service.</p>
+<p>To use <strong>RotatingLogger</strong> service, you have to add <strong>BarneyRotatingLogger</strong> dependency to your component (i.e: directive, controller...).</p>
+<p><strong><em>Remember that RotatingLogger requires BaseLogger to work 
+( but it doesn&#39;t requires BaseLogger service ).</em></strong></p>
+<p>In this example, I have added dependency of <strong>BarneyRotatingLogger</strong> to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyRotatingLogger', '$scope',
+    function(RotatingLogger, $scope){
+        // we can use "RotatingLogger" object here
+    }
+]);
+</pre>
+Note that I included <strong>BarneyRotatingLogger</strong> as dependency but I have renamed it as <strong>RotatingLogger</strong> to use it more easily in controller code.</p>
+<h3 id="description_enable/disable-logger">Enable/Disable Logger</h3>
+<p>To <strong>enable</strong> or <strong>disable</strong> <strong>RotatingLogger</strong> just call init with enabled:true/false.</p>
+<pre class="prettyprint linenums">
+ RotatingLogger.init({enabled:true})  //RotatingLogger is now enabled
+
+ RotatingLogger.init({enabled:false}) //RotatingLogger is now disabled
+</pre>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_endrecording">endRecording()</h3>
+<div class="endrecording"><div class="logger-barneyrotatinglogger-endrecording-page"><p>This method store all the previews messages in a JSon file and open a new window to export and to see it.</p>
+<p>If you&#39;re not recording it will show an error message.</p>
+<p><strong>Remember that first you have to start a recording with the startRecording method</strong></p>
+</div><h4 id="methods_endrecording_example">Example</h4>
+<div class="example"><div class="logger-barneyrotatinglogger-endrecording-page"><h5 id="methods_endrecording_example_rotatinglogger-endrecording">RotatingLogger endRecording</h5>
+<p>This is an example of how to use <strong>endRecording</strong> method
+<pre class="prettyprint linenums">
+ RotatingLogger.endRecording() 
+
+ //Stop recording and open a new window with the JSon file
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_error">error()</h3>
+<div class="error"><div class="logger-barneyrotatinglogger-error-page"><p>This method is the same used in <strong>BarneyLogger</strong>, click <a href="#/api/logger.BarneyLogger#methods_error">here</a> to see error() documentation.</p>
+</div></div>
+</li>
+<li><h3 id="methods_getconfig">getConfig()</h3>
+<div class="getconfig"><div class="logger-barneyrotatinglogger-getconfig-page"><p>This method wraps original BaseLogger&#39;s getConfig function
+adding maxSize attribute, click <a href="#/api/logger.BarneyLogger#methods_getconfig">here</a> to see getConfig() documentation.</p>
+</div></div>
+</li>
+<li><h3 id="methods_info">info()</h3>
+<div class="info"><div class="logger-barneyrotatinglogger-info-page"><p>This method is the same used in <strong>BarneyLogger</strong>, click <a href="#/api/logger.BarneyLogger#methods_info">here</a> to see info() documentation.</p>
+</div></div>
+</li>
+<li><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="logger-barneyrotatinglogger-init-page"><p>This method is used to initialize or to change the configuration of 
+the Rotating Logger&#39;s module. Call init whenever you need to change the Rotating Logger&#39;s configuration. </p>
+<p>Remember to see <strong>BaseLogger</strong> <a href="#/api/logger.BarneyLogger#methods_init">init()</a> documentation to configure also the <strong>BaseLogger</strong> functionality.</p>
+<p><strong><em>Is recommended to initialize RotatingLogger in app.js so 
+remember that if you change RotatingLogger&#39; s configuration in a new page you also change 
+the configuration in ALL your site </em></strong></p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>(see attributes below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>maxSize</td><td><a href="" class="label type-hint type-hint-integer">Integer</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>maxSize defines the max number of messages recorded</p>
+</div> <p><em>(default: 100)</em></p></td></tr><tr><td>sliding</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>Enables &quot;sliding window&quot; recording</p>
+<p>If enabled, the logger will record the last records only (&lt;= maxSize)</p>
+<p>If not enabled, the logger will automatically save a list of messages when length = maxSize </p>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>recordingEnabled</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="logger-barneyrotatinglogger-init-page"><p>Enables message recording</p>
+<p>If disabled, no messages are recorded (even between startRecording and endRecording)</p>
+</div> <p><em>(default: true)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="logger-barneyrotatinglogger-init-page"><h5 id="methods_init_example_logger-init">Logger Init</h5>
+<p>Here is one example of the init method.</p>
+<p><strong>Default initialization</strong>
+<pre class="prettyprint linenums">
+
+  RotatingLogger.init({
+     maxSize: 100, //set maxSize to 100
+     sliding: true, //enables sliding mode
+     recordingEnabled: true, //enable recording
+     enabled: true //enable logger
+  }); 
+
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_isenabled">isEnabled()</h3>
+<div class="isenabled"><div class="logger-barneyrotatinglogger-isenabled-page"><p>This method is the same used in <strong>BarneyLogger</strong>, click <a href="#/api/logger.BarneyLogger#methods_isenabled">here</a> to see isEnabled() documentation.</p>
+</div></div>
+</li>
+<li><h3 id="methods_log">log()</h3>
+<div class="log"><div class="logger-barneyrotatinglogger-log-page"><p>This method is the same used in <strong>BarneyLogger</strong>, click <a href="#/api/logger.BarneyLogger#methods_log">here</a> to see log() documentation.</p>
+</div></div>
+</li>
+<li><h3 id="methods_startrecording">startRecording()</h3>
+<div class="startrecording"><div class="logger-barneyrotatinglogger-startrecording-page"><p>This method starts the recording of all the messages logged by RotatingLogger.</p>
+<p><strong><em>Remember that recordingEnabled must be set to true to record</em></strong> </p>
+</div><h4 id="methods_startrecording_example">Example</h4>
+<div class="example"><div class="logger-barneyrotatinglogger-startrecording-page"><h5 id="methods_startrecording_example_rotatinglogger-startrecording">RotatingLogger startRecording</h5>
+<p>This is an example of how to use <strong>startRecording</strong> method
+<pre class="prettyprint linenums">
+ RotatingLogger.startRecording() // Start recording
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_table">table()</h3>
+<div class="table"><div class="logger-barneyrotatinglogger-table-page"><p>This method is the same used in <strong>BarneyLogger</strong>, click <a href="#/api/logger.BarneyLogger#methods_table">here</a> to see table() documentation.</p>
+</div></div>
+</li>
+<li><h3 id="methods_warn">warn()</h3>
+<div class="warn"><div class="logger-barneyrotatinglogger-warn-page"><p>This method is the same used in <strong>BarneyLogger</strong>, click <a href="#/api/logger.BarneyLogger#methods_warn">here</a> to see warn() documentation.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

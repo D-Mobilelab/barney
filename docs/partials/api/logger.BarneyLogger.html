@@ -9,13 +9,13 @@
 <p>In this example, I have added dependency of BarneyLogger to a controller:
 <pre class="prettyprint linenums">
 angular.module('mock').controller('HomePageController', [
-    'BarneyHistory', '$scope',
+    'BarneyLogger', '$scope',
     function(Logger, $scope){
         // we can use "Logger" object here
     }
 ]);
 </pre>
-Note that I included BarneyLogger as dependency but I have renamed it as Logger to use it more easily in controller code.</p>
+Note that I included <strong>BarneyLogger</strong> as dependency but I have renamed it as <strong>Logger</strong> to use it more easily in controller code.</p>
 <h3 id="description_enable/disable-logger">Enable/Disable Logger</h3>
 <p>To <strong>enable</strong> or <strong>disable</strong> logger just call init with enabled:true/false.</p>
 <pre class="prettyprint linenums">
@@ -35,6 +35,18 @@ Each method uses the general function emit as error messages</p>
 <p>Here is one example of the Error method.</p>
 <pre class="prettyprint linenums">
     Logger.error('Hello World!') //Logs Hello World as an error message
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getconfig">getConfig()</h3>
+<div class="getconfig"><div class="logger-barneylogger-getconfig-page"><p>This method is a &quot;read-only&quot; getter for config. </p>
+<p>Get Logger&#39;s configuration.</p>
+</div><h4 id="methods_getconfig_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-getconfig-page"><h5 id="methods_getconfig_example_logger-getconfig">Logger getConfig</h5>
+<p>Here is one example of the getConfig method.</p>
+<pre class="prettyprint linenums">
+    console.log( Logger.getConfig() );
 </pre>
 </div></div>
 </div>

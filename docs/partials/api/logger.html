@@ -2,9 +2,28 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="logger-page"><p>Logger is the module of Barney that provides you an advanced log system.
-You can use it as <strong>default</strong> logger or as a <strong>rotating</strong> logger (see the 
-documentation of the service you want to use one or the other).</p>
+<div><div class="logger-page"><p>Logger is the module of Barney that provides you an advanced log system.</p>
+<p>You can use it as <strong>default</strong> logger or as a <strong>rotating</strong> logger (see the 
+documentation of the service you want to use).</p>
+<p>To use <strong>BarneyLogger</strong> remember that you have to point to the external javascript files you need:</p>
+<p><strong><em>Base Logger is required to use both the services.</em></strong>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Base  Logger - REQUIRED --&gt;
+  &lt;script type="text/javascript" src="../logger/logger.js"&gt; 
+
+  &lt;!-- Rotating Logger --&gt;
+	 &lt;script type="text/javascript" src="../logger/rotating-log.js"&gt; 
+
+  &lt;!-- logger module --&gt;
+  &lt;script type="text/javascript" src="../logger/logger.mod.js"&gt; 
+
+  &lt;!-- Base logger service --&gt;
+  &lt;script type="text/javascript" src="../logger/logger.ser.js"&gt;
+
+  &lt;!-- Rotating Logger service --&gt;
+  &lt;script type="text/javascript" src="../logger/rotating-logger.ser.js"&gt; 
+</pre>
 <p>Remember that <strong>Logger</strong> is organized in <strong>levels</strong>, sorted by relevance: </p>
 <ul>
 <li><strong>Log</strong>;</li>
