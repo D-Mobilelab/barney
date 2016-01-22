@@ -12,6 +12,16 @@ angular.module('yourApplicationModule', [
     'barney.callbacky'
 ])
 </pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Callbacky module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/callbacky/callbacky.mod.js"&gt; 
+
+  &lt;!-- Callbacky service --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/callbacky/callbacky.pro.js"&gt; 
+
+</pre>
 <h2 id="init-callbacky">Init Callbacky</h2>
 <p>Before using Callbacky module, it must be initialized. 
 To initialize Callbacky you can use the Callbacky method <a href="#/api/callbacky.BarneyCallbacky#methods_init">init</a>.</p>

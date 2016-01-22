@@ -12,6 +12,16 @@ angular.module('yourApplicationModule', [
     'barney.meta'
 ])
 </pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Meta module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/meta/meta.mod.js"&gt; 
+
+  &lt;!-- Meta service --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/meta/meta.ser.js"&gt; 
+
+</pre>
 <h2 id="init-meta">Init meta</h2>
 <p>Before using meta module, it must be initialized. 
 To initialize meta you can use the meta method <a href="#/api/meta.BarneyMeta#methods_init">init</a>.</p>

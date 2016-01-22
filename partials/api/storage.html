@@ -16,6 +16,16 @@ angular.module('yourApplicationModule', [
     'barney.storage'
 ])
 </pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Storage module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/storage/storage.mod.js"&gt; 
+
+  &lt;!-- Storage service --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/storage/storage.pro.js"&gt; 
+
+</pre>
 <h2 id="init-storage">Init Storage</h2>
 <p>Before using Storage module, it must be initialized. 
 To initialize Storage you can use the Storage method <a href="#/api/storage.BarneyStorage#methods_init">init</a>.</p>

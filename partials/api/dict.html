@@ -17,6 +17,22 @@ angular.module('yourApplicationModule', [
     'barney.dict'
 ])
 </pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Dict module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/dict/dict.mod.js"&gt; 
+
+  &lt;!-- Dict service --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/dict/dict.pro.js"&gt; 
+
+  &lt;!-- Dict filter --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/dict/dict.fil.js"&gt; 
+
+  &lt;!-- Dict directive --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/dict/dict.dir.js"&gt; 
+
+</pre>
 <h2 id="init-dict">Init Dict</h2>
 <p>Before using Dict module, it must be initialized.To initialize Dict 
 module use Dict&#39; s method <a href="#/api/dict.BarneyDict#methods_init">init</a>. </p>
