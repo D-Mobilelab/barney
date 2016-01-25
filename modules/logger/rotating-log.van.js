@@ -9,9 +9,9 @@
         // this is the max size of messages (before it gets downloaded)
         var maxSize = 100;
 
-        // true iff logger is enabled (by config) to record messages
+        // true if logger is enabled (by config) to record messages
         var recordingEnabled = true;
-        // true iff logger is recording messages
+        // true if logger is recording messages
         var isRecording = false;
         // if true, only the last maxSize messages are recorded
         var sliding = true;
@@ -37,24 +37,27 @@
             }
 
             logger[level](args);
+            if (recordingEnabled){
+                messages.push([level, args]);
+            }
         };
 
         // expose Logger's main methods
         this.log = function(){
             handleMessages('log', arguments);
-        }
+        };
         this.info = function(){
             handleMessages('info', arguments);
-        }
+        };
         this.table = function(){
             handleMessages('table', arguments);
-        }
+        };
         this.warn = function(){
             handleMessages('warn', arguments);
-        }
+        };
         this.error = function(){
             handleMessages('error', arguments);
-        }
+        };
 
         // this will open a new tab showing a chunk of messages in JSON format
         var saveRecords = function(msgs){
