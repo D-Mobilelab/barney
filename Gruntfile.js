@@ -12,11 +12,19 @@ module.exports = function (grunt) {
 	****         SINGLE TASKS         ****
 	*************************************/
 
+    var versionString = grunt.file.readJSON('bower.json').version;
+    var version = versionString.split(".");
+    var major = parseInt(version[0]), minor = parseInt(version[1]), patch = parseInt(version[2]);
+    var versionMajor = (major+1) + ".0.0";
+    var versionMinor = (major) + "." + (minor+1) + ".0";
+    var versionPatch = (major) + "." + (minor) + "." + (patch+1);
+
 	grunt.initConfig({
         mockPath: 'mock/',
         modulesPath: 'modules/',
         testPath: 'test/',
         docPath: 'docs/',
+        newVersion: versionString,
         connect:{
             server: {
                 options:{
@@ -114,6 +122,36 @@ module.exports = function (grunt) {
             doc: ["<%= docPath %>"],
             coverage: ["<%= testPath %>coverage"]
         },
+        prompt: {
+            target: {
+                options: {
+                    questions: [{
+                        config: 'newVersion',
+                        type: 'list',
+                        message: 'Current: ' + versionString + ' - Choose a new version for Barney:',
+                        default: versionMajor,
+                        choices: [
+                            { name: 'Major Version (' + versionMajor + ')', value: versionMajor },
+                            { name: 'Minor Version (' + versionMinor + ')', value: versionMinor },
+                            { name: 'Patch (' + versionPatch + ')', value: versionPatch }
+                        ]
+                    }]
+                }
+            }
+        },
+        'string-replace': {
+            dist: {
+                files: {
+                    'bower.json': 'bower.json'
+                },
+                options: {
+                    replacements: [{
+                        pattern: '"version": "' + versionString + '",',
+                        replacement: '"version": "<%= newVersion %>",'
+                    }]
+                }
+            }
+        }
     });
 
 	/*************************************
@@ -151,13 +189,17 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('version',[
-        // coverage
+        // COVERAGE
         'clean:coverage',
         'karma',
-        // doc
+        // DOC
         'clean:doc',
         'ngdocs',
-        // lint
-        'eslint'
+        // LINT
+        'eslint',
+        // PROMPT
+        'prompt',
+        'string-replace'
     ]);
+   
 }
