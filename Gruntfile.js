@@ -149,4 +149,15 @@ module.exports = function (grunt) {
         'open:doc',
         'watch:doc'
     ]);
+
+    grunt.registerTask('version',[
+        // coverage
+        'clean:coverage',
+        'karma',
+        // doc
+        'clean:doc',
+        'ngdocs',
+        // lint
+        'eslint'
+    ]);
 }
