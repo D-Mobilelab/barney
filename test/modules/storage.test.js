@@ -30,6 +30,12 @@ describe('STORAGE -', function () {
 			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
 		});	
 
+		it('if save and get all keys, it returns all saved keys', function(){
+			var keys = { hello: 'world', mars: 'earth' };
+			StorageService.setMultiple(keys);
+			expect(StorageService.getMultiple()).toEqual(keys);
+		});
+
 		it('if save, delete and get a key, it returns undefined', function(){
 			var keyName = 'hello';
 			var keyValue = 'world';
@@ -76,6 +82,12 @@ describe('STORAGE -', function () {
 			StorageService.setMultiple(keys);
 			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
 		});	
+
+		it('if save and get all keys, it returns all saved keys', function(){
+			var keys = { hello: 'world', mars: 'earth' };
+			StorageService.setMultiple(keys);
+			expect(StorageService.getMultiple()).toEqual(keys);
+		});
 
 		it('if save, delete and get a key, it returns undefined', function(){
 			var keyName = 'hello';
@@ -127,6 +139,12 @@ describe('STORAGE -', function () {
 			StorageService.setMultiple(keys);
 			expect(StorageService.getMultiple(['hello', 'mars'])).toEqual(keys);
 		});	
+
+		it('if save and get all keys, it returns all saved keys', function(){
+			var keys = { hello: 'world', mars: 'earth' };
+			StorageService.setMultiple(keys);
+			expect(StorageService.getMultiple()).toEqual(keys);
+		});
 
 		it('if save, delete and get a key, it returns undefined', function(){
 			var keyName = 'hello';
@@ -208,7 +226,7 @@ describe('STORAGE -', function () {
 			var keys = {hello: 'world', mars: 'earth'}, options = { type: 'jsObject' };
 			StorageService.setMultiple(keys, options);
 			StorageService.getMultiple(['hello', 'mars'], options);
-			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'getMultiple', ['hello', 'mars'], ['world', 'earth'], options);
+			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'getMultiple', {hello: 'world', mars: 'earth'}, options);
 		});
 	});
 

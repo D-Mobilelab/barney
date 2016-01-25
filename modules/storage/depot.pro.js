@@ -4,7 +4,7 @@ angular.module('barney.storage.subset').provider('BarneyStorageDepot', function 
 
     var Depot = {
         get: function(key){
-            return tryParse(window.localStorage.getItem(key));
+            return window.localStorage.getItem(key) !== null ? tryParse(window.localStorage.getItem(key)) : undefined;
         },
 
         set: function(key, value){
@@ -13,9 +13,10 @@ angular.module('barney.storage.subset').provider('BarneyStorageDepot', function 
 
         getMultiple: function(keys){
             var toReturn = {};
-            var key;
+            var index, key;
             if (!!keys){
-                for (key in keys){
+                for (index in keys){
+                    key = keys[index];
                     toReturn[key] = this.get(key);
                 }
             } else {

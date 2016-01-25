@@ -178,7 +178,7 @@ angular.module('barney.storage').provider('BarneyStorage',
                     values = this.selectedStorage.getMultiple(keys, options);
                 }
                 // var values = this.selectedStorage.getMultiple(keys);
-                this.logger.log('BarneyStorage', 'getMultiple', keys, values, options);
+                this.logger.log('BarneyStorage', 'getMultiple', values, options);
                 return values;
             },
 

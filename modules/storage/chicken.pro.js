@@ -15,9 +15,10 @@ angular.module('barney.storage.subset').provider('BarneyStorageChicken', functio
 
         getMultiple: function(keys){
             var toReturn = {};
-            var key;
+            var index, key;
             if (!!keys){
-                for (key in keys){
+                for (index in keys){
+                    key = keys[index];
                     toReturn[key] = this.jsObj[key];
                 }
             } else {
