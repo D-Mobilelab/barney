@@ -17,7 +17,7 @@ describe('LOGGER -', function () {
 		spyOn(console, 'error');				
 	});
 
-	describe('logger -', function(){
+	describe('rotating logger -', function(){
 		beforeEach(function(){
 			RotLogger.init({
 				enabled: true,
@@ -27,22 +27,22 @@ describe('LOGGER -', function () {
 
 		it('logger prints log messages', function(){
 			RotLogger.log('ciao', 'mondo');
-			expect(console.log).toHaveBeenCalledWith(['ciao', 'mondo']);
+			expect(console.log).toHaveBeenCalledWith([['ciao', 'mondo']]);
 		});
 
 		it('logger prints info messages', function(){
 			RotLogger.info('ciao', 'mondo');
-			expect(console.info).toHaveBeenCalledWith(['ciao', 'mondo']);
+			expect(console.info).toHaveBeenCalledWith([['ciao', 'mondo']]);
 		});
 
 		it('logger prints warn messages', function(){
 			RotLogger.warn('ciao', 'mondo');
-			expect(console.warn).toHaveBeenCalledWith(['ciao', 'mondo']);
+			expect(console.warn).toHaveBeenCalledWith([['ciao', 'mondo']]);
 		});
 
 		it('logger prints error messages', function(){
 			RotLogger.error('ciao', 'mondo');
-			expect(console.error).toHaveBeenCalledWith(['ciao', 'mondo']);
+			expect(console.error).toHaveBeenCalledWith([['ciao', 'mondo']]);
 		});
 	});
 

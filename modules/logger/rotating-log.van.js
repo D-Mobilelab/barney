@@ -44,19 +44,24 @@
 
         // expose Logger's main methods
         this.log = function(){
-            handleMessages('log', arguments);
+            var args = Array.prototype.slice.call(arguments);
+            handleMessages('log', args);
         };
         this.info = function(){
-            handleMessages('info', arguments);
+            var args = Array.prototype.slice.call(arguments);
+            handleMessages('info', args);
         };
         this.table = function(){
-            handleMessages('table', arguments);
+            var args = Array.prototype.slice.call(arguments);
+            handleMessages('table', args);
         };
         this.warn = function(){
-            handleMessages('warn', arguments);
+            var args = Array.prototype.slice.call(arguments);
+            handleMessages('warn', args);
         };
         this.error = function(){
-            handleMessages('error', arguments);
+            var args = Array.prototype.slice.call(arguments);
+            handleMessages('error', args);
         };
 
         // this will open a new tab showing a chunk of messages in JSON format

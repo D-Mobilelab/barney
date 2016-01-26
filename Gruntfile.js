@@ -131,9 +131,10 @@ module.exports = function (grunt) {
                         message: 'Current: ' + versionString + ' - Choose a new version for Barney:',
                         default: versionMajor,
                         choices: [
+                            { name: 'No new version', value: versionString },
                             { name: 'Major Version (' + versionMajor + ')', value: versionMajor },
                             { name: 'Minor Version (' + versionMinor + ')', value: versionMinor },
-                            { name: 'Patch (' + versionPatch + ')', value: versionPatch }
+                            { name: 'Patch (' + versionPatch + ')', value: versionPatch }                            
                         ]
                     }]
                 }
