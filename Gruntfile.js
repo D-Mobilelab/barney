@@ -25,6 +25,7 @@ module.exports = function (grunt) {
         testPath: 'test/',
         docPath: 'docs/',
         newVersion: versionString,
+        changeLog: '',
         connect:{
             server: {
                 options:{
@@ -129,7 +130,7 @@ module.exports = function (grunt) {
                         config: 'newVersion',
                         type: 'list',
                         message: 'Current: ' + versionString + ' - Choose a new version for Barney:',
-                        default: versionMajor,
+                        default: versionString,
                         choices: [
                             { name: 'No new version', value: versionString },
                             { name: 'Major Version (' + versionMajor + ')', value: versionMajor },
@@ -141,7 +142,7 @@ module.exports = function (grunt) {
             }
         },
         'string-replace': {
-            dist: {
+            bower: {
                 files: {
                     'bower.json': 'bower.json'
                 },
@@ -200,7 +201,7 @@ module.exports = function (grunt) {
         'eslint',
         // PROMPT
         'prompt',
-        'string-replace'
+        'string-replace:bower'
     ]);
    
 }
