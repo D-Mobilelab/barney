@@ -15,6 +15,18 @@
  * ])
  * </pre>
  * 
+  * Remember to include the external javascript files you need:
+ *
+ * <pre>
+ *
+ *	  <!-- Newton module -->
+ *   <script type="text/javascript" src="./bower_components/barney/newton/newton.mod.js"> 
+ *
+ *	  <!-- Newton service -->
+ *   <script type="text/javascript" src="./bower_components/barney/newton/newton.ser.js"> 
+ *
+ * </pre>
+ *
  * # Init Newton
  * Before using Newton module, it must be initialized. 
  * To initialize Newton you can use the Newton method {@link newton.BarneyNewton#methods_init init}.

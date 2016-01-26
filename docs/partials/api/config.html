@@ -16,6 +16,19 @@ angular.module('yourApplicationModule', [
     'barney.config'
 ])
 </pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Config module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/config/config.mod.js"&gt; 
+
+  &lt;!-- Config service --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/config/config.pro.js"&gt; 
+
+   &lt;!-- Config filter --&gt;
+	 &lt;script type="text/javascript" src="./bower_components/barney/config/config.fil.js"&gt;
+
+</pre>
 <h2 id="init-module">Init module</h2>
 <p>In order to use Config module you have to use <a href="#/api/config.BarneyConfig#methods_init">init</a> method.</p>
 </div><h2 id="example">Example</h2>

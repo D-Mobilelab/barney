@@ -11,6 +11,16 @@ angular.module('yourApplicationModule', [
     'barney.newton'
 ])
 </pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Newton module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/newton/newton.mod.js"&gt; 
+
+  &lt;!-- Newton service --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/newton/newton.ser.js"&gt; 
+
+</pre>
 <h2 id="init-newton">Init Newton</h2>
 <p>Before using Newton module, it must be initialized. 
 To initialize Newton you can use the Newton method <a href="#/api/newton.BarneyNewton#methods_init">init</a>.</p>
