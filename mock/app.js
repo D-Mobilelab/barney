@@ -10,7 +10,8 @@ angular.module('mock', [
 	'barney.meta',
 	'barney.utility',  
 	'barney.storage',   
-	'barney.callbacky'  
+	'barney.callbacky',
+	'barney.infinite' 
 ])
 
 .config(['$routeProvider',
@@ -63,6 +64,10 @@ angular.module('mock', [
 			})
 			.when('/callbacky', {
 				templateUrl: 'pages/callbacky.html'
+			})
+			.when('/infinite', {
+				templateUrl: 'pages/infinite.html',
+				controller: 'InfiniteCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
