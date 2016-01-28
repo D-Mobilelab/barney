@@ -1,22 +1,47 @@
 'use strict';
 
 angular.module('mock').controller('InfiniteCtrl', 
-     function($scope) {
+     ['$scope', '$timeout', 
+     function($scope, $timeout) {
 
-        $scope.enableInfinite = false;
-        $scope.data = [];
-        $scope.page = 0;
+        // $scope.enableInfinite = false;
+        // $scope.data = [];
+        // $scope.page = 0;
         
-        $scope.foo = function(){
-            $scope.enableInfinite = false;
-            for(var i = $scope.page; i < $scope.page + 70; i++){
-                 $scope.data.push(i);
-            }
-            $scope.page += 70;
-            $scope.enableInfinite = true;
-             if($scope.page === 350)
-                $scope.enableInfinite = false;
+        // $scope.foo = function(){
+        //     $scope.enableInfinite = false;
+        //     for(var i = $scope.page; i < $scope.page + 70; i++){
+        //          $scope.data.push(i);
+        //     }
+        //     $scope.page += 70;
+        //     $scope.enableInfinite = true;
+        //      if($scope.page === 350)
+        //         $scope.enableInfinite = false;
+        // }
+
+        // $scope.foo();
+
+        $scope.flag = true;
+        $scope.data = [];
+        var start = 0, step = 10;
+
+        $scope.callApi = function(){
+            console.log("callApi - trigger!");
+            $scope.flag = false;
+
+            $timeout(function(){
+                console.log("setTimeout");
+
+                for(var i=start; i < start+step; i++){
+                    $scope.data.push(i);
+                }
+                start += step;
+
+                $scope.flag = true;
+            }, 2000);
         }
 
-        $scope.foo();
-});
+        // $scope.callApi();
+
+       
+}]);
