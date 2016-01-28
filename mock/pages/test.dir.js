@@ -9,51 +9,31 @@ angular.module('mock').directive('test',
                 callback: '&'
             },
             link: function($scope, $element, $attribute) {
+
+                var check = function(){
+                    var windowHeight = 'innerHeight' in window ? window.innerHeight
+                        : document.documentElement.offsetHeight;
+                    var body = document.body, html = document.documentElement;
+                    var docHeight = Math.max(body.scrollHeight,
+                        body.offsetHeight, html.clientHeight,
+                        html.scrollHeight, html.offsetHeight);
+                    var windowBottom = windowHeight + window.pageYOffset;
+                    var elementHeight = $element[0].offsetHeight;
+
+                    console.log("CHECK", $scope.enable, (elementHeight<windowBottom || windowBottom >= docHeight), " >> ", $scope.enable && (elementHeight<windowBottom || windowBottom >= docHeight));
+
+                    if($scope.enable && (elementHeight<windowBottom || windowBottom >= docHeight)){
+                        $scope.callback();
+                    }
+                }
                 
                 $scope.$watch('enable', function(newVal, oldVal){
-                    console.log("directive value: ", newVal);
-                    if(newVal){
-
-                        var windowHeight = 'innerHeight' in window ? window.innerHeight
-                            : document.documentElement.offsetHeight;
-                        var body = document.body, html = document.documentElement;
-                        var docHeight = Math.max(body.scrollHeight,
-                            body.offsetHeight, html.clientHeight,
-                            html.scrollHeight, html.offsetHeight);
-                        var windowBottom = windowHeight + window.pageYOffset;
-                        var elementHeight = $element[0].offsetHeight
-
-                        console.log("directive heights - element:", elementHeight, " window:", windowBottom, "docHeight:", docHeight);
-                        if(elementHeight < windowBottom){
-                            console.log("directive trigger!!!");
-                            $scope.callback();
-                            // count--;
-                        } else {
-                            enableScrollListener();
-                        }
-                    }
+                    check();
                 });
 
-                var enableScrollListener = function(){
-                    angular.element($window).bind('scroll', function() {
-                        console.log("scroll enable", $scope.enable);
-                        if($scope.enable){
-                            var windowHeight = 'innerHeight' in window ? window.innerHeight
-                                : document.documentElement.offsetHeight;
-                            var body = document.body, html = document.documentElement;
-                            var docHeight = Math.max(body.scrollHeight,
-                                body.offsetHeight, html.clientHeight,
-                                html.scrollHeight, html.offsetHeight);
-                            var windowBottom = windowHeight + window.pageYOffset;
-                            console.log("scroll values", windowBottom, docHeight);
-
-                            if (windowBottom >= docHeight ) {
-                                console.log("scroll trigger!!!");
-                                $scope.callback();
-                            }
-                        }
-                    });
-                }
+                angular.element($window).bind('scroll', function() {
+                    check();
+                });
 
             }
         };
