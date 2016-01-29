@@ -4,13 +4,13 @@
 </h1>
 <div><div class="infinite-page"><p><strong>BarneyInfinite</strong> is the module of Barney that provides you the infinite scroll.</p>
 <p><strong>BarneyInfinite</strong> listens when a page is scrolled and 
-calculates the window bottom height and the height of the 
-document. 
-When the windowBottom is greater than the 
-document&#39;s height it calls the given function. </p>
-<p>Remember that you don&#39;t need to call the given function the first time,
-just pass to the directive a true boolean value.</p>
-<p><strong>BarneyInfinite</strong> will disable itself before the call of the given function.
+knows when you have reached the bottom of the page.
+When you are at the bottom of the page it calls the given function. </p>
+<p>Remember that you don&#39;t need to call the given function the first time in controller
+because you can pass to the directive a true boolean value to make <strong>BarneyInfinite</strong>
+do this.</p>
+<p><strong>BarneyInfinite</strong> will disable itself before the call of the given function to not 
+listen other scroll while the call is processing.
 To reenable <strong>BarneyInfinite</strong> you have to pass, to the given function, a new function
 that you can call inside to reactivate <strong>BarneyInfinite</strong> when you need.
 See the example to the directive documentation.</p>
