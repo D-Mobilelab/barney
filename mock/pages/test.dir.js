@@ -1,6 +1,6 @@
 angular.module('mock').directive('infiniteScroll', 
-    ['$window', 
-    function($window) {
+    ['$window', '$timeout',
+    function($window, $timeout) {
 
         return {
             restrict: 'A',
@@ -25,17 +25,18 @@ angular.module('mock').directive('infiniteScroll',
                     var windowBottom = windowHeight + window.pageYOffset + parseInt($scope.offset);
                     var elementHeight = $element[0].offsetHeight;
                     
-                    console.log("CHECK", windowBottom, (elementHeight<windowBottom || windowBottom>=docHeight));
-
                     if(elementHeight < windowBottom || windowBottom >= docHeight){
                         $scope.enable = false;
+
                         $scope.callback.call()(function(){
-                            $scope.enable = true;
+                            $timeout(function(){
+                                $scope.enable = true;
+                            }, 1);
                         });
                     }
                 }
                 
-                $scope.$watch('enable', function(newVal, oldVal){
+                $scope.$watch('enable', function(){
                     if($scope.enable){
                         check();
                     }

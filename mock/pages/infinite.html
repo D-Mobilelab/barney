@@ -1,14 +1,9 @@
 <div class="container">
-	<!-- <div infinite-scroll foo="foo()" enable="enableInfinite" >
-		<div ng-repeat="item in data" >
-		 {{item}} 
-  	 </div>
-  	</div>
-	<div ng-show="noContents">empty</div> -->
 
 	<div infinite-scroll infinite-enable="flag" infinite-callback="callApi" infinite-offset="100">
 		<p ng-repeat="item in data">
 			{{item}}
 		</p>
 	</div>
+	
 </div>
