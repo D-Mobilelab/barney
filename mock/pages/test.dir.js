@@ -10,6 +10,8 @@ angular.module('mock').directive('test',
             },
             link: function($scope, $element, $attribute) {
 
+                var localEnable = true;
+
                 var check = function(){
                     var windowHeight = 'innerHeight' in window ? window.innerHeight
                         : document.documentElement.offsetHeight;
@@ -22,17 +24,26 @@ angular.module('mock').directive('test',
 
                     console.log("CHECK", $scope.enable, (elementHeight<windowBottom || windowBottom >= docHeight), " >> ", $scope.enable && (elementHeight<windowBottom || windowBottom >= docHeight));
 
-                    if($scope.enable && (elementHeight<windowBottom || windowBottom >= docHeight)){
-                        $scope.callback();
+                    // if($scope.enable && (elementHeight<windowBottom || windowBottom >= docHeight)){
+                    if($scope.enable && localEnable && (elementHeight<windowBottom || windowBottom >= docHeight)){
+                        localEnable = false;
+                        $scope.callback.call()(function(){
+                            localEnable = true;
+                        });
+                        // $scope.callback("pippo");
                     }
                 }
                 
                 $scope.$watch('enable', function(newVal, oldVal){
-                    check();
+                    if($scope.enable && localEnable){
+                        check();
+                    }
                 });
 
                 angular.element($window).bind('scroll', function() {
-                    check();
+                    if($scope.enable && localEnable){
+                        check();
+                    }
                 });
 
             }

@@ -25,7 +25,7 @@ angular.module('mock').controller('InfiniteCtrl',
         $scope.data = [];
         var start = 0, step = 10;
 
-        $scope.callApi = function(){
+        $scope.callApi = function(aftercallme){
             console.log("callApi - trigger!");
             $scope.flag = false;
 
@@ -36,6 +36,9 @@ angular.module('mock').controller('InfiniteCtrl',
                     $scope.data.push(i);
                 }
                 start += step;
+
+                // console.log("I have called flag of flag ;)", flag)
+                aftercallme();
 
                 $scope.flag = true;
             }, 2000);
