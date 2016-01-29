@@ -34,8 +34,6 @@
  *
  * <pre>
  *  $scope.flag = true; 
- *  $scope.data = [];
- *  var start = 0, step = 10;
  *
  *  $scope.functionToCall = function(reenableInfinite){
  *

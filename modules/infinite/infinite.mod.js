@@ -10,11 +10,10 @@
  * knows when you have reached the bottom of the page.
  * When you are at the bottom of the page it calls the given function. 
  * 
- * Remember that you don't need to call the given function the first time in controller
- * because you can pass to the directive a true boolean value to make **BarneyInfinite**
- * do this.
+ * Remember that you don't need to call the given function in your controller
+ * because it will take care **BarneyInfinite**.
  * 
- * **BarneyInfinite** will disable itself before the call of the given function to not 
+ * **BarneyInfinite** will disable itself after the call of the given function to not 
  * listen other scroll while the call is processing.
  * To reenable **BarneyInfinite** you have to pass, to the given function, a new function
  * that you can call inside to reactivate **BarneyInfinite** when you need.
