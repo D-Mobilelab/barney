@@ -6,10 +6,9 @@
 <p><strong>BarneyInfinite</strong> listens when a page is scrolled and 
 knows when you have reached the bottom of the page.
 When you are at the bottom of the page it calls the given function. </p>
-<p>Remember that you don&#39;t need to call the given function the first time in controller
-because you can pass to the directive a true boolean value to make <strong>BarneyInfinite</strong>
-do this.</p>
-<p><strong>BarneyInfinite</strong> will disable itself before the call of the given function to not 
+<p>Remember that you don&#39;t need to call the given function in your controller
+because it will take care <strong>BarneyInfinite</strong>.</p>
+<p><strong>BarneyInfinite</strong> will disable itself after the call of the given function to not 
 listen other scroll while the call is processing.
 To reenable <strong>BarneyInfinite</strong> you have to pass, to the given function, a new function
 that you can call inside to reactivate <strong>BarneyInfinite</strong> when you need.

@@ -127,7 +127,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "infinite",
       "shortDescription": "BarneyInfinite is the module of Barney that provides you the infinite scroll.",
-      "keywords": "activate angular api app application attribute barney boolean bottom call calls contents controller dir directive disable documentation doesn don example external file files fill function import include infinite infinte inside javascript js listen listens mod module offset overview pass processing reached reaching reactivate reenable remember scroll scrolled src text time true type web window worry yourapplicationmodule"
+      "keywords": "activate angular api app application attribute barney bottom call calls care contents controller dir directive disable documentation doesn don example external file files fill function import include infinite infinte inside javascript js listen listens mod module offset overview pass processing reached reaching reactivate reenable remember scroll scrolled src text type web window worry yourapplicationmodule"
     },
     {
       "section": "api",
@@ -136,7 +136,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "infinite",
       "shortDescription": "Allow infinite scroll on your page.",
-      "keywords": "$scope activate add allow api boolean bottom call callapimethod called choose controller data define defined directive disabled div element example executed flag function functiontocall infinite infinite-callback infinite-enable infinite-offset infinite-scroll item list listener ng-repeat offset pass re-enable reached reaching reactivate reenable reenableinfinite remember response scroll start step true var wait work"
+      "keywords": "$scope activate add allow api boolean bottom call callapimethod called choose controller data define defined directive disabled div element example executed flag function functiontocall infinite infinite-callback infinite-enable infinite-offset infinite-scroll item list listener ng-repeat offset pass re-enable reached reaching reactivate reenable reenableinfinite remember response scroll true wait work"
     },
     {
       "section": "api",
