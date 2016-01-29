@@ -1,14 +1,19 @@
-angular.module('mock').directive('test', 
+angular.module('mock').directive('infiniteScroll', 
     ['$window', 
     function($window) {
 
         return {
             restrict: 'A',
             scope: {
-                enable: '=',
-                callback: '&'
+                enable: '=infiniteEnable',
+                callback: '&infiniteCallback',
+                offset: '@infiniteOffset'
             },
             link: function($scope, $element, $attribute) {
+
+                if(!$scope.offset){ 
+                    $scope.offset = 0;
+                }
 
                 var check = function(){
                     var windowHeight = 'innerHeight' in window ? window.innerHeight
@@ -17,12 +22,12 @@ angular.module('mock').directive('test',
                     var docHeight = Math.max(body.scrollHeight,
                         body.offsetHeight, html.clientHeight,
                         html.scrollHeight, html.offsetHeight);
-                    var windowBottom = windowHeight + window.pageYOffset;
+                    var windowBottom = windowHeight + window.pageYOffset + parseInt($scope.offset);
                     var elementHeight = $element[0].offsetHeight;
 
-                    console.log("CHECK", $scope.enable, (elementHeight<windowBottom || windowBottom >= docHeight), " >> ", $scope.enable && (elementHeight<windowBottom || windowBottom >= docHeight));
+                    console.log("CHECK", windowBottom, (elementHeight<windowBottom || windowBottom+$scope.offset>=docHeight));
 
-                    if(elementHeight<windowBottom || windowBottom >= docHeight){
+                    if(elementHeight<windowBottom || windowBottom+$scope.offset>=docHeight){
                         $scope.enable = false;
                         $scope.callback.call()(function(){
                             $scope.enable = true;

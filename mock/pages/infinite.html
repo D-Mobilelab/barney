@@ -6,7 +6,7 @@
   	</div>
 	<div ng-show="noContents">empty</div> -->
 
-	<div test enable="flag" callback="callApi">
+	<div infinite-scroll infinite-enable="flag" infinite-callback="callApi" infinite-offset="100">
 		<p ng-repeat="item in data">
 			{{item}}
 		</p>
