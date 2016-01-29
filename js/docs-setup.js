@@ -122,6 +122,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "infinite",
+      "shortName": "infinite",
+      "type": "overview",
+      "moduleName": "infinite",
+      "shortDescription": "BarneyInfinite is the module of Barney that provides you the infinite scroll.",
+      "keywords": "activate angular api app application attribute barney boolean bottom calculates call calls contents dir directive disable document documentation doesn don example external file files fill function greater height import include infinite infinte inside javascript js listens mod module offset overview pass reaching reactivate reenable remember scroll scrolled src text time true type web window windowbottom worry yourapplicationmodule"
+    },
+    {
+      "section": "api",
+      "id": "infinite.directive:InfiniteScroll",
+      "shortName": "InfiniteScroll",
+      "type": "directive",
+      "moduleName": "infinite",
+      "shortDescription": "Allow infinite scroll on your page.",
+      "keywords": "$scope activate add allow api boolean bottom call called controller data define directive div element example executed flag function functiontocall html infinite infinite-callback infinite-enable infinite-offset infinite-scroll item list listener ng-repeat offset pass push reached reaching reactivate reenable reenableinfinite remember scroll start step true var"
+    },
+    {
+      "section": "api",
       "id": "logger",
       "shortName": "logger",
       "type": "overview",
