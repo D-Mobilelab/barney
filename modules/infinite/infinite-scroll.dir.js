@@ -1,3 +1,56 @@
+/**
+ * @ngdoc directive
+ * @name infinite.directive:InfiniteScroll
+ *
+ * @description
+ * Allow infinite scroll on your page.
+ *
+ * To use Infinite directive, you have to add **infinite-scroll** 
+ * to the div that will contain the element' s list.
+ *
+ * In this example, I have added infinite-scroll to a div that contains an ng-repeat:
+ * # HTML
+ * <pre>
+ *  <div infinite-scroll infinite-callback="functionToCall"  
+ *   infinite-enable="flag" infinite-offset="100">
+ *      <p ng-repeat="item in data">
+ *           {{item}}
+ *       </p>
+ *  </div>
+ * </pre>
+ *
+ * # Controller
+ * 
+ * To use **BarneyInfinite** you have to define a function that will be executed when the
+ * bottom of the page will be reached. If you want to reenable **BarneyInfinite** you have
+ * to pass to that function a new function that will be called when you want to 
+ * reactivate the infinite scroll listener. Remember that you can pass to **BarneyInfinite**
+ * also a boolean ( to make Infinite does the first call )  and an offset ( to 
+ * activate **BarneyInfinite** before the reaching of the end of the page).
+ *
+ * <pre>
+ *  $scope.flag = true; 
+ *  $scope.data = [];
+ *  var start = 0, step = 10;
+ *
+ *  $scope.functionToCall = function(reenableInfinite){
+ *
+ *      for(var i=start; i < start+step; i++){
+ *          $scope.data.push(i);
+ *      }
+ *      start += step;
+ *      if(youWantToReenable) {
+ *          reenableInfinite(); 
+ *      } else {
+ *          //do nothing
+ *       }
+ *
+ *  }
+ * </pre>
+ *
+ *
+ */
+
 angular.module('barney.infinite').directive('infiniteScroll', 
     ['$window', '$timeout',
     function($window, $timeout) {
@@ -9,8 +62,12 @@ angular.module('barney.infinite').directive('infiniteScroll',
                 callback: '&infiniteCallback',
                 offset: '@infiniteOffset'
             },
-            link: function($scope, $element, $attribute) {
+            link: function($scope, $element) {
 
+                // offset is used to activate infinite scroll before 
+                // the end of the window has been reached, 
+                // if exist it takes the specified value, else
+                // it's equal to 0;
                 if(!$scope.offset){ 
                     $scope.offset = 0;
                 }
@@ -22,7 +79,7 @@ angular.module('barney.infinite').directive('infiniteScroll',
                     var docHeight = Math.max(body.scrollHeight,
                         body.offsetHeight, html.clientHeight,
                         html.scrollHeight, html.offsetHeight);
-                    var windowBottom = windowHeight + window.pageYOffset + parseInt($scope.offset);
+                    var windowBottom = windowHeight + window.pageYOffset + parseInt($scope.offset, 10);
                     var elementHeight = $element[0].offsetHeight;
                     
                     if(elementHeight < windowBottom || windowBottom >= docHeight){
@@ -34,7 +91,7 @@ angular.module('barney.infinite').directive('infiniteScroll',
                             }, 1);
                         });
                     }
-                }
+                };
                 
                 $scope.$watch('enable', function(){
                     if($scope.enable){
@@ -52,66 +109,3 @@ angular.module('barney.infinite').directive('infiniteScroll',
         };
     }
 ]);
-
-
-/*
-angular.module('barney.infinite').directive('infiniteScroll', 
-    ['$window', 
-    function($window) {
-
-        return {
-            restrict: 'A',
-            scope: {
-                foo: '&',
-                enable: '=',
-                distance: '@'
-            },
-
-            link: function(scope) {
-
-                // offset is used to activate infinite scroll before 
-                // the end of the window has been reached, 
-                // if exist it takes the specified value, else
-                // it's equal to 0;
-                var offset;
-
-                if(scope.distance){
-                    offset = parseInt(scope.distance, 10) || 0;
-                } else {
-                    offset = 0;
-                }
-
-                // Infinite - Scroll
-                // BarneyInfiniteScroll listens when a page is scrolled and 
-                //    calculates the window bottom height and the height of the 
-                //    document. When the windowBottom is greater than the 
-                //    document's height it calls the given function. 
-                //    Yuo can enable or disable when you want the listener 
-                //    simply giving to the var enable of the directive a boolean 
-                //    flag. Is recommended to disable the infinite scroll in the 
-                //    given function before executing it, and re-enable at the 
-                //    end of the function to re-activate the listener. 
-                //    Remember that you can disable infinite scroll whenever 
-                //    you want in your code.
-
-                angular.element($window).bind('scroll', function() {
-                    if(scope.enable){
-                        var windowHeight = 'innerHeight' in window ? window.innerHeight
-                            : document.documentElement.offsetHeight;
-                        var body = document.body, html = document.documentElement;
-                        var docHeight = Math.max(body.scrollHeight,
-                            body.offsetHeight, html.clientHeight,
-                            html.scrollHeight, html.offsetHeight);
-                        var windowBottom = windowHeight + window.pageYOffset;
-
-                        if (windowBottom + offset >= docHeight ) {
-                            scope.foo();
-                            scope.$apply();
-                        }
-                    }
-                });
-            }
-        };
-    }
-]);
-*/

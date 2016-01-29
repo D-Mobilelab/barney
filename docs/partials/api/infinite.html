@@ -1,0 +1,40 @@
+<h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><div class="infinite-page"><p><strong>BarneyInfinite</strong> is the module of Barney that provides you the infinite scroll.</p>
+<p><strong>BarneyInfinite</strong> listens when a page is scrolled and 
+calculates the window bottom height and the height of the 
+document. 
+When the windowBottom is greater than the 
+document&#39;s height it calls the given function. </p>
+<p>Remember that you don&#39;t need to call the given function the first time,
+just pass to the directive a true boolean value.</p>
+<p><strong>BarneyInfinite</strong> will disable itself before the call of the given function.
+To reenable <strong>BarneyInfinite</strong> you have to pass, to the given function, a new function
+that you can call inside to reactivate <strong>BarneyInfinite</strong> when you need.
+See the example to the directive documentation.</p>
+<p>Don&#39; t worry if your contents doesn&#39;t fill the page because infinte scroll
+will fill the page for you, if there will be enough contents!</p>
+<p>If you want to activate <strong>BarneyInfinite</strong> before the reaching of the end of the window you 
+can use the offset attribute to tell <strong>BarneyInfinite</strong> how much before it must activate 
+itself.</p>
+<h2 id="import-module">Import module</h2>
+<p>To import <strong>BarneyInfinite</strong> Scroll module, include barney.<strong>BarneyInfinite</strong> to 
+your web application module (usually in app.js file)
+<pre class="prettyprint linenums">
+angular.module('yourApplicationModule', [
+    'barney.infinite'
+])
+</pre>
+<p>Remember to include the external javascript files you need:</p>
+<pre class="prettyprint linenums">
+
+  &lt;!-- Infinite module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/infinite/infinite.mod.js"&gt; 
+
+  &lt;!-- Infinite directive --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/infinite/infinite-scroll.dir.js"&gt; 
+
+</pre>
+</div></div>
