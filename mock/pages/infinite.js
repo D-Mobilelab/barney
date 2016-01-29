@@ -27,8 +27,7 @@ angular.module('mock').controller('InfiniteCtrl',
 
         $scope.callApi = function(aftercallme){
             console.log("callApi - trigger!");
-            // $scope.flag = false;
-
+            
             $timeout(function(){
                 console.log("setTimeout");
 
@@ -38,9 +37,7 @@ angular.module('mock').controller('InfiniteCtrl',
                 start += step;
 
                 aftercallme();
-
-                // $scope.flag = true;
-            }, 2000);
+            }, 1);
         }
 
        
