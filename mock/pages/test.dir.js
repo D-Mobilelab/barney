@@ -24,10 +24,10 @@ angular.module('mock').directive('infiniteScroll',
                         html.scrollHeight, html.offsetHeight);
                     var windowBottom = windowHeight + window.pageYOffset + parseInt($scope.offset);
                     var elementHeight = $element[0].offsetHeight;
-
+                    
                     console.log("CHECK", windowBottom, (elementHeight<windowBottom || windowBottom>=docHeight));
 
-                    if(elementHeight<windowBottom || windowBottom>=docHeight){
+                    if(elementHeight < windowBottom || windowBottom >= docHeight){
                         $scope.enable = false;
                         $scope.callback.call()(function(){
                             $scope.enable = true;
