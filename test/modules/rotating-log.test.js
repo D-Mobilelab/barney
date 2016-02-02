@@ -17,6 +17,20 @@ describe('LOGGER -', function () {
 		spyOn(console, 'error');				
 	});
 
+	describe('rotating logger get Config -', function(){
+		beforeEach(function(){
+			RotLogger.init({
+				enabled: true,
+				recordingEnabled: false
+			});
+		});
+
+		it('logger prints config messages', function(){
+				expect(RotLogger.getConfig()).toEqual(
+				Object({ enabled: true, log: true, table: true, info: true, warn: true, error: true, maxSize: 100, sliding: true }));
+		});
+	});
+
 	describe('rotating logger -', function(){
 		beforeEach(function(){
 			RotLogger.init({
@@ -142,6 +156,61 @@ describe('LOGGER -', function () {
 			RotLogger.log(5);
 			RotLogger.log(6);
 			expect(MockSave.save.calls.count()).toEqual(0);
+		});
+	});
+
+	describe('Rotatinglevel failure -', function(){
+		it('fail maxSize init', function(){
+			var init = function(){
+				RotLogger.init({
+					enabled: true,
+					maxSize: 'i\'m not a number'
+				});
+			};
+			expect(init).toThrow();
+		});
+
+		it('fail sliding init', function(){
+			var init = function(){
+				RotLogger.init({
+					enabled: true,
+					sliding: 'I\'m not a boolean'
+				});
+			};
+			expect(init).toThrow();
+		});
+
+		it('fail Recording Enabled init', function(){
+			var init = function(){
+				RotLogger.init({
+					enabled: true,
+					recordingEnabled: 'I\'m not a boolean'
+				});
+			};
+			expect(init).toThrow();
+		});
+
+		it('fail saveRecords init', function(){
+			var init = function(){
+				RotLogger.init({
+					enabled: true,
+					saveRecords: 123
+				});
+			};
+			expect(init).toThrow();
+		});
+
+		it('fail endRecording', function(){
+			var init = function(){
+				RotLogger.init({
+					enabled: true,
+					level: 'log',
+					recordingEnabled: false
+				});
+			};
+			RotLogger.log('Hello World!');
+			RotLogger.endRecording();
+			expect(console.warn).toHaveBeenCalledWith('RotatingLog :: endRecording called while RotatingLog was not recording');
 		});
 	});
 

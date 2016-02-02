@@ -98,6 +98,7 @@
             var typeOfMaxSize = typeof options.maxSize;
             var typeOfSliding = typeof options.sliding;
             var typeOfRecEnabled = typeof options.recordingEnabled;
+            var typeOfSaveRecords = typeof options.saveRecords;
 
             /* define custom maxSize
             * maxSize defines the max number of messages recorded
@@ -139,10 +140,9 @@
             /* custom saveRecords function
             * allows you to use a custom function as saveRecords
             */
-            valueType = typeof options.saveRecords;
-            if (valueType === 'function'){
+            if (typeOfSaveRecords === 'function'){
                 saveRecords = options.saveRecords;
-            } else if (valueType !== 'undefined'){
+            } else if (typeOfSaveRecords !== 'undefined'){
                 throw new Error('RotatingLog :: illegal type for saveRecords - expected function, got ' + valueType);
             }
 

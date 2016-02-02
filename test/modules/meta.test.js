@@ -28,6 +28,10 @@ describe('META -', function () {
 			expect(MetaService.get('title')).toEqual(defaultKeys.title);
 		});
 
+		it('if get a non key, then it returns null', function(){
+			expect(MetaService.get('buoh')).toEqual('');
+		});
+
 		it('if set a new value as key and get key, then it returns updated value', function(){
 			MetaService.set(newKeys);
 			expect(MetaService.get('title')).toEqual(newKeys.title);

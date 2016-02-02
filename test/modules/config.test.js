@@ -58,4 +58,11 @@ describe('CONFIG -', function () {
 		expect(ConfigProvider.list()).toBe(CONFIG);
 	});
 
+	it('if a key value is false applied to a fiter, then return false ', inject(function ($filter) {
+		expect($filter('config')('KEY_FALSE')).toBe(false);
+	}));
+
+	it('if a key value has a value applied to a filder, then return that value', inject(function ($filter) {
+		expect($filter('config')('NEWTON_SECRET_KEY')).toBe('<sec_ret>');
+	}));
 });
