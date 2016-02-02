@@ -39,6 +39,7 @@ module.exports = function(config) {
       "modules/*/*.pro.js",  
       "modules/*/*.ser.js",  
       "modules/*/*.fil.js",
+      "modules/*/*.dir.js",
 
       // test
       "test/**/*.test.js"
