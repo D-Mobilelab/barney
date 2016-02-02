@@ -137,6 +137,24 @@ module.exports = function (grunt) {
                             { name: 'Minor Version (' + versionMinor + ')', value: versionMinor },
                             { name: 'Patch (' + versionPatch + ')', value: versionPatch }                            
                         ]
+                    }, {
+                        config: 'changeLog',
+                        type: 'input',
+                        message: 'Features for version <%= newVersion %> (use ";" to separate features):',
+                        default: '',
+                        when: function(answers) {
+                            return answers['newVersion'] !== versionString;
+                        },
+                        filter: function(value){
+                            // add new version string to changelog
+                            value = "** <%= newVersion %> **; " + value; 
+                            // remove last char if it's a semicolon
+                            if(value.substr(value.length-1) === ';'){ value = value.substr(0, value.length-1)}
+                            // replace all semicolons to "\n-"
+                            value = value.replace(/;/g, "\n-");
+                            // add double newlines and return changelog
+                            return value + "\n\n";
+                        }
                     }]
                 }
             }
@@ -152,6 +170,17 @@ module.exports = function (grunt) {
                         replacement: '"version": "<%= newVersion %>",'
                     }]
                 }
+            }
+        },
+        'file_append': {
+            changelog: {
+                files: [
+                    {
+                        prepend: "<%= changeLog %>",
+                        input: 'CHANGELOG',
+                        output: 'CHANGELOG'
+                    }
+                ]
             }
         }
     });
@@ -201,7 +230,8 @@ module.exports = function (grunt) {
         'eslint',
         // PROMPT
         'prompt',
-        'string-replace:bower'
+        'string-replace:bower',
+        'file_append:changelog'
     ]);
    
 }
