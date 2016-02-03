@@ -15,15 +15,11 @@ git clone ssh://name.surname@review.buongiorno.com:29418/frontdev/barney barney
 ```
 - Install Node in your local machine, if not already installed [https://nodejs.org](https://nodejs.org)
 
-- Install npm modules
-```
-npm install
-```
 - Install Bower in your local machine, if not already installed [http://bower.io/](http://bower.io/)
 
-
-- Install bower components
+- Install dependencies (npm modules and bower components)
 ```
+npm install
 bower install
 ```
 - You can develop on Barney Project now! ;)
@@ -39,7 +35,7 @@ git pull origin develop
 git checkout -b feature/newfeature
 ```
 - Code!
-- Add new files and commit modified files on git
+- Add new files and commit modified files on Git
 ```
 git add newfile.js
 git commit -a -m "New feature"
@@ -52,6 +48,11 @@ git push origin feature/newfeature
 ```
 git checkout develop
 git merge feature/newfeature
+```
+- Resolve possible conflicts, commit and push changes
+```
+git commit -a -m "Merge from feature/newfeature"
+git push origin develop
 ```
 - Delete local and remote feature branch
 ```
@@ -69,11 +70,8 @@ git pull origin master
 ```
 git merge develop
 ```
-- Commit and push changes
-```
-git commit -a -m "Merge from develop"
-git push origin master
-```
+- Resolve possible conflicts
+
 - Create a new version with this command:
 ```
 grunt version
@@ -90,7 +88,7 @@ grunt version
 ```
 ? Features for version 1.1.0 (use ";" to separate features): ()
 ```
-- Commit and push CHANGELOG and bower.json
+- Commit and push *CHANGELOG* and *bower.json*
 ```
 git commit -a -m "New feature"
 git push origin master
@@ -105,39 +103,38 @@ git push --tags origin
 ```
 
 # How to install Barney to your project
-1. Go to your project folder, where there's bower.json file (i.e. /dadanet2/wl2/webstore_clipjoy/js/webstore_clipjoy)
-2. Add to bower.json the URL of Barney with last version
+- Go to your project folder
+
+- Install Barney with Bower
 ```
-"barney": "git+http://review.buongiorno.com/frontdev/barney#0.15.1",
+bower install --save git+http://review.buongiorno.com/frontdev/barney
 ```
-3. Execute bower install
+- Add barney files you want use to index.html file, according to Barney documentation
 ```
-bower install
+<script src="bower_components/Barney/history/history.mod.js"></script>
+<script src="bower_components/Barney/history/history.ser.js"></script>
 ```
-4. Execute grunt wiredep to add barney files to index.html or add them manually
+- Add barney modules you want use to app.js file, according to Barney documentation
 ```
-grunt wiredep
-```
-5. Add barney modules you want use to app.js file
-```
-angular.module('clipjoy', [ ..., 'barney.logger'])
+angular.module('clipjoy', [ ..., 'barney.history'])
 ```
 
 # How to update Barney in your project
-1. Go to your project folder, where there's bower.json file (i.e. /dadanet2/wl2/webstore_clipjoy/js/webstore_clipjoy)
-2. Update barney version in your bower.json file
+- Go to your project folder
+
+- Update barney version in your bower.json file
 ```
 "barney": "git+http://review.buongiorno.com/frontdev/barney#0.16.0",
 ```
-3. Execute bower install
+- Execute bower install
 ```
 bower install
 ```
-4. Execute grunt wiredep to add new barney files to index.html or add them manually
+- Add new barney files to index.html file, if necessary
 ```
-grunt wiredep
+<script src="bower_components/Barney/history/history.ser.js"></script>
 ```
-5. Add new barney modules to app.js file, if necessary
+- Add new barney modules to app.js file, if necessary
 ```
 angular.module('clipjoy', [ ..., 'barney.logger'])
 ```
