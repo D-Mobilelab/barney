@@ -18,7 +18,9 @@ describe('UTILITY -', function () {
 			});
 			$provide.value('$window', {
 				location: {
-					search: "?earth=sun"
+					search: "?earth=sun",
+					href: "",
+					reload: function(){}
 				}
 			});
 		});
@@ -27,8 +29,10 @@ describe('UTILITY -', function () {
 		module('barney.utility');
 
 		// inject BarneyUtility service
-		inject(function (_BarneyUtility_) {
+		inject(function (_BarneyUtility_, _$window_) {
 			UtilityService = _BarneyUtility_;
+			WindowProvider = _$window_;
+			spyOn(WindowProvider.location, "reload");
 		});
 	});
 
@@ -62,6 +66,21 @@ describe('UTILITY -', function () {
 		expect(UtilityService.addQueryParams({
 			venus: 'mercury'
 		}, 'http://www.bing.com?jupiter=saturn')).toEqual('http://www.bing.com?jupiter=saturn&venus=mercury');
+	});
+
+	it('brutalRedirect - location.href changed to url', function(){
+		var url = "http://www.google.it";
+		UtilityService.brutalRedirect(url);
+		expect(WindowProvider.location.href).toEqual(url);
+	});
+
+	it('brutalRedirect - location.reload called with true, if user agent contains Safari', function(){
+		var url = "http://www.google.it";
+		navigator = {
+			userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"
+		};
+		UtilityService.brutalRedirect(url);
+		expect(WindowProvider.location.reload).toHaveBeenCalledWith(true);
 	});
 
 });
