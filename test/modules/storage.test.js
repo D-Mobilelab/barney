@@ -228,6 +228,14 @@ describe('STORAGE -', function () {
 			StorageService.getMultiple(['hello', 'mars'], options);
 			expect(logger.log).toHaveBeenCalledWith('BarneyStorage', 'getMultiple', {hello: 'world', mars: 'earth'}, options);
 		});
+		it('init Storage service logger with true', function(){
+			
+			StorageService.init({
+				type: 'cookie',
+				logger: true
+			});
+			expect(logger.log).toHaveBeenCalled();
+		});
 	});
 
 });
