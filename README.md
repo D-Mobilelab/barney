@@ -24,6 +24,37 @@ bower install
 ```
 - You can develop on Barney Project now! ;)
 
+# How to run test
+- Run test:
+```
+grunt test
+```
+*This command runs test on console, for a single time.*
+
+- Run test + coverage:
+```
+grunt coverage
+```
+*This command runs test, calculates updated coverage and opens browser to read it.* 
+
+*If test are successful, the process is in "waiting" state. When the user edits a file (a module or a test), it re-runs test and re-calculate updated coverage.*
+
+# How to generate and read documentation
+- Generate and read doc:
+```
+grunt doc
+```
+*This command generates a new updated documentation and opens browser to read it*
+
+# How to try modules, with mock
+- With this command you can try Barney modules in some examples:
+```
+grunt serve
+```
+*This command load mock folder and opens browser to read it. You can test every Barney module easily.* 
+
+*The process is in "waiting" state. When the user edits a file (a module or a mock), it updates browser and re-load mock folder*
+
 # How to create a new feature
 - Checkout and pull develop branch
 ```
