@@ -42,16 +42,14 @@ module.exports = function(config) {
       "modules/*/*.dir.js",
 
       // test
-      "test/**/*.test.js"
+      "test/**/*.test.js",
 
       // END YOUR JS FILES
     ],
 
     // list of files / patterns to exclude
     exclude: [
-      "test/coverage/*",
-      "modules/masonry/*",
-      "modules/newtontrack_deprecated/*"
+      "test/coverage/*"
     ],
 
     // web server port
