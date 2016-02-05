@@ -38,10 +38,6 @@ angular.module('mock', [
 				templateUrl: 'pages/newton.html',
 				controller: 'NewtonCtrl'
 			})
-			.when('/masonry', {
-				templateUrl: 'pages/masonry.html',
-				controller: 'MasonryCtrl'
-			})
 			.when('/meta', {
 				templateUrl: 'pages/meta.html',
 				controller: 'MetaCtrl'
@@ -57,10 +53,6 @@ angular.module('mock', [
 			.when('/storage', {
 				templateUrl: 'pages/storage.html',
 				controller: 'StorageCtrl'
-			})
-			.when('/stargate', {
-				templateUrl: 'pages/stargate.html',
-				controller: 'StargateCtrl'
 			})
 			.when('/callbacky', {
 				templateUrl: 'pages/callbacky.html'
