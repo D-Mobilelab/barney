@@ -97,7 +97,7 @@ describe('UTILITY -', function () {
 		expect(WindowProvider.location.reload).not.toHaveBeenCalled();
 	});
 
-	it('Click and go to have been called without hasbang and tagName A', function(){
+	it('Click and go to have been called without hashbang and tagName A', function(){
 		mockedEvent = {
 			target: {
 				tagName:'A',
@@ -108,7 +108,7 @@ describe('UTILITY -', function () {
 		expect(mockedLocation.url).toHaveBeenCalledWith('/category?hello=world');
 	});
 
-	it('Click and go not to have been called with hasbang', function(){
+	it('Click and go not to have been called with hashbang', function(){
 		mockedEvent = {
 			target: {
 				tagName:'A',
@@ -149,7 +149,7 @@ describe('UTILITY -', function () {
 		expect(mockedLocation.url).toHaveBeenCalledWith('/category?hello=world');
 	});
 
-	it('Click and go to have been called without tagname A and path and parentElement tagName', function(){
+	it('Click and go to have been called without tagname A, path and parentElement tagName', function(){
 		mockedEvent = {
 			target: {
 				parentElement: {

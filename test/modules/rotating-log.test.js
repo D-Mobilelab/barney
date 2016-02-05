@@ -25,7 +25,7 @@ describe('LOGGER -', function () {
 			});
 		});
 
-		it('logger prints config messages', function(){
+		it('logger prints rotLogger configuration', function(){
 				expect(RotLogger.getConfig()).toEqual(
 				Object({ enabled: true, log: true, table: true, info: true, warn: true, error: true, maxSize: 100, sliding: true }));
 		});
