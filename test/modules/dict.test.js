@@ -148,11 +148,46 @@ describe('DICT -', function () {
 			expect(element.html()).toContain('[[VALUED_KEY]]');
 		});
 
-		it('should contain NULL_KEY', function(){
+		it('should contain [[NULL_KEY]]', function(){
 			compileDirective('<dict key="NULL_KEY"></dict>');
 			expect(element.html()).toContain('[[NULL_KEY]]');
 		});
 	});	
 
+	describe('Dict Directive with missing', function(){
+		var $rootScope, $scope, $compile, element, directiveScope, 
+			compileDirective;
+
+		beforeEach(function() {
+			DictProvider.init({
+				showKey: 'missing'
+			});
+
+			inject(function(_$rootScope_, _$compile_) {
+	            $rootScope = _$rootScope_;
+	            $scope = _$rootScope_;
+	            $compile = _$compile_;
+
+	            compileDirective = function(template){
+	                element = angular.element(template);
+	                $compile(element)($scope);
+	                $scope.$digest();
+	                directiveScope = element.isolateScope();
+	                $rootScope.$apply();
+	                $scope.$apply();
+	            }
+	        });
+		});
+
+		it('should contain Hello world', function(){
+			compileDirective('<dict key="VALUED_KEY"></dict>');
+			expect(element.html()).toContain('Hello world!');
+		});
+
+		it('should contain [[NULL_KEY]]', function(){
+			compileDirective('<dict key="NULL_KEY"></dict>');
+			expect(element.html()).toContain('[[NULL_KEY]]');
+		});
+	});	
 
 });
