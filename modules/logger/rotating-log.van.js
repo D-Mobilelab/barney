@@ -37,7 +37,7 @@
             }
 
             logger[level](args);
-            if (recordingEnabled){
+            if (recordingEnabled && logger.getConfig().enabled){
                 messages.push([level, args]);
             }
         };
