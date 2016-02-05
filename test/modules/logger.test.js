@@ -60,6 +60,11 @@ describe('LOGGER -', function () {
 			LoggerService.error('ciao', 'mondo');
 			expect(console.error).toHaveBeenCalledWith(['ciao', 'mondo']);
 		});
+
+		it('logger get configuration ', function(){
+			expect(LoggerService.getConfig()).toEqual(
+				Object({ enabled: true, log: true, table: true, info: true, warn: true, error: true }));
+		});
 	});
 
 	describe('level:info -', function(){
@@ -253,6 +258,89 @@ describe('LOGGER -', function () {
 		it('emit method has called with error() method', function(){
 			LoggerService.error('ciao', 'mondo');
 			expect(mockEmit.emit).toHaveBeenCalledWith('error', ['ciao', 'mondo']);
+		});
+	});
+
+	describe('level failure -', function(){
+		it('fail enable init', function(){
+			var init = function(){
+				LoggerService.init({
+					enabled: 134
+				});
+			};
+			expect(init).toThrow();
+		});
+
+		it('fail level init', function(){
+			var init = function(){
+				LoggerService.init({
+					enabled: true,
+					level: [123,124]
+				});
+			};
+			expect(init).toThrow();
+		});
+
+		it('fail level init', function(){
+			var init = function(){
+				LoggerService.init({
+					enabled: true,
+					level: 'piooo'
+				});
+			};
+			expect(init).toThrow();
+		});
+
+		it('fail level init', function(){
+			var init = function(){
+				LoggerService.init({
+					enabled: true,
+					levels: {
+						log:'piooo',
+						info: true,
+						table: true,
+						warn: true,
+						error: true
+					}
+				});
+			};
+
+			expect(init).toThrow();
+		});
+
+		it('fail level init', function(){
+			var init = function(){
+				LoggerService.init({
+					enabled: true,
+					levels: {
+						123 : true
+					}
+				});
+			};
+
+			expect(init).toThrow();
+		});
+
+		it('fail level init', function(){
+			var init = function(){
+				LoggerService.init({
+					enabled: true,
+					levels: 'i\'m not an object'
+				});
+			};
+
+			expect(init).toThrow();
+		});
+
+		it('fail level init with emit', function(){
+			var init = function(){
+				LoggerService.init({
+					enabled: true,
+					level: 'log',
+					emit: 'i\'m not a function'
+				});
+			};
+			expect(init).toThrow();
 		});
 	});
 

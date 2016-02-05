@@ -230,4 +230,17 @@ describe('STORAGE -', function () {
 		});
 	});
 
+	describe('logger default', function(){
+		it('init Storage service logger with true', function(){
+			spyOn(console, 'log');
+			StorageService.init({
+				type: 'cookie',
+				logger: true
+			});
+			var key = 'hello', value = 'world', options = { type: 'jsObject' };
+			StorageService.set(key, value, options);
+			expect(console.log).toHaveBeenCalledWith('BarneyStorage', 'set', key, value, options);
+		});
+	});
+
 });
