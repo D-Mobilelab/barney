@@ -1,4 +1,4 @@
-angular.module('barney.storage.subset').provider('BarneyStorageDepot', function () {
+angular.module('barney.storage').provider('BarneyStorageDepot', function () {
 
     // Depot: localStorage-based storage 
 

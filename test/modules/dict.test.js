@@ -12,7 +12,9 @@ describe('DICT -', function () {
 
 	describe('default -', function () {
 		beforeEach(function() {
-			DictProvider.init();
+			DictProvider.init({
+				dict: DICTIONARY
+			});
 		});
 
 		it('if get a existent key, then it returns key value', function(){
@@ -39,6 +41,7 @@ describe('DICT -', function () {
 	describe('all -', function () {
 		beforeEach(function() {
 			DictProvider.init({
+				dict: DICTIONARY,
 				showKey: 'all'
 			});
 		});
@@ -63,6 +66,7 @@ describe('DICT -', function () {
 	describe('missing -', function () {
 		beforeEach(function() {
 			DictProvider.init({
+				dict: DICTIONARY,
 				showKey: 'missing'
 			});
 		});
@@ -89,7 +93,9 @@ describe('DICT -', function () {
 			compileDirective;
 
 		beforeEach(function() {
-			DictProvider.init();
+			DictProvider.init({
+				dict: DICTIONARY,
+			});
 
 			inject(function(_$rootScope_, _$compile_) {
 	            $rootScope = _$rootScope_;
@@ -124,6 +130,7 @@ describe('DICT -', function () {
 
 		beforeEach(function() {
 			DictProvider.init({
+				dict: DICTIONARY,
 				showKey: 'all'
 			});
 
@@ -160,6 +167,7 @@ describe('DICT -', function () {
 
 		beforeEach(function() {
 			DictProvider.init({
+				dict: DICTIONARY,
 				showKey: 'missing'
 			});
 

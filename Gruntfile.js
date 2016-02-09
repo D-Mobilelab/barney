@@ -24,6 +24,7 @@ module.exports = function (grunt) {
         modulesPath: 'modules/',
         testPath: 'test/',
         docPath: 'docs/',
+        distPath: 'dist/',
         newVersion: versionString,
         changeLog: '',
         connect:{
@@ -121,7 +122,8 @@ module.exports = function (grunt) {
         },
         clean: {
             doc: ["<%= docPath %>"],
-            coverage: ["<%= testPath %>coverage"]
+            coverage: ["<%= testPath %>coverage"],
+            dist: ["<%= distPath %>"]
         },
         prompt: {
             target: {
@@ -219,6 +221,35 @@ module.exports = function (grunt) {
         'watch:doc'
     ]);
 
+    grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
+        // get all module directories
+        grunt.file.expand("modules/*").forEach(function (dir) {
+
+            // get the module name from the directory name
+            var dirName = dir.substr(dir.lastIndexOf('/')+1);
+
+            // get the current concat object from initConfig
+            var concat = grunt.config.get('concat') || {};
+
+            // create a subtask for each module, find all src files
+            // and combine into a single js file per module
+            concat[dirName] = {
+                src: [
+                    dir + '/*.van.js', 
+                    dir + '/*.mod.js', 
+                    dir + '/*.ser.js', 
+                    dir + '/*.pro.js', 
+                    dir + '/*.fil.js', 
+                    dir + '/*.dir.js'
+                ],
+                dest: '<%= distPath %>/' + dirName + '.min.js'
+            };
+
+            // add module subtasks to the concat task in initConfig
+            grunt.config.set('concat', concat);
+        });
+    });
+
     grunt.registerTask('version',[
         // COVERAGE
         'clean:coverage',
@@ -231,7 +262,16 @@ module.exports = function (grunt) {
         // PROMPT
         'prompt',
         'string-replace:bower',
-        'file_append:changelog'
+        'file_append:changelog',
+        // CREATE BUILD
+        // 'prepareModules',
+        // 'concat'
+    ]);
+
+    grunt.registerTask('tryme',[
+        'clean:dist',
+        'prepareModules',
+        'concat'
     ]);
    
 }

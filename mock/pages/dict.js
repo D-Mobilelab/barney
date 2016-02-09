@@ -7,6 +7,7 @@ angular.module('mock').controller('DictCtrl', [
 		$scope.mode = (!!$location.search().mode) ? $location.search().mode : 'normal'
 
 		Dict.init({
+			dict: DICTIONARY,
 			showKey: $scope.mode
 		});
 

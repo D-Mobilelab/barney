@@ -34,4 +34,4 @@
  * Before using Storage module, it must be initialized. 
  * To initialize Storage you can use the Storage method {@link storage.BarneyStorage#methods_init init}.
  */
-angular.module('barney.storage', ['barney.storage.subset']);
+angular.module('barney.storage', []);
