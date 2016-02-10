@@ -29,6 +29,7 @@
   "devDependencies": {
     "angular": "1.4.7",
     "angular-route": "1.4.7",
-    "angular-mocks": "1.4.7"
+    "angular-mocks": "1.4.7",
+    "angular-highlightjs": "~0.5.1"
   }
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" ng-app="mock">
+<html class="no-js" ng-app="example">
 	<head>
 		<meta charset="utf-8">
 		<title ng-bind="meta.title"></title>
@@ -24,7 +24,18 @@
 				padding: 20px;
 				width: 200px;
 			}
+
+			[hljs]{
+				margin-top: 50px;
+				border: 2px solid #000;
+			}
+
+			[hljs] pre {
+				margin: 0;
+			}
 		</style>
+
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
 	</head>
 	<body>
 		<nav>
@@ -42,9 +53,12 @@
 
 		<div ng-view=""></div>
 		
-		<script src="global.js"></script>
+		<script src="../mock.js"></script>
 		<script src="../bower_components/angular/angular.js"></script>
 		<script src="../bower_components/angular-route/angular-route.js"></script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+		<script src="../bower_components/angular-highlightjs/build/angular-highlightjs.js"></script>
 
 		<script src="../dist/main.min.js"></script>
 		<script src="../dist/analytics.min.js"></script>

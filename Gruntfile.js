@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     var versionPatch = (major) + "." + (minor) + "." + (patch+1);
 
 	grunt.initConfig({
-        mockPath: 'mock/',
+        examplePath: 'examples/',
         modulesPath: 'modules/',
         testPath: 'test/',
         docPath: 'docs/',
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
         },
         open:{
             server:{
-                path: 'http://localhost:9000/<%= mockPath %>'
+                path: 'http://localhost:9000/<%= examplePath %>'
             },
             coverage:{
                 path: 'http://localhost:9010/<%= testPath %>coverage/'
@@ -64,10 +64,10 @@ module.exports = function (grunt) {
         watch:{
             server:{
                 files:[
-                    '<%= mockPath %>app.js',
-                    '<%= mockPath %>global.js',
-                    '<%= mockPath %>index.html',
-                    '<%= mockPath %>pages/*.*',
+                    '<%= examplePath %>app.js',
+                    'mock.js',
+                    '<%= examplePath %>index.html',
+                    '<%= examplePath %>pages/*.*',
                     '<%= modulesPath %>**/*.*'
                 ],
                 tasks: ['clean:dist', 'prepareModules', 'concat'],
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
                     '<%= modulesPath %>**/*',
                     '<%= testPath %>modules/*',
                     '<%= testPath %>karma.conf.js',
-                    '<%= mockPath %>global.js'
+                    'mock.js'
                 ],
                 tasks: ['clean:dist', 'prepareModules', 'concat', 'clean:coverage', 'karma'],
                 options:{

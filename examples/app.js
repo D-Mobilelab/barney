@@ -1,12 +1,13 @@
 'use strict';
 
-angular.module('mock', [
+angular.module('example', [
 	'ngRoute',
-	'barney'
+	'barney',
+	'hljs'
 ])
 
-.config(['$routeProvider',
-	function ($routeProvider) {
+.config(['$routeProvider', 'hljsServiceProvider',
+	function ($routeProvider, hljsServiceProvider) {
 		
 		$routeProvider
 			.when('/logger', {
@@ -55,6 +56,11 @@ angular.module('mock', [
 			.otherwise({
 				redirectTo: '/'
 			});
+
+		hljsServiceProvider.setOptions({
+			// replace tab with 4 spaces
+			tabReplace: '    '
+		});
 
 }])
 

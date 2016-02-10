@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('NewtonCtrl', [
+angular.module('example').controller('NewtonCtrl', [
 	'BarneyNewton', 'BarneyLogger',
 	function(NewtonAdp, Logger){
 

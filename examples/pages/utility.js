@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('UtilityCtrl', [
+angular.module('example').controller('UtilityCtrl', [
 	'$scope', '$rootScope', '$location', 'BarneyUtility',
 	function($scope, $rootScope, $location, Utility){
 

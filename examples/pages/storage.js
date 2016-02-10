@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('StorageCtrl', [
+angular.module('example').controller('StorageCtrl', [
 	'$scope', 'BarneyLogger', 'BarneyStorage',
 	function($scope, Logger, Storage){
 

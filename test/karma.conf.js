@@ -30,7 +30,7 @@ module.exports = function(config) {
       // YOUR JS FILES
 
       // mock
-      "mock/global.js",
+      "mock.js",
 
       // modules    
       "dist/main.min.js",

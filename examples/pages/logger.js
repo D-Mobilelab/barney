@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('LoggerCtrl', [
+angular.module('example').controller('LoggerCtrl', [
 	'BarneyLogger', 'BarneyRotatingLogger', '$scope',
 	function(Logger, RotatingLogger, $scope){
 

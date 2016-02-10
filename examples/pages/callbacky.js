@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('CallbackyBindCtrl', [
+angular.module('example').controller('CallbackyBindCtrl', [
 	'$scope', 'BarneyCallbacky', 'BarneyLogger',
 	function($scope, Callbacky, Logger){
 
@@ -30,7 +30,7 @@ angular.module('mock').controller('CallbackyBindCtrl', [
 	}
 ]);
 
-angular.module('mock').controller('CallbackyTriggerCtrl', [
+angular.module('example').controller('CallbackyTriggerCtrl', [
 	'$scope', 'BarneyCallbacky',
 	function($scope, Callbacky){
 

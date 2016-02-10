@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('InfiniteCtrl', 
+angular.module('example').controller('InfiniteCtrl', 
      ['$scope', '$timeout', 
      function($scope, $timeout) {
 

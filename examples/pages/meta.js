@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('MetaCtrl', [
+angular.module('example').controller('MetaCtrl', [
 	'$scope', '$rootScope', 'BarneyMeta',
 	function($scope, $rootScope, Meta){
 

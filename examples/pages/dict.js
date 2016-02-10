@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('DictCtrl', [
+angular.module('example').controller('DictCtrl', [
 	'$scope', '$location', 'BarneyDict',
 	function($scope, $location, Dict){
 

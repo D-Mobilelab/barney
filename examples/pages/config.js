@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('ConfigCtrl', [
+angular.module('example').controller('ConfigCtrl', [
 	'BarneyConfig', 'BarneyLogger', '$scope',
 	function(Config, Logger, $scope){
         $scope.listObject = "";

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mock').controller('AnalyticsCtrl', [
+angular.module('example').controller('AnalyticsCtrl', [
 	'BarneyAnalytics', 'BarneyLogger',
 	function(Analytics, Logger){
 
