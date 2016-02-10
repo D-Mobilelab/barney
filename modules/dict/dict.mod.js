@@ -3,41 +3,32 @@
  * @name dict
  *
  * @description
+ * # Dict
  * Dict is the module of Barney to show dictionary keys.
  * You can use it:
  *
- * - as a provider
- * - as a filter
- * - as a directive
+ * - as a {@link dict.BarneyDict provider}
+ * - as a {@link dict.filter:dict filter}
+ * - as a {@link dict.directive:dict directive}
  * 
- * # Import module
- * To import dict module, include barney.dict module to 
- * your web application module (usually in app.js file)
- * <pre>
- * angular.module('yourApplicationModule', [
- *     'barney.dict'
- * ])
- * </pre>
- * 
- * Remember to include the external javascript files you need:
+ * # Usage
+ * To use **Dict** module you have to include the **Dict** javascript file in your index.html:
  *
  * <pre>
  *
- *	  <!-- Dict module -->
- *   <script type="text/javascript" src="./bower_components/barney/dict/dict.mod.js"> 
- *
- *	  <!-- Dict service -->
- *   <script type="text/javascript" src="./bower_components/barney/dict/dict.pro.js"> 
- *
- *	  <!-- Dict filter -->
- *   <script type="text/javascript" src="./bower_components/barney/dict/dict.fil.js"> 
- *
- *	  <!-- Dict directive -->
- *   <script type="text/javascript" src="./bower_components/barney/dict/dict.dir.js"> 
+ *	  <!-- Dict module - Required -->
+ *   <script type="text/javascript" src="./bower_components/barney/dist/dict.min.js"> 
  *
  * </pre>
  *
  * # Init Dict
  * Before using Dict module, it must be initialized.To initialize Dict 
  * module use Dict' s method {@link dict.BarneyDict#methods_init init}. 
+ *
+ * # Methods:
+ * 
+ * - {@link dict.BarneyDict#methods_get get}
+ * - {@link dict.BarneyDict#methods_init init}
+ * - {@link dict.BarneyDict#methods_list list}
+ *
  */

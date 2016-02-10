@@ -3,34 +3,22 @@
  * @name config
  *
  * @description
+ * # Config
  * Config is the Barney module used to get environment variables. 
  * It reads a JSON object where all environment variables are stored.
  * 
  * You can use it:
  *
- * - as a provider
- * - as a filter
+ * - as a {@link config.BarneyConfig provider}
+ * - as a {@link config.filter:config filter}
  * 
- * # Import module
- * To import Config module, include barney.config module to your web application module (usually in app.js file)
- * <pre>
- * angular.module('yourApplicationModule', [
- *     'barney.config'
- * ])
- * </pre>
- *
- * Remember to include the external javascript files you need:
+ * # Usage
+ * To use **Config** module you have to include the **Config** javascript file in your index.html:
  *
  * <pre>
  *
- *	  <!-- Config module -->
- *   <script type="text/javascript" src="./bower_components/barney/config/config.mod.js"> 
- *
- *	  <!-- Config service -->
- *   <script type="text/javascript" src="./bower_components/barney/config/config.pro.js"> 
- * 
- *    <!-- Config filter -->
- * 	 <script type="text/javascript" src="./bower_components/barney/config/config.fil.js">
+ *	  <!-- Config module - Required -->
+ *   <script type="text/javascript" src="./bower_components/barney/dist/config.min.js"> 
  *
  * </pre>
  *
@@ -55,4 +43,11 @@
  * 		...
  * 	}
  *  </pre>
+ *
+ * # Methods:
+ * 
+ * - {@link config.BarneyConfig#methods_get get}
+ * - {@link config.BarneyConfig#methods_init init}
+ * - {@link config.BarneyConfig#methods_list list}
+ *
  */

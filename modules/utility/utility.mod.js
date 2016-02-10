@@ -3,6 +3,7 @@
  * @name utility
  *
  * @description
+ * # Utility
  * Utility is the module of Barney used to provide commons utilities.
  *
  * # Import module

@@ -2,38 +2,29 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="dict-page"><p>Dict is the module of Barney to show dictionary keys.
+<div><div class="dict-page"><h2 id="dict">Dict</h2>
+<p>Dict is the module of Barney to show dictionary keys.
 You can use it:</p>
 <ul>
-<li>as a provider</li>
-<li>as a filter</li>
-<li>as a directive</li>
+<li>as a <a href="#/api/dict.BarneyDict">provider</a></li>
+<li>as a <a href="#/api/dict.filter:dict">filter</a></li>
+<li>as a <a href="#/api/dict.directive:dict">directive</a></li>
 </ul>
-<h2 id="import-module">Import module</h2>
-<p>To import dict module, include barney.dict module to 
-your web application module (usually in app.js file)
-<pre class="prettyprint linenums">
-angular.module('yourApplicationModule', [
-    'barney.dict'
-])
-</pre>
-<p>Remember to include the external javascript files you need:</p>
+<h2 id="usage">Usage</h2>
+<p>To use <strong>Dict</strong> module you have to include the <strong>Dict</strong> javascript file in your index.html:</p>
 <pre class="prettyprint linenums">
 
-  &lt;!-- Dict module --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/dict/dict.mod.js"&gt; 
-
-  &lt;!-- Dict service --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/dict/dict.pro.js"&gt; 
-
-  &lt;!-- Dict filter --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/dict/dict.fil.js"&gt; 
-
-  &lt;!-- Dict directive --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/dict/dict.dir.js"&gt; 
+  &lt;!-- Dict module - Required --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/dist/dict.min.js"&gt; 
 
 </pre>
 <h2 id="init-dict">Init Dict</h2>
 <p>Before using Dict module, it must be initialized.To initialize Dict 
 module use Dict&#39; s method <a href="#/api/dict.BarneyDict#methods_init">init</a>. </p>
+<h2 id="methods">Methods:</h2>
+<ul>
+<li><a href="#/api/dict.BarneyDict#methods_get">get</a></li>
+<li><a href="#/api/dict.BarneyDict#methods_init">init</a></li>
+<li><a href="#/api/dict.BarneyDict#methods_list">list</a></li>
+</ul>
 </div></div>

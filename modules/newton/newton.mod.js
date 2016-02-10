@@ -4,6 +4,7 @@
  *
  *
  * @description
+ * # Newton
  * Newton is the module of Barney that allows you to track events and pages with Newton library
  *
  * # Import module

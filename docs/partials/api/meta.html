@@ -2,24 +2,15 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="meta-page"><p>Meta is the module of Barney to fill meta tags dinamically.
+<div><div class="meta-page"><h2 id="meta">Meta</h2>
+<p>Meta is the module of Barney to fill meta tags dinamically.
 Meta can be used to manage different metatags for each page.</p>
-<h2 id="import-module">Import module</h2>
-<p>To import meta module, include barney.meta module to 
-your web application module (usually in app.js file)
-<pre class="prettyprint linenums">
-angular.module('yourApplicationModule', [
-    'barney.meta'
-])
-</pre>
-<p>Remember to include the external javascript files you need:</p>
+<h2 id="usage">Usage</h2>
+<p>To use <strong>Meta</strong> module you have to include the <strong>Meta</strong> javascript file in your index.html:</p>
 <pre class="prettyprint linenums">
 
   &lt;!-- Meta module --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/meta/meta.mod.js"&gt; 
-
-  &lt;!-- Meta service --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/meta/meta.ser.js"&gt; 
+  &lt;script type="text/javascript" src="./bower_components/barney/dist/meta.min.js"&gt; 
 
 </pre>
 <h2 id="init-meta">Init meta</h2>

@@ -2,26 +2,23 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="history-page"><p>History is the module of Barney that provide you some methods about browser history.</p>
-<h2 id="import-module">Import module</h2>
-<p>To import History module, include barney.history to 
-your web application module (usually in app.js file)
-<pre class="prettyprint linenums">
-angular.module('yourApplicationModule', [
-    'barney.history'
-])
-</pre>
-<p>Remember to include the external javascript files you need:</p>
+<div><div class="history-page"><h2 id="history">History</h2>
+<p>History is the module of Barney that provide you some methods about browser history.</p>
+<h2 id="usage">Usage</h2>
+<p>To use <strong>History</strong> module you have to include the <strong>History</strong> javascript file in your index.html:</p>
 <pre class="prettyprint linenums">
 
   &lt;!-- History module --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/history/history.mod.js"&gt; 
-
-  &lt;!-- History service --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/history/history.ser.js"&gt; 
+  &lt;script type="text/javascript" src="./bower_components/barney/dist/history.min.js"&gt; 
 
 </pre>
 <h2 id="init-history">Init History</h2>
 <p>Before using History module, it must be initialized. 
 To initialize History you can use the History method <a href="#/api/history.BarneyHistory#methods_init">init</a>.</p>
+<h2 id="methods">Methods:</h2>
+<ul>
+<li><a href="#/api/history.BarneyHistory#methods_get">get</a></li>
+<li><a href="#/api/history.BarneyHistory#methods_goback">goBack</a></li>
+<li><a href="#/api/history.BarneyHistory#methods_init">init</a></li>
+</ul>
 </div></div>

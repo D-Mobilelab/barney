@@ -3,6 +3,7 @@
  * @name storage
  *
  * @description
+ * # Storage
  * Storage is the module of Barney used to set and get values from 3 different storage:
  *
  * - Local Storage;
