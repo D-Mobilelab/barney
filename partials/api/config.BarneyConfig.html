@@ -47,17 +47,19 @@ to initialize the Config service.</p>
 <div class="example"><div class="config-barneyconfig-init-page"><h5 id="methods_init_example_config-init">Config Init</h5>
 <p>Here is an example of init method.
 <pre class="prettyprint linenums">
- Config.init({
-     'ENABLE_LOGIN': 1,
-     'NEWTON_SECRET_KEY': '&lt;sec_ret&gt;',
-     'KEY_TRUE': true,
-     'KEY_VOID_STRING': '',
-     'KEY_ZERO': 0,
-     'KEY_ZERO_STRING': '0',
-     'KEY_NULL': null,
-     'KEY_NULL_STRING': 'null',
-     'KEY_FALSE': false,
-     'KEY_FALSE_STRING': 'false'
+ Config.init(
+     config: {
+         'ENABLE_LOGIN': 1,
+         'NEWTON_SECRET_KEY': '&lt;sec_ret&gt;',
+         'KEY_TRUE': true,
+         'KEY_VOID_STRING': '',
+         'KEY_ZERO': 0,
+         'KEY_ZERO_STRING': '0',
+         'KEY_NULL': null,
+         'KEY_NULL_STRING': 'null',
+         'KEY_FALSE': false,
+         'KEY_FALSE_STRING': 'false'
+      }
      });
 </pre>
 </div></div>
