@@ -82,7 +82,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "dict",
       "shortDescription": "To use Dict provider, you have to add BarneyDict dependency to your component (directive, controller...).",
-      "keywords": "$scope $window add angular api attributes barneydict code component console controller default dependency dict dictionary easily example existkey function hello homepagecontroller included init key list log method methods methods_get methods_init methods_list missing mock module note notexistkey object options prints provider renamed service showkey undefined valued valued_key"
+      "keywords": "$scope $window add angular api attributes barneydict code component console controller default dependency dict dictionary easily example existkey function hello homepagecontroller included init key list log method methods methods_get methods_init methods_list missing mock module note notexistkey object options prints provider renamed service showkey undefined valued valued_key world"
     },
     {
       "section": "api",
