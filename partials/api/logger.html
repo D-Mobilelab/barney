@@ -2,27 +2,14 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="logger-page"><p>Logger is the module of Barney that provides you an advanced log system.</p>
-<p>You can use it as <strong>default</strong> logger or as a <strong>rotating</strong> logger (see the 
+<div><div class="logger-page"><h2 id="logger">Logger</h2>
+<p>Logger is the module of Barney that provides you an advanced log system.</p>
+<p>You can use it as <a href="#/api/logger.BarneyLogger"><strong>default</strong></a> logger or as a <a href="#/api/logger.BarneyRotatingLogger"><strong>rotating</strong></a> logger (see the 
 documentation of the service you want to use).</p>
 <p>To use <strong>BarneyLogger</strong> remember that you have to point to the external javascript files you need:</p>
-<p><strong><em>Base Logger is required to use both the services.</em></strong>
 <pre class="prettyprint linenums">
-
-  &lt;!-- Base  Logger - REQUIRED --&gt;
-  &lt;script type="text/javascript" src="../logger/logger.van.js"&gt; 
-
-  &lt;!-- Rotating Logger --&gt;
-	 &lt;script type="text/javascript" src="../logger/rotating-log.van.js"&gt; 
-
-  &lt;!-- logger module --&gt;
-  &lt;script type="text/javascript" src="../logger/logger.mod.js"&gt; 
-
-  &lt;!-- Base logger service --&gt;
-  &lt;script type="text/javascript" src="../logger/logger.ser.js"&gt;
-
-  &lt;!-- Rotating Logger service --&gt;
-  &lt;script type="text/javascript" src="../logger/rotating-logger.ser.js"&gt; 
+  &lt;!-- Infinite module --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/dist/logger.min.js"&gt;  
 </pre>
 <p>Remember that <strong>Logger</strong> is organized in <strong>levels</strong>, sorted by relevance: </p>
 <ul>
@@ -33,15 +20,31 @@ documentation of the service you want to use).</p>
 <li><strong>Error</strong>;</li>
 </ul>
 <p><strong><em>Note that is very relevant of how Logger&#39;s levels are ordered!</em></strong></p>
-<h2 id="import-module">Import module</h2>
-<p>To import <strong>Logger</strong> module, include <strong>barney.logger</strong> to 
-your web application module (usually in app.js file)
-<pre class="prettyprint linenums">
-angular.module('yourApplicationModule', [
-    'barney.logger'
-])
-</pre>
 <h2 id="init-logger">Init Logger</h2>
 <p>Before using Logger module, it must be initialized. 
 To initialize Logger you can use the Logger method <a href="#/api/logger.BarneyLogger#methods_init">init</a>.</p>
+<h2 id="baselogger-methods">BaseLogger Methods</h2>
+<ul>
+<li><a href="#/api/logger.BarneyLogger#methods_error">error</a>.</li>
+<li><a href="#/api/logger.BarneyLogger#methods_getconfig">getConfig</a>.</li>
+<li><a href="#/api/logger.BarneyLogger#methods_info">info</a>.</li>
+<li><a href="#/api/logger.BarneyLogger#methods_init">init</a>.</li>
+<li><a href="#/api/logger.BarneyLogger#methods_isenabled">isEnabled</a>.</li>
+<li><a href="#/api/logger.BarneyLogger#methods_log">log</a>.</li>
+<li><a href="#/api/logger.BarneyLogger#methods_table">table</a>.</li>
+<li><a href="#/api/logger.BarneyLogger#methods_warn">warn</a>.</li>
+</ul>
+<h2 id="rotatinglogger-methods">RotatingLogger Methods</h2>
+<ul>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_endrecording">endRecording</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_error">error</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_getconfig">getConfig</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_info">info</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_init">init</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_isenabled">isEnabled</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_log">log</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_startrecording">startRecording</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_table">table</a>.</li>
+<li><a href="#/api/logger.BarneyRotatingLogger#methods_warn">warn</a>.</li>
+</ul>
 </div></div>

@@ -2,7 +2,8 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="infinite-page"><p><strong>BarneyInfinite</strong> is the module of Barney that provides you the infinite scroll.</p>
+<div><div class="infinite-page"><h2 id="infinite">Infinite</h2>
+<p><strong>BarneyInfinite</strong> is the module of Barney that provides you the infinite scroll.</p>
 <p><strong>BarneyInfinite</strong> listens when a page is scrolled and 
 knows when you have reached the bottom of the page.
 When you are at the bottom of the page it calls the given function. </p>
@@ -18,22 +19,12 @@ will fill the page for you, if there will be enough contents!</p>
 <p>If you want to activate <strong>BarneyInfinite</strong> before the reaching of the end of the window you 
 can use the offset attribute to tell <strong>BarneyInfinite</strong> how much before it must activate 
 itself.</p>
-<h2 id="import-module">Import module</h2>
-<p>To import <strong>BarneyInfinite</strong> Scroll module, include barney.<strong>BarneyInfinite</strong> to 
-your web application module (usually in app.js file)
-<pre class="prettyprint linenums">
-angular.module('yourApplicationModule', [
-    'barney.infinite'
-])
-</pre>
-<p>Remember to include the external javascript files you need:</p>
+<h2 id="usage">Usage</h2>
+<p>To use <strong>Infinite</strong> directive you have to include the <strong>Infinite</strong> javascript file in your index.html:</p>
 <pre class="prettyprint linenums">
 
   &lt;!-- Infinite module --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/infinite/infinite.mod.js"&gt; 
-
-  &lt;!-- Infinite directive --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/infinite/infinite-scroll.dir.js"&gt; 
+  &lt;script type="text/javascript" src="./bower_components/barney/dist/infinite.min.js"&gt; 
 
 </pre>
 </div></div>

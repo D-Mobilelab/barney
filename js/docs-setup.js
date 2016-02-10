@@ -9,8 +9,8 @@ NG_DOCS={
       "shortName": "analytics",
       "type": "overview",
       "moduleName": "analytics",
-      "shortDescription": "Analytics is the module of Barney for Google Analytics.",
-      "keywords": "analytics angular api app application barney barneyanalytics custom dimension event external file files google import include init initialize initialized javascript js method methods_init mod module overview remember ser service session set src text track type user web yourapplicationmodule"
+      "shortDescription": "Analytics",
+      "keywords": "analytics api barney barneyanalytics custom dimension event file google html include init initialize initialized javascript js method methods methods_init methods_setdimension methods_setid methods_trackevent methods_trackpage min module overview session set setdimension setid src text track trackevent trackpage type usage user"
     },
     {
       "section": "api",
@@ -27,8 +27,8 @@ NG_DOCS={
       "shortName": "callbacky",
       "type": "overview",
       "moduleName": "callbacky",
-      "shortDescription": "Callbacky is the module of Barney that allow you ",
-      "keywords": "allow angular api app application barney barneycallbacky bind callbacky code controllers external file files function import include init initialize initialized javascript js method methods_init mod module overview points pro remember service services src text trigger type web yourapplicationmodule"
+      "shortDescription": "Callbacky",
+      "keywords": "allow api barney barneycallbacky bind callbacky clean code controllers files function html include init initialize initialized javascript js method methods methods_bind methods_clean methods_init methods_trigger min module overview points services src text trigger type usage"
     },
     {
       "section": "api",
@@ -45,8 +45,8 @@ NG_DOCS={
       "shortName": "config",
       "type": "overview",
       "moduleName": "config",
-      "shortDescription": "Config is the Barney module used to get environment variables. ",
-      "keywords": "angular api app application barney barneyconfig config enable_login environment example external false fil file files filter import include init javascript js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string method methods_init mod module newton_secret_key null object order overview pro provider reads remember service src stored text true type var variables web yourapplicationmodule"
+      "shortDescription": "Config",
+      "keywords": "api barney barneyconfig config enable_login environment example false file filter html include init javascript js json key_false key_false_string key_null key_null_string key_true key_void_string key_zero key_zero_string list method methods methods_get methods_init methods_list min module newton_secret_key null object order overview provider reads required src stored text true type usage var variables"
     },
     {
       "section": "api",
@@ -72,8 +72,8 @@ NG_DOCS={
       "shortName": "dict",
       "type": "overview",
       "moduleName": "dict",
-      "shortDescription": "Dict is the module of Barney to show dictionary keys.",
-      "keywords": "angular api app application barney barneydict dict dictionary dir directive external fil file files filter import include init initialize initialized javascript js method methods_init mod module overview pro provider remember service src text type web yourapplicationmodule"
+      "shortDescription": "Dict",
+      "keywords": "api barney barneydict dict dictionary directive file filter html include init initialize initialized javascript js list method methods methods_get methods_init methods_list min module overview provider required src text type usage"
     },
     {
       "section": "api",
@@ -108,8 +108,8 @@ NG_DOCS={
       "shortName": "history",
       "type": "overview",
       "moduleName": "history",
-      "shortDescription": "History is the module of Barney that provide you some methods about browser history.",
-      "keywords": "angular api app application barney barneyhistory browser external file files history import include init initialize initialized javascript js method methods methods_init mod module overview provide remember ser service src text type web yourapplicationmodule"
+      "shortDescription": "History",
+      "keywords": "api barney barneyhistory browser file goback history html include init initialize initialized javascript js method methods methods_get methods_goback methods_init min module overview provide src text type usage"
     },
     {
       "section": "api",
@@ -126,8 +126,8 @@ NG_DOCS={
       "shortName": "infinite",
       "type": "overview",
       "moduleName": "infinite",
-      "shortDescription": "BarneyInfinite is the module of Barney that provides you the infinite scroll.",
-      "keywords": "activate angular api app application attribute barney bottom call calls care contents controller dir directive disable documentation doesn don example external file files fill function import include infinite infinte inside javascript js listen listens mod module offset overview pass processing reached reaching reactivate reenable remember scroll scrolled src text type web window worry yourapplicationmodule"
+      "shortDescription": "Infinite",
+      "keywords": "activate api attribute barney bottom call calls care contents controller directive disable documentation doesn don example file fill function html include infinite infinte inside javascript js listen listens min module offset overview pass processing reached reaching reactivate reenable remember scroll scrolled src text type usage window worry"
     },
     {
       "section": "api",
@@ -144,8 +144,8 @@ NG_DOCS={
       "shortName": "logger",
       "type": "overview",
       "moduleName": "logger",
-      "shortDescription": "Logger is the module of Barney that provides you an advanced log system.",
-      "keywords": "advanced angular api app application barney barneylogger base documentation external file files import include init initialize initialized javascript js levels log logger method methods_init mod module ordered organized overview point relevance relevant remember required rotating ser service services sorted src system text type van web yourapplicationmodule"
+      "shortDescription": "Logger",
+      "keywords": "advanced api barney barneylogger barneyrotatinglogger baselogger documentation endrecording error external files getconfig infinite info init initialize initialized isenabled javascript js levels log logger method methods methods_endrecording methods_error methods_getconfig methods_info methods_init methods_isenabled methods_log methods_startrecording methods_table methods_warn min module ordered organized overview point relevance relevant remember rotatinglogger service sorted src startrecording system table text type warn"
     },
     {
       "section": "api",
@@ -171,8 +171,8 @@ NG_DOCS={
       "shortName": "meta",
       "type": "overview",
       "moduleName": "meta",
-      "shortDescription": "Meta is the module of Barney to fill meta tags dinamically.",
-      "keywords": "angular api app application barney barneymeta dinamically external file files fill import include init initialize initialized javascript js manage meta metatags method methods_init mod module overview remember ser service src tags text type web yourapplicationmodule"
+      "shortDescription": "Meta",
+      "keywords": "api barney barneymeta dinamically file fill html include init initialize initialized javascript js manage meta metatags method methods_init min module overview src tags text type usage"
     },
     {
       "section": "api",
@@ -189,7 +189,7 @@ NG_DOCS={
       "shortName": "newton",
       "type": "overview",
       "moduleName": "newton",
-      "shortDescription": "Newton is the module of Barney that allows you to track events and pages with Newton library",
+      "shortDescription": "Newton",
       "keywords": "allows angular api app application barney barneynewton events external file files import include init initialize initialized javascript js library method methods_init mod module newton overview remember ser service src text track type web yourapplicationmodule"
     },
     {
@@ -207,7 +207,7 @@ NG_DOCS={
       "shortName": "storage",
       "type": "overview",
       "moduleName": "storage",
-      "shortDescription": "Storage is the module of Barney used to set and get values from 3 different storage:",
+      "shortDescription": "Storage",
       "keywords": "angular api app application barney barneystorage cookies external file files import include init initialize initialized javascript js jsobject local method methods_init mod module overview pro remember service set src storage text type values web yourapplicationmodule"
     },
     {
@@ -225,7 +225,7 @@ NG_DOCS={
       "shortName": "utility",
       "type": "overview",
       "moduleName": "utility",
-      "shortDescription": "Utility is the module of Barney used to provide commons utilities.",
+      "shortDescription": "Utility",
       "keywords": "angular api app application barney commons external file files import include javascript js mod module overview provide remember ser service src text type utilities utility web yourapplicationmodule"
     },
     {
@@ -244,7 +244,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "welcome",
       "shortDescription": "Welcome to Barney!",
-      "keywords": "api barney click documentation left link menu overview"
+      "keywords": "analytics angular api barney callbacky components config dependency dict file find folder full history html import include included infinite js library list logger meta min module newton overview remember script src storage text type utility yourangularapp"
     }
   ],
   "apis": {
