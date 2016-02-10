@@ -32,4 +32,3 @@
  * Before using Callbacky module, it must be initialized. 
  * To initialize Callbacky you can use the Callbacky method {@link callbacky.BarneyCallbacky#methods_init init}.
  */
-angular.module('barney.callbacky', []);

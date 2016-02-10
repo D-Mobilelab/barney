@@ -41,5 +41,3 @@
  * Before using Dict module, it must be initialized.To initialize Dict 
  * module use Dict' s method {@link dict.BarneyDict#methods_init init}. 
  */
-angular.module('barney.dict', [])
-.constant('DictObj', DICTIONARY);

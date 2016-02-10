@@ -56,4 +56,3 @@
  * 	}
  *  </pre>
  */
-angular.module('barney.config', []);

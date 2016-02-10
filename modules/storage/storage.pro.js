@@ -16,7 +16,7 @@
  * </pre>
  * Note that I included BarneyStorage as dependency but I have renamed it as Storage to use it more easily in controller code.
  */
-angular.module('barney.storage').provider('BarneyStorage',
+angular.module('barney').provider('BarneyStorage',
     ['BarneyStorageBiscuitProvider', 'BarneyStorageDepotProvider', 'BarneyStorageChickenProvider',
     function (Biscuit, Depot, Chicken) {
 

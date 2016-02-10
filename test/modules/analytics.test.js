@@ -5,7 +5,7 @@ describe('ANALYTICS -', function () {
 	var AnalyticsService, dimensions, logger;	
 
 	beforeEach(function(){
-		module('barney.analytics');
+		module('barney');
 
 		inject(function (_BarneyAnalytics_) {
 			AnalyticsService = _BarneyAnalytics_;

@@ -20,7 +20,7 @@
  * to use it more easily in controller code.
  */
 
-angular.module('barney.analytics').factory('BarneyAnalytics', [
+angular.module('barney').factory('BarneyAnalytics', [
     function(){
         this.dimensions = {};
         this.enabled = true;

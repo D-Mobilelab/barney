@@ -26,4 +26,3 @@
  *
  * </pre>
  */
- angular.module('barney.utility', []);

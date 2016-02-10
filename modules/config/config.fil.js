@@ -9,7 +9,7 @@
  * @usage
  * {{'ENABLE_LOGIN' | config}}
  */
-angular.module('barney.config').filter('config', [
+angular.module('barney').filter('config', [
     'BarneyConfig',
     function(Config) {
 

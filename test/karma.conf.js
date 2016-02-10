@@ -25,24 +25,19 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      // 'bower_components/stargateJs/public/stargate.js',
       // endbower
       
       // YOUR JS FILES
 
       // mock
-      "test/mock.js",
+      "mock/global.js",
 
       // modules    
-      "modules/*/*.van.js",  
-      "modules/*/*.mod.js",  
-      "modules/*/*.pro.js",  
-      "modules/*/*.ser.js",  
-      "modules/*/*.fil.js",
-      "modules/*/*.dir.js",
+      "dist/main.min.js",
+      "dist/*.min.js",
 
       // test
-      "test/**/*.test.js",
+      "test/modules/*.test.js",
 
       // END YOUR JS FILES
     ],
@@ -89,7 +84,7 @@ module.exports = function(config) {
       'coverage'
     ],
     preprocessors: {
-      'modules/**/*.js': ['coverage']
+      'dist/*': ['coverage']
     },
     coverageReporter: {
       type : 'html',

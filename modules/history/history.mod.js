@@ -31,4 +31,3 @@
  * Before using History module, it must be initialized. 
  * To initialize History you can use the History method {@link history.BarneyHistory#methods_init init}.
  */
-angular.module('barney.history', []);

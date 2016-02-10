@@ -208,7 +208,7 @@
  *
 */
 
-angular.module('barney.logger').factory('BarneyRotatingLogger', function(){
+angular.module('barney').factory('BarneyRotatingLogger', function(){
 
     /*
     var config = {

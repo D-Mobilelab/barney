@@ -64,22 +64,26 @@ module.exports = function (grunt) {
         watch:{
             server:{
                 files:[
-                    '<%= mockPath %>**/*.js',
-                    '<%= mockPath %>**/*.html',
-                    '<%= modulesPath %>**/*.js',
-                    '<%= modulesPath %>**/*.html'
+                    '<%= mockPath %>app.js',
+                    '<%= mockPath %>global.js',
+                    '<%= mockPath %>index.html',
+                    '<%= mockPath %>pages/*.*',
+                    '<%= modulesPath %>**/*.*'
                 ],
+                tasks: ['clean:dist', 'prepareModules', 'concat'],
                 options:{
                     livereload: 35729
                 }
             },
             coverage:{
                 files:[
-                    '<%= mockPath %>**/*',
+                    '<%= modulesPath %>main.js',
                     '<%= modulesPath %>**/*',
-                    '<%= testPath %>modules/**/*'
+                    '<%= testPath %>modules/*',
+                    '<%= testPath %>karma.conf.js',
+                    '<%= mockPath %>global.js'
                 ],
-                tasks: ['clean:coverage', 'karma'],
+                tasks: ['clean:dist', 'prepareModules', 'concat', 'clean:coverage', 'karma'],
                 options:{
                     livereload: 35730
                 }
@@ -87,7 +91,7 @@ module.exports = function (grunt) {
             doc:{
                 files:[
                     '<%= modulesPath %>/**/*.js',
-                    'docindex.js'
+                    '<%= modulesPath %>/main.js'
                 ],
                 tasks: ['clean:doc', 'ngdocs'],
                 options:{
@@ -97,9 +101,7 @@ module.exports = function (grunt) {
         },
         eslint: {
             target: [
-                'modules/**/*.js',
-                '!modules/newtontrack_deprecated/*.js',
-                '!modules/masonry/*.js'
+                'modules/**/*.js'
             ]
         },
         karma: {
@@ -116,7 +118,7 @@ module.exports = function (grunt) {
                 startPage: '/api/welcome'
             },
             api: {
-                src: ['docindex.js', '<%= modulesPath %>/**/*.js'],
+                src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
                 title: 'API Reference'
             }
         },
@@ -134,7 +136,7 @@ module.exports = function (grunt) {
                         message: 'Current: ' + versionString + ' - Choose a new version for Barney:',
                         default: versionString,
                         choices: [
-                            { name: 'No new version', value: versionString },
+                            { name: 'No new version (press CTRL+C two times)', value: versionString },
                             { name: 'Major Version (' + versionMajor + ')', value: versionMajor },
                             { name: 'Minor Version (' + versionMinor + ')', value: versionMinor },
                             { name: 'Patch (' + versionPatch + ')', value: versionPatch }                            
@@ -192,6 +194,11 @@ module.exports = function (grunt) {
 	*************************************/
 
     grunt.registerTask('serve',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // CONNECT
         'connect:server',
         'open:server',
         'watch:server'
@@ -202,10 +209,20 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('test',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // TEST
         'karma'
     ]);
 
     grunt.registerTask('coverage',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // TEST
         'clean:coverage',
         'karma',
         'connect:coverage',
@@ -222,28 +239,36 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
+        // get the current concat object from initConfig
+        var concat = grunt.config.get('concat') || {};
+
         // get all module directories
         grunt.file.expand("modules/*").forEach(function (dir) {
 
             // get the module name from the directory name
             var dirName = dir.substr(dir.lastIndexOf('/')+1);
 
-            // get the current concat object from initConfig
-            var concat = grunt.config.get('concat') || {};
+            if(dirName != 'main.js'){
+                
+                // create a subtask for each module, find all src files
+                // and combine into a single js file per module
+                concat[dirName] = {
+                    src: [
+                        dir + '/*.van.js', 
+                        dir + '/*.ser.js', 
+                        dir + '/*.pro.js', 
+                        dir + '/*.fil.js', 
+                        dir + '/*.dir.js'
+                    ],
+                    dest: '<%= distPath %>' + dirName + '.min.js'
+                };
 
-            // create a subtask for each module, find all src files
-            // and combine into a single js file per module
-            concat[dirName] = {
-                src: [
-                    dir + '/*.van.js', 
-                    dir + '/*.mod.js', 
-                    dir + '/*.ser.js', 
-                    dir + '/*.pro.js', 
-                    dir + '/*.fil.js', 
-                    dir + '/*.dir.js'
-                ],
-                dest: '<%= distPath %>/' + dirName + '.min.js'
-            };
+            } else {
+                concat['main'] = {
+                    src: ['modules/main.js'],
+                    dest: '<%= distPath %>main.min.js'
+                }
+            }
 
             // add module subtasks to the concat task in initConfig
             grunt.config.set('concat', concat);
@@ -264,11 +289,6 @@ module.exports = function (grunt) {
         'string-replace:bower',
         'file_append:changelog',
         // CREATE BUILD
-        // 'prepareModules',
-        // 'concat'
-    ]);
-
-    grunt.registerTask('tryme',[
         'clean:dist',
         'prepareModules',
         'concat'

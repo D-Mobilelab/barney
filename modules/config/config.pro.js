@@ -15,7 +15,7 @@
  * </pre>
  * Note that I included BarneyConifg as dependency but I have renamed it as Config to use it more easily in controller code.
  */
-angular.module('barney.config').provider('BarneyConfig', function(){        
+angular.module('barney').provider('BarneyConfig', function(){        
     
     var myProvider = {
              /**

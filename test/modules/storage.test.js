@@ -4,7 +4,7 @@ describe('STORAGE -', function () {
 
 	var StorageService;	
 
-	beforeEach(module('barney.storage'));
+	beforeEach(module('barney'));
 
 	beforeEach(inject(function (_BarneyStorage_) {
 		StorageService = _BarneyStorage_;

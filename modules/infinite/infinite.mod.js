@@ -48,4 +48,3 @@
  * </pre>
  *
  */
-angular.module('barney.infinite', []);

@@ -1,4 +1,4 @@
-angular.module('barney.storage').provider('BarneyStorageBiscuit', function () {
+angular.module('barney').provider('BarneyStorageBiscuit', function () {
 
     // Biscuit: cookie-based storage 
 

@@ -5,7 +5,7 @@ describe('NEWTON -', function () {
 	var NewtonService, NewtonMock, logger;	
 
 	beforeEach(function(){
-		module('barney.newton');
+		module('barney');
 
 		inject(function (_BarneyNewton_) {
 			NewtonService = _BarneyNewton_;

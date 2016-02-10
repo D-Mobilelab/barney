@@ -56,7 +56,7 @@
  *
  */
 
-angular.module('barney.infinite').directive('infiniteScroll', 
+angular.module('barney').directive('infiniteScroll', 
     ['$window', '$timeout',
     function($window, $timeout) {
 

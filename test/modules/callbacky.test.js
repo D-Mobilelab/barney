@@ -4,7 +4,7 @@ describe('CALLBACKY -', function () {
 
 	var CallbackyService;	
 
-	beforeEach(module('barney.callbacky'));
+	beforeEach(module('barney'));
 
 	beforeEach(inject(function (_BarneyCallbacky_) {
 		CallbackyService = _BarneyCallbacky_;

@@ -255,7 +255,7 @@
  *
 */
 
-angular.module('barney.logger').factory('BarneyLogger', function(){
+angular.module('barney').factory('BarneyLogger', function(){
     
     var logger = new BaseLogger();
 

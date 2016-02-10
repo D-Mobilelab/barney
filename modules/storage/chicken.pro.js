@@ -1,4 +1,4 @@
-angular.module('barney.storage').provider('BarneyStorageChicken', function () {
+angular.module('barney').provider('BarneyStorageChicken', function () {
 
     // Chicken: Object-based storage
 

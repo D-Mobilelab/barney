@@ -22,7 +22,7 @@
  *    <input type="text" value="{{ 'VALUED_KEY' | dict }}" />
  * </pre>
  */
-angular.module('barney.dict').filter('dict', [
+angular.module('barney').filter('dict', [
     'BarneyDict', 
     function(Dict) {
 

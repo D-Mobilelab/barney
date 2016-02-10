@@ -5,7 +5,7 @@ describe('LOGGER -', function () {
 	var LoggerService;	
 
 	beforeEach(function(){
-		module('barney.logger');
+		module('barney');
 
 		inject(function (_BarneyLogger_) {
 			LoggerService = _BarneyLogger_;

@@ -29,7 +29,7 @@ describe('UTILITY -', function () {
 			});
 		});
 		// get barney module
-		module('barney.utility');
+		module('barney');
 
 		// inject BarneyUtility service
 		inject(function (_BarneyUtility_, _$window_, _$location_) {

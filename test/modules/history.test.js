@@ -11,7 +11,7 @@ describe('HISTORY -', function () {
 	var location;
 
 	beforeEach(function(){
-		module('barney.history');
+		module('barney');
 
 		inject(function (_$rootScope_, _BarneyHistory_, _$location_) {
 			$rootScope = _$rootScope_;

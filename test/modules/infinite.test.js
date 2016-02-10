@@ -5,7 +5,7 @@ describe('INFINITE', function() {
     var $rootScope, $scope, $compile, $timeout, element, directiveScope, compileDirective;
 
     beforeEach(function(){
-        module('barney.infinite');     
+        module('barney');     
 
         inject(function(_$rootScope_, _$compile_, _$timeout_) {
             $rootScope = _$rootScope_;

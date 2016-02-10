@@ -31,4 +31,3 @@
  * Before using Newton module, it must be initialized. 
  * To initialize Newton you can use the Newton method {@link newton.BarneyNewton#methods_init init}.
  */
-angular.module('barney.newton', []);

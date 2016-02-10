@@ -4,7 +4,7 @@ describe('META -', function () {
 
 	var MetaService;	
 
-	beforeEach(module('barney.meta'));
+	beforeEach(module('barney'));
 
 	beforeEach(inject(function (_BarneyMeta_) {
 		MetaService = _BarneyMeta_;

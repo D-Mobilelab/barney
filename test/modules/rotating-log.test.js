@@ -5,7 +5,7 @@ describe('LOGGER -', function () {
 	var RotLogger, MockConsole;	
 
 	beforeEach(function(){
-		module('barney.logger');
+		module('barney');
 
 		inject(function (_BarneyRotatingLogger_) {
 			RotLogger = _BarneyRotatingLogger_;

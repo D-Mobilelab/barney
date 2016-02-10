@@ -18,7 +18,7 @@
  * </pre>
  * Note that I included BarneyUtility as dependency but I have renamed it as Utility to use it more easily in controller code.
  */
-angular.module('barney.utility').factory('BarneyUtility',
+angular.module('barney').factory('BarneyUtility',
     ['$location', '$window',
     function($location, $window){
 

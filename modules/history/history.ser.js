@@ -18,7 +18,7 @@
  * </pre>
  * Note that I included BarneyHistory as dependency but I have renamed it as History to use it more easily in controller code.
  */
-angular.module('barney.history').factory('BarneyHistory',
+angular.module('barney').factory('BarneyHistory',
     ['$location', '$rootScope',
     function($location, $rootScope){
         

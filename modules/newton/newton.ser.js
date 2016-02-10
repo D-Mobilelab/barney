@@ -16,7 +16,7 @@
  * </pre>
  * Note that I included BarneyNewton as dependency but I have renamed it as Newton to use it more easily in controller code.
  */
-angular.module('barney.newton').factory('BarneyNewton', function(){
+angular.module('barney').factory('BarneyNewton', function(){
 
     this.enabled = true;
     this.verbose = false;

@@ -32,4 +32,3 @@
  * Before using meta module, it must be initialized. 
  * To initialize meta you can use the meta method {@link meta.BarneyMeta#methods_init init}.
  */
-angular.module('barney.meta', []);

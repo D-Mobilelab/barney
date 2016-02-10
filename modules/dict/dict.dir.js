@@ -22,7 +22,7 @@
  *   <span>hello <b>world</b></span>
  * </pre>
  */
-angular.module('barney.dict').directive('dict', [
+angular.module('barney').directive('dict', [
     '$sce', 'BarneyDict', 
     function($sce, Dict) {
 

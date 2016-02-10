@@ -4,7 +4,7 @@ describe('DICT -', function () {
 
 	var DictProvider;
 
-	beforeEach(module('barney.dict'));
+	beforeEach(module('barney'));
 
 	beforeEach(inject(function (_BarneyDict_) {
 		DictProvider = _BarneyDict_;

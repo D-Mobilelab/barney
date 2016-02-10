@@ -2,16 +2,7 @@
 
 angular.module('mock', [
 	'ngRoute',
-	'barney.logger',
-	'barney.config',
-	'barney.dict',
-	'barney.analytics',
-	'barney.newton',
-	'barney.meta',
-	'barney.utility',  
-	'barney.storage',   
-	'barney.callbacky',
-	'barney.infinite' 
+	'barney'
 ])
 
 .config(['$routeProvider',

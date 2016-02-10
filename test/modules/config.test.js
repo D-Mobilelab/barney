@@ -3,7 +3,7 @@
 describe('CONFIG -', function () {
 
 	// load the controller's module
-	beforeEach(module('barney.config'));
+	beforeEach(module('barney'));
 
 	var ConfigProvider;
 

@@ -37,4 +37,3 @@
  * Before using Analytics module, it must be initialized. 
  * To initialize Analytics you can use the Analytics method {@link analytics.BarneyAnalytics#methods_init init}.
  */
- angular.module('barney.analytics', []);

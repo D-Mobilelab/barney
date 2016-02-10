@@ -54,4 +54,3 @@
  * Before using Logger module, it must be initialized. 
  * To initialize Logger you can use the Logger method {@link logger.BarneyLogger#methods_init init}.
  */
-angular.module('barney.logger', []);

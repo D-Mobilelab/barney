@@ -18,7 +18,7 @@
  * Note that I included BarneyCallbacky as dependency but I have renamed it 
  * as Callbacky to use it more easily in controller code.
  */
-angular.module('barney.callbacky').provider('BarneyCallbacky', function () {
+angular.module('barney').provider('BarneyCallbacky', function () {
     
     var myProvider = {
 
