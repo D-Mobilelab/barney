@@ -12,6 +12,10 @@
  * - track a page
  * - track an event
  * 
+ * # Components 
+ *
+ * - {@link analytics.BarneyAnalytics BarneyAnalytics}
+ *
  * # Usage
  * To use **Analytics** module you have to include the **Analytics** javascript file in your index.html:
  *
@@ -26,12 +30,5 @@
  * Before using Analytics module, it must be initialized. 
  * To initialize Analytics you can use the Analytics method {@link analytics.BarneyAnalytics#methods_init init}.
  *
- * # Methods:
- * 
- * - {@link analytics.BarneyAnalytics#methods_init init}
- * - {@link analytics.BarneyAnalytics#methods_setDimension setDimension}
- * - {@link analytics.BarneyAnalytics#methods_setId setId}
- * - {@link analytics.BarneyAnalytics#methods_trackEvent trackEvent}
- * - {@link analytics.BarneyAnalytics#methods_trackPage trackPage}
  *
  */

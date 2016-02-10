@@ -27,6 +27,9 @@
  * can use the offset attribute to tell **BarneyInfinite** how much before it must activate 
  * itself.
  *
+ * # Components
+ * - {@link infinite.directive:InfiniteScroll directive }
+ *
  * # Usage
  * To use **Infinite** directive you have to include the **Infinite** javascript file in your index.html:
  *

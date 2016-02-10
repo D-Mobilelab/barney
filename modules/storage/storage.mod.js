@@ -10,24 +10,16 @@
  * - Cookies;
  * - jsObject.
  *
- * # Import module
- * To import Storage module, include barney.storage to 
- * your web application module (usually in app.js file)
- * <pre>
- * angular.module('yourApplicationModule', [
- *     'barney.storage'
- * ])
- * </pre>
+ * # Components
+ * - {@link storage.BarneyStorage BarneyStorage}
  *
- * Remember to include the external javascript files you need:
+ * # Usage
+ * To use **Storage** module you have to include the **Storage** javascript file in your index.html:
  *
  * <pre>
  *
  *	  <!-- Storage module -->
- *   <script type="text/javascript" src="./bower_components/barney/storage/storage.mod.js"> 
- *
- *	  <!-- Storage service -->
- *   <script type="text/javascript" src="./bower_components/barney/storage/storage.pro.js"> 
+ *   <script type="text/javascript" src="./bower_components/barney/dist/storage.min.js"> 
  *
  * </pre>
  * 

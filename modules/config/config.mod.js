@@ -7,17 +7,17 @@
  * Config is the Barney module used to get environment variables. 
  * It reads a JSON object where all environment variables are stored.
  * 
- * You can use it:
+ * # Components
  *
- * - as a {@link config.BarneyConfig provider}
- * - as a {@link config.filter:config filter}
+ * - {@link config.BarneyConfig BarneyConfig}
+ * - {@link config.filter:config filter}
  * 
  * # Usage
  * To use **Config** module you have to include the **Config** javascript file in your index.html:
  *
  * <pre>
  *
- *	  <!-- Config module - Required -->
+ *	  <!-- Config module  -->
  *   <script type="text/javascript" src="./bower_components/barney/dist/config.min.js"> 
  *
  * </pre>
@@ -43,11 +43,5 @@
  * 		...
  * 	}
  *  </pre>
- *
- * # Methods:
- * 
- * - {@link config.BarneyConfig#methods_get get}
- * - {@link config.BarneyConfig#methods_init init}
- * - {@link config.BarneyConfig#methods_list list}
  *
  */

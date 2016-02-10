@@ -11,7 +11,7 @@
  *
  * <pre>
  *  //Include Barney script
- *  <script type="text/javascript" src="../path/to/barney/dist/main.min.js"> 
+ *  <script type="text/javascript" src="./bower_components/barney/dist/main.min.js"> 
  * </pre>
  *
  * Once you have included Barney in to your index.html file remember that you have to import Barney module

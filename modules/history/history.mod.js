@@ -7,6 +7,9 @@
  * # History
  * History is the module of Barney that provide you some methods about browser history.
  *
+ * # Components
+ * - {@link history.BarneyHistory BarneyHistory}
+ *
  * # Usage
  * To use **History** module you have to include the **History** javascript file in your index.html:
  *
@@ -20,11 +23,5 @@
  * # Init History
  * Before using History module, it must be initialized. 
  * To initialize History you can use the History method {@link history.BarneyHistory#methods_init init}.
- *
- * # Methods:
- * 
- * - {@link history.BarneyHistory#methods_get get}
- * - {@link history.BarneyHistory#methods_goBack goBack}
- * - {@link history.BarneyHistory#methods_init init}
  *
  */

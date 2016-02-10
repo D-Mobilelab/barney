@@ -14,6 +14,13 @@
  * ]);
  * </pre>
  * Note that I included BarneyConifg as dependency but I have renamed it as Config to use it more easily in controller code.
+ *
+ * # List Methods:
+ * 
+ * - {@link config.BarneyConfig#methods_get get}
+ * - {@link config.BarneyConfig#methods_init init}
+ * - {@link config.BarneyConfig#methods_list list}
+ *
  */
 angular.module('barney').provider('BarneyConfig', function(){        
     

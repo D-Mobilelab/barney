@@ -30,6 +30,20 @@
 *  RotatingLogger.init({enabled:false}) //RotatingLogger is now disabled
 * </pre>
 *
+*
+* # List Methods
+*
+*  - {@link logger.BarneyRotatingLogger#methods_endRecording endRecording}.
+*  - {@link logger.BarneyRotatingLogger#methods_error error}.
+*  - {@link logger.BarneyRotatingLogger#methods_getConfig getConfig}.
+*  - {@link logger.BarneyRotatingLogger#methods_info info}.
+*  - {@link logger.BarneyRotatingLogger#methods_init init}.
+*  - {@link logger.BarneyRotatingLogger#methods_isEnabled isEnabled}.
+*  - {@link logger.BarneyRotatingLogger#methods_log log}.
+*  - {@link logger.BarneyRotatingLogger#methods_startRecording startRecording}.
+*  - {@link logger.BarneyRotatingLogger#methods_table table}.
+*  - {@link logger.BarneyRotatingLogger#methods_warn warn}.
+*
 */
 
 /**

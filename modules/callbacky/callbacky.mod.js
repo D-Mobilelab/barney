@@ -8,6 +8,10 @@
  * Callbacky is the module of Barney that allow you 
  * to bind and trigger a function from different points in your code (i.e: controllers, services, ...).
  * 
+ * # Components 
+ *
+ * - {@link callbacky.BarneyCallbacky BarneyCallbacky}
+ *
  * # Usage
  * To use **Callbacky** module you have to include the **Callbacky** javascript files in your index.html:
  *
@@ -21,12 +25,5 @@
  * # Init Callbacky
  * Before using Callbacky module, it must be initialized. 
  * To initialize Callbacky you can use the Callbacky method {@link callbacky.BarneyCallbacky#methods_init init}.
- *
- * # Methods:
- * 
- * - {@link callbacky.BarneyCallbacky#methods_bind bind}
- * - {@link callbacky.BarneyCallbacky#methods_clean clean}
- * - {@link callbacky.BarneyCallbacky#methods_init init}
- * - {@link callbacky.BarneyCallbacky#methods_trigger trigger}
  *
  */

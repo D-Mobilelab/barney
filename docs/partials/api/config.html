@@ -5,16 +5,16 @@
 <div><div class="config-page"><h2 id="config">Config</h2>
 <p>Config is the Barney module used to get environment variables. 
 It reads a JSON object where all environment variables are stored.</p>
-<p>You can use it:</p>
+<h2 id="components">Components</h2>
 <ul>
-<li>as a <a href="#/api/config.BarneyConfig">provider</a></li>
-<li>as a <a href="#/api/config.filter:config">filter</a></li>
+<li><a href="#/api/config.BarneyConfig">BarneyConfig</a></li>
+<li><a href="#/api/config.filter:config">filter</a></li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p>To use <strong>Config</strong> module you have to include the <strong>Config</strong> javascript file in your index.html:</p>
 <pre class="prettyprint linenums">
 
-  &lt;!-- Config module - Required --&gt;
+  &lt;!-- Config module  --&gt;
   &lt;script type="text/javascript" src="./bower_components/barney/dist/config.min.js"&gt; 
 
 </pre>
@@ -37,11 +37,5 @@ var CONFIG = {
 	...
 }
 </pre>
-<h3 id="example_methods">Methods:</h3>
-<ul>
-<li><a href="#/api/config.BarneyConfig#methods_get">get</a></li>
-<li><a href="#/api/config.BarneyConfig#methods_init">init</a></li>
-<li><a href="#/api/config.BarneyConfig#methods_list">list</a></li>
-</ul>
 </div></div>
 </div>

@@ -15,6 +15,13 @@
  * </pre>
  * Note that I included BarneyDict as dependency but I have renamed it as Dict 
  * to use it more easily in controller code.
+ *
+ * # List Methods:
+ * 
+ * - {@link dict.BarneyDict#methods_get get}
+ * - {@link dict.BarneyDict#methods_init init}
+ * - {@link dict.BarneyDict#methods_list list}
+ *
  */
 angular.module('barney').provider('BarneyDict', [
     function () {
