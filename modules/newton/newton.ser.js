@@ -15,6 +15,12 @@
  * ]);
  * </pre>
  * Note that I included BarneyNewton as dependency but I have renamed it as Newton to use it more easily in controller code.
+ * 
+ * # List Method
+ * - {@link newton.BarneyNewton#methods_init init}
+ * - {@link newton.BarneyNewton#methods_trackEvent trackEvent}
+ * - {@link newton.BarneyNewton#methods_trackPage trackPage}
+ *
  */
 angular.module('barney').factory('BarneyNewton', function(){
 

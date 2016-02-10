@@ -17,6 +17,14 @@
  * ]);
  * </pre>
  * Note that I included BarneyUtility as dependency but I have renamed it as Utility to use it more easily in controller code.
+ *
+ * # List Method
+ * - {@link utility.BarneyUtility#methods_addQueryParams addQueryParams}
+ * - {@link utility.BarneyUtility#methods_arrayDiff arrayDiff}
+ * - {@link utility.BarneyUtility#methods_brutalRedirect brutalRedirect}
+ * - {@link utility.BarneyUtility#methods_clickAndGo clickAndGo}
+ * - {@link utility.BarneyUtility#methods_getCurrentQueryString getCurrentQueryString}
+ *
  */
 angular.module('barney').factory('BarneyUtility',
     ['$location', '$window',

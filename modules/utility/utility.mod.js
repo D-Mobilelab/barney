@@ -3,26 +3,20 @@
  * @name utility
  *
  * @description
+ * # Utility
  * Utility is the module of Barney used to provide commons utilities.
  *
- * # Import module
- * To import Utility module, include barney.utility to 
- * your web application module (usually in app.js file)
- * <pre>
- * angular.module('yourApplicationModule', [
- *     'barney.utility'
- * ])
- * </pre>
+ * # Components
+ * - {@link utility.BarneyUtility BarneyUtility}
  *
- * Remember to include the external javascript files you need:
+ * # Usage
+ * To use **Utility** module you have to include the **Utility** javascript file in your index.html:
  *
  * <pre>
  *
- *	  <!-- Utility module -->
- *   <script type="text/javascript" src="./bower_components/barney/utility/utility.mod.js"> 
- *
- *	  <!-- Utility service -->
- *   <script type="text/javascript" src="./bower_components/barney/utility/utility.ser.js"> 
+ *	  <!-- Newton module -->
+ *   <script type="text/javascript" src="./bower_components/barney/dist/utility.min.js"> 
  *
  * </pre>
+ *
  */

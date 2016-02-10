@@ -4,6 +4,7 @@
  *
  *
  * @description
+ * # Infinite
  * **BarneyInfinite** is the module of Barney that provides you the infinite scroll.
  *
  * **BarneyInfinite** listens when a page is scrolled and 
@@ -26,24 +27,16 @@
  * can use the offset attribute to tell **BarneyInfinite** how much before it must activate 
  * itself.
  *
- * # Import module
- * To import **BarneyInfinite** Scroll module, include barney.**BarneyInfinite** to 
- * your web application module (usually in app.js file)
- * <pre>
- * angular.module('yourApplicationModule', [
- *     'barney.infinite'
- * ])
- * </pre>
- * 
- * Remember to include the external javascript files you need:
+ * # Components
+ * - {@link infinite.directive:InfiniteScroll directive }
+ *
+ * # Usage
+ * To use **Infinite** directive you have to include the **Infinite** javascript file in your index.html:
  *
  * <pre>
  *
  *	  <!-- Infinite module -->
- *   <script type="text/javascript" src="./bower_components/barney/infinite/infinite.mod.js"> 
- *
- *	  <!-- Infinite directive -->
- *   <script type="text/javascript" src="./bower_components/barney/infinite/infinite-scroll.dir.js"> 
+ *   <script type="text/javascript" src="./bower_components/barney/dist/infinite.min.js"> 
  *
  * </pre>
  *

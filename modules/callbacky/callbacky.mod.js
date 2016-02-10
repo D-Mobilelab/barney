@@ -4,31 +4,26 @@
  *
  *
  * @description
+ * # Callbacky
  * Callbacky is the module of Barney that allow you 
  * to bind and trigger a function from different points in your code (i.e: controllers, services, ...).
  * 
- * # Import module
- * To import Callbacky module, include barney.callbacky to 
- * your web application module (usually in app.js file)
- * <pre>
- * angular.module('yourApplicationModule', [
- *     'barney.callbacky'
- * ])
- * </pre>
+ * # Components 
  *
- * Remember to include the external javascript files you need:
+ * - {@link callbacky.BarneyCallbacky BarneyCallbacky}
+ *
+ * # Usage
+ * To use **Callbacky** module you have to include the **Callbacky** javascript files in your index.html:
  *
  * <pre>
  *
  *	  <!-- Callbacky module -->
- *   <script type="text/javascript" src="./bower_components/barney/callbacky/callbacky.mod.js"> 
- *
- *	  <!-- Callbacky service -->
- *   <script type="text/javascript" src="./bower_components/barney/callbacky/callbacky.pro.js"> 
+ *   <script type="text/javascript" src="./bower_components/barney/dist/callbacky.min.js"> 
  *
  * </pre>
  * 
  * # Init Callbacky
  * Before using Callbacky module, it must be initialized. 
  * To initialize Callbacky you can use the Callbacky method {@link callbacky.BarneyCallbacky#methods_init init}.
+ *
  */

@@ -2,31 +2,20 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="config-page"><p>Config is the Barney module used to get environment variables. 
+<div><div class="config-page"><h2 id="config">Config</h2>
+<p>Config is the Barney module used to get environment variables. 
 It reads a JSON object where all environment variables are stored.</p>
-<p>You can use it:</p>
+<h2 id="components">Components</h2>
 <ul>
-<li>as a provider</li>
-<li>as a filter</li>
+<li><a href="#/api/config.BarneyConfig">BarneyConfig</a></li>
+<li><a href="#/api/config.filter:config">filter</a></li>
 </ul>
-<h2 id="import-module">Import module</h2>
-<p>To import Config module, include barney.config module to your web application module (usually in app.js file)
-<pre class="prettyprint linenums">
-angular.module('yourApplicationModule', [
-    'barney.config'
-])
-</pre>
-<p>Remember to include the external javascript files you need:</p>
+<h2 id="usage">Usage</h2>
+<p>To use <strong>Config</strong> module you have to include the <strong>Config</strong> javascript file in your index.html:</p>
 <pre class="prettyprint linenums">
 
-  &lt;!-- Config module --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/config/config.mod.js"&gt; 
-
-  &lt;!-- Config service --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/config/config.pro.js"&gt; 
-
-   &lt;!-- Config filter --&gt;
-	 &lt;script type="text/javascript" src="./bower_components/barney/config/config.fil.js"&gt;
+  &lt;!-- Config module  --&gt;
+  &lt;script type="text/javascript" src="./bower_components/barney/dist/config.min.js"&gt; 
 
 </pre>
 <h2 id="init-module">Init module</h2>

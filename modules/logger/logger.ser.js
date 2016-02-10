@@ -27,6 +27,17 @@
 *  Logger.init({enabled:false}) //Logger is now disabled
 * </pre>
 *
+* # List Methods
+*
+* - {@link logger.BarneyLogger#methods_error error}.
+* - {@link logger.BarneyLogger#methods_getConfig getConfig}.
+* - {@link logger.BarneyLogger#methods_info info}.
+* - {@link logger.BarneyLogger#methods_init init}.
+* - {@link logger.BarneyLogger#methods_isEnabled isEnabled}.
+* - {@link logger.BarneyLogger#methods_log log}.
+* - {@link logger.BarneyLogger#methods_table table}.
+* - {@link logger.BarneyLogger#methods_warn warn}.
+*
 */
 
 /**

@@ -3,27 +3,20 @@
  * @name meta
  *
  * @description
+ * # Meta
  * Meta is the module of Barney to fill meta tags dinamically.
  * Meta can be used to manage different metatags for each page.
  * 
- * # Import module
- * To import meta module, include barney.meta module to 
- * your web application module (usually in app.js file)
- * <pre>
- * angular.module('yourApplicationModule', [
- *     'barney.meta'
- * ])
- * </pre>
+ * # Components
+ * - {@link meta.BarneyMeta BarneyMeta}
  *
- * Remember to include the external javascript files you need:
+ * # Usage
+ * To use **Meta** module you have to include the **Meta** javascript file in your index.html:
  *
  * <pre>
  *
  *	  <!-- Meta module -->
- *   <script type="text/javascript" src="./bower_components/barney/meta/meta.mod.js"> 
- *
- *	  <!-- Meta service -->
- *   <script type="text/javascript" src="./bower_components/barney/meta/meta.ser.js"> 
+ *   <script type="text/javascript" src="./bower_components/barney/dist/meta.min.js"> 
  *
  * </pre>
  *
@@ -31,4 +24,5 @@
  *
  * Before using meta module, it must be initialized. 
  * To initialize meta you can use the meta method {@link meta.BarneyMeta#methods_init init}.
+ *
  */

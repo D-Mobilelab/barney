@@ -15,6 +15,13 @@
  * </pre>
  * Note that I included BarneyDict as dependency but I have renamed it as Dict 
  * to use it more easily in controller code.
+ *
+ * # List Methods:
+ * 
+ * - {@link dict.BarneyDict#methods_get get}
+ * - {@link dict.BarneyDict#methods_init init}
+ * - {@link dict.BarneyDict#methods_list list}
+ *
  */
 angular.module('barney').provider('BarneyDict', [
     function () {
@@ -34,7 +41,7 @@ angular.module('barney').provider('BarneyDict', [
              * Init dict service
              *
              * @param {Object} options (see attributes below)
-             * @param {string} [options.showKey='default']
+             * @param {string} [options.showKey='default'] 
              *
              * - **default**: the dictionary module prints the value of the dictionary key if it's valued, 
              * else it prints nothing
@@ -43,6 +50,8 @@ angular.module('barney').provider('BarneyDict', [
              * - **missing**: the dictionary module prints the value of the dictionary key if it's valued, 
              * else it prints the name of the key
              *
+             * @param {object} [options.dict=''] Contains the dictionary keys
+
              * @example
              * # Dict Init 
              * if: 
@@ -59,9 +68,13 @@ angular.module('barney').provider('BarneyDict', [
              *     function(Dict, $window, $scope){
              *   
              *         Dict.init({
-             *            showKey : 'default';
+             *            showKey : 'default',
+             *            dict : {
+             *               ...,
+             *               'VALUED_KEY': 'Hello world!',
+             *               ...
+             *            }
              *         });
-             *   
              *     }
              * ]);
              *
@@ -77,7 +90,12 @@ angular.module('barney').provider('BarneyDict', [
              *     function(Dict, $window, $scope){
              *   
              *         Dict.init({
-             *            showKey : 'all';
+             *            showKey : 'all',
+             *            dict : {
+             *               ...,
+             *               'VALUED_KEY': 'Hello world!',
+             *               ...
+             *            }
              *         });
              *   
              *     }
@@ -95,7 +113,12 @@ angular.module('barney').provider('BarneyDict', [
              *     function(Dict, $window, $scope){
              *   
              *         Dict.init({
-             *            showKey : 'missing';
+             *            showKey : 'missing',
+             *            dict : {
+             *               ...,
+             *               'VALUED_KEY': 'Hello world!',
+             *               ...
+             *            }
              *         });
              *   
              *     }

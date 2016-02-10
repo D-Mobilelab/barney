@@ -17,6 +17,14 @@
  * </pre>
  * Note that I included BarneyCallbacky as dependency but I have renamed it 
  * as Callbacky to use it more easily in controller code.
+ *
+ * # List Methods:
+ * 
+ * - {@link callbacky.BarneyCallbacky#methods_bind bind}
+ * - {@link callbacky.BarneyCallbacky#methods_clean clean}
+ * - {@link callbacky.BarneyCallbacky#methods_init init}
+ * - {@link callbacky.BarneyCallbacky#methods_trigger trigger}
+ *
  */
 angular.module('barney').provider('BarneyCallbacky', function () {
     
