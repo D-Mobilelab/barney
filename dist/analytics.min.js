@@ -18,6 +18,15 @@
  * </pre>
  * Note that I included BarneyAnalytics as dependency but I have renamed it as Analytics 
  * to use it more easily in controller code.
+ *
+ * # List Method:
+ * 
+ * - {@link analytics.BarneyAnalytics#methods_init init}
+ * - {@link analytics.BarneyAnalytics#methods_setDimension setDimension}
+ * - {@link analytics.BarneyAnalytics#methods_setId setId}
+ * - {@link analytics.BarneyAnalytics#methods_trackEvent trackEvent}
+ * - {@link analytics.BarneyAnalytics#methods_trackPage trackPage}
+ *
  */
 
 angular.module('barney').factory('BarneyAnalytics', [

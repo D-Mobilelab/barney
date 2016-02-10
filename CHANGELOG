@@ -1,3 +1,9 @@
+** 2.1.0 **
+- Unify all modules into single module Barney
+- build dist files for production
+- renamed mock/ to examples/
+- updated documentation
+
 ** 2.0.0 **
 - Test
 - Documentation

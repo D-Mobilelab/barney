@@ -14,6 +14,13 @@
  * ]);
  * </pre>
  * Note that I included BarneyConifg as dependency but I have renamed it as Config to use it more easily in controller code.
+ *
+ * # List Methods:
+ * 
+ * - {@link config.BarneyConfig#methods_get get}
+ * - {@link config.BarneyConfig#methods_init init}
+ * - {@link config.BarneyConfig#methods_list list}
+ *
  */
 angular.module('barney').provider('BarneyConfig', function(){        
     
@@ -33,17 +40,19 @@ angular.module('barney').provider('BarneyConfig', function(){
              * # Config Init 
              * Here is an example of init method.
              * <pre>
-             *  Config.init({
-             *      'ENABLE_LOGIN': 1,
-             *      'NEWTON_SECRET_KEY': '<sec_ret>',
-             *      'KEY_TRUE': true,
-             *      'KEY_VOID_STRING': '',
-             *      'KEY_ZERO': 0,
-             *      'KEY_ZERO_STRING': '0',
-             *      'KEY_NULL': null,
-             *      'KEY_NULL_STRING': 'null',
-             *      'KEY_FALSE': false,
-             *      'KEY_FALSE_STRING': 'false'
+             *  Config.init(
+             *      config: {
+             *          'ENABLE_LOGIN': 1,
+             *          'NEWTON_SECRET_KEY': '<sec_ret>',
+             *          'KEY_TRUE': true,
+             *          'KEY_VOID_STRING': '',
+             *          'KEY_ZERO': 0,
+             *          'KEY_ZERO_STRING': '0',
+             *          'KEY_NULL': null,
+             *          'KEY_NULL_STRING': 'null',
+             *          'KEY_FALSE': false,
+             *          'KEY_FALSE_STRING': 'false'
+             *       }
              *      });
              * </pre>
              */

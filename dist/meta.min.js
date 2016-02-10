@@ -18,6 +18,16 @@
  * </pre>
  * 
  * Note that I included BarneyMeta as dependency but I have renamed it as Meta to use it more easily in controller code.
+ *
+ * # Methods:
+ * 
+ * - {@link meta.BarneyMeta#methods_default default}
+ * - {@link meta.BarneyMeta#methods_get get}
+ * - {@link meta.BarneyMeta#methods_init init}
+ * - {@link meta.BarneyMeta#methods_list list}
+ * - {@link meta.BarneyMeta#methods_revert revert}
+ * - {@link meta.BarneyMeta#methods_set set}
+ *
  */
 
 angular.module('barney').factory('BarneyMeta', [
