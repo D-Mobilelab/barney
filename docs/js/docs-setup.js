@@ -181,7 +181,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "meta",
       "shortDescription": "Meta is the module of Barney to fill meta tags dinamically.",
-      "keywords": "$scope add angular api app barney barneymeta code component console controller current default defaults dependency description dinamically easily event example fill function homepagecontroller image include included init inizialize jpg key key2 list locationsuccess log manage meta metatags method methods methods_default methods_get methods_init methods_list methods_revert methods_set mock module note object pass passed passing print product recommended renamed restore revert service set single standard standard-image tags title value1 value2 values"
+      "keywords": "$on $rootscope $routechangestart $scope add angular api app barney barneymeta code component console controller current default defaults dependency description dinamically easily event example fill function homepagecontroller image include included init inizialize jpg js key key2 list log manage meta metatags method methods methods_default methods_get methods_init methods_list methods_revert methods_set mock module note object pass passed passing previous print product recommended renamed restore revert routechangestart service set single standard standard-image tags title value1 value2 values"
     },
     {
       "section": "api",
