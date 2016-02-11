@@ -1,6 +1,6 @@
 {
   "name": "barney",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "authors": [
     "aurelio.merenda@buongiorno.com",
     "fabio.fognani@buongiorno.com",
@@ -18,9 +18,10 @@
   "license": "MIT",
   "ignore": [
     "**/*",
+    "!dist/**/*",
     "!modules/**/*",
     "!CHANGELOG",
-    "!README",
+    "!README.md",
     "!bower.json"
   ],
   "dependencies": {

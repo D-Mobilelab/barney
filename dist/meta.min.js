@@ -190,20 +190,20 @@ angular.module('barney').factory('BarneyMeta', [
          * @methodOf meta.BarneyMeta
          *
          * @description
-         * **It's recommended to use it in locationSuccess event**.
+         * **It's recommended to use it in routeChangeStart event**.
          * 
          * Restore the keys to default values (set before with init)
          *
          * @example
+         * In **app.js**:
          * <pre>
-         * angular.module('mock').controller('HomePageController', [
-         * 'BarneyMeta', '$scope',
-         *  function(Meta, $scope){
+         * $rootScope.$on('$routeChangeStart', function(event, current, previous){
+         *
+         *   // ...revert meta tags
+         *   Meta.revert();
+         *
+         *}); 
          * 
-         *        Meta.revert();
-         * 
-         *  }
-         * ]);
          * </pre>
          */
         this.revert = function(){

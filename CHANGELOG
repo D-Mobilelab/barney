@@ -1,3 +1,6 @@
+** 2.1.1 **
+- Bower.json: added dist folder
+
 ** 2.1.0 **
 - Unify all modules into single module Barney
 - build dist files for production
