@@ -103,18 +103,18 @@ angular.module('mock').controller('HomePageController', [
 </div>
 </li>
 <li><h3 id="methods_revert">revert()</h3>
-<div class="revert"><div class="meta-barneymeta-revert-page"><p><strong>It&#39;s recommended to use it in locationSuccess event</strong>.</p>
+<div class="revert"><div class="meta-barneymeta-revert-page"><p><strong>It&#39;s recommended to use it in routeChangeStart event</strong>.</p>
 <p>Restore the keys to default values (set before with init)</p>
 </div><h4 id="methods_revert_example">Example</h4>
-<div class="example"><div class="meta-barneymeta-revert-page"><pre class="prettyprint linenums">
-angular.module('mock').controller('HomePageController', [
-'BarneyMeta', '$scope',
- function(Meta, $scope){
+<div class="example"><div class="meta-barneymeta-revert-page"><p>In <strong>app.js</strong>:
+<pre class="prettyprint linenums">
+$rootScope.$on('$routeChangeStart', function(event, current, previous){
 
-       Meta.revert();
+  // ...revert meta tags
+  Meta.revert();
 
- }
-]);
+}); 
+
 </pre>
 </div></div>
 </div>
