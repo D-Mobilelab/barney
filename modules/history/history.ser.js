@@ -58,8 +58,8 @@ angular.module('barney').factory('BarneyHistory',
                 });
                 $rootScope.$on('$routeChangeSuccess', function(event, current, previous){
                     if(!!previous && !!previous.$$route){
-                         _this.previousState = previous.$$route;
-                    };
+                        _this.previousState = previous.$$route;
+                    }
                 });
             },
 

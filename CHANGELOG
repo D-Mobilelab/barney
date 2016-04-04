@@ -1,3 +1,6 @@
+** 2.2.0 **
+- History getPrevPath() and getPrevState() methods
+
 ** 2.1.1 **
 - Bower.json: added dist folder
 

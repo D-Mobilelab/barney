@@ -144,7 +144,7 @@ module.exports = function (grunt) {
                     }, {
                         config: 'changeLog',
                         type: 'input',
-                        message: 'Features for version <%= newVersion %> (use ";" to separate features):',
+                        message: 'Features for new version (use ";" to separate features):',
                         default: '',
                         when: function(answers) {
                             return answers['newVersion'] !== versionString;
