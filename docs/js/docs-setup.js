@@ -118,7 +118,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "history",
       "shortDescription": "Use History service",
-      "keywords": "$scope add angular api barneyhistory called code component console controller dependency directive easily example function goback history homepagecontroller included init list log method methods methods_get methods_goback methods_init mock module note object renamed saved service url visited"
+      "keywords": "$scope add angular api barneyhistory called code component console controller dependency directive easily example function getprevpath getprevstate goback history homepagecontroller included init list log method methods methods_getprevpath methods_getprevstate methods_goback methods_init mock module note object path renamed saved service visited"
     },
     {
       "section": "api",

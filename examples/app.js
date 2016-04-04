@@ -6,8 +6,10 @@ angular.module('example', [
 	'hljs'
 ])
 
-.config(['$routeProvider', 'hljsServiceProvider',
-	function ($routeProvider, hljsServiceProvider) {
+.config(['$routeProvider', '$locationProvider', 'hljsServiceProvider',
+	function ($routeProvider, $locationProvider, hljsServiceProvider) {
+
+		$locationProvider.hashPrefix("!");
 		
 		$routeProvider
 			.when('/logger', {
@@ -53,6 +55,10 @@ angular.module('example', [
 				templateUrl: 'pages/infinite.html',
 				controller: 'InfiniteCtrl'
 			})
+			.when('/history', {
+				templateUrl: 'pages/history.html',
+				controller: 'HistoryCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
@@ -64,8 +70,8 @@ angular.module('example', [
 
 }])
 
-.run(['$rootScope', 'BarneyMeta',
-	function ($rootScope, Meta) {
+.run(['$rootScope', 'BarneyMeta', 'BarneyHistory',
+	function ($rootScope, Meta, HistoryAdp) {
 
 		Meta.init({
 			title: "standard title",
@@ -76,6 +82,8 @@ angular.module('example', [
 		$rootScope.$on('$routeChangeStart', function(){
 			Meta.revert();
 		});
+
+		HistoryAdp.init();
 
 	}
 ]);

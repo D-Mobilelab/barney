@@ -20,7 +20,8 @@
  *
  * # List Methods:
  * 
- * - {@link history.BarneyHistory#methods_get get}
+ * - {@link history.BarneyHistory#methods_getPrevPath getPrevPath}
+ * - {@link history.BarneyHistory#methods_getPrevState getPrevState}
  * - {@link history.BarneyHistory#methods_goBack goBack}
  * - {@link history.BarneyHistory#methods_init init}
  *
@@ -32,6 +33,7 @@ angular.module('barney').factory('BarneyHistory',
         return {
 
             previousPath: null,
+            previousState: null,
             
             /**
              * @ngdoc function
@@ -54,31 +56,61 @@ angular.module('barney').factory('BarneyHistory',
                         _this.previousPath = oldurl.substr(oldurl.indexOf('#!') + 2);
                     }
                 });
+                $rootScope.$on('$routeChangeSuccess', function(event, current, previous){
+                    if(!!previous && !!previous.$$route){
+                         _this.previousState = previous.$$route;
+                    };
+                });
             },
 
             /**
              * @ngdoc function
-             * @name history.BarneyHistory#get
+             * @name history.BarneyHistory#getPrevPath
              * @methodOf history.BarneyHistory
              *
              * @description 
-             * This method is used to get the URL of the last visited page.
+             * This method is used to get the path of the last visited page.
              *
              * To use this method, the init method must be called before.
              *
              * @example
              * # History Get 
-             * Here is an example of the get method.
+             * Here is an example of the getPrevPath method.
              * <pre>
              * 
-             *   console.log( History.get() );
+             *   console.log( History.getPrevPath() );
              *
              * </pre>
              * 
             */
-            get: function(){
+            getPrevPath: function(){
                 var _this = this;
                 return _this.previousPath;
+            },
+
+            /**
+             * @ngdoc function
+             * @name history.BarneyHistory#getPrevState
+             * @methodOf history.BarneyHistory
+             *
+             * @description 
+             * This method is used to get the state of the last visited page.
+             *
+             * To use this method, the init method must be called before.
+             *
+             * @example
+             * # History Get 
+             * Here is an example of the getPrevState method.
+             * <pre>
+             * 
+             *   console.log( History.getPrevState() );
+             *
+             * </pre>
+             * 
+            */
+            getPrevState: function(){
+                var _this = this;
+                return _this.previousState;
             },
 
             /**
