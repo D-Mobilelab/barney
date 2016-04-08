@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('example').controller('NewtonCtrl', [
-	'BarneyNewton', 'BarneyLogger',
-	function(NewtonAdp, Logger){
+    '$scope', 'BarneyNewton', 'BarneyLogger',
+	function($scope, NewtonAdp, Logger){
 
 		Logger.init({
 			enabled: true
@@ -16,7 +16,7 @@ angular.module('example').controller('NewtonCtrl', [
 			verbose: true,
 			logger: Logger
 		});
-
+		
 		NewtonAdp.trackPage({
 			page: '/homepage',
 			title: 'Home Page'
@@ -29,5 +29,33 @@ angular.module('example').controller('NewtonCtrl', [
 			Valuable: 'yes',
 			Action: 'yes'
 		});
+
+		$scope.startBeat = function(keyword){
+			NewtonAdp.startHeartbeat(keyword, {
+				category: 'Heartbeat',
+	            label: '<test>',
+	            valuable: 'No',
+	            action: 'No',
+	        });
+		};
+
+		$scope.startBeat('atestheart');
+
+
+		var stopAllBeat = function(){
+			NewtonAdp.stopAllHeartbeat();
+		};
+
+		setTimeout(function(){
+			$scope.startBeat('secondheart');
+			$scope.startBeat('atestheart');
+			
+			var a = NewtonAdp.heartbeatsList()
+			console.log('List: ', a);
+		}, 5000);
+
+		setTimeout(function(){
+			stopAllBeat();
+		}, 20000); 
 	}
 ]);

@@ -33,6 +33,8 @@ angular.module('barney').factory('BarneyNewton', function(){
         error: function(){}
     };
 
+    var heartbeats = {};
+
      /**
      * @ngdoc function
      * @name newton.BarneyNewton#init
@@ -177,6 +179,52 @@ angular.module('barney').factory('BarneyNewton', function(){
         }
     };
 
+    /* heartbeat section */
+
+    this.startHeartbeat = function(keyword, params){
+        if(!heartbeats[keyword]){
+            heartbeatProperties = Newton.SimpleObject.fromJSONObject(params);
+            heartbeats[keyword] = {keyWord: keyword, properties: heartbeatProperties};
+
+            if(heartbeats[keyword]){
+                Newton.getSharedInstance().timedEventStart(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
+                this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STARTED _______/\\_/\\_', heartbeats[keyword].properties);
+            }
+        } else {
+            this.logger.warn('An heartbeat with \'' + heartbeats[keyword].keyWord + '\' is already running!');
+        }
+       
+    };
+
+    this.stopHeartbeat = function(keyword){
+        if(heartbeats[keyword]){
+            Newton.getSharedInstance().timedEventStop(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
+            this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STOPPED _/\\_/\\_______', heartbeats[keyword].properties);
+
+            var deleted = delete heartbeats[keyword];
+            if(deleted){
+                this.logger.log('An heartbeat has Been removed from heartbeats!', heartbeats);
+            }
+        }
+    };
+
+    this.stopAllHeartbeat = function(){
+        for(var key in heartbeats){
+            this.stopHeartbeat(heartbeats[key].keyWord);
+        }
+        this.logger.log('All heartbeats has been stopped!');
+    };
+
+    this.heartbeatsList = function(){
+        this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
+        return heartbeats;
+    };
+
+    this.getSingleHeartbeat = function(keyword){
+        this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
+        return heartbeats[keyword];
+    };
+    
     return this;
 
 });
