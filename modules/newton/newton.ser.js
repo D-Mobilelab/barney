@@ -17,7 +17,12 @@
  * Note that I included BarneyNewton as dependency but I have renamed it as Newton to use it more easily in controller code.
  * 
  * # List Method
+ * - {@link newton.BarneyNewton#methods_getSingleHeartbeat getSingleHeartbeat}
+ * - {@link newton.BarneyNewton#methods_heartbeatsList heartbeatsList}
  * - {@link newton.BarneyNewton#methods_init init}
+ * - {@link newton.BarneyNewton#methods_startHeartbeat startHeartbeat}
+ * - {@link newton.BarneyNewton#methods_stopAllHeartbeat stopAllHeartbeat}
+ * - {@link newton.BarneyNewton#methods_stopHeartbeat stopHeartbeat}
  * - {@link newton.BarneyNewton#methods_trackEvent trackEvent}
  * - {@link newton.BarneyNewton#methods_trackPage trackPage}
  *
@@ -179,7 +184,34 @@ angular.module('barney').factory('BarneyNewton', function(){
         }
     };
 
-    /* heartbeat section */
+    /**
+     * @ngdoc function
+     * @name newton.BarneyNewton#startHeartbeat
+     * @methodOf newton.BarneyNewton
+     *
+     * @description 
+     * This method is used to **send the heartbeat starting event**. 
+     * Once called Newton will **send message to track the time spent on the site** with the interval specified in Newton.
+     * **Is recommended to call the stopHeartbeat function when you want to stop heartbeat tracking.**   
+     *
+     * @param {string} keyword Newton heartbeat identifier
+     *
+     * @param {Object} params Newton custom_data to track what you want.
+     *
+     * @example
+     * # Newton startHeartbeat 
+     * Here is an example of the startHeartbeat method.
+     * <pre>
+     * 
+     *   Newton.startHeartbeat('aTestHeart', {
+     *      label: 'page_title',
+     *      valuable: 'no',
+     *      action: 'no'
+     *   });
+     *
+     * </pre>
+     * 
+    */
 
     this.startHeartbeat = function(keyword, params){
         if(!heartbeats[keyword]){
@@ -196,6 +228,31 @@ angular.module('barney').factory('BarneyNewton', function(){
        
     };
 
+    /**
+     * @ngdoc function
+     * @name newton.BarneyNewton#stopHeartbeat
+     * @methodOf newton.BarneyNewton
+     *
+     * @description 
+     * This method is used to send the heartbeat stop event. 
+     * Once called Newton will **stop to track the time spent on the site**, and the heartbeat tracking will be removed
+     * from the heartbeats list.
+     * Before calling the stop heartbeat event **remember that the heartbeat must be started**.   
+     *
+     * @param {string} keyword Newton heartbeat identifier
+     *
+     * @example
+     * # Newton stopHeartbeat 
+     * Here is an example of the stopHeartbeat method.
+     * <pre>
+     *
+     *   //after Newton.startHeartbeat(...)
+     *   Newton.stopHeartbeat('aTestHeart');
+     *
+     * </pre>
+     * 
+    */
+
     this.stopHeartbeat = function(keyword){
         if(heartbeats[keyword]){
             Newton.getSharedInstance().timedEventStop(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
@@ -208,6 +265,31 @@ angular.module('barney').factory('BarneyNewton', function(){
         }
     };
 
+    /**
+     * @ngdoc function
+     * @name newton.BarneyNewton#stopAllHeartbeat
+     * @methodOf newton.BarneyNewton
+     *
+     * @description 
+     * This method is used to **stop all the heartbeat that are running**. 
+     * You can use this method to easily stop all the heartbeat event.
+     * 
+     * **Is recommended to use it on the unload event of the window.**
+     *
+     * @example
+     * # Newton stopAllHeartbeat 
+     * Here is an example of the stopAllHeartbeat method.
+     * <pre>
+     *
+     *    window.addEventListener("unload", function(){
+     *       console.log('Document closed - stopping all heartbeat');
+     *       Newton.stopAllHeartbeat();
+     *    }, false);
+     *
+     * </pre>
+     * 
+    */
+
     this.stopAllHeartbeat = function(){
         for(var key in heartbeats){
             this.stopHeartbeat(heartbeats[key].keyWord);
@@ -215,10 +297,53 @@ angular.module('barney').factory('BarneyNewton', function(){
         this.logger.log('All heartbeats has been stopped!');
     };
 
+    /**
+     * @ngdoc function
+     * @name newton.BarneyNewton#heartbeatsList
+     * @methodOf newton.BarneyNewton
+     *
+     * @description 
+     * This method **provides you the complete list of all the running heartbeat, with their initial properties**. 
+     * You can use this method to retrieve all the heartbeats information.
+     * 
+     * @example
+     * # Newton heartbeatsList 
+     * Here is an example of the heartbeatsList method.
+     * <pre>
+     *       //get all the heartbeats information
+     *       console.log('Heartbeats list: ', Newton.heartbeatsList());
+     *       
+     * </pre>
+     * 
+    */
+
     this.heartbeatsList = function(){
         this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
         return heartbeats;
     };
+
+    /**
+     * @ngdoc function
+     * @name newton.BarneyNewton#getSingleHeartbeat
+     * @methodOf newton.BarneyNewton
+     *
+     * @description 
+     * This method is used to **get a single heartbeat information, with its initial properties**. 
+     * You can use this method to retrieve all the information of an heartbeat.
+     * 
+     * @param {string} keyword Newton heartbeat identifier
+     *
+     * @example
+     * # Newton getSingleHeartbeat 
+     * Here is an example of the getSingleHeartbeat method.
+     * <pre>
+     *
+     *       //get all the heartbeats information
+     *       console.log('Heartbeats list: ', Newton.getSingleHeartbeat('atestheart'));
+     *       
+     * </pre>
+     * 
+    */
 
     this.getSingleHeartbeat = function(keyword){
         this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
