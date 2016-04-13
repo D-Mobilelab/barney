@@ -8,10 +8,13 @@
 ```
 bower install --save barney
 ```
+- Add barney main file to your index.html file
+```
+<script src="bower_components/barney/dist/main.min.js"></script>
+```
 - Add barney files you want use to index.html file, according to Barney documentation. For example, for history module add:
 ```
-<script src="bower_components/Barney/history/history.mod.js"></script>
-<script src="bower_components/Barney/history/history.ser.js"></script>
+<script src="bower_components/barney/dist/history.min.js"></script>
 ```
 - Add barney modules you want use to app.js file, according to Barney documentation. For example, for history module add:
 ```
@@ -30,20 +33,20 @@ angular.module('clipjoy', [ ..., 'barney.history'])
 ```
 bower install
 ```
-- Add new barney files to index.html file, if necessary
+- Add new barney files to index.html file, if a new module has been implemented with new version. For example:
 ```
-<script src="bower_components/Barney/history/history.ser.js"></script>
+<script src="bower_components/barney/dist/history.min.js"></script>
 ```
 - Add new barney modules to app.js file, if necessary
 ```
-angular.module('clipjoy', [ ..., 'barney.logger'])
+angular.module('clipjoy', [ ..., 'barney.history'])
 ```
 
 ## Contribute
 
 - [Clone Barney project](https://github.com/D-Mobilelab/barney/wiki/How-to-clone-Barney-project/)
 - [Create new feature](https://github.com/D-Mobilelab/barney/wiki/How-to-create-a-new-feature)
-- [Try new feature](https://github.com/D-Mobilelab/barney/wiki/How-to-try-modules,-with-mock))
+- [Try new feature](https://github.com/D-Mobilelab/barney/wiki/How-to-try-modules,-with-mock)
 - [Run test](https://github.com/D-Mobilelab/barney/wiki/How-to-run-test)
 - [Generate and read documentation](https://github.com/D-Mobilelab/barney/wiki/How-to-generate-and-read-documentation)
 - [Create and publish new version](https://github.com/D-Mobilelab/barney/wiki/How-to-create-a-new-version)
