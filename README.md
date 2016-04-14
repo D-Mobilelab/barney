@@ -43,7 +43,15 @@ angular.module('clipjoy', [ ..., 'barney.history'])
 ```
 
 ## Full documentation
-To read version documentation, open http://d-mobilelab.github.io/barney/temp/#/version/welcome **replacing temp with version number**.
+To read documentation, open 
+
+http://d-mobilelab.github.io/barney/temp/#/version/welcome 
+
+**replacing temp with version number**. 
+
+For example, for version 2.3.0, open
+
+http://d-mobilelab.github.io/barney/2.3.0/#/version/welcome 
 
 
 ## Contribute
