@@ -27,6 +27,12 @@ module.exports = function (grunt) {
         distPath: 'dist/',
         newVersion: versionString,
         changeLog: '',
+        clean: {
+            docTemp: ["<%= docPath %>temp"],
+            docVersion: ["<%= docPath %><%= newVersion %>"],
+            coverage: ["<%= testPath %>coverage"],
+            dist: ["<%= distPath %>"]
+        },
         connect:{
             server: {
                 options:{
@@ -42,10 +48,17 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             },
-            doc: {
+            docTemp: {
                 options:{
                     hostname: 'localhost',
                     port: 9020,
+                    livereload: true
+                }
+            },
+            docVersion: {
+                options:{
+                    hostname: 'localhost',
+                    port: 9030,
                     livereload: true
                 }
             }
@@ -57,8 +70,11 @@ module.exports = function (grunt) {
             coverage:{
                 path: 'http://localhost:9010/<%= testPath %>coverage/'
             },
-            doc:{
-                path: 'http://localhost:9020/<%= docPath %>'
+            docTemp:{
+                path: 'http://localhost:9020/<%= docPath %>temp/'
+            },
+            docVersion:{
+                path: 'http://localhost:9030/<%= docPath %><%= newVersion %>'
             }
         },
         watch:{
@@ -88,14 +104,24 @@ module.exports = function (grunt) {
                     livereload: 35730
                 }
             },
-            doc:{
+            docTemp:{
                 files:[
                     '<%= modulesPath %>/**/*.js',
                     '<%= modulesPath %>/main.js'
                 ],
-                tasks: ['clean:doc', 'ngdocs'],
+                tasks: ['clean:docTemp', 'ngdocs:api'],
                 options:{
                     livereload: 35731
+                }
+            },
+            docVersion:{
+                files:[
+                    '<%= modulesPath %>/**/*.js',
+                    '<%= modulesPath %>/main.js'
+                ],
+                tasks: ['clean:docTemp', 'ngdocs:version'],
+                options:{
+                    livereload: 35732
                 }
             }
         },
@@ -112,20 +138,27 @@ module.exports = function (grunt) {
         },
         ngdocs: {
             options: {
-                dest: '<%= docPath %>/<%= newVersion %>',
-                html5Mode: false,
+            	html5Mode: false,
                 title: 'Barney',
-                startPage: '/api/welcome'
             },
             api: {
-                src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
-                title: 'API Reference'
+                options: {
+	                dest: '<%= docPath %>temp',
+	                startPage: '/api/welcome'
+		        },
+		        src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
+                title: 'API Reference',
+                api: true
+            },
+            version: {
+            	options: {
+	                dest: '<%= docPath %><%= newVersion %>',
+	                startPage: '/version/welcome'
+		        },
+		        src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
+                title: 'API Reference',
+                api: true
             }
-        },
-        clean: {
-            doc: ["<%= docPath %>"],
-            coverage: ["<%= testPath %>coverage"],
-            dist: ["<%= distPath %>"]
         },
         prompt: {
             target: {
@@ -193,6 +226,43 @@ module.exports = function (grunt) {
 	****         GRUNT TASKS          ****
 	*************************************/
 
+	grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
+        // get the current concat object from initConfig
+        var concat = grunt.config.get('concat') || {};
+
+        // get all module directories
+        grunt.file.expand("modules/*").forEach(function (dir) {
+
+            // get the module name from the directory name
+            var dirName = dir.substr(dir.lastIndexOf('/')+1);
+
+            if(dirName != 'main.js'){
+                
+                // create a subtask for each module, find all src files
+                // and combine into a single js file per module
+                concat[dirName] = {
+                    src: [
+                        dir + '/*.van.js', 
+                        dir + '/*.ser.js', 
+                        dir + '/*.pro.js', 
+                        dir + '/*.fil.js', 
+                        dir + '/*.dir.js'
+                    ],
+                    dest: '<%= distPath %>' + dirName + '.min.js'
+                };
+
+            } else {
+                concat['main'] = {
+                    src: ['modules/main.js'],
+                    dest: '<%= distPath %>main.min.js'
+                }
+            }
+
+            // add module subtasks to the concat task in initConfig
+            grunt.config.set('concat', concat);
+        });
+    });
+
     grunt.registerTask('serve',[
         // CREATE BUILD
         'clean:dist',
@@ -231,49 +301,20 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('doc',[
-        'clean:doc',
-        'ngdocs',
-        'connect:doc',
-        'open:doc',
-        'watch:doc'
+        'clean:docTemp',
+        'ngdocs:api',
+        'connect:docTemp',
+        'open:docTemp',
+        'watch:docTemp'
     ]);
 
-    grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
-        // get the current concat object from initConfig
-        var concat = grunt.config.get('concat') || {};
-
-        // get all module directories
-        grunt.file.expand("modules/*").forEach(function (dir) {
-
-            // get the module name from the directory name
-            var dirName = dir.substr(dir.lastIndexOf('/')+1);
-
-            if(dirName != 'main.js'){
-                
-                // create a subtask for each module, find all src files
-                // and combine into a single js file per module
-                concat[dirName] = {
-                    src: [
-                        dir + '/*.van.js', 
-                        dir + '/*.ser.js', 
-                        dir + '/*.pro.js', 
-                        dir + '/*.fil.js', 
-                        dir + '/*.dir.js'
-                    ],
-                    dest: '<%= distPath %>' + dirName + '.min.js'
-                };
-
-            } else {
-                concat['main'] = {
-                    src: ['modules/main.js'],
-                    dest: '<%= distPath %>main.min.js'
-                }
-            }
-
-            // add module subtasks to the concat task in initConfig
-            grunt.config.set('concat', concat);
-        });
-    });
+    grunt.registerTask('docx',[
+        'clean:docVersion',
+        'ngdocs:version',
+        'connect:docVersion',
+        'open:docVersion',
+        'watch:docVersion'
+    ]);
 
     grunt.registerTask('version',[
         // COVERAGE
@@ -286,8 +327,8 @@ module.exports = function (grunt) {
         'string-replace:bower',
         'file_append:changelog',
         // DOC
-        'clean:doc',
-        'ngdocs',
+        'clean:docVersion',
+        'ngdocs:version',
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
