@@ -112,7 +112,7 @@ module.exports = function (grunt) {
         },
         ngdocs: {
             options: {
-                dest: '<%= docPath %>',
+                dest: '<%= docPath %>/<%= newVersion %>',
                 html5Mode: false,
                 title: 'Barney',
                 startPage: '/api/welcome'
@@ -279,15 +279,15 @@ module.exports = function (grunt) {
         // COVERAGE
         'clean:coverage',
         'karma',
-        // DOC
-        'clean:doc',
-        'ngdocs',
         // LINT
         'eslint',
         // PROMPT
         'prompt',
         'string-replace:bower',
         'file_append:changelog',
+        // DOC
+        'clean:doc',
+        'ngdocs',
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
