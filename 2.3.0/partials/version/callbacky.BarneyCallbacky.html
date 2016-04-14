@@ -1,0 +1,107 @@
+<h1><code ng:non-bindable="">BarneyCallbacky</code>
+<div><span class="hint">service in module <code ng:non-bindable="">callbacky</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="callbacky-barneycallbacky-page"><p>To use Callbacky service, you have to add BarneyCallbacky dependency 
+to your component (i.e: directive, controller...).</p>
+<p>In this example, I have added dependency of BarneyCallbacky to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyCallbacky', '$scope',
+    function(Callbacky, $scope){
+        // we can use "Callbacky" object here
+    }
+]);
+</pre>
+Note that I included BarneyCallbacky as dependency but I have renamed it 
+as Callbacky to use it more easily in controller code.</p>
+<h3 id="description_list-methods">List Methods:</h3>
+<ul>
+<li><a href="#/version/callbacky.BarneyCallbacky#methods_bind">bind</a></li>
+<li><a href="#/version/callbacky.BarneyCallbacky#methods_clean">clean</a></li>
+<li><a href="#/version/callbacky.BarneyCallbacky#methods_init">init</a></li>
+<li><a href="#/version/callbacky.BarneyCallbacky#methods_trigger">trigger</a></li>
+</ul>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_bind">bind(key, method)</h3>
+<div class="bind"><div class="callbacky-barneycallbacky-bind-page"><p>Bind one function to a string.</p>
+<p>By this way, on the trigger event (with the relative string), the bound function can be called
+everywhere in your code.</p>
+</div><h5 id="methods_bind_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="callbacky-barneycallbacky-bind-page"><p>Unique key to identify the function</p>
+</div></td></tr><tr><td>method</td><td><a href="" class="label type-hint type-hint-method">method</a></td><td><div class="callbacky-barneycallbacky-bind-page"><p>Function to call when triggered</p>
+</div></td></tr></tbody></table><h4 id="methods_bind_example">Example</h4>
+<div class="example"><div class="callbacky-barneycallbacky-bind-page"><h5 id="methods_bind_example_trigger">Trigger</h5>
+<p>Here is an example of the bind/trigger method 
+<pre class="prettyprint linenums">
+// FIRST FILE
+Callbacky.bind('hello', function(args){ 
+    console.log(args)) 
+};
+
+// SECOND FILE
+Callbacky.trigger('hello', 'world');
+// console.log('world');
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_clean">clean(key)</h3>
+<div class="clean"><div class="callbacky-barneycallbacky-clean-page"><p>Remove the bound function from the given string </p>
+</div><h5 id="methods_clean_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="callbacky-barneycallbacky-clean-page"><p>Unique key to identify the function</p>
+</div></td></tr></tbody></table><h4 id="methods_clean_example">Example</h4>
+<div class="example"><div class="callbacky-barneycallbacky-clean-page"><h5 id="methods_clean_example_clean">Clean</h5>
+<p>Here is an example of the clean method
+<pre class="prettyprint linenums">
+Callbacky.clean('hello');
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="callbacky-barneycallbacky-init-page"><p>This method is used to initialize the Callbacky module and it
+requires an object that contains two values</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="callbacky-barneycallbacky-init-page"><p>(see attributes below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>verbose</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="callbacky-barneycallbacky-init-page"><ul>
+<li><strong>true</strong>: the Callbacky module logs all the instruction done;</li>
+<li><strong>false</strong>: the Callbacky module logs nothing.</li>
+</ul>
+</div> <p><em>(default: false)</em></p></td></tr><tr><td>logger</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="callbacky-barneycallbacky-init-page"><p>Object that logs (i.e.: window.console, BarneyLogger, ...)</p>
+</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="callbacky-barneycallbacky-init-page"><p>Here is an example of the init method.
+<pre class="prettyprint linenums">
+
+  Callbacky.init({
+      verbose:true, // it logs all the work
+      logger: window.console // set window.console as a logger
+   });
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_trigger">trigger(key, arg)</h3>
+<div class="trigger"><div class="callbacky-barneycallbacky-trigger-page"><p>Call the function bound with the given string.</p>
+<p>On the trigger event, the corresponding function is called.</p>
+</div><h5 id="methods_trigger_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="callbacky-barneycallbacky-trigger-page"><p>Unique key to identify the function, used in bind() method before</p>
+</div></td></tr><tr><td>arg</td><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="callbacky-barneycallbacky-trigger-page"><p>Arguments to pass to saved function</p>
+</div></td></tr></tbody></table><h4 id="methods_trigger_example">Example</h4>
+<div class="example"><div class="callbacky-barneycallbacky-trigger-page"><h5 id="methods_trigger_example_trigger">Trigger</h5>
+<p>Here is an example of the bind/trigger method 
+<pre class="prettyprint linenums">
+// FIRST FILE
+Callbacky.bind('hello', function(args){ 
+    console.log(args)) 
+};
+
+// SECOND FILE
+Callbacky.trigger('hello', 'world');
+// console.log('world');
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
