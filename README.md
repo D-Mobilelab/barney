@@ -2,8 +2,6 @@
 
 ## How to install Barney
 
-- Go to your project folder
-
 - Install Barney with Bower
 ```
 bower install --save barney
@@ -16,14 +14,16 @@ bower install --save barney
 ```
 <script src="bower_components/barney/dist/history.min.js"></script>
 ```
+- Add barney main module to your app.js file
+```
+angular.module('myproject', [ ..., 'barney'])
+```
 - Add barney modules you want use to app.js file, according to Barney documentation. For example, for history module add:
 ```
-angular.module('clipjoy', [ ..., 'barney.history'])
+angular.module('myproject', [ ..., 'barney.history'])
 ```
 
 ## How to update Barney
-
-- Go to your project folder
 
 - Update barney version in your bower.json file
 ```
