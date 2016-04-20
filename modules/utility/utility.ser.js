@@ -24,6 +24,7 @@
  * - {@link utility.BarneyUtility#methods_brutalRedirect brutalRedirect}
  * - {@link utility.BarneyUtility#methods_clickAndGo clickAndGo}
  * - {@link utility.BarneyUtility#methods_getCurrentQueryString getCurrentQueryString}
+ * - {@link utility.BarneyUtility#methods_mediaMatcher mediaMatcher}
  *
  */
 angular.module('barney').factory('BarneyUtility',
@@ -275,6 +276,37 @@ angular.module('barney').factory('BarneyUtility',
                 }
             }       
         };
+
+
+        /**
+         * @ngdoc function
+         * @name utility.BarneyUtility#mediaMatcher
+         * @methodOf utility.BarneyUtility
+         *
+         * @description 
+         * This function is used to detect CSS media queries with Javascript. Use this function whenever you want to
+         * do something when a media query changes value.
+         * 
+         *
+         * @param {string} mediaquery Query to catch
+         * @param {function} callback Function to call when the media query value changes.
+         *
+         * @example
+         * <pre>
+         *  Utility.mediaMatcher("(min-width: 992px)", function(mql){
+         *       console.log("Media query changes to:", mql); 
+         *   })
+         * </pre>
+         * 
+        */
+        this.mediaMatcher = function(mediaquery, callback){
+            var isMatchMediaSupported = !!(window && window.matchMedia);
+            if(typeof mediaquery === 'string' && typeof callback === 'function' && isMatchMediaSupported ){
+                var mql = window.matchMedia(mediaquery);
+                callback(mql);
+                mql.addListener(callback); 
+            }
+        }; 
 
         return this;
 

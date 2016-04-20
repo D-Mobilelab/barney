@@ -24,5 +24,8 @@ angular.module('example').controller('UtilityCtrl', [
 		var array_due = [1, 2, 'b'];
 		console.log("array diff", array_uno, array_due, Utility.arrayDiff(array_uno, array_due), Utility.arrayDiff(array_due, array_uno));
 
+		Utility.mediaMatcher("(min-width: 1024px)", function(mql){
+            console.log("Media query changes to:", mql, mql.matches); 
+        })
 	}
 ]);

@@ -5,6 +5,7 @@ describe('UTILITY -', function () {
 	var UtilityService, WindowProvider, LocationProvider;	
 	var windowSearch, locationSearch;
 	var mockedEvent, mockedLocation;
+	var mockWindow, currentWidth = 805, currentHeight = 505;
 
 	beforeEach(function(){
 		// mock $window and $location providers
@@ -25,7 +26,9 @@ describe('UTILITY -', function () {
 					search: "?earth=sun",
 					href: "",
 					reload: function(){}
-				}
+				},
+				innerHeight: currentWidth,
+	            innerWidth: currentHeight
 			});
 		});
 		// get barney module
@@ -162,6 +165,60 @@ describe('UTILITY -', function () {
 		};
 		UtilityService.clickAndGo(mockedEvent);
 		expect(mockedLocation.url).not.toHaveBeenCalled();
+	});
+
+	it('Media query exist and matches ', function(){
+		//window is 400px
+
+		if(window && window.matchMedia){
+			var match = window.matchMedia("(min-width: 400px)");
+		}
+
+		expect(match.matches).toEqual(true);
+	});
+
+	it('Media query should not match ', function(){
+		//window is 400px width
+
+		if(window && window.matchMedia){
+			var match = window.matchMedia("(min-width: 401px)");
+		}
+
+		expect(match.matches).toEqual(false);
+	});
+
+	it('Media query callback should be called ', function(){
+			//window is 400px width
+		var mockObj = {
+			functionToCall: function(){
+				console.log('functionToCall');
+			},
+			foo : function(mql){
+				mql.matches ?  mockObj.functionToCall() : console.log('fuck');
+			}
+		};
+		spyOn(mockObj, 'functionToCall');
+		if(window && window.matchMedia){
+			UtilityService.mediaMatcher("(min-width: 400px)", mockObj.foo)
+		}
+		expect(mockObj.functionToCall).toHaveBeenCalled();
+	});
+
+	it('Media query callback should not be called ', function(){
+		//window is 400px width
+		var mockObj = {
+			functionToCall: function(){
+				console.log('functionToCall');
+			},
+			foo : function(mql){
+				mql.matches ?  functionToCall() : console.log('nothing called');
+			}
+		};
+		spyOn(mockObj, 'functionToCall');
+		if(window && window.matchMedia){
+			UtilityService.mediaMatcher("(min-width: 500px)", mockObj.foo)
+		}
+		expect(mockObj.functionToCall).not.toHaveBeenCalled();
 	});
 
 });

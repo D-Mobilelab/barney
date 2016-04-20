@@ -23,6 +23,7 @@ Note that I included BarneyUtility as dependency but I have renamed it as Utilit
 <li><a href="#/api/utility.BarneyUtility#methods_brutalredirect">brutalRedirect</a></li>
 <li><a href="#/api/utility.BarneyUtility#methods_clickandgo">clickAndGo</a></li>
 <li><a href="#/api/utility.BarneyUtility#methods_getcurrentquerystring">getCurrentQueryString</a></li>
+<li><a href="#/api/utility.BarneyUtility#methods_mediamatcher">mediaMatcher</a></li>
 </ul>
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
@@ -97,6 +98,20 @@ Utility.clickAndGo(myEvent)
 <pre class="prettyprint linenums">
   Utility.getCurrentQueryString(); 
   // it returns { hello: 'world' }
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_mediamatcher">mediaMatcher(mediaquery, callback)</h3>
+<div class="mediamatcher"><div class="utility-barneyutility-mediamatcher-page"><p>This function is used to detect CSS media queries with Javascript. Use this function whenever you want to
+do something when a media query changes value.</p>
+</div><h5 id="methods_mediamatcher_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mediaquery</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="utility-barneyutility-mediamatcher-page"><p>Query to catch</p>
+</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="utility-barneyutility-mediamatcher-page"><p>Function to call when the media query value changes.</p>
+</div></td></tr></tbody></table><h4 id="methods_mediamatcher_example">Example</h4>
+<div class="example"><div class="utility-barneyutility-mediamatcher-page"><pre class="prettyprint linenums">
+Utility.mediaMatcher("(min-width: 992px)", function(mql){
+     console.log("Media query changes to:", mql); 
+ })
 </pre>
 </div></div>
 </div>
