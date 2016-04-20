@@ -235,7 +235,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "utility",
       "shortDescription": "Use Utility service",
-      "keywords": "$scope add addqueryparams angular api array array1 array2 arraydiff barneyutility browser brutal brutalredirect catch clickandgo clicked clicks code component controller current dependency directive easily element elements event example function getcurrentquerystring hashbang hello homepagecontroller http included ios item link list method methods_addqueryparams methods_arraydiff methods_brutalredirect methods_clickandgo methods_getcurrentquerystring mock module newparams newurl note object params query redirect remove removes renamed return returns second service string url user utility var world"
+      "keywords": "$scope add addqueryparams angular api array array1 array2 arraydiff barneyutility browser brutal brutalredirect call callback catch changes clickandgo clicked clicks code component console controller css current dependency detect directive easily element elements event example function getcurrentquerystring hashbang hello homepagecontroller http included ios item javascript link list log media mediamatcher mediaquery method methods_addqueryparams methods_arraydiff methods_brutalredirect methods_clickandgo methods_getcurrentquerystring methods_mediamatcher mock module mql newparams newurl note object params queries query redirect remove removes renamed return returns second service string url user utility var world"
     },
     {
       "section": "api",
