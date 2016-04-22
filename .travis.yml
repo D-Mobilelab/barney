@@ -14,4 +14,4 @@ install:
   - bower install
 
 script:
-  - grunt test
+  - grunt travis
