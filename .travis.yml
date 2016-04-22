@@ -1,11 +1,11 @@
 language: node_js
 
 node_js:
-	- "4.2.x"
+  - "4.2.x"
 
 install:
-	- npm install
-	- bower install
+  - npm install
+  - bower install
 
 script:
-	- grunt test
+  - grunt test
