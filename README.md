@@ -1,5 +1,5 @@
 # Barney
- 
+
 ## How to install Barney
 
 - Install Barney with Bower
