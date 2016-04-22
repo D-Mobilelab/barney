@@ -1,7 +1,7 @@
 # Barney
 
-[![Build Status](https://travis-ci.org/D-Mobilelab/barney.svg?branch=develop)](https://travis-ci.org/D-Mobilelab/barney)
-[![Coverage Status](https://coveralls.io/repos/github/D-Mobilelab/barney/badge.svg?branch=develop)](https://coveralls.io/github/D-Mobilelab/barney?branch=develop)
+[![Build Status](https://travis-ci.org/D-Mobilelab/barney.svg?branch=master)](https://travis-ci.org/D-Mobilelab/barney)
+[![Coverage Status](https://coveralls.io/repos/github/D-Mobilelab/barney/badge.svg?branch=master)](https://coveralls.io/github/D-Mobilelab/barney?branch=master)
 
 ## How to install Barney
 
