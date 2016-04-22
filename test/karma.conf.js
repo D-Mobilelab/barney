@@ -81,13 +81,20 @@ module.exports = function(config) {
 
     reporters: [
       'progress', 
-      'coverage'
+      'coverage',
+      'coveralls'
     ],
     preprocessors: {
       'dist/*': ['coverage']
     },
+    /// coverageReporter: {
+    //   reporters: [
+    //     {type: 'html', dir: 'test/coverage/html/'},
+    //     {type: 'lcov', file: 'test/coverage/lcov/'}
+    //   ]
+    // }
     coverageReporter: {
-      type : 'html',
+      type : 'lcov',
       dir : 'test/coverage/'
     }
 

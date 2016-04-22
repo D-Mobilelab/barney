@@ -219,7 +219,15 @@ module.exports = function (grunt) {
                     }
                 ]
             }
-        }
+        },
+        coveralls: {
+            options: {
+                force: false
+            },
+            docs: {
+              src: '<%= testPath %>coverage/**/lcov.info'
+            },
+        },
     });
 
 	/*************************************
@@ -285,6 +293,18 @@ module.exports = function (grunt) {
         'concat',
         // TEST
         'karma'
+    ]);
+
+    grunt.registerTask('travis',[
+        // TEST + COVERAGE
+        'clean:coverage',
+        'karma',
+        'coveralls',
+        // LINT
+        'eslint',
+        // DOC (TEMP)
+        'clean:docTemp',
+        'ngdocs:api'
     ]);
 
     grunt.registerTask('coverage',[
