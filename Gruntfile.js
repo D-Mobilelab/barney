@@ -20,6 +20,7 @@ module.exports = function (grunt) {
     var versionPatch = (major) + "." + (minor) + "." + (patch+1);
 
 	grunt.initConfig({
+        // VARIABLES
         examplePath: 'examples/',
         modulesPath: 'modules/',
         testPath: 'test/',
@@ -27,20 +28,17 @@ module.exports = function (grunt) {
         distPath: 'dist/',
         newVersion: versionString,
         changeLog: '',
+
+        // CLEAN
         clean: {
             docTemp: ["<%= docPath %>temp"],
             docVersion: ["<%= docPath %><%= newVersion %>"],
             coverage: ["<%= testPath %>coverage"],
             dist: ["<%= distPath %>"]
         },
+
+        // CONNECT
         connect:{
-            server: {
-                options:{
-                    hostname: 'localhost',
-                    port: 9000,
-                    livereload: true
-                }
-			},
             coverage: {
                 options:{
                     hostname: 'localhost',
@@ -55,87 +53,95 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             },
-            docVersion: {
+            server: {
                 options:{
                     hostname: 'localhost',
                     port: 9030,
                     livereload: true
                 }
-            }
+			}
         },
+
+        // OPEN
         open:{
-            server:{
-                path: 'http://localhost:9000/<%= examplePath %>'
-            },
             coverage:{
                 path: 'http://localhost:9010/<%= testPath %>coverage/'
             },
             docTemp:{
                 path: 'http://localhost:9020/<%= docPath %>temp/'
             },
-            docVersion:{
-                path: 'http://localhost:9030/<%= docPath %><%= newVersion %>'
+            server:{
+                path: 'http://localhost:9030/<%= examplePath %>'
             }
         },
+
+        // WATCH
         watch:{
-            server:{
+            lint:{
                 files:[
-                    '<%= examplePath %>app.js',
-                    'mock.js',
-                    '<%= examplePath %>index.html',
-                    '<%= examplePath %>pages/*.*',
                     '<%= modulesPath %>**/*.*'
                 ],
-                tasks: ['clean:dist', 'prepareModules', 'concat'],
-                options:{
-                    livereload: 35729
-                }
+                tasks: ['eslint']
+            },
+            test:{
+                files:[
+                    '<%= modulesPath %>**/*.*',
+                    '<%= testPath %>modules/*',
+                    '<%= testPath %>karma.conf.js',
+                    'mock.js'
+                ],
+                tasks: ['clean:dist', 'prepareModules', 'concat', 'karma']
             },
             coverage:{
                 files:[
-                    '<%= modulesPath %>main.js',
-                    '<%= modulesPath %>**/*',
+                    '<%= modulesPath %>**/*.*',
                     '<%= testPath %>modules/*',
                     '<%= testPath %>karma.conf.js',
                     'mock.js'
                 ],
                 tasks: ['clean:dist', 'prepareModules', 'concat', 'clean:coverage', 'karma'],
                 options:{
-                    livereload: 35730
+                    livereload: 35729
                 }
             },
             docTemp:{
                 files:[
-                    '<%= modulesPath %>/**/*.js',
-                    '<%= modulesPath %>/main.js'
+                    '<%= modulesPath %>**/*.*'
                 ],
                 tasks: ['clean:docTemp', 'ngdocs:api'],
                 options:{
-                    livereload: 35731
+                    livereload: 35730
                 }
             },
-            docVersion:{
+            server:{
                 files:[
-                    '<%= modulesPath %>/**/*.js',
-                    '<%= modulesPath %>/main.js'
+                    'mock.js',
+                    '<%= examplePath %>**/*.*',
+                    '<%= modulesPath %>**/*.*'
                 ],
-                tasks: ['clean:docTemp', 'ngdocs:version'],
+                tasks: ['clean:dist', 'prepareModules', 'concat'],
                 options:{
-                    livereload: 35732
+                    livereload: 35731
                 }
             }
         },
+
+        // LINT
         eslint: {
             target: [
                 'modules/**/*.js'
             ]
         },
+
+        // KARMA
         karma: {
             unit: {
                 configFile: '<%= testPath %>/karma.conf.js',
                 singleRun: true
             }
         },
+
+        // NG-DOCS
         ngdocs: {
             options: {
             	html5Mode: false,
@@ -160,6 +166,8 @@ module.exports = function (grunt) {
                 api: true
             }
         },
+
+        // PROMPT
         prompt: {
             target: {
                 options: {
@@ -196,6 +204,8 @@ module.exports = function (grunt) {
                 }
             }
         },
+
+        // STRING-REPLACE
         'string-replace': {
             bower: {
                 files: {
@@ -209,6 +219,8 @@ module.exports = function (grunt) {
                 }
             }
         },
+
+        // FILE-APPEND
         'file_append': {
             changelog: {
                 files: [
@@ -220,6 +232,8 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
+        // COVERALLS
         coveralls: {
             options: {
                 force: false
@@ -230,11 +244,7 @@ module.exports = function (grunt) {
         },
     });
 
-	/*************************************
-	****         GRUNT TASKS          ****
-	*************************************/
-
-	grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
+    grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
         // get the current concat object from initConfig
         var concat = grunt.config.get('concat') || {};
 
@@ -271,6 +281,92 @@ module.exports = function (grunt) {
         });
     });
 
+    /*************************************
+    ****         GRUNT TASKS          ****
+    *************************************/
+
+    grunt.registerTask('lint',[
+        // LINT
+        'eslint'
+    ]);
+
+    grunt.registerTask('lintx',[
+        // LINT
+        'eslint',
+        // WATCH
+        'watch:lint'
+    ]);
+
+    /**********************************/
+
+    grunt.registerTask('test',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // TEST
+        'karma'
+    ]);
+
+    grunt.registerTask('testx',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // TEST
+        'karma',
+        // WATCH
+        'watch:test'
+    ]);
+
+    /**********************************/
+
+    grunt.registerTask('coverage',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // TEST + COVERAGE
+        'clean:coverage',
+        'karma'
+    ]);
+
+    grunt.registerTask('coveragex',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // TEST + COVERAGE
+        'clean:coverage',
+        'karma',
+        // CONNECT
+        'connect:coverage',
+        'open:coverage',
+        // WATCH
+        'watch:coverage'
+    ]);
+
+    /**********************************/
+
+    grunt.registerTask('doc',[
+        // DOC (TEMP)
+        'clean:docTemp',
+        'ngdocs:api'
+    ]);
+
+    grunt.registerTask('docx',[
+        // DOC (TEMP)
+        'clean:docTemp',
+        'ngdocs:api',
+        // CONNECT
+        'connect:docTemp',
+        'open:docTemp',
+        // WATCH
+        'watch:docTemp'
+    ]);
+
+    /**********************************/
+
     grunt.registerTask('serve',[
         // CREATE BUILD
         'clean:dist',
@@ -282,23 +378,17 @@ module.exports = function (grunt) {
         'watch:server'
     ]);
 
-    grunt.registerTask('lint',[
-        'eslint'
-    ]);
+    /**********************************/    
 
-    grunt.registerTask('test',[
+    grunt.registerTask('travis',[
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
         'concat',
-        // TEST
-        'karma'
-    ]);
-
-    grunt.registerTask('travis',[
         // TEST + COVERAGE
         'clean:coverage',
         'karma',
+        // COVERALLS
         'coveralls',
         // LINT
         'eslint',
@@ -307,37 +397,12 @@ module.exports = function (grunt) {
         'ngdocs:api'
     ]);
 
-    grunt.registerTask('coverage',[
+    grunt.registerTask('version',[
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
         'concat',
-        // TEST
-        'clean:coverage',
-        'karma',
-        'connect:coverage',
-        'open:coverage',
-        'watch:coverage'
-    ]);
-
-    grunt.registerTask('doc',[
-        'clean:docTemp',
-        'ngdocs:api',
-        'connect:docTemp',
-        'open:docTemp',
-        'watch:docTemp'
-    ]);
-
-    grunt.registerTask('docx',[
-        'clean:docVersion',
-        'ngdocs:version',
-        'connect:docVersion',
-        'open:docVersion',
-        'watch:docVersion'
-    ]);
-
-    grunt.registerTask('version',[
-        // COVERAGE
+        // TEST + COVERAGE
         'clean:coverage',
         'karma',
         // LINT
@@ -346,13 +411,9 @@ module.exports = function (grunt) {
         'prompt',
         'string-replace:bower',
         'file_append:changelog',
-        // DOC
+        // DOC (OFFICIAL)
         'clean:docVersion',
-        'ngdocs:version',
-        // CREATE BUILD
-        'clean:dist',
-        'prepareModules',
-        'concat'
+        'ngdocs:version'
     ]);
    
 }
