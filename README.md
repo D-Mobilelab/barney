@@ -131,9 +131,54 @@ bower install
 
 Barney uses [Git flow](http://nvie.com/posts/a-successful-git-branching-model/) to create a new feature or make an hotfix.
 
-- [Clone Barney project](https://github.com/D-Mobilelab/barney/wiki/How-to-clone-Barney-project/)
-- [Create new feature](https://github.com/D-Mobilelab/barney/wiki/How-to-create-a-new-feature)
-- [Try new feature](https://github.com/D-Mobilelab/barney/wiki/How-to-try-modules,-with-mock)
-- [Run test](https://github.com/D-Mobilelab/barney/wiki/How-to-run-test)
-- [Generate and read documentation](https://github.com/D-Mobilelab/barney/wiki/How-to-generate-and-read-documentation)
-- [Create and publish new version](https://github.com/D-Mobilelab/barney/wiki/How-to-create-a-new-version)
+- Create a new feature branch from "develop" branch
+```
+git checkout develop
+git checkout -b feature/newfeature
+```
+- Code!
+- Commit and push on feature branch
+- When the feature is ready, merge feature branch on "develop", resolving possible conflicts
+- Delete local and remote feature branch, after merge
+```
+git branch -d feature/newfeature
+git push origin :feature/newfeature
+```
+- When a new version of Barney can be created, read the section below
+
+### Create a new version
+- When the "develop" branch contains new features ready for production, create a new pull request from develop to master branch
+- Check the code with other developers and when you are ready, merge!
+- Travis starts automatically for every pull request and push on "master" branch. If all test are successful, es-lint is successful, the documentation is created without problems and the coverage is sent to coveralls successful, then Travis approves the merge and a new version can be created
+- On "master" branch use this grunt command
+```
+grunt version
+```
+- Barney uses [Semantic Versioning](http://semver.org/) to create a new version
+- You can choose between a major version, a minor version or a patch
+```
+? Current: 1.1.0 - Choose a new version for Barney: (Use arrow keys)
+❯ No new version 
+  Major Version (2.0.0) 
+  Minor Version (1.2.0) 
+  Patch (1.1.1)
+```
+- Describe the features of this new version, seperating them with semicolons
+```
+? Features for version 1.1.0 (use ";" to separate features): ()
+```
+- Commit and push *CHANGELOG* and *bower.json*
+```
+git commit -a -m "New feature"
+git push origin master
+```
+- If travis build is successful, create a new git tag with the name of new version and push this
+```
+git tag 2.0.0
+git push --tags origin
+```
+- Push new documentation
+```
+git subtree push --prefix docs origin gh-pages
+```
+- The new Barney version is ready and you can update this with bower (see "How to update Barney" section above)
