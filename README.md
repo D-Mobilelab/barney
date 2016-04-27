@@ -41,7 +41,7 @@ This is the list of Barney modules with related purpose:
     <td>Advaced module to log console messages, useful for debug.</td>
   </tr>
   <tr>
-    <td>Meta</tds
+    <td>Meta</td>
     <td>It allows to set metatags in an Angular application. You can set one or more different metatags keys for each page.</td>
   </tr>
   <tr>
