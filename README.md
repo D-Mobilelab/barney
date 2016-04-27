@@ -3,6 +3,61 @@
 [![Build Status](https://travis-ci.org/D-Mobilelab/barney.svg?branch=master)](https://travis-ci.org/D-Mobilelab/barney)
 [![Coverage Status](https://coveralls.io/repos/github/D-Mobilelab/barney/badge.svg?branch=master)](https://coveralls.io/github/D-Mobilelab/barney?branch=master)
 
+Barney is a collection of Angular micro-libraries, useful for various purposes.
+
+This is the list of Barney modules with related purpose:
+
+<table>
+  <tr>
+    <th>Module</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Analytics</td>
+    <td>Module for Google Analytics: it allows to track pageview, events and manage custom dimensions easily.</td>
+  </tr>
+  <tr>
+    <td>Callbacky</td>
+    <td>It allows two or more Angular components (services, factories, directives and controllers) to communicate between them. For example, an event on a component can run a method on an other component, without $rootScope use.</td>
+  </tr>
+  <tr>
+    <td>Config</td>
+    <td>It allows to manage configuration parameters of your application.</td>
+  </tr>
+  <tr>
+    <td>Dictionary</td>
+    <td>It allows to manage dictionary keys of your application.</td>
+  </tr>
+  <tr>
+    <td>History</td>
+    <td>It can be used to manage previous and current path and state of your application.</td>
+  </tr>
+  <tr>
+    <td>Infinite</td>
+    <td>With this module, you can manage infinite scroll easily. It allows you to run a method (for example an API call) when the user scrolls the page and sees the end of a component (for example a list of items).</td>
+  </tr>
+  <tr>
+    <td>Logger</td>
+    <td>Advaced module to log console messages, useful for debug.</td>
+  </tr>
+  <tr>
+    <td>Meta</tds
+    <td>It allows to set metatags in an Angular application. You can set one or more different metatags keys for each page.</td>
+  </tr>
+  <tr>
+    <td>Newton</td>
+    <td>Newton is a D-Mobile lab library, it allows you to interface with this library.</td>
+  </tr>
+  <tr>
+    <td>Storage</td>
+    <td>With this module, you can manage cookie, localstorage and volatile keys easily.</td>
+  </tr>
+  <tr>
+    <td>Utility</td>
+    <td>A collection of useful little methods.</td>
+  </tr>
+</table>
+
 ## How to install Barney
 
 - Install Barney with Bower
