@@ -19,7 +19,9 @@ describe('NEWTON -', function () {
 		};
 
 		NewtonMock = {
-			sendEvent: function() {}
+			sendEvent: function() {},
+			timedEventStart: function() {},
+			timedEventStop: function() {}
 		};
 
 		window.Newton = {
@@ -27,6 +29,12 @@ describe('NEWTON -', function () {
 				return {
 					sendEvent: function(eventName, eventProps){
 						NewtonMock.sendEvent(eventName, eventProps);
+					},
+					timedEventStart: function(eventName, eventProps){
+						NewtonMock.timedEventStart(eventName, eventProps);
+					},
+					timedEventStop: function(eventName, eventProps){
+						NewtonMock.timedEventStop(eventName, eventProps);
 					}
 				}
 			},
@@ -39,6 +47,8 @@ describe('NEWTON -', function () {
 
 		spyOn(logger, 'log');
 		spyOn(NewtonMock, 'sendEvent');
+		spyOn(NewtonMock, 'timedEventStart');
+		spyOn(NewtonMock, 'timedEventStop');
 
 		NewtonService.init({
 			enabled: true,
@@ -113,6 +123,80 @@ describe('NEWTON -', function () {
 				dimensionFour: 'premium'
 			});
 		})
+	});
+
+	describe('Heartbeats -', function(){
+		it('should start heartbeat', function(){
+			NewtonService.startHeartbeat('aTestHeartbeat', {
+                category: 'Heartbeat',
+                label: '<test>',
+                valuable: 'No',
+                action: 'No',
+            });
+
+			expect(NewtonMock.timedEventStart).toHaveBeenCalledWith('aTestHeartbeat', {
+                category: 'Heartbeat',
+                label: '<test>',
+                valuable: 'No',
+                action: 'No',
+            });
+		});
+
+		it('should stop heartbeat', function(){
+			NewtonService.startHeartbeat('aTestHeartbeat', {
+                category: 'Heartbeat',
+                label: '<test>',
+                valuable: 'No',
+                action: 'No',
+            });
+
+            NewtonService.stopHeartbeat('aTestHeartbeat');
+
+			expect(NewtonMock.timedEventStop).toHaveBeenCalledWith('aTestHeartbeat', {
+                category: 'Heartbeat',
+                label: '<test>',
+                valuable: 'No',
+                action: 'No',
+            });
+		});
+
+		it('should get an heartbeat', function(){
+			NewtonService.startHeartbeat('aTestHeartbeat', {
+                category: 'Heartbeat',
+                label: '<test>',
+                valuable: 'No',
+                action: 'No',
+            });
+
+			expect(NewtonService.getSingleHeartbeat('aTestHeartbeat')).toEqual({
+				keyWord: 'aTestHeartbeat', 
+				properties:{
+					category: 'Heartbeat',
+	                label: '<test>',
+	                valuable: 'No',
+	                action: 'No' 
+	        }});
+        });
+
+        it('should stop all heartbeat', function(){
+			NewtonService.startHeartbeat('aTestHeartbeat', {
+                category: 'Heartbeat',
+                label: '<test>',
+                valuable: 'No',
+                action: 'No',
+            });
+
+            NewtonService.startHeartbeat('aSecondTestHeartbeat', {
+                category: 'Heartbeat',
+                label: '<test>',
+                valuable: 'No',
+                action: 'No',
+            });
+
+            NewtonService.stopAllHeartbeat();
+
+			expect(NewtonService.heartbeatsList()).toEqual({});
+        });
 	});
 
 
