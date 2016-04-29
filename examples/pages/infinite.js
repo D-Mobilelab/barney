@@ -10,18 +10,13 @@ angular.module('example').controller('InfiniteCtrl',
 
         $scope.callApi = function(aftercallme){
             console.log("callApi - trigger!");
-            
-            // $timeout(function(){
-                console.log("setTimeout");
 
-                for(var i=start; i < start+step; i++){
-                    $scope.data.push(i);
-                }
-                start += step;
+            for(var i=start; i < start+step; i++){
+                $scope.data.push(i);
+            }
+            start += step;
 
-                aftercallme();
-            // }, 1);
+            aftercallme();
         }
-
-       
-}]);
+    }
+]);

@@ -104,10 +104,16 @@ angular.module('barney').directive('infiniteScroll',
                     }
                 });
 
-                angular.element($window).bind('scroll', function() {
+                var newBind = function(){
                     if($scope.enable){
                         check();
                     }
+                };
+
+                angular.element($window).bind('scroll', newBind);
+
+                $scope.$on('$destroy', function(){
+                    angular.element($window).unbind('scroll', newBind);
                 });
 
             }
