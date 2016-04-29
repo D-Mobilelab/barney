@@ -3,12 +3,18 @@
 describe('HISTORY -', function () {
 
 	var HistoryService;
+	var HistoryMock;
 	var $rootScope;
 	var changePageEvent;
-	var newUrl = '#!/newUrl/';
+	var newUrl = '#!/newUrl/';	
 	var oldUrl = '#!/oldUrl/';
 
 	var location;
+
+	var changePage = function(){
+    	location.url(oldUrl);
+		location.url(newUrl);
+    }
 
 	beforeEach(function(){
 		module('barney');
@@ -19,14 +25,18 @@ describe('HISTORY -', function () {
 			location = _$location_;
 		});
 
+		location = {
+			url: function(){}
+		}
+
 		spyOn($rootScope, "$on").and.callFake(function(stringa, method) {
-			changePageEvent = function(){
+			//changePageEvent = function(){
 				method.call(null, null, newUrl, oldUrl);
-			}	    	
+			//}	    	
+
 	    });
 
-	     spyOn(location, 'url');
-
+	    spyOn(location, 'url');
 	});
 
 
@@ -36,26 +46,23 @@ describe('HISTORY -', function () {
 			expect($rootScope.$on).toHaveBeenCalled();
 		});
 
-		xit('expect getPrevPath() method return old url, after change page event', function(){
+		it('expect goBack() method to have been called', function(){
 			HistoryService.init();
-			changePageEvent();
+			changePage();
+			HistoryService.goBack();
+			expect(location.url).toHaveBeenCalledWith(oldUrl);
+		});
+
+		it('expect getPrevPath() method return old url, after multiple change page events', function(){
+			HistoryService.init();
+			changePage();
 			expect(HistoryService.getPrevPath()).toEqual('/oldUrl/');
 		});
 
-		xit('expect getPrevPath() method return old url, after multiple change page events', function(){
+		xit('just for getPrevState function', function(){
 			HistoryService.init();
-			changePageEvent();
-			oldUrl = newUrl;
-			newUrl = '#!/newUrl2/'
-			changePageEvent();
-			expect(HistoryService.getPrevPath()).toEqual('/newUrl/');
-		});
-
-		xit('should redirect to previus url', function(){
-			HistoryService.init();
-			changePageEvent();
-			HistoryService.goBack()
-			expect(location.url).toHaveBeenCalledWith('/newUrl/');
+			changePage();
+			expect(HistoryService.getPrevState()).toEqual(null);
 		});
 	});
 
