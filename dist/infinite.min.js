@@ -98,16 +98,20 @@ angular.module('barney').directive('infiniteScroll',
                     }
                 };
                 
-                $scope.$watch('enable', function(){
+                var checkIfEnabled = function(){
                     if($scope.enable){
                         check();
                     }
+                };
+                
+                $scope.$watch('enable', function(){
+                    checkIfEnabled();
                 });
 
-                angular.element($window).bind('scroll', function() {
-                    if($scope.enable){
-                        check();
-                    }
+                angular.element($window).bind('scroll', checkIfEnabled);
+
+                $scope.$on('$destroy', function(){
+                    angular.element($window).unbind('scroll', checkIfEnabled);
                 });
 
             }
