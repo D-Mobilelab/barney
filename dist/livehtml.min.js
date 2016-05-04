@@ -7,7 +7,7 @@ angular.module('barney').directive('liveHtml',
             scope: {
                 liveHtml: '='
             },
-            link: function($scope, $element, $attrs) {
+            link: function($scope, $element) {
 
                 var unbindWatcher = $scope.$watch('liveHtml', function(liveHtml) {
                     if(liveHtml){
