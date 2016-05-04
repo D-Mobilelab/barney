@@ -59,6 +59,10 @@ angular.module('example', [
 				templateUrl: 'pages/history.html',
 				controller: 'HistoryCtrl'
 			})
+			.when('/livehtml', {
+				templateUrl: 'pages/livehtml.html',
+				controller: 'LivehtmlCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
