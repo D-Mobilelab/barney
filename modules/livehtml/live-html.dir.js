@@ -4,15 +4,18 @@ angular.module('barney').directive('liveHtml',
 
         return {
             restrict: 'A',
-            scope: true,
-            link: function($scope, $element) {
+            scope: {
+                liveHtml: '='
+            },
+            link: function($scope, $element, $attrs) {
 
-                var unbindWatcher = $scope.$watch('content', function(content) {
-                    if(content){
-                        $element.html(content);
-                        $compile($element.contents())($scope);
+                var unbindWatcher = $scope.$watch('liveHtml', function(liveHtml) {
+                    if(liveHtml){
+                        $element.html(liveHtml);
+                        $compile($element.contents())($scope.$parent);
                         unbindWatcher();
                     }
+                    
                 });
 
             }
