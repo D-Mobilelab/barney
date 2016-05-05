@@ -1,0 +1,193 @@
+<h1><code ng:non-bindable="">BarneyLogger</code>
+<div><span class="hint">service in module <code ng:non-bindable="">logger</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="logger-barneylogger-page"><p>Use Logger service.</p>
+<p>To use <strong>Logger</strong> service, you have to add <strong>BarneyLogger</strong> dependency to your component (i.e: directive, controller...).</p>
+<p>In this example, I have added dependency of BarneyLogger to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyLogger', '$scope',
+    function(Logger, $scope){
+        // we can use "Logger" object here
+    }
+]);
+</pre>
+Note that I included <strong>BarneyLogger</strong> as dependency but I have renamed it as <strong>Logger</strong> to use it more easily in controller code.</p>
+<h3 id="description_enable/disable-logger">Enable/Disable Logger</h3>
+<p>To <strong>enable</strong> or <strong>disable</strong> logger just call init with enabled:true/false.</p>
+<pre class="prettyprint linenums">
+ Logger.init({enabled:true})  //Logger is now enabled
+
+ Logger.init({enabled:false}) //Logger is now disabled
+</pre>
+<h3 id="description_list-methods">List Methods</h3>
+<ul>
+<li><a href="#/version/logger.BarneyLogger#methods_error">error</a>.</li>
+<li><a href="#/version/logger.BarneyLogger#methods_getconfig">getConfig</a>.</li>
+<li><a href="#/version/logger.BarneyLogger#methods_info">info</a>.</li>
+<li><a href="#/version/logger.BarneyLogger#methods_init">init</a>.</li>
+<li><a href="#/version/logger.BarneyLogger#methods_isenabled">isEnabled</a>.</li>
+<li><a href="#/version/logger.BarneyLogger#methods_log">log</a>.</li>
+<li><a href="#/version/logger.BarneyLogger#methods_table">table</a>.</li>
+<li><a href="#/version/logger.BarneyLogger#methods_warn">warn</a>.</li>
+</ul>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_error">error(arguments)</h3>
+<div class="error"><div class="logger-barneylogger-error-page"><p>This method defines a method for each error level.
+Each method uses the general function emit as error messages</p>
+<p><strong><em>Error level must be true and logger must be enabled</em></strong></p>
+</div><h5 id="methods_error_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arguments</td><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="logger-barneylogger-error-page"><p>Arguments to log</p>
+</div></td></tr></tbody></table><h4 id="methods_error_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-error-page"><h5 id="methods_error_example_logger-error">Logger error</h5>
+<p>Here is one example of the Error method.</p>
+<pre class="prettyprint linenums">
+    Logger.error('Hello World!') //Logs Hello World as an error message
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getconfig">getConfig()</h3>
+<div class="getconfig"><div class="logger-barneylogger-getconfig-page"><p>This method is a &quot;read-only&quot; getter for config. </p>
+<p>Get Logger&#39;s configuration.</p>
+</div><h4 id="methods_getconfig_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-getconfig-page"><h5 id="methods_getconfig_example_logger-getconfig">Logger getConfig</h5>
+<p>Here is one example of the getConfig method.</p>
+<pre class="prettyprint linenums">
+    console.log( Logger.getConfig() );
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_info">info(arguments)</h3>
+<div class="info"><div class="logger-barneylogger-info-page"><p>This method defines a method for each info level.
+Each method uses the general function emit as info messages</p>
+<p><strong><em>Info level must be true and logger must be enabled</em></strong></p>
+</div><h5 id="methods_info_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arguments</td><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="logger-barneylogger-info-page"><p>Arguments to log</p>
+</div></td></tr></tbody></table><h4 id="methods_info_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-info-page"><h5 id="methods_info_example_logger-info">Logger info</h5>
+<p>Here is one example of the Info method.</p>
+<pre class="prettyprint linenums">
+    Logger.info('Hello World!') //Logs Hello World as an info message
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="logger-barneylogger-init-page"><p>This method is used to initialize or to change the configuration of 
+the Logger&#39;s module. Call init whenever you need to change the Logger&#39;s configuration. </p>
+<p><strong><em>Is recommended to initialize Logger in app.js so 
+remember that if you change Logger&#39;s configuration in a new page you also change 
+the configuration in ALL your site </em></strong></p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="logger-barneylogger-init-page"><p>(see attributes below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>enabled</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="logger-barneylogger-init-page"><p>Enable/Disable the Logger</p>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>level</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="logger-barneylogger-init-page"><p>Actives all levels following the given</p>
+</div> <p><em>(default: 'log')</em></p></td></tr><tr><td>levels</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="logger-barneylogger-init-page"><p>Levels contains the manual configuration of the Logger.</p>
+</div> <p><em>(default: undefined)</em></p></td></tr><tr><td>emit</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="logger-barneylogger-init-page"><p>Emit is an addictional parameter that allows you to use a custom function as an emitter.</p>
+</div> <p><em>(default: Uses window.console)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-init-page"><h5 id="methods_init_example_logger-init">Logger Init</h5>
+<p>Here are some examples of the init method.</p>
+<p><strong>Default initialization</strong>
+<pre class="prettyprint linenums">
+
+  Logger.init({
+     level: 'log', //set all level to true
+     enabled: true //enables logger
+  }); 
+
+</pre>
+<p><strong>Logger with manual configuration</strong></p>
+<p>I want that logger logs only logs, warnings and errors
+<pre class="prettyprint linenums">
+    Logger.init({
+     levels: { 
+        'log': true, 
+        'info': false,
+        'table': false  
+        'warn': true,
+        'error': true
+      },
+      enabled: true //enables logger
+     }); 
+
+</pre>
+<p><strong>Logger with level configuration and personalized emit</strong></p>
+<p>I want that logger logs only warning and error
+<pre class="prettyprint linenums">
+    Logger.init({
+      level: 'warn',  //Logger now logs only warnings and errors
+      emit: function(level, args){
+              console[level](args); //log args
+              
+              // Do something, i.e: sends error, store something etc.
+            },
+       enabled: true //enables logger
+     }); 
+
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_isenabled">isEnabled()</h3>
+<div class="isenabled"><div class="logger-barneylogger-isenabled-page"><p>This method defines a method to know if Logger is enabled or not;</p>
+</div><h4 id="methods_isenabled_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-isenabled-page"><h5 id="methods_isenabled_example_logger-isenabled">Logger isEnabled</h5>
+<p>Here is one example of the isEnabled method.</p>
+<pre class="prettyprint linenums">
+    if(Logger.isEnabled()){
+         //Do something
+     } else {
+         //Do something else
+     }
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_log">log(arguments)</h3>
+<div class="log"><div class="logger-barneylogger-log-page"><p>This method defines a method for each log level.
+Each method uses the general function emit to log messages</p>
+<p><strong><em>Log level must be true and logger must be enabled</em></strong></p>
+</div><h5 id="methods_log_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arguments</td><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="logger-barneylogger-log-page"><p>Arguments to log</p>
+</div></td></tr></tbody></table><h4 id="methods_log_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-log-page"><h5 id="methods_log_example_logger-log">Logger log</h5>
+<p>Here is one example of the Log method.</p>
+<pre class="prettyprint linenums">
+    Logger.log('Hello World!') //Logs Hello World
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_table">table(arguments)</h3>
+<div class="table"><div class="logger-barneylogger-table-page"><p>This method defines a method for each table level.
+Each method uses the general function emit as table messages</p>
+<p><strong><em>Table level must be true and logger must be enabled</em></strong></p>
+</div><h5 id="methods_table_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arguments</td><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="logger-barneylogger-table-page"><p>Arguments to log</p>
+</div></td></tr></tbody></table><h4 id="methods_table_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-table-page"><h5 id="methods_table_example_logger-table">Logger table</h5>
+<p>Here is one example of the Table method.</p>
+<pre class="prettyprint linenums">
+    Logger.table({Hello:'World'}) //Logs World in table at the key Hello
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_warn">warn(arguments)</h3>
+<div class="warn"><div class="logger-barneylogger-warn-page"><p>This method defines a method for each warn level.
+Each method uses the general function emit as a warning messages</p>
+<p><strong><em>Warn level must be true and logger must be enabled</em></strong></p>
+</div><h5 id="methods_warn_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arguments</td><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="logger-barneylogger-warn-page"><p>Arguments to log</p>
+</div></td></tr></tbody></table><h4 id="methods_warn_example">Example</h4>
+<div class="example"><div class="logger-barneylogger-warn-page"><h5 id="methods_warn_example_logger-warn">Logger warn</h5>
+<p>Here is one example of the Warn method.</p>
+<pre class="prettyprint linenums">
+    Logger.warn('Hello World!') //Logs Hello World as a warning message
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
