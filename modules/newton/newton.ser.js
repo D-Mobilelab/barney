@@ -269,10 +269,8 @@ angular.module('barney').factory('BarneyNewton', function(){
                 }
 
                 var deleted = delete heartbeats[keyword];
-                if(deleted){
-                    if(this.verbose){
-                        this.logger.log('An heartbeat has Been removed from heartbeats!', heartbeats);
-                    }
+                if(deleted && this.verbose){
+                    this.logger.log('An heartbeat has Been removed from heartbeats!', heartbeats);
                 }
             }
         }
