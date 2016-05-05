@@ -214,18 +214,24 @@ angular.module('barney').factory('BarneyNewton', function(){
     */
 
     this.startHeartbeat = function(keyword, params){
-        if(!heartbeats[keyword]){
-            heartbeatProperties = Newton.SimpleObject.fromJSONObject(params);
-            heartbeats[keyword] = {keyWord: keyword, properties: heartbeatProperties};
+        if(this.enabled){
+            if(!heartbeats[keyword]){
+                heartbeatProperties = Newton.SimpleObject.fromJSONObject(params);
+                heartbeats[keyword] = {keyWord: keyword, properties: heartbeatProperties};
 
-            if(heartbeats[keyword]){
-                Newton.getSharedInstance().timedEventStart(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
-                this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STARTED _______/\\_/\\_', heartbeats[keyword].properties);
+                if(heartbeats[keyword]){
+                    Newton.getSharedInstance().timedEventStart(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
+
+                    if(this.verbose){
+                        this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STARTED _______/\\_/\\_', heartbeats[keyword].properties);
+                    }
+                }
+            } else {
+                if(this.verbose){
+                    this.logger.warn('An heartbeat with \'' + heartbeats[keyword].keyWord + '\' is already running!');
+                }
             }
-        } else {
-            this.logger.warn('An heartbeat with \'' + heartbeats[keyword].keyWord + '\' is already running!');
-        }
-       
+        }        
     };
 
     /**
@@ -254,13 +260,20 @@ angular.module('barney').factory('BarneyNewton', function(){
     */
 
     this.stopHeartbeat = function(keyword){
-        if(heartbeats[keyword]){
-            Newton.getSharedInstance().timedEventStop(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
-            this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STOPPED _/\\_/\\_______', heartbeats[keyword].properties);
+        if(this.enabled){
+            if(heartbeats[keyword]){
+                Newton.getSharedInstance().timedEventStop(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
 
-            var deleted = delete heartbeats[keyword];
-            if(deleted){
-                this.logger.log('An heartbeat has Been removed from heartbeats!', heartbeats);
+                if(this.verbose){
+                    this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STOPPED _/\\_/\\_______', heartbeats[keyword].properties);
+                }
+
+                var deleted = delete heartbeats[keyword];
+                if(deleted){
+                    if(this.verbose){
+                        this.logger.log('An heartbeat has Been removed from heartbeats!', heartbeats);
+                    }
+                }
             }
         }
     };
@@ -291,10 +304,14 @@ angular.module('barney').factory('BarneyNewton', function(){
     */
 
     this.stopAllHeartbeat = function(){
-        for(var key in heartbeats){
-            this.stopHeartbeat(heartbeats[key].keyWord);
+        if(this.enabled){
+            for(var key in heartbeats){
+                this.stopHeartbeat(heartbeats[key].keyWord);
+            }
+            if(this.verbose){
+                this.logger.log('All heartbeats has been stopped!');
+            }
         }
-        this.logger.log('All heartbeats has been stopped!');
     };
 
     /**
@@ -318,8 +335,15 @@ angular.module('barney').factory('BarneyNewton', function(){
     */
 
     this.heartbeatsList = function(){
-        this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
-        return heartbeats;
+        if(this.enabled){
+            if(this.verbose){
+                this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
+            }   
+
+            return heartbeats;
+        } else {
+            return undefined;
+        }
     };
 
     /**
@@ -346,8 +370,15 @@ angular.module('barney').factory('BarneyNewton', function(){
     */
 
     this.getSingleHeartbeat = function(keyword){
-        this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
-        return heartbeats[keyword];
+        if(this.enabled){
+            if(this.verbose){
+                this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
+            }
+
+            return heartbeats[keyword];
+        } else {
+            return undefined;
+        }
     };
     
     return this;
