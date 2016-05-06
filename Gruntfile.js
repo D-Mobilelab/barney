@@ -260,11 +260,7 @@ module.exports = function (grunt) {
                 // and combine into a single js file per module
                 concat[dirName] = {
                     src: [
-                        dir + '/*.van.js', 
-                        dir + '/*.ser.js', 
-                        dir + '/*.pro.js', 
-                        dir + '/*.fil.js', 
-                        dir + '/*.dir.js'
+                        dir + '/*.js'
                     ],
                     dest: '<%= distPath %>' + dirName + '.min.js'
                 };
