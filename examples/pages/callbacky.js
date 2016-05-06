@@ -35,11 +35,11 @@ angular.module('example').controller('CallbackyTriggerCtrl', [
 	function($scope, Callbacky){
 
 		$scope.triggerBlue = function(){
-			Callbacky.trigger('blue');
+			Callbacky.trigger('blue', {iam: 'blue'});
 		}
 
 		$scope.triggerRed = function(){
-			Callbacky.trigger('red');
+			Callbacky.trigger('red', {iam: 'red'});
 		}
 		
 	}

@@ -1,9 +1,9 @@
 var BarneyAnalytics = new function(){
 	
-	this.dimensions = {};
-    this.enabled = true;
-    this.verbose = false;
-    this.logger = {
+	var dimensions = {};
+    var enabled = true;
+    var verbose = false;
+    var logger = {
         log: function() {},
         info: function() {},
         warn: function() {},
@@ -13,31 +13,31 @@ var BarneyAnalytics = new function(){
     this.init = function(options) {
         if(options) {
             if(options.dimensions){
-                this.dimensions = options.dimensions;
+                dimensions = options.dimensions;
             }
             if(typeof(options.enabled) !== 'undefined'){
-                this.enabled = options.enabled;
+                enabled = options.enabled;
             }
             if(typeof(options.verbose) !== 'undefined'){
-                this.verbose = options.verbose;
+                verbose = options.verbose;
             }
             if(typeof(options.logger) !== 'undefined'){
-                this.logger = options.logger;
+                logger = options.logger;
             }
         }
 
-        if(this.verbose){
-            this.logger.log('BarneyAnalytics', 'init', this);
+        if(verbose){
+            logger.log('BarneyAnalytics', 'init', this);
         }
     };
 
     this.setId = function(id){
         if(id){
-            if(this.verbose){
-                this.logger.log('BarneyAnalytics', 'set id', id);
+            if(verbose){
+                logger.log('BarneyAnalytics', 'set id', id);
             }
 
-            if(this.enabled){
+            if(enabled){
                 ga('set', '&uid', id);
             }
         }
@@ -47,14 +47,14 @@ var BarneyAnalytics = new function(){
         if(dimensions){
             var key, slot, value;
             for(key in dimensions){
-                slot = this.dimensions[key];
+                slot = dimensions[key];
                 value = dimensions[key];
 
-                if(this.verbose){
-                    this.logger.log('BarneyAnalytics', 'set dimension', slot, value);
+                if(verbose){
+                    logger.log('BarneyAnalytics', 'set dimension', slot, value);
                 }
 
-                if(this.enabled){
+                if(enabled){
                     ga('set', 'dimension' + slot, value);
                 }
             }
@@ -75,17 +75,17 @@ var BarneyAnalytics = new function(){
         if(options.dimensions){
             var key, slot, value;
             for(key in options.dimensions){
-                slot = this.dimensions[key];
+                slot = dimensions[key];
                 value = options.dimensions[key];
                 properties['dimension' + slot] = value;
             }
         }
 
-        if(this.verbose){
-            this.logger.log('BarneyAnalytics', 'track pageview', properties);
+        if(verbose){
+            logger.log('BarneyAnalytics', 'track pageview', properties);
         }
 
-        if(this.enabled){
+        if(enabled){
             ga('send', properties);
         }
     };
@@ -110,17 +110,17 @@ var BarneyAnalytics = new function(){
         if(options.dimensions){
             var key, slot, value;
             for(key in options.dimensions){
-                slot = this.dimensions[key];
+                slot = dimensions[key];
                 value = options.dimensions[key];
                 properties['dimension' + slot] = value;
             }
         }
 
-        if(this.verbose){
-            this.logger.log('BarneyAnalytics', 'track event', properties);
+        if(verbose){
+            logger.log('BarneyAnalytics', 'track event', properties);
         }
 
-        if(this.enabled){
+        if(enabled){
             ga('send', properties);
         }
     };
