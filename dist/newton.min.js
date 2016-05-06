@@ -74,11 +74,38 @@ var BarneyNewton = new function(){
         }        
     };
 
+    this.stopHeartbeat = function(keyword){
+        if(this.enabled){
+            if(heartbeats[keyword]){
+                Newton.getSharedInstance().timedEventStop(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
+
+                if(this.verbose){
+                    this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STOPPED _/\\_/\\_______', heartbeats[keyword].properties);
+                }
+
+                var deleted = delete heartbeats[keyword];
+                if(deleted && this.verbose){
+                    this.logger.log('An heartbeat has Been removed from heartbeats!', heartbeats);
+                }
+            }
+        }
+    };
+
+    this.stopAllHeartbeat = function(){
+        if(this.enabled){
+            for(var key in heartbeats){
+                this.stopHeartbeat(heartbeats[key].keyWord);
+            }
+            if(this.verbose){
+                this.logger.log('All heartbeats has been stopped!');
+            }
+        }
+    };
+
     this.heartbeatsList = function(){
-        var _this = this;
-        if(_this.enabled){
-            if(_this.verbose){
-                _this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
+        if(this.enabled){
+            if(this.verbose){
+                this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
             }   
 
             return heartbeats;
@@ -88,10 +115,9 @@ var BarneyNewton = new function(){
     };
 
     this.getSingleHeartbeat = function(keyword){
-        var _this = this;
-        if(_this.enabled){
-            if(_this.verbose){
-                _this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
+        if(this.enabled){
+            if(this.verbose){
+                this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
             }
 
             return heartbeats[keyword];
