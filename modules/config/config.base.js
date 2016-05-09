@@ -1,6 +1,6 @@
 var BarneyConfig = new function(){
 
-	this.init = function(options){
+    this.init = function(options){
         if(options && options.config){
             this.config = options.config;
         }
@@ -20,4 +20,4 @@ var BarneyConfig = new function(){
         return this.config;
     };
 
-}
+};

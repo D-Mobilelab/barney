@@ -1,6 +1,6 @@
 var BarneyAnalytics = new function(){
-	
-	var dimensions = {};
+
+    var dimensions = {};
     var enabled = true;
     var verbose = false;
     var logger = {
@@ -124,4 +124,4 @@ var BarneyAnalytics = new function(){
             ga('send', properties);
         }
     };
-}
+};

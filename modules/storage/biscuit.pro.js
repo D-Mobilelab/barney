@@ -5,7 +5,7 @@ angular.module('barney').provider('BarneyStorageBiscuit', function () {
     var Biscuit = {
 
         get: function(key){
-           return BarneyStorageBiscuit.get(key);
+            return BarneyStorageBiscuit.get(key);
         },
 
         set: function(key, value, options){

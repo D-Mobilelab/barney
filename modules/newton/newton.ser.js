@@ -17,7 +17,7 @@ angular.module('barney').factory('BarneyNewton', function(){
     };
 
     this.startHeartbeat = function(keyword, params){
-       BarneyNewton.startHeartbeat(keyword, params);
+        BarneyNewton.startHeartbeat(keyword, params);
     };
 
     this.stopHeartbeat = function(keyword){

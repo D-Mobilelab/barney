@@ -1,6 +1,6 @@
 var BarneyStorageChicken = new function(){
 
-    var jsObj =  {};
+    var jsObj = {};
 
     this.get = function(key){
         return jsObj[key];

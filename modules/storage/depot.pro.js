@@ -12,7 +12,7 @@ angular.module('barney').provider('BarneyStorageDepot', function () {
         },
 
         getMultiple: function(keys){
-          return BarneyStorageDepot.getMultiple(keys);
+            return BarneyStorageDepot.getMultiple(keys);
         },
 
         setMultiple: function(params){

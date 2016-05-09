@@ -126,6 +126,6 @@ var BarneyNewton = new function(){
         }
     };
 
-}
+};
 
   
