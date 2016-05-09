@@ -28,13 +28,6 @@ angular.module('barney').factory('BarneyNewton', function(){
         BarneyNewton.stopAllHeartbeat();
     };
 
-    this.heartbeatsList = function(){
-        BarneyNewton.heartbeatsList();
-    };
-
-    this.getSingleHeartbeat = function(keyword){
-        BarneyNewton.getSingleHeartbeat(keyword);
-    };
-
+    
     return this;
 });

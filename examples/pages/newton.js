@@ -50,8 +50,6 @@ angular.module('example').controller('NewtonCtrl', [
 			$scope.startBeat('secondheart');
 			$scope.startBeat('atestheart');
 			
-			
-			console.log('List: ', NewtonAdp.heartbeatsList());
 		}, 5000);
 
 		setTimeout(function(){

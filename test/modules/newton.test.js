@@ -160,7 +160,7 @@ describe('NEWTON -', function () {
             });
 		});
 
-		it('should get an heartbeat', function(){
+		xit('should get an heartbeat', function(){
 			NewtonService.startHeartbeat('aTestHeartbeat', {
                 category: 'Heartbeat',
                 label: '<test>',
@@ -178,7 +178,7 @@ describe('NEWTON -', function () {
 	        }});
         });
 
-        it('should stop all heartbeat', function(){
+        xit('should stop all heartbeat', function(){
 			NewtonService.startHeartbeat('aTestHeartbeat', {
                 category: 'Heartbeat',
                 label: '<test>',
