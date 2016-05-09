@@ -1,7 +1,7 @@
-var RotatingLog = new function(){
+var BarneyRotatingLog = new function(){
 
     // IMPORTANT: requires Logger
-    var logger = BaseLogger;
+    var logger = BarneyBaseLogger;
 
     // this Array will contain each message
     var messages = [];

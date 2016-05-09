@@ -4,46 +4,23 @@ angular.module('barney').provider('BarneyStorageDepot', function () {
 
     var Depot = {
         get: function(key){
-            return window.localStorage.getItem(key) !== null ? tryParse(window.localStorage.getItem(key)) : undefined;
+            return BarneyStorageDepot.get(key);
         },
 
         set: function(key, value){
-            window.localStorage.setItem(key, JSON.stringify(value));
+            BarneyStorageDepot.set(key, value);
         },
 
         getMultiple: function(keys){
-            var toReturn = {};
-            var index, key;
-            if (!!keys){
-                for (index in keys){
-                    key = keys[index];
-                    toReturn[key] = this.get(key);
-                }
-            } else {
-                for (var i = 0, len = localStorage.length; i < len; ++i){
-                    key = localStorage.key(i);
-                    toReturn[key] = this.get(key);
-                }
-            }
-            return toReturn;
+          return BarneyStorageDepot.getMultiple(keys);
         },
 
         setMultiple: function(params){
-            for (var key in params){
-                this.set(key, params[key]);
-            }
+            BarneyStorageDepot.setMultiple(params);
         },
 
         delete: function(key){
-            window.localStorage.removeItem(key);
-        }
-    };
-
-    var tryParse = function(value){
-        try { 
-            return JSON.parse(value);
-        } catch (err) {
-            return value;
+            BarneyStorageDepot.delete(key);
         }
     };
 

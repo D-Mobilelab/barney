@@ -29,7 +29,7 @@ angular.module('example').controller('StorageCtrl', [
 			});
 			console.log("first", Storage.get('first'));
 			console.log("second", Storage.get('second'));
-
+			
 			console.log("inexistent-key", Storage.get('inexistent-key'));
 		}
 
@@ -48,6 +48,5 @@ angular.module('example').controller('StorageCtrl', [
 			console.log('local-cookie-key', Storage.get('local-cookie-key', { type: 'cookie' }));
 		}
 
-		
 	}
 ]);

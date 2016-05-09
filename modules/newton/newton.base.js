@@ -102,6 +102,30 @@ var BarneyNewton = new function(){
         }
     };
 
+    this.heartbeatsList = function(){
+        if(this.enabled){
+            if(this.verbose){
+                this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
+            }   
+
+            return heartbeats;
+        } else {
+            return undefined;
+        }
+    };
+
+    this.getSingleHeartbeat = function(keyword){
+        if(this.enabled){
+            if(this.verbose){
+                this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
+            }
+
+            return heartbeats[keyword];
+        } else {
+            return undefined;
+        }
+    };
+
 }
 
   

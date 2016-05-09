@@ -132,7 +132,7 @@ angular.module('barney').provider('BarneyStorage',
              * @methodOf storage.BarneyStorage
              *
              * @description 
-             * This method is used to get a value from the storage.
+             * ThiStorages method is used to get a value from the storage.
              *
              * @param {string} key Key to identify value
              * @param {Object} options (see param below)
@@ -150,7 +150,7 @@ angular.module('barney').provider('BarneyStorage',
             get: function(key, options){
                 var value;
                 if(!!options && !!options.type){
-                    value = this.storages[options.type].get(key, value, options);
+                    value = this.storages[options.type].get(key, options);
                 } else {
                     value = this.selectedStorage.get(key, options);
                 }
