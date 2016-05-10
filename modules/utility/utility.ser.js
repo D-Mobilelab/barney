@@ -3,7 +3,7 @@ angular.module('barney').factory('BarneyUtility',
     function($location, $window){
 
         this.arrayDiff = function(first, second){
-            return BarneyUtility.arrayDiff(first, second)
+            return BarneyUtility.arrayDiff(first, second);
         };
 
         this.mediaMatcher = function(mediaquery, callback){

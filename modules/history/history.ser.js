@@ -33,12 +33,12 @@ angular.module('barney').factory('BarneyHistory',
         };
 
         // EXTENSION : NEW METHOD ONLY FOR ANGULAR
-        this.getPrevState = function(dimensions){
+        this.getPrevState = function(){
             return previousState;
         };
 
         // EXTENSION : NEW METHOD ONLY FOR ANGULAR
-        this.goBack = function(options){
+        this.goBack = function(){
             $location.url( this.getPrevPath() );
         };
 
