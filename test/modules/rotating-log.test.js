@@ -21,6 +21,7 @@ describe('Rotating LOGGER -', function () {
 		beforeEach(function(){
 			RotLogger.init({
 				enabled: true,
+				level: 'log',
 				recordingEnabled: false
 			});
 		});
@@ -35,6 +36,7 @@ describe('Rotating LOGGER -', function () {
 		beforeEach(function(){
 			RotLogger.init({
 				enabled: true,
+				level: 'log',
 				recordingEnabled: false
 			});
 		});

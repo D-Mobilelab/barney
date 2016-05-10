@@ -1,7 +1,12 @@
 var BarneyRotatingLog = new function(){
 
     // IMPORTANT: requires Logger
-    var logger = BarneyBaseLogger;
+    var logger = BarneyBaseLog;
+
+      logger.init({
+        enabled: true,
+        level: 'log'
+    });
 
     // this Array will contain each message
     var messages = [];
@@ -146,5 +151,6 @@ var BarneyRotatingLog = new function(){
         }
 
         logger.init(options);
+        
     };
 };

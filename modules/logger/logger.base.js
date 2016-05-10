@@ -1,4 +1,4 @@
-var BarneyBaseLogger = new function(){
+var BarneyBaseLog = new function(){
 
     // defines log levels and their order (priority)
     // config will hold the configuration used at runtime, e.g. 
@@ -25,7 +25,7 @@ var BarneyBaseLogger = new function(){
 
         // enabled setup
         if (typeOfenabled === 'boolean'){
-            config.enabled = options.enabled;
+            config.enabled = options.enabled; 
         } else if (typeOfenabled !== 'undefined') {
             throw new Error('BaseLogger :: illegal type for enabled - expected boolean, got ' + typeOfenabled);
         }

@@ -1,9 +1,9 @@
 angular.module('barney').factory('BarneyLogger', function(){
 
-    BarneyBaseLogger.init({
+    BarneyBaseLog.init({
         enabled: true,
         level: 'log'
     });
 
-    return BarneyBaseLogger;
+    return BarneyBaseLog;
 });
