@@ -1,6 +1,6 @@
 angular.module('barney').factory('BarneyRotatingLogger', function(){
 
-	barney.RotatingLog.init({
+    barney.RotatingLog.init({
         enabled: true,
         level: 'log',
         recordingEnabled: true

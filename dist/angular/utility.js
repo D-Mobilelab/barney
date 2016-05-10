@@ -24,7 +24,7 @@ angular.module('barney').factory('BarneyUtility',
     function($location, $window){
 
         this.arrayDiff = function(first, second){
-            return barney.Utility.arrayDiff(first, second)
+            return barney.Utility.arrayDiff(first, second);
         };
 
         this.mediaMatcher = function(mediaquery, callback){

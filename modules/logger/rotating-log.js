@@ -35,7 +35,7 @@ barney.RotatingLog = new function(){
         }
 
         logger[level](args);
-        if (recordingEnabled && logger.getConfig().enabled){
+        if (recordingEnabled && logger.getConfig().enabled && isRecording){
             messages.push([level, args]);
         }
     };
@@ -88,6 +88,7 @@ barney.RotatingLog = new function(){
         if (!isRecording){
             console.warn('RotatingLog :: endRecording called while RotatingLog was not recording');
         }
+
         isRecording = false;
         endRotate();
     };

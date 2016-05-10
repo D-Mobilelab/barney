@@ -1,4 +1,4 @@
-var BarneyStorage = new function(){
+barney.Storage = new function(){
 
     var selectedStorage = null;
 
@@ -10,9 +10,9 @@ var BarneyStorage = new function(){
     };
 
     var storages = {
-        'cookie': BarneyStorageBiscuit,
-        'localStorage': BarneyStorageDepot,
-        'jsObject': BarneyStorageChicken
+        'cookie': barney.StorageBiscuit,
+        'localStorage': barney.StorageDepot,
+        'jsObject': barney.StorageChicken
     };
 
     this.init = function(params){

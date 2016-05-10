@@ -32,9 +32,8 @@ module.exports = function(config) {
       // mock
       "mock.js",
 
-      // modules    
-      "dist/main.min.js",
-      "dist/*.min.js",
+      // modules
+      "dist/**/*.js",
 
       // test
       "test/modules/*.test.js",

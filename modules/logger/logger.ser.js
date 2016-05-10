@@ -5,5 +5,5 @@ angular.module('barney').factory('BarneyLogger', function(){
         level: 'log'
     });
 
-	return barney.BaseLogger;
+    return barney.BaseLogger;
 });
