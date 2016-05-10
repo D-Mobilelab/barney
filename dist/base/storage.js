@@ -180,7 +180,7 @@ barney.StorageDepot = new function(){
     };
 
 };
-var BarneyStorage = new function(){
+barney.Storage = new function(){
 
     var selectedStorage = null;
 

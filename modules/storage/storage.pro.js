@@ -1,35 +1,34 @@
 angular.module('barney').provider('BarneyStorage',
-    ['BarneyStorageBiscuitProvider', 'BarneyStorageDepotProvider', 'BarneyStorageChickenProvider',
-    function (Biscuit, Depot, Chicken) {
+    function () {
 
         var Storage = {
 
             init: function(params){
-                BarneyStorage.init(params);
+                barney.Storage.init(params);
             },
 
             set: function(key, value, options){
-                BarneyStorage.set(key, value, options);
+                barney.Storage.set(key, value, options);
             },
 
             get: function(key, options){
-                return BarneyStorage.get(key, options);
+                return barney.Storage.get(key, options);
             },
 
             getMultiple: function(keys, options){
-                return BarneyStorage.getMultiple(keys, options);
+                return barney.Storage.getMultiple(keys, options);
             },
 
             setMultiple: function(params, options){
-                BarneyStorage.setMultiple(params, options);
+                barney.Storage.setMultiple(params, options);
             },
             
             delete: function(key, options){
-                BarneyStorage.delete(key, options);
+                barney.Storage.delete(key, options);
             },
 
             isLocalStorageSupported: function(){
-                return BarneyStorage.isLocalStorageSupported();
+                return barney.Storage.isLocalStorageSupported();
             }
 
         };
@@ -43,4 +42,4 @@ angular.module('barney').provider('BarneyStorage',
             return this;
         }];
     }
-]);
+);
