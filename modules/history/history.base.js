@@ -1,5 +1,4 @@
-if(!barney){ barney = {} }
-barney.history = new function(){
+var BarneyHistory = new function(){
 
 	var previousPath = null;
     var previousState = null;
