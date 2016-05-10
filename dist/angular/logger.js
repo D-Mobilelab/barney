@@ -1,4 +1,6 @@
-var BarneyBaseLogger = new function(){
+if(!barney) { var barney = {}; }
+if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
+barney.BaseLogger = new function(){
 
     // defines log levels and their order (priority)
     // config will hold the configuration used at runtime, e.g. 
@@ -141,17 +143,17 @@ var BarneyBaseLogger = new function(){
 };
 angular.module('barney').factory('BarneyLogger', function(){
 
-    BarneyBaseLogger.init({
+    barney.BaseLogger.init({
         enabled: true,
         level: 'log'
     });
 
-    return BarneyBaseLogger;
+    return barney.BaseLogger;
 });
-var BarneyRotatingLog = new function(){
+barney.RotatingLog = new function(){
 
     // IMPORTANT: requires Logger
-    var logger = BarneyBaseLogger;
+    var logger = barney.BaseLogger;
 
     // this Array will contain each message
     var messages = [];
@@ -300,5 +302,5 @@ var BarneyRotatingLog = new function(){
 };
 angular.module('barney').factory('BarneyRotatingLogger', function(){
 
-    return BarneyRotatingLog;
+    return barney.RotatingLog;
 });

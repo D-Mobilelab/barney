@@ -3,15 +3,15 @@ angular.module('barney').provider('BarneyConfig', function(){
     var myProvider = {
 
         init: function(options){
-            BarneyConfig.init(options);
+            barney.Config.init(options);
         },
 
         get: function(value){
-            return BarneyConfig.get(value);
+            return barney.Config.get(value);
         },
 
         list: function(){
-            return BarneyConfig.list();
+            return barney.Config.list();
         }
         
     };

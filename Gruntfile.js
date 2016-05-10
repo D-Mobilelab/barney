@@ -2,15 +2,15 @@
 
 module.exports = function (grunt) {
 
-	/*************************************
-	****         REQUIREMENTS         ****
-	*************************************/
+    /*************************************
+    ****         REQUIREMENTS         ****
+    *************************************/
 
     require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
 
-	/*************************************
-	****         SINGLE TASKS         ****
-	*************************************/
+    /*************************************
+    ****         SINGLE TASKS         ****
+    *************************************/
 
     var versionString = grunt.file.readJSON('bower.json').version;
     var version = versionString.split(".");
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     var versionMinor = (major) + "." + (minor+1) + ".0";
     var versionPatch = (major) + "." + (minor) + "." + (patch+1);
 
-	grunt.initConfig({
+    grunt.initConfig({
         // VARIABLES
         examplePath: 'examples/',
         modulesPath: 'modules/',
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                     port: 9030,
                     livereload: true
                 }
-			}
+            }
         },
 
         // OPEN
@@ -144,24 +144,24 @@ module.exports = function (grunt) {
         // NG-DOCS
         ngdocs: {
             options: {
-            	html5Mode: false,
+                html5Mode: false,
                 title: 'Barney',
             },
             api: {
                 options: {
-	                dest: '<%= docPath %>temp',
-	                startPage: '/api/welcome'
-		        },
-		        src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
+                    dest: '<%= docPath %>temp',
+                    startPage: '/api/welcome'
+                },
+                src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
                 title: 'API Reference',
                 api: true
             },
             version: {
-            	options: {
-	                dest: '<%= docPath %><%= newVersion %>',
-	                startPage: '/version/welcome'
-		        },
-		        src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
+                options: {
+                    dest: '<%= docPath %><%= newVersion %>',
+                    startPage: '/version/welcome'
+                },
+                src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
                 title: 'API Reference',
                 api: true
             }
@@ -254,22 +254,49 @@ module.exports = function (grunt) {
             // get the module name from the directory name
             var dirName = dir.substr(dir.lastIndexOf('/')+1);
 
-            if(dirName != 'main.js'){
-                
-                // create a subtask for each module, find all src files
-                // and combine into a single js file per module
-                concat[dirName] = {
+            // some modules are only for Angular
+            var angularModules = ['infinite', 'livehtml', 'meta'];
+
+            // only angular modules
+            if(angularModules.indexOf(dirName) != -1){
+                concat['angular-' + dirName] = {
                     src: [
                         dir + '/*.js'
                     ],
-                    dest: '<%= distPath %>' + dirName + '.min.js'
+                    dest: '<%= distPath %>angular/' + dirName + '.js',
+                    options: {
+                        banner: "if(!barney) { var barney = {}; }\n" + 
+                                "if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }\n"
+                    }
                 };
 
+            // angular and vanilla modules
             } else {
-                concat['main'] = {
-                    src: ['modules/main.js'],
-                    dest: '<%= distPath %>main.min.js'
-                }
+                concat['angular-' + dirName] = {
+                    src: [
+                        dir + '/*.js'
+                    ],
+                    dest: '<%= distPath %>angular/' + dirName + '.js',
+                    options: {
+                        banner: "if(!barney) { var barney = {}; }\n" + 
+                                "if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }\n"
+                    }
+                };
+                concat['base-' + dirName] = {
+                    src: [
+                        dir + '/*.js',
+                        '!' + dir + '/*.ser.js',
+                        '!' + dir + '/*.dir.js',
+                        '!' + dir + '/*.pro.js',
+                        '!' + dir + '/*.fil.js',
+                        '!' + dir + '/*.mod.js'
+                    ],
+                    dest: '<%= distPath %>base/' + dirName + '.js',
+                    options: {
+                        banner: "if(!barney) { var barney = {}; }\n"
+                    }
+                };
+
             }
 
             // add module subtasks to the concat task in initConfig
@@ -359,6 +386,15 @@ module.exports = function (grunt) {
         'open:docTemp',
         // WATCH
         'watch:docTemp'
+    ]);
+
+    /**********************************/
+
+    grunt.registerTask('build',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat'
     ]);
 
     /**********************************/

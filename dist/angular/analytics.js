@@ -1,4 +1,6 @@
-var BarneyAnalytics = new function(){
+if(!barney) { var barney = {}; }
+if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
+barney.Analytics = new function(){
 
     var dimensions = {};
     var enabled = true;
@@ -11,6 +13,7 @@ var BarneyAnalytics = new function(){
     };
 
     this.init = function(options) {
+        console.log('angular init');        
         if(options) {
             if(options.dimensions){
                 dimensions = options.dimensions;
@@ -129,23 +132,24 @@ angular.module('barney').factory('BarneyAnalytics', [
     function(){
 
         this.init = function(options) {
-            BarneyAnalytics.init(options);
+            console.log('vanilla init');
+            barney.Analytics.init(options);
         };
 
         this.setId = function(id){
-            BarneyAnalytics.setId(id);
+            barney.Analytics.setId(id);
         };
 
         this.setDimension = function(dimensions){
-            BarneyAnalytics.setDimension(dimensions);
+            barney.Analytics.setDimension(dimensions);
         };
 
         this.trackPage = function(options){
-            BarneyAnalytics.trackPage(options);
+            barney.Analytics.trackPage(options);
         };
 
         this.trackEvent = function(options){
-            BarneyAnalytics.trackEvent(options);
+            barney.Analytics.trackEvent(options);
         };
 
         return this;

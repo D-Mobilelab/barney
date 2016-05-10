@@ -1,3 +1,4 @@
+if(!barney) { var barney = {}; }
 barney.StorageBiscuit = new function(){
 
     // Biscuit: cookie-based storage
@@ -92,6 +93,90 @@ barney.StorageBiscuit = new function(){
 
     this.delete = function(key){
         this.set(key, '', { exdays: -1 });
+    };
+
+};
+barney.StorageChicken = new function(){
+
+    var jsObj = {};
+
+    this.get = function(key){
+        return jsObj[key];
+    };
+
+    this.set = function(key, value){
+        jsObj[key] = value;
+    };
+
+    this.getMultiple = function(keys){
+        var toReturn = {};
+        var index, key;
+        if (!!keys){
+            for (index in keys){
+                key = keys[index];
+                toReturn[key] = jsObj[key];
+            }
+        } else {
+            for (key in jsObj){
+                toReturn[key] = jsObj[key];
+            }
+        }
+        return toReturn;
+    };
+
+    this.setMultiple = function(params){
+        for (var key in params){
+            this.set(key, params[key]);
+        }
+    };
+
+    this.delete = function(key){
+        delete jsObj[key];
+    };
+};
+barney.StorageDepot = new function(){
+
+    var tryParse = function(value){
+        try { 
+            return JSON.parse(value);
+        } catch (err) {
+            return value;
+        }
+    };
+
+    this.get = function(key){
+        return window.localStorage.getItem(key) !== null ? tryParse(window.localStorage.getItem(key)) : undefined;
+    };
+
+    this.set = function(key, value){
+        window.localStorage.setItem(key, JSON.stringify(value));
+    };
+
+    this.getMultiple = function(keys){
+        var toReturn = {};
+        var index, key;
+        if (!!keys){
+            for (index in keys){
+                key = keys[index];
+                toReturn[key] = this.get(key);
+            }
+        } else {
+            for (var i = 0, len = localStorage.length; i < len; ++i){
+                key = localStorage.key(i);
+                toReturn[key] = this.get(key);
+            }
+        }
+        return toReturn;
+    };
+
+    this.setMultiple = function(params){
+        for (var key in params){
+            this.set(key, params[key]);
+        }
+    };
+
+    this.delete = function(key){
+        window.localStorage.removeItem(key);
     };
 
 };

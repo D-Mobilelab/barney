@@ -1,3 +1,5 @@
+if(!barney) { var barney = {}; }
+if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
 angular.module('barney').filter('config', [
     'BarneyConfig',
     function(Config) {
@@ -8,7 +10,7 @@ angular.module('barney').filter('config', [
         
     }
 ]);
-var BarneyConfig = new function(){
+barney.Config = new function(){
 
     this.init = function(options){
         if(options && options.config){
@@ -36,15 +38,15 @@ angular.module('barney').provider('BarneyConfig', function(){
     var myProvider = {
 
         init: function(options){
-            BarneyConfig.init(options);
+            barney.Config.init(options);
         },
 
         get: function(value){
-            return BarneyConfig.get(value);
+            return barney.Config.get(value);
         },
 
         list: function(){
-            return BarneyConfig.list();
+            return barney.Config.list();
         }
         
     };

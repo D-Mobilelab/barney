@@ -5,23 +5,23 @@ angular.module('barney').provider('BarneyStorageChicken', function () {
     var Chicken = {
 
         get: function(key){
-            return BarneyStorageChicken.get(key);
+            return barney.StorageChicken.get(key);
         },
 
         set: function(key, value){
-            BarneyStorageChicken.set(key, value);
+            barney.StorageChicken.set(key, value);
         },
 
         getMultiple: function(keys){
-            return BarneyStorageChicken.getMultiple(keys);
+            return barney.StorageChicken.getMultiple(keys);
         },
 
         setMultiple: function(params){
-            BarneyStorageChicken.setMultiple(params);
+            barney.StorageChicken.setMultiple(params);
         },
 
         delete: function(key){
-            BarneyStorageChicken.delete(key);
+            barney.StorageChicken.delete(key);
         }
     };
 

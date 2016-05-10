@@ -1,3 +1,4 @@
+if(!barney) { var barney = {}; }
 barney.History = new function(){
 
 	var previousPath = null;

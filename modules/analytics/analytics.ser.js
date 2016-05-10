@@ -2,23 +2,24 @@ angular.module('barney').factory('BarneyAnalytics', [
     function(){
 
         this.init = function(options) {
-            BarneyAnalytics.init(options);
+            console.log('vanilla init');
+            barney.Analytics.init(options);
         };
 
         this.setId = function(id){
-            BarneyAnalytics.setId(id);
+            barney.Analytics.setId(id);
         };
 
         this.setDimension = function(dimensions){
-            BarneyAnalytics.setDimension(dimensions);
+            barney.Analytics.setDimension(dimensions);
         };
 
         this.trackPage = function(options){
-            BarneyAnalytics.trackPage(options);
+            barney.Analytics.trackPage(options);
         };
 
         this.trackEvent = function(options){
-            BarneyAnalytics.trackEvent(options);
+            barney.Analytics.trackEvent(options);
         };
 
         return this;

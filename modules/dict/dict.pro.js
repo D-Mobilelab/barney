@@ -4,15 +4,15 @@ angular.module('barney').provider('BarneyDict', [
         var myProvider = {
             
             init: function(options){
-                BarneyDict.init(options);
+                barney.Dict.init(options);
             },
 
             get: function(key){
-                return BarneyDict.get(key);
+                return barney.Dict.get(key);
             },
             
             list: function(){
-                return BarneyDict.list();
+                return barney.Dict.list();
             }
 
         };

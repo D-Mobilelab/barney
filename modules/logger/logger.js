@@ -1,4 +1,4 @@
-var BarneyBaseLogger = new function(){
+barney.BaseLogger = new function(){
 
     // defines log levels and their order (priority)
     // config will hold the configuration used at runtime, e.g. 

@@ -1,3 +1,4 @@
+if(!barney) { var barney = {}; }
 barney.Utility = new function(){
 
 	this.arrayDiff = function(first, second){

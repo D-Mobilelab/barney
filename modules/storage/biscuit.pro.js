@@ -5,23 +5,23 @@ angular.module('barney').provider('BarneyStorageBiscuit', function () {
     var Biscuit = {
 
         get: function(key){
-            return BarneyStorageBiscuit.get(key);
+            return barney.StorageBiscuit.get(key);
         },
 
         set: function(key, value, options){
-            BarneyStorageBiscuit.set(key, value, options);
+            barney.StorageBiscuit.set(key, value, options);
         },
 
         getMultiple: function(keys){
-            return BarneyStorageBiscuit.getMultiple(keys);
+            return barney.StorageBiscuit.getMultiple(keys);
         },
 
         setMultiple: function(params, options){
-            BarneyStorageBiscuit.setMultiple(params, options);
+            barney.StorageBiscuit.setMultiple(params, options);
         },
 
         delete: function(key){
-            BarneyStorageBiscuit.delete(key);
+            barney.StorageBiscuit.delete(key);
         }
     };
 

@@ -1,4 +1,4 @@
-var BarneyStorageChicken = new function(){
+barney.StorageChicken = new function(){
 
     var jsObj = {};
 

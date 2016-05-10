@@ -1,4 +1,6 @@
-var BarneyHistory = new function(){
+if(!barney) { var barney = {}; }
+if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
+barney.History = new function(){
 
 	var previousPath = null;
     var previousState = null;
@@ -43,11 +45,11 @@ angular.module('barney').factory('BarneyHistory',
         };
 
         this.setPrevPath = function(path){
-            BarneyHistory.setPrevPath(path);
+            barney.History.setPrevPath(path);
         };
 
         this.getPrevPath = function(){
-            return BarneyHistory.getPrevPath();
+            return barney.History.getPrevPath();
         };
 
         // EXTENSION : NEW METHOD ONLY FOR ANGULAR

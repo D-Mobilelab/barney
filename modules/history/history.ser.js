@@ -20,11 +20,11 @@ angular.module('barney').factory('BarneyHistory',
         };
 
         this.setPrevPath = function(path){
-            BarneyHistory.setPrevPath(path);
+            barney.History.setPrevPath(path);
         };
 
         this.getPrevPath = function(){
-            return BarneyHistory.getPrevPath();
+            return barney.History.getPrevPath();
         };
 
         // EXTENSION : NEW METHOD ONLY FOR ANGULAR

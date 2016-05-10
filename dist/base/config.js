@@ -1,3 +1,4 @@
+if(!barney) { var barney = {}; }
 barney.Config = new function(){
 
     this.init = function(options){

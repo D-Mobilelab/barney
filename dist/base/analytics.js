@@ -1,3 +1,4 @@
+if(!barney) { var barney = {}; }
 barney.Analytics = new function(){
 
     var dimensions = {};

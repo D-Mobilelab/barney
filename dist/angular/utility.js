@@ -1,4 +1,6 @@
-var BarneyUtility = new function(){
+if(!barney) { var barney = {}; }
+if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
+barney.Utility = new function(){
 
 	this.arrayDiff = function(first, second){
     	return first.filter(function(i) {
@@ -21,11 +23,11 @@ angular.module('barney').factory('BarneyUtility',
     function($location, $window){
 
         this.arrayDiff = function(first, second){
-            return BarneyUtility.arrayDiff(first, second)
+            return barney.Utility.arrayDiff(first, second)
         };
 
         this.mediaMatcher = function(mediaquery, callback){
-            BarneyUtility.mediaMatcher(mediaquery, callback);
+            barney.Utility.mediaMatcher(mediaquery, callback);
         };
 
         // EXTENSION : NEW METHOD ONLY FOR ANGULAR

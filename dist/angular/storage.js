@@ -1,4 +1,6 @@
-var BarneyStorageBiscuit = new function(){
+if(!barney) { var barney = {}; }
+if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
+barney.StorageBiscuit = new function(){
 
     // Biscuit: cookie-based storage
 
@@ -102,23 +104,23 @@ angular.module('barney').provider('BarneyStorageBiscuit', function () {
     var Biscuit = {
 
         get: function(key){
-            return BarneyStorageBiscuit.get(key);
+            return barney.StorageBiscuit.get(key);
         },
 
         set: function(key, value, options){
-            BarneyStorageBiscuit.set(key, value, options);
+            barney.StorageBiscuit.set(key, value, options);
         },
 
         getMultiple: function(keys){
-            return BarneyStorageBiscuit.getMultiple(keys);
+            return barney.StorageBiscuit.getMultiple(keys);
         },
 
         setMultiple: function(params, options){
-            BarneyStorageBiscuit.setMultiple(params, options);
+            barney.StorageBiscuit.setMultiple(params, options);
         },
 
         delete: function(key){
-            BarneyStorageBiscuit.delete(key);
+            barney.StorageBiscuit.delete(key);
         }
     };
 
@@ -132,7 +134,7 @@ angular.module('barney').provider('BarneyStorageBiscuit', function () {
     }];
 
 });
-var BarneyStorageChicken = new function(){
+barney.StorageChicken = new function(){
 
     var jsObj = {};
 
@@ -177,23 +179,23 @@ angular.module('barney').provider('BarneyStorageChicken', function () {
     var Chicken = {
 
         get: function(key){
-            return BarneyStorageChicken.get(key);
+            return barney.StorageChicken.get(key);
         },
 
         set: function(key, value){
-            BarneyStorageChicken.set(key, value);
+            barney.StorageChicken.set(key, value);
         },
 
         getMultiple: function(keys){
-            return BarneyStorageChicken.getMultiple(keys);
+            return barney.StorageChicken.getMultiple(keys);
         },
 
         setMultiple: function(params){
-            BarneyStorageChicken.setMultiple(params);
+            barney.StorageChicken.setMultiple(params);
         },
 
         delete: function(key){
-            BarneyStorageChicken.delete(key);
+            barney.StorageChicken.delete(key);
         }
     };
 
@@ -203,7 +205,7 @@ angular.module('barney').provider('BarneyStorageChicken', function () {
     }];
 
 });
-var BarneyStorageDepot = new function(){
+barney.StorageDepot = new function(){
 
     var tryParse = function(value){
         try { 
@@ -255,23 +257,23 @@ angular.module('barney').provider('BarneyStorageDepot', function () {
 
     var Depot = {
         get: function(key){
-            return BarneyStorageDepot.get(key);
+            return barney.StorageDepot.get(key);
         },
 
         set: function(key, value){
-            BarneyStorageDepot.set(key, value);
+            barney.StorageDepot.set(key, value);
         },
 
         getMultiple: function(keys){
-            return BarneyStorageDepot.getMultiple(keys);
+            return barney.StorageDepot.getMultiple(keys);
         },
 
         setMultiple: function(params){
-            BarneyStorageDepot.setMultiple(params);
+            barney.StorageDepot.setMultiple(params);
         },
 
         delete: function(key){
-            BarneyStorageDepot.delete(key);
+            barney.StorageDepot.delete(key);
         }
     };
 

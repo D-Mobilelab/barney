@@ -1,3 +1,4 @@
+if(!barney) { var barney = {}; }
 barney.Newton = new function(){
 
     this.enabled = true;

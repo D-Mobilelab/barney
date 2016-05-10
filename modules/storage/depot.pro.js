@@ -4,23 +4,23 @@ angular.module('barney').provider('BarneyStorageDepot', function () {
 
     var Depot = {
         get: function(key){
-            return BarneyStorageDepot.get(key);
+            return barney.StorageDepot.get(key);
         },
 
         set: function(key, value){
-            BarneyStorageDepot.set(key, value);
+            barney.StorageDepot.set(key, value);
         },
 
         getMultiple: function(keys){
-            return BarneyStorageDepot.getMultiple(keys);
+            return barney.StorageDepot.getMultiple(keys);
         },
 
         setMultiple: function(params){
-            BarneyStorageDepot.setMultiple(params);
+            barney.StorageDepot.setMultiple(params);
         },
 
         delete: function(key){
-            BarneyStorageDepot.delete(key);
+            barney.StorageDepot.delete(key);
         }
     };
 

@@ -1,3 +1,5 @@
+if(!barney) { var barney = {}; }
+if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
 /**
  * @ngdoc directive
  * @name infinite.directive:InfiniteScroll

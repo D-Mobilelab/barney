@@ -1,3 +1,5 @@
+if(!barney) { var barney = {}; }
+if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
 angular.module('barney').directive('dict', [
     '$sce', 'BarneyDict', 
     function($sce, Dict) {
@@ -26,7 +28,7 @@ angular.module('barney').filter('dict', [
         };
     }
 ]);
-var BarneyDict = new function(){
+barney.Dict = new function(){
 
     var parameters = {
         showKey: false
@@ -85,15 +87,15 @@ angular.module('barney').provider('BarneyDict', [
         var myProvider = {
             
             init: function(options){
-                BarneyDict.init(options);
+                barney.Dict.init(options);
             },
 
             get: function(key){
-                return BarneyDict.get(key);
+                return barney.Dict.get(key);
             },
             
             list: function(){
-                return BarneyDict.list();
+                return barney.Dict.list();
             }
 
         };

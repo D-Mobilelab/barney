@@ -1,3 +1,4 @@
+if(!barney) { var barney = {}; }
 barney.Dict = new function(){
 
     var parameters = {

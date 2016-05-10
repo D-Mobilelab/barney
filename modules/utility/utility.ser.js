@@ -3,11 +3,11 @@ angular.module('barney').factory('BarneyUtility',
     function($location, $window){
 
         this.arrayDiff = function(first, second){
-            return BarneyUtility.arrayDiff(first, second)
+            return barney.Utility.arrayDiff(first, second)
         };
 
         this.mediaMatcher = function(mediaquery, callback){
-            BarneyUtility.mediaMatcher(mediaquery, callback);
+            barney.Utility.mediaMatcher(mediaquery, callback);
         };
 
         // EXTENSION : NEW METHOD ONLY FOR ANGULAR
