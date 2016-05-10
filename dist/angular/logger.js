@@ -148,7 +148,7 @@ angular.module('barney').factory('BarneyLogger', function(){
         level: 'log'
     });
 
-	return barney.BaseLogger;
+    return barney.BaseLogger;
 });
 barney.RotatingLog = new function(){
 
@@ -187,7 +187,7 @@ barney.RotatingLog = new function(){
         }
 
         logger[level](args);
-        if (recordingEnabled && logger.getConfig().enabled){
+        if (recordingEnabled && logger.getConfig().enabled && isRecording){
             messages.push([level, args]);
         }
     };
@@ -240,6 +240,7 @@ barney.RotatingLog = new function(){
         if (!isRecording){
             console.warn('RotatingLog :: endRecording called while RotatingLog was not recording');
         }
+
         isRecording = false;
         endRotate();
     };
@@ -300,12 +301,11 @@ barney.RotatingLog = new function(){
     };
 };
 angular.module('barney').factory('BarneyRotatingLogger', function(){
-
 	barney.RotatingLog.init({
-        enabled: true,
-        level: 'log',
-        recordingEnabled: true
-    });
+		enabled: true,
+		level: 'log',
+		recordingEnabled: true
+	});
 
     return barney.RotatingLog;
 });

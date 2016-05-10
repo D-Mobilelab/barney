@@ -9,7 +9,7 @@ angular.module('barney').factory('BarneyHistory',
             var _this = this;
             $rootScope.$on('$locationChangeSuccess', function(event, newurl, oldurl){
                 if(newurl !== oldurl){
-                    _this.setPrevPath( oldurl.substr(oldurl.indexOf('#!')+2) );
+                    _this.setPrevPath( oldurl.substr(oldurl.indexOf('#!') + 2) );
                 }
             });
             $rootScope.$on('$routeChangeSuccess', function(event, current, previous){
