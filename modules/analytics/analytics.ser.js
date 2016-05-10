@@ -2,7 +2,6 @@ angular.module('barney').factory('BarneyAnalytics', [
     function(){
 
         this.init = function(options) {
-            console.log('vanilla init');
             barney.Analytics.init(options);
         };
 

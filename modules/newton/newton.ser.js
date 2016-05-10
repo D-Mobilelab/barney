@@ -9,9 +9,6 @@ angular.module('barney').factory('BarneyNewton', function(){
         barney.Newton.trackPage(options);
     };
 
-    // traccia un evento, prende come parametri:
-    // - event: nome dell'evento
-    // - options: opzioni dell'evento (per esempio category e label) 
     this.trackEvent = function(event, options){
         barney.Newton.trackEvent(event, options);
     };
