@@ -11,10 +11,10 @@ describe('LOGGER -', function () {
 			RotLogger = _BarneyRotatingLogger_;
 		});
 
-		spyOn(console, 'log');				
-		spyOn(console, 'info');				
-		spyOn(console, 'warn');				
-		spyOn(console, 'error');				
+		spyOn(console, 'log').and.callThrough();		
+		spyOn(console, 'info').and.callThrough();		
+		spyOn(console, 'warn').and.callThrough();		
+		spyOn(console, 'error').and.callThrough();		
 	});
 
 	describe('rotating logger get Config -', function(){

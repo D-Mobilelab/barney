@@ -26,7 +26,7 @@ barney.BaseLogger = new function(){
 
         // enabled setup
         if (typeOfenabled === 'boolean'){
-            config.enabled = options.enabled;
+            config.enabled = options.enabled; 
         } else if (typeOfenabled !== 'undefined') {
             throw new Error('BaseLogger :: illegal type for enabled - expected boolean, got ' + typeOfenabled);
         }
@@ -166,7 +166,6 @@ barney.RotatingLog = new function(){
         config.sliding = sliding;
         return config;
     };
-
 
     var handleMessages = function(level, args){
         if (messages.length >= maxSize){

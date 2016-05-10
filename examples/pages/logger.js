@@ -67,5 +67,6 @@ angular.module('example').controller('LoggerCtrl', [
 		$scope.endRecording = function(){
 			RotatingLogger.endRecording();
 		}
+
 	}
 ]);

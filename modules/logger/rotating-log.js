@@ -25,7 +25,6 @@ barney.RotatingLog = new function(){
         return config;
     };
 
-
     var handleMessages = function(level, args){
         if (messages.length >= maxSize){
             if (!sliding){

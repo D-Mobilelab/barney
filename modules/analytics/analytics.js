@@ -48,7 +48,7 @@ barney.Analytics = new function(){
         if(newDimension){
             var key, slot, value;
             for(key in newDimension){
-                slot = newDimension[key];
+                slot = dimensions[key];
                 value = newDimension[key];
 
                 if(verbose){

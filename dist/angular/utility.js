@@ -2,14 +2,14 @@ if(!barney) { var barney = {}; }
 if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
 barney.Utility = new function(){
 
-	this.arrayDiff = function(first, second){
-    	return first.filter(function(i) {
+    this.arrayDiff = function(first, second){
+        return first.filter(function(i) {
             return second.indexOf(i) < 0;
         });
     };
 
     this.mediaMatcher = function(mediaquery, callback){
-    	var isMatchMediaSupported = !!(window && window.matchMedia);
+        var isMatchMediaSupported = !!(window && window.matchMedia);
         if(typeof mediaquery === 'string' && typeof callback === 'function' && isMatchMediaSupported ){
             var mql = window.matchMedia(mediaquery);
             callback(mql);
@@ -17,7 +17,8 @@ barney.Utility = new function(){
         }
     };
 
-}
+};
+
 angular.module('barney').factory('BarneyUtility',
     ['$location', '$window',
     function($location, $window){
