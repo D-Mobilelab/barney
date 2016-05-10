@@ -1,7 +1,7 @@
 var BarneyCallbacky = new function(){
 
-	var set = {};
-	var verbose = false;
+    var set = {};   
+    var verbose = false;
     var logger = {
         log: function(){},
         info: function(){},
@@ -51,5 +51,5 @@ var BarneyCallbacky = new function(){
         if(verbose){
             logger.log('BarneyCallbacky', 'clean', key);
         }
-    }
-}
+    };
+};

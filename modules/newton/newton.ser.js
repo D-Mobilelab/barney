@@ -17,7 +17,7 @@ angular.module('barney').factory('BarneyNewton', function(){
     };
 
     this.startHeartbeat = function(keyword, params){
-       BarneyNewton.startHeartbeat(keyword, params);
+        BarneyNewton.startHeartbeat(keyword, params);
     };
 
     this.stopHeartbeat = function(keyword){
@@ -28,6 +28,13 @@ angular.module('barney').factory('BarneyNewton', function(){
         BarneyNewton.stopAllHeartbeat();
     };
 
-    
+    this.heartbeatsList = function(){
+        return BarneyNewton.heartbeatsList();
+    };
+
+    this.getSingleHeartbeat = function(keyword){
+        return BarneyNewton.getSingleHeartbeat(keyword);
+    };
+
     return this;
 });

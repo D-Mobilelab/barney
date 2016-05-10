@@ -1,6 +1,6 @@
 var BarneyAnalytics = new function(){
-	
-	var dimensions = {};
+
+    var dimensions = {};
     var enabled = true;
     var verbose = false;
     var logger = {
@@ -43,12 +43,12 @@ var BarneyAnalytics = new function(){
         }
     };
 
-    this.setDimension = function(dimensions){
-        if(dimensions){
+    this.setDimension = function(newDimension){
+        if(newDimension){
             var key, slot, value;
-            for(key in dimensions){
-                slot = dimensions[key];
-                value = dimensions[key];
+            for(key in newDimension){
+                slot = newDimension[key];
+                value = newDimension[key];
 
                 if(verbose){
                     logger.log('BarneyAnalytics', 'set dimension', slot, value);
@@ -124,4 +124,4 @@ var BarneyAnalytics = new function(){
             ga('send', properties);
         }
     };
-}
+};

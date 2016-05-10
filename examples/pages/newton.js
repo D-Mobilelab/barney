@@ -40,7 +40,7 @@ angular.module('example').controller('NewtonCtrl', [
 		};
 
 		$scope.startBeat('atestheart');
-
+		console.log('an Heartbeat: ',NewtonAdp.getSingleHeartbeat('atestheart'));
 
 		var stopAllBeat = function(){
 			NewtonAdp.stopAllHeartbeat();
@@ -50,6 +50,9 @@ angular.module('example').controller('NewtonCtrl', [
 			$scope.startBeat('secondheart');
 			$scope.startBeat('atestheart');
 			
+			var a = NewtonAdp.heartbeatsList()
+			console.log('List: ', a);
+
 		}, 5000);
 
 		setTimeout(function(){

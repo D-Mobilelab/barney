@@ -1,6 +1,6 @@
 var BarneyDict = new function(){
 
-	var parameters = {
+    var parameters = {
         showKey: false
     };
 
@@ -50,4 +50,4 @@ var BarneyDict = new function(){
         return parameters.dict;
     };
     
-}
+};
