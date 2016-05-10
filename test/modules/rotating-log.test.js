@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Rotating LOGGER -', function () {
+describe('LOGGER -', function () {
 
 	var RotLogger, MockConsole;	
 
@@ -11,17 +11,16 @@ describe('Rotating LOGGER -', function () {
 			RotLogger = _BarneyRotatingLogger_;
 		});
 
-		spyOn(console, 'log');				
-		spyOn(console, 'info');				
-		spyOn(console, 'warn');				
-		spyOn(console, 'error');				
+		spyOn(console, 'log').and.callThrough();		
+		spyOn(console, 'info').and.callThrough();		
+		spyOn(console, 'warn').and.callThrough();		
+		spyOn(console, 'error').and.callThrough();		
 	});
 
 	describe('rotating logger get Config -', function(){
 		beforeEach(function(){
 			RotLogger.init({
 				enabled: true,
-				level: 'log',
 				recordingEnabled: false
 			});
 		});
@@ -36,7 +35,6 @@ describe('Rotating LOGGER -', function () {
 		beforeEach(function(){
 			RotLogger.init({
 				enabled: true,
-				level: 'log',
 				recordingEnabled: false
 			});
 		});
