@@ -1,6 +1,6 @@
 'use strict';
 
-describe('LOGGER -', function () {
+describe('Rotating LOGGER -', function () {
 
 	var RotLogger, MockConsole;	
 
