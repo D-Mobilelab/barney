@@ -33,7 +33,7 @@ module.exports = function(config) {
       "mock.js",
 
       // modules
-      "dist/**/*.js",
+      "dist/angular/**/*.js",
 
       // test
       "test/modules/*.test.js",
@@ -84,7 +84,7 @@ module.exports = function(config) {
       'coveralls'
     ],
     preprocessors: {
-      'dist/*': ['coverage']
+      'dist/**/*': ['coverage']
     },
     /// coverageReporter: {
     //   reporters: [

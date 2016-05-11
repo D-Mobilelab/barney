@@ -163,7 +163,7 @@ describe('NEWTON -', function () {
                 action: 'No',
             });
 
-			expect(NewtonService.getSingleHeartbeat('aTestHeartbeat')).toEqual(true);
+			expect(NewtonService.isHeartbeatEnabled('aTestHeartbeat')).toEqual(true);
         });
 
         it('should stop all heartbeat', function(){
