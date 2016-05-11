@@ -59,7 +59,7 @@ barney.Newton = new function(){
                 logger.log('BarneyNewton', 'heartbeat', 'start', keyword, options);
             }
 
-            heartbeats[keyword] = true;
+            heartbeats[keyword] = {enabled: true, options: options};
         } else {
             if(verbose){
                 logger.warn('BarneyNewton', 'heartbeat', 'start', keyword + ' is already running');
@@ -77,7 +77,7 @@ barney.Newton = new function(){
                 logger.log('BarneyNewton', 'heartbeat', 'stop', keyword, options);
             }
 
-            heartbeats[keyword] = false;
+            heartbeats[keyword].enabled = false;
         } else {
             logger.warn('BarneyNewton', 'heartbeat', 'stop', keyword + ' is not running');
         }
@@ -86,7 +86,7 @@ barney.Newton = new function(){
     this.stopAllHeartbeat = function(){
         if(enabled){
             for(var key in heartbeats){
-                this.stopHeartbeat(heartbeats[key]);
+                this.stopHeartbeat(key, heartbeats[key].options);
             }
         }
 
