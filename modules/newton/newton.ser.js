@@ -30,7 +30,7 @@ angular.module('barney').factory('BarneyNewton', function(){
     };
 
     this.isHeartbeatEnabled = function(keyword){
-        return barney.Newton.getSingleHeartbeat(keyword);
+        return barney.Newton.isHeartbeatEnabled(keyword);
     };
 
     return this;
