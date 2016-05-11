@@ -163,14 +163,7 @@ describe('NEWTON -', function () {
                 action: 'No',
             });
 
-			expect(NewtonService.getSingleHeartbeat('aTestHeartbeat')).toEqual({
-				enabled: false, 
-				options:{
-					category: 'Heartbeat',
-	                label: '<test>',
-	                valuable: 'No',
-	                action: 'No' 
-	        }});
+			expect(NewtonService.getSingleHeartbeat('aTestHeartbeat')).toEqual(true);
         });
 
         it('should stop all heartbeat', function(){
@@ -190,26 +183,7 @@ describe('NEWTON -', function () {
 
             NewtonService.stopAllHeartbeat();
 
-			expect(NewtonService.heartbeatsList()).toEqual({ 
-				aTestHeartbeat: Object({ 
-					enabled: false, 
-					options: Object({ 
-						category: 'Heartbeat',
-						label: '<test>', 
-						valuable: 'No', 
-						action: 'No' 
-					}) 
-				}), 
-				aSecondTestHeartbeat: Object({ 
-					enabled: false, 
-					options: Object({ 
-						category: 'Heartbeat', 
-						label: '<test>', 
-						valuable: 'No', 
-						action: 'No' 
-					}) 
-				}) 
-			});
+			expect(NewtonService.heartbeatsList()).toEqual({aTestHeartbeat:false, aSecondTestHeartbeat:false});
         });
 	});
 
