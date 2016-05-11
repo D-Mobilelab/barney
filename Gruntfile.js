@@ -152,7 +152,7 @@ module.exports = function (grunt) {
                     dest: '<%= docPath %>temp',
                     startPage: '/api/welcome'
                 },
-                src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
+                src: ['<%= docPath %>/welcome.js', '<%= modulesPath %>/**/*.js'],
                 title: 'API Reference',
                 api: true
             },
@@ -161,7 +161,7 @@ module.exports = function (grunt) {
                     dest: '<%= docPath %><%= newVersion %>',
                     startPage: '/version/welcome'
                 },
-                src: ['<%= modulesPath %>/main.js', '<%= modulesPath %>/**/*.js'],
+                src: ['<%= docPath %>/welcome.js', '<%= modulesPath %>/**/*.js'],
                 title: 'API Reference',
                 api: true
             }
