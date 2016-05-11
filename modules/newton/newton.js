@@ -39,13 +39,13 @@ barney.Newton = new function(){
     };
 
 
-    this.trackEvent = function(event, options){
+    this.trackEvent = function(eventName, options){
         if(enabled){
-            Newton.getSharedInstance().sendEvent(event, Newton.SimpleObject.fromJSONObject(options));
+            Newton.getSharedInstance().sendEvent(eventName, Newton.SimpleObject.fromJSONObject(options));
         }
 
         if(verbose){
-            logger.log('BarneyNewton', 'track', event, options);
+            logger.log('BarneyNewton', 'track', eventName, options);
         }
     };
 
@@ -99,7 +99,7 @@ barney.Newton = new function(){
         return heartbeats;
     };
 
-    this.getSingleHeartbeat = function(keyword){
+    this.isHeartbeatEnabled = function(keyword){
         return heartbeats[keyword];
     };
 

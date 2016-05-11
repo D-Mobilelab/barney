@@ -63,7 +63,7 @@ barney.Newton = new function(){
 
             heartbeats[keyword] = true;
         } else {
-            if(verbose){
+            if(verbose && heartbeats[keyword].enabled == true){
                 logger.warn('BarneyNewton', 'heartbeat', 'start', keyword + ' is already running');
             }
         }    

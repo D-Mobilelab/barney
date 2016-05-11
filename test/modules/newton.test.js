@@ -33,8 +33,8 @@ describe('NEWTON -', function () {
 					timedEventStart: function(eventName, eventProps){
 						NewtonMock.timedEventStart(eventName, eventProps);
 					},
-					timedEventStop: function(eventName, eventProps){
-						NewtonMock.timedEventStop(eventName, eventProps);
+					timedEventStop: function(eventName){
+						NewtonMock.timedEventStop(eventName);
 					}
 				}
 			},
@@ -152,12 +152,7 @@ describe('NEWTON -', function () {
 
             NewtonService.stopHeartbeat('aTestHeartbeat');
 
-			expect(NewtonMock.timedEventStop).toHaveBeenCalledWith('aTestHeartbeat', {
-                category: 'Heartbeat',
-                label: '<test>',
-                valuable: 'No',
-                action: 'No',
-            });
+			expect(NewtonMock.timedEventStop).toHaveBeenCalledWith('aTestHeartbeat');
 		});
 
 		it('should get an heartbeat', function(){
@@ -168,14 +163,7 @@ describe('NEWTON -', function () {
                 action: 'No',
             });
 
-			expect(NewtonService.getSingleHeartbeat('aTestHeartbeat')).toEqual({
-				keyWord: 'aTestHeartbeat', 
-				properties:{
-					category: 'Heartbeat',
-	                label: '<test>',
-	                valuable: 'No',
-	                action: 'No' 
-	        }});
+			expect(NewtonService.isHeartbeatEnabled('aTestHeartbeat')).toEqual(true);
         });
 
         it('should stop all heartbeat', function(){
@@ -195,9 +183,8 @@ describe('NEWTON -', function () {
 
             NewtonService.stopAllHeartbeat();
 
-			expect(NewtonService.heartbeatsList()).toEqual({});
+			expect(NewtonService.heartbeatsList()).toEqual({aTestHeartbeat:false, aSecondTestHeartbeat:false});
         });
 	});
-
 
 });
