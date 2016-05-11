@@ -1,11 +1,10 @@
 if(!barney) { var barney = {}; }
 barney.Newton = new function(){
 
-    this.enabled = true;
-    this.verbose = false;
+    var enabled = true;
+    var verbose = false;
     var heartbeats = {};
-
-    this.logger = {
+    var logger = {
         log: function(){},
         info: function(){},
         warn: function(){},
@@ -15,116 +14,94 @@ barney.Newton = new function(){
     this.init = function(options){
         if(options){
             if(typeof(options.enabled) !== 'undefined'){
-                this.enabled = options.enabled;
+                enabled = options.enabled;
             }
             if(typeof(options.verbose) !== 'undefined'){
-                this.verbose = options.verbose;
+                verbose = options.verbose;
             }
             if(typeof(options.logger) !== 'undefined'){
-                this.logger = options.logger;
+                logger = options.logger;
             }
         }
 
-        if(this.verbose){
-            this.logger.log('BarneyNewton', 'init', this);
+        if(verbose){
+            logger.log('BarneyNewton', 'init', this);
         }
     };
 
     this.trackPage = function(options){
-        if(this.verbose){
-            this.logger.log('BarneyNewton', 'track', 'pageview', options);
-        }
-
-        if(this.enabled){
+        if(enabled){
             Newton.getSharedInstance().sendEvent('pageview', Newton.SimpleObject.fromJSONObject(options));
         }
+
+        if(verbose){
+            logger.log('BarneyNewton', 'track', 'pageview', options);
+        }
     };
 
 
-    // traccia un evento, prende come parametri:
-    // - event: nome dell'evento
-    // - options: opzioni dell'evento (per esempio category e label) 
     this.trackEvent = function(event, options){
-        if(this.verbose){
-            this.logger.log('BarneyNewton', 'track', event, options);
-        }
-
-        if(this.enabled){
+        if(enabled){
             Newton.getSharedInstance().sendEvent(event, Newton.SimpleObject.fromJSONObject(options));
         }
+
+        if(verbose){
+            logger.log('BarneyNewton', 'track', event, options);
+        }
     };
 
-    this.startHeartbeat = function(keyword, params){
-        if(this.enabled){
-            if(!heartbeats[keyword]){
-                heartbeatProperties = Newton.SimpleObject.fromJSONObject(params);
-                heartbeats[keyword] = {keyWord: keyword, properties: heartbeatProperties};
-
-                if(heartbeats[keyword]){
-                    Newton.getSharedInstance().timedEventStart(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
-
-                    if(this.verbose){
-                        this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STARTED _______/\\_/\\_', heartbeats[keyword].properties);
-                    }
-                }
-            } else {
-                if(this.verbose){
-                    this.logger.warn('An heartbeat with \'' + heartbeats[keyword].keyWord + '\' is already running!');
-                }
+    this.startHeartbeat = function(keyword, options){
+        if(!heartbeats[keyword]){
+            if(enabled){
+                Newton.getSharedInstance().timedEventStart(keyword, Newton.SimpleObject.fromJSONObject(options));
             }
-        }        
+
+            if(verbose){
+                logger.log('BarneyNewton', 'heartbeat', 'start', keyword, options);
+            }
+
+            heartbeats[keyword] = true;
+        } else {
+            if(verbose){
+                logger.warn('BarneyNewton', 'heartbeat', 'start', keyword + ' is already running');
+            }
+        }    
     };
 
-    this.stopHeartbeat = function(keyword){
-        if(this.enabled){
-            if(heartbeats[keyword]){
-                Newton.getSharedInstance().timedEventStop(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
-
-                if(this.verbose){
-                    this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STOPPED _/\\_/\\_______', heartbeats[keyword].properties);
-                }
-
-                var deleted = delete heartbeats[keyword];
-                if(deleted && this.verbose){
-                    this.logger.log('An heartbeat has Been removed from heartbeats!', heartbeats);
-                }
+    this.stopHeartbeat = function(keyword, options){
+        if(heartbeats[keyword]){
+            if(enabled){
+                Newton.getSharedInstance().timedEventStop(keyword, Newton.SimpleObject.fromJSONObject(options));
             }
+
+            if(verbose){
+                logger.log('BarneyNewton', 'heartbeat', 'stop', keyword, options);
+            }
+
+            heartbeats[keyword] = false;
+        } else {
+            logger.warn('BarneyNewton', 'heartbeat', 'stop', keyword + ' is not running');
         }
     };
 
     this.stopAllHeartbeat = function(){
-        if(this.enabled){
+        if(enabled){
             for(var key in heartbeats){
-                this.stopHeartbeat(heartbeats[key].keyWord);
+                this.stopHeartbeat(heartbeats[key]);
             }
-            if(this.verbose){
-                this.logger.log('All heartbeats has been stopped!');
-            }
+        }
+
+        if(verbose){
+            logger.log('BarneyNewton', 'heartbeat', 'stop all');
         }
     };
 
     this.heartbeatsList = function(){
-        if(this.enabled){
-            if(this.verbose){
-                this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
-            }   
-
-            return heartbeats;
-        } else {
-            return undefined;
-        }
+        return heartbeats;
     };
 
     this.getSingleHeartbeat = function(keyword){
-        if(this.enabled){
-            if(this.verbose){
-                this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
-            }
-
-            return heartbeats[keyword];
-        } else {
-            return undefined;
-        }
+        return heartbeats[keyword];
     };
 
 };

@@ -12,7 +12,6 @@ barney.Analytics = new function(){
     };
 
     this.init = function(options) {
-        console.log('angular init');        
         if(options) {
             if(options.dimensions){
                 dimensions = options.dimensions;
@@ -35,12 +34,12 @@ barney.Analytics = new function(){
 
     this.setId = function(id){
         if(id){
-            if(verbose){
-                logger.log('BarneyAnalytics', 'set id', id);
-            }
-
             if(enabled){
                 ga('set', '&uid', id);
+            }
+
+            if(verbose){
+                logger.log('BarneyAnalytics', 'set id', id);
             }
         }
     };
@@ -52,12 +51,12 @@ barney.Analytics = new function(){
                 slot = dimensions[key];
                 value = newDimension[key];
 
-                if(verbose){
-                    logger.log('BarneyAnalytics', 'set dimension', slot, value);
-                }
-
                 if(enabled){
                     ga('set', 'dimension' + slot, value);
+                }
+
+                if(verbose){
+                    logger.log('BarneyAnalytics', 'set dimension', slot, value);
                 }
             }
         }
@@ -83,12 +82,12 @@ barney.Analytics = new function(){
             }
         }
 
-        if(verbose){
-            logger.log('BarneyAnalytics', 'track pageview', properties);
-        }
-
         if(enabled){
             ga('send', properties);
+        }
+
+        if(verbose){
+            logger.log('BarneyAnalytics', 'track pageview', properties);
         }
     };
 
@@ -118,12 +117,12 @@ barney.Analytics = new function(){
             }
         }
 
-        if(verbose){
-            logger.log('BarneyAnalytics', 'track event', properties);
-        }
-
         if(enabled){
             ga('send', properties);
+        }
+
+        if(verbose){
+            logger.log('BarneyAnalytics', 'track event', properties);
         }
     };
 };
