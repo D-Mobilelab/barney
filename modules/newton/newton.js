@@ -3,12 +3,12 @@
  * @name newton
  *
  * @description
- * **Newton** is the module for **Newton**.
+ * Newton is the module for Newton library.
  *
  * You can use it to:
  * - track a page
  * - track an event
- * - track the timespent on full website or page
+ * - track the timespent between two events (heartbeat, time spent on site/page)
  *
  * # Import & Usage
  * ## Vanilla JS
@@ -20,7 +20,7 @@
  * You can start by initializing it with {@link newton#methods_init init} method.
  *
  * ## Angular
- * Import this single file to use **Newton** module, in Angular framework:
+ * Import this single file to use Newton module, in Angular framework:
  * <pre>
  * <script type="text/javascript" src="./bower_components/barney/angular/newton.js"> 
  * </pre>
@@ -28,7 +28,7 @@
  * <pre>
  * angular.module('yourApp', [ 'barney' ]);
  * </pre>
- * **Newton** module for Angular contains only {@link newton.BarneyNewton BarneyNewton service}.
+ * Newton module for Angular contains only {@link newton.BarneyNewton BarneyNewton service}.
  */
 
 barney.Newton = new function(){
@@ -50,11 +50,7 @@ barney.Newton = new function(){
      * @methodOf newton
      *
      * @description 
-     * Init newton service.
-     *
-     * - **enabled**: enable or disable the module (default: true)
-     * - **verbose**: logs all the works done by the module (default: false)
-     * - **logger**: object that logs (i.e: window.console, BarneyLogger, ...) (default: null)
+     * Init newton module.
      *
      * @param {Object} options list of options
      * @param {boolean} [options.enabled=true] enable/disable tracking on Newton
@@ -87,7 +83,7 @@ barney.Newton = new function(){
      *
      * @description Track a page view event.
      *
-     * @param {Object} options Page details (i.e: title page, URL, ...)
+     * @param {Object} options details of the page
      *
     * @example
      * # Newton trackPage 
@@ -95,8 +91,8 @@ barney.Newton = new function(){
      * <pre>
      * 
      *   barney.Newton.trackPage({
-     *      title: 'page_pitle',
-     *      URL: 'http://page_url'
+     *      title: 'Category Page Title',
+     *      URL: 'category/7888'
      *  });
      *
      * </pre>
@@ -120,7 +116,8 @@ barney.Newton = new function(){
      *
      * @description Track an event.
      *
-     * @param {Object} options Event details (i.e: ClickEvent, ShareEvent, ...)
+     * @param {String} event name of the event
+     * @param {Object} options parameters of the event
      *
      * @example
      * # Newton trackEvent 
@@ -128,7 +125,9 @@ barney.Newton = new function(){
      * <pre>
      * 
      *   barney.Newton.trackEvent('Click', {
-     *      title: 'generated_event'
+     *      category: 'Category Page',
+     *      label: 'Music',
+     *      valuable: 'yes'
      *  });
      *
      * </pre>
@@ -151,10 +150,10 @@ barney.Newton = new function(){
      * @name newton#startHeartbeat
      * @methodOf newton
      *
-     * @description Start a single Heartbeat.
+     * @description Start a single heartbeat.
      *
-     * @param {string} keyword Heartbeat name
-     * @param {Object} options Heartbeat details
+     * @param {string} keyword name of the heartbeat
+     * @param {Object} [options={}] parameters of the heartbeat
      *
      * @example
      * # Newton startHeartbeat 
@@ -194,10 +193,10 @@ barney.Newton = new function(){
      * @name newton#stopHeartbeat
      * @methodOf newton
      *
-     * @description Stop a single Heartbeat.
+     * @description Stop a single heartbeat.
      *
-     * @param {string} keyword Heartbeat name
-     * @param {Object} options Heartbeat details (can be also an empty object)
+     * @param {string} keyword name of the heartbeat
+     * @param {Object} [options={}] parameters of the heartbeat
      *
     */
 
@@ -256,9 +255,10 @@ barney.Newton = new function(){
      * @name newton#isHeartbeatEnabled
      * @methodOf newton
      *
-     * @description Check if an heartbeat is running or not, returning true or false.
+     * @description Check if an heartbeat is enabled.
      *
-     * @param {string} keyword Heartbeat name
+     * @param {string} keyword name of the heartbeat
+     * @return {boolean} true if heartbeat is enabled and running, else false
      *
     */
 

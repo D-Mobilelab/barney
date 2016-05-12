@@ -17,7 +17,7 @@
  * <pre>
  * <script type="text/javascript" src="./bower_components/barney/base/analytics.js"> 
  * </pre>
- * Now you can use global object **barney.analytics** and associated methods, described below. <br/>
+ * Now you can use global object **barney.Analytics** and associated methods, described below. <br/>
  * You can start by initializing it with {@link analytics#methods_init init} method.
  *
  * ## Angular
@@ -49,7 +49,7 @@ barney.Analytics = new function(){
      * @name analytics#init
      * @methodOf analytics
      *
-     * @description Init analytics service
+     * @description Init analytics module.
      *
      * @param {Object} options list of options
      * @param {boolean} [options.enabled=true] enable/disable tracking on Google Analytics
@@ -61,7 +61,7 @@ barney.Analytics = new function(){
      * # Logger 
      * Logger with window.console
      * <pre>
-     * barney.analytics.init({
+     * barney.Analytics.init({
      *      verbose: true,
      *      logger: $window.console
      * });
@@ -71,7 +71,7 @@ barney.Analytics = new function(){
      * <pre>
      * barney.logger.init({ enabled: true });
      *          
-     * barney.analytics.init({
+     * barney.Analytics.init({
      *      verbose: true,
      *      logger: barney.logger
      * });
@@ -90,7 +90,7 @@ barney.Analytics = new function(){
      * In this example, I set two custom dimensions ("UserStatus" with slot number 1 
      * and "Valuable" with slot number 5):
      * <pre>
-     * barney.analytics.init({
+     * barney.Analytics.init({
      *     dimensions: {
      *         UserStatus : 1,
      *         Valuable : 5
@@ -154,14 +154,14 @@ barney.Analytics = new function(){
      * and, after, you have to use same custom dimension name.
      * <pre>
      * // before, I save UserStatus and Valuable custom dimensions with slot "1" and "5"
-     * barney.analytics.init({
+     * barney.Analytics.init({
      *     dimensions: {
      *         UserStatus: 1
      *     }
      * });
      *   
      * // after, I set UserStatus custom dimension with value "logged"
-     * barney.analytics.setDimension({
+     * barney.Analytics.setDimension({
      *     UserStatus : 'logged'
      * });
      * </pre>
@@ -198,7 +198,7 @@ barney.Analytics = new function(){
      *
      * @example
      * <pre>
-     * barney.analytics.trackPage({
+     * barney.Analytics.trackPage({
      *     page : '/category/7888',
      *     title: 'Category 7888 Page',
      *     dimensions: {
@@ -253,7 +253,7 @@ barney.Analytics = new function(){
      *
      * @example
      * <pre>
-     * barney.analytics.trackEvent({
+     * barney.Analytics.trackEvent({
      *     category: 'UI',
      *     action: 'open',
      *     label: 'menu',

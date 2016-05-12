@@ -17,7 +17,7 @@
 <pre class="prettyprint linenums">
 &lt;script type="text/javascript" src="./bower_components/barney/base/analytics.js"&gt; 
 </pre>
-Now you can use global object <strong>barney.analytics</strong> and associated methods, described below. <br/>
+Now you can use global object <strong>barney.Analytics</strong> and associated methods, described below. <br/>
 You can start by initializing it with <a href="#/api/analytics#methods_init">init</a> method.</p>
 <h4 id="description_import-&amp;-usage_angular">Angular</h4>
 <p>Import this single file to use Analytics module, in Angular framework:
@@ -32,7 +32,7 @@ Analytics module for Angular contains only <a href="#/api/analytics.BarneyAnalyt
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
 <ul class="methods"><li><h3 id="methods_init">init(options)</h3>
-<div class="init"><div class="analytics-init-page"><p>Init analytics service</p>
+<div class="init"><div class="analytics-init-page"><p>Init analytics module.</p>
 </div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="analytics-init-page"><p>list of options</p>
 </div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>enabled</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="analytics-init-page"><p>enable/disable tracking on Google Analytics</p>
 </div> <p><em>(default: true)</em></p></td></tr><tr><td>verbose</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="analytics-init-page"><p>enable/disable verbose mode, with logging</p>
@@ -42,7 +42,7 @@ Analytics module for Angular contains only <a href="#/api/analytics.BarneyAnalyt
 <div class="example"><div class="analytics-init-page"><h5 id="methods_init_example_logger">Logger</h5>
 <p>Logger with window.console
 <pre class="prettyprint linenums">
-barney.analytics.init({
+barney.Analytics.init({
      verbose: true,
      logger: $window.console
 });
@@ -51,7 +51,7 @@ barney.analytics.init({
 <pre class="prettyprint linenums">
 barney.logger.init({ enabled: true });
          
-barney.analytics.init({
+barney.Analytics.init({
      verbose: true,
      logger: barney.logger
 });
@@ -66,7 +66,7 @@ of the custom dimension assigned from Google Analytics before.</p>
 <p>In this example, I set two custom dimensions (&quot;UserStatus&quot; with slot number 1 
 and &quot;Valuable&quot; with slot number 5):
 <pre class="prettyprint linenums">
-barney.analytics.init({
+barney.Analytics.init({
     dimensions: {
         UserStatus : 1,
         Valuable : 5
@@ -84,14 +84,14 @@ barney.analytics.init({
 and, after, you have to use same custom dimension name.
 <pre class="prettyprint linenums">
 // before, I save UserStatus and Valuable custom dimensions with slot "1" and "5"
-barney.analytics.init({
+barney.Analytics.init({
     dimensions: {
         UserStatus: 1
     }
 });
   
 // after, I set UserStatus custom dimension with value "logged"
-barney.analytics.setDimension({
+barney.Analytics.setDimension({
     UserStatus : 'logged'
 });
 </pre>
@@ -113,7 +113,7 @@ barney.analytics.setDimension({
 </div></td></tr><tr><td>dimensions</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="analytics-trackevent-page"><p>list of custom dimensions for this event tracking, where <em>key</em> is custom dimension name and <em>value</em> is custom dimension value</p>
 </div></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_trackevent_example">Example</h4>
 <div class="example"><div class="analytics-trackevent-page"><pre class="prettyprint linenums">
-barney.analytics.trackEvent({
+barney.Analytics.trackEvent({
     category: 'UI',
     action: 'open',
     label: 'menu',
@@ -135,7 +135,7 @@ Note: the custom dimension (in this example Valuable) has to defined in init met
 </div></td></tr><tr><td>dimensions</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="analytics-trackpage-page"><p>list of custom dimensions for this page tracking,  where <em>key</em> is custom dimension name and <em>value</em> is custom dimension value</p>
 </div></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_trackpage_example">Example</h4>
 <div class="example"><div class="analytics-trackpage-page"><pre class="prettyprint linenums">
-barney.analytics.trackPage({
+barney.Analytics.trackPage({
     page : '/category/7888',
     title: 'Category 7888 Page',
     dimensions: {
