@@ -3,7 +3,7 @@
  * @name newton
  *
  * @description
- * Newton is the module for Newton.
+ * **Newton** is the module for **Newton**.
  *
  * You can use it to:
  * - track a page
@@ -20,7 +20,7 @@
  * You can start by initializing it with {@link newton#methods_init init} method.
  *
  * ## Angular
- * Import this single file to use Newton module, in Angular framework:
+ * Import this single file to use **Newton** module, in Angular framework:
  * <pre>
  * <script type="text/javascript" src="./bower_components/barney/angular/newton.js"> 
  * </pre>
@@ -28,7 +28,7 @@
  * <pre>
  * angular.module('yourApp', [ 'barney' ]);
  * </pre>
- * Newton module for Angular contains only {@link newton.BarneyNewton BarneyNewton service}.
+ * **Newton** module for Angular contains only {@link newton.BarneyNewton BarneyNewton service}.
  */
 
 barney.Newton = new function(){
