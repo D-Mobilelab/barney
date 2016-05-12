@@ -27,8 +27,8 @@ NG_DOCS={
       "shortName": "newton",
       "type": "object",
       "moduleName": "newton",
-      "shortDescription": "Newton is the module for Newton.",
-      "keywords": "action angular api app associated atestheart barney barneylogger barneynewton check click clickevent console described details disable empty enable enabled event example false file framework full function generated_event global heartbeat heartbeats heartbeatslist http import init initializing isheartbeatenabled js keyword label list logger logging logs method methods methods_init mode module newton null object options page_pitle page_title returning running service shareevent single src start startheartbeat stopallheartbeat stopheartbeat text timespent title track trackevent tracking trackpage true type url usage valuable vanilla verbose view website window works yourapp"
+      "shortDescription": "Newton is the module for Newton library.",
+      "keywords": "action angular api app associated atestheart barney barneynewton category check click described details enable enabled event events example false file framework function global heartbeat heartbeats heartbeatslist import init initializing isheartbeatenabled js keyword label library list logger logging method methods methods_init mode module music newton object options page_title parameters running service single site spent src start startheartbeat stopallheartbeat stopheartbeat text time timespent title track trackevent tracking trackpage true type url usage valuable vanilla verbose view yourapp"
     },
     {
       "section": "api",
