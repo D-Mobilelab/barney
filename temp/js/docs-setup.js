@@ -23,6 +23,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "newton",
+      "shortName": "newton",
+      "type": "object",
+      "moduleName": "newton",
+      "shortDescription": "Newton is the module for Newton.",
+      "keywords": "action angular api app associated atestheart barney barneylogger barneynewton check click clickevent console described details disable empty enable enabled event example false file framework full function generated_event global heartbeat heartbeats heartbeatslist http import init initializing isheartbeatenabled js keyword label list logger logging logs method methods methods_init mode module newton null object options page_pitle page_title returning running service shareevent single src start startheartbeat stopallheartbeat stopheartbeat text timespent title track trackevent tracking trackpage true type url usage valuable vanilla verbose view website window works yourapp"
+    },
+    {
+      "section": "api",
+      "id": "newton.BarneyNewton",
+      "shortName": "newton.BarneyNewton",
+      "type": "object",
+      "moduleName": "newton",
+      "shortDescription": "Angular service of Newton module.",
+      "keywords": "add angular api barneynewton component controller dependency function heartbeatslist homepagecontroller import init isheartbeatenabled method methods_heartbeatslist methods_init methods_isheartbeatenabled methods_startheartbeat methods_stopallheartbeat methods_stopheartbeat methods_trackevent methods_trackpage mock module newton object refer replacing service startheartbeat stopallheartbeat stopheartbeat trackevent trackpage usage"
+    },
+    {
+      "section": "api",
       "id": "welcome",
       "shortName": "welcome",
       "type": "overview",
