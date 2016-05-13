@@ -63,6 +63,10 @@ angular.module('example', [
 				templateUrl: 'pages/livehtml.html',
 				controller: 'LivehtmlCtrl'
 			})
+			.when('/promise', {
+				templateUrl: 'pages/promise.html',
+				controller: 'PromiseCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
