@@ -43,9 +43,9 @@ barney.Storage = new function(){
     };
 
     var storages = {
-        'cookie': barney.StorageBiscuit,
-        'localStorage': barney.StorageDepot,
-        'jsObject': barney.StorageChicken
+        'cookie': barney.StorageCookie,
+        'localStorage': barney.StorageLocal,
+        'jsObject': barney.StorageJsObject
     };
 
     /**
@@ -117,6 +117,7 @@ barney.Storage = new function(){
      */
     this.set = function(key, value, options){
         if(!!options && !!options.type){
+            console.log(storages, storages[options.type], options.type);
             storages[options.type].set(key, value, options);
         } else {
             selectedStorage.set(key, value, options);
@@ -239,7 +240,7 @@ barney.Storage = new function(){
      * 
      * In this example I delete from cookie the key called 'key';
      * <pre>
-     * barney.Storage.delete('key', {type: Cookie});
+     * barney.Storage.delete('key', {type: 'cookie'});
      * </pre>
      * 
      */
