@@ -41,13 +41,13 @@ barney.Newton = new function(){
     };
 
 
-    this.trackEvent = function(event, options){
+    this.trackEvent = function(eventName, options){
         if(enabled){
-            Newton.getSharedInstance().sendEvent(event, Newton.SimpleObject.fromJSONObject(options));
+            Newton.getSharedInstance().sendEvent(eventName, Newton.SimpleObject.fromJSONObject(options));
         }
 
         if(verbose){
-            logger.log('BarneyNewton', 'track', event, options);
+            logger.log('BarneyNewton', 'track', eventName, options);
         }
     };
 
@@ -63,7 +63,7 @@ barney.Newton = new function(){
 
             heartbeats[keyword] = true;
         } else {
-            if(verbose && heartbeats[keyword].enabled == true){
+            if(verbose){
                 logger.warn('BarneyNewton', 'heartbeat', 'start', keyword + ' is already running');
             }
         }    
@@ -101,7 +101,7 @@ barney.Newton = new function(){
         return heartbeats;
     };
 
-    this.getSingleHeartbeat = function(keyword){
+    this.isHeartbeatEnabled = function(keyword){
         return heartbeats[keyword];
     };
 
@@ -139,8 +139,8 @@ angular.module('barney').factory('BarneyNewton', function(){
         return barney.Newton.heartbeatsList();
     };
 
-    this.getSingleHeartbeat = function(keyword){
-        return barney.Newton.getSingleHeartbeat(keyword);
+    this.isHeartbeatEnabled = function(keyword){
+        return barney.Newton.isHeartbeatEnabled(keyword);
     };
 
     return this;

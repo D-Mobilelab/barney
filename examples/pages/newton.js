@@ -40,7 +40,7 @@ angular.module('example').controller('NewtonCtrl', [
 		};
 
 		$scope.startBeat('atestheart');
-		console.log('an Heartbeat: ',NewtonAdp.getSingleHeartbeat('atestheart'));
+		console.log('an Heartbeat: ',NewtonAdp.isHeartbeatEnabled('atestheart'));
 
 		var stopAllBeat = function(){
 			NewtonAdp.stopAllHeartbeat();
