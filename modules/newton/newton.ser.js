@@ -105,7 +105,7 @@ angular.module('barney').factory('BarneyNewton', function(){
      * @description Refer to {@link newton#methods_isHeartbeatEnabled isHeartbeatEnabled} method of Newton module, replacing *barney.Newton* to *BarneyNewton*.
      */
     this.isHeartbeatEnabled = function(keyword){
-        return barney.Newton.getSingleHeartbeat(keyword);
+        return barney.Newton.isHeartbeatEnabled(keyword);
     };
 
     return this;
