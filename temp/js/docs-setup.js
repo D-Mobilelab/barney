@@ -41,6 +41,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "promise",
+      "shortName": "promise",
+      "type": "object",
+      "moduleName": "promise",
+      "shortDescription": "PromiseLite is a light, browser-friendly implementation of JavaScript promises. ",
+      "keywords": "allow angular answer api app applied argument array associated bare barney barneypromise block blocks browser-friendly browsers chain close compatibility console corresponds created data described documentation dot error executed executor executors fail failed file force forced framework fulfilled function global implementation import info instance instances invoke javascript js keywords light list log message method methods missing module mozilla notation object open ops org outputs p1 p2 p3 pall promise promiselist promiselite promises race raised random read reason reasons reject rejected resolve resolved resolving returned screen service settimeout settled single src takes text type usage vanilla var won worked yay yourapp"
+    },
+    {
+      "section": "api",
+      "id": "promise.BarneyPromise",
+      "shortName": "promise.BarneyPromise",
+      "type": "object",
+      "moduleName": "promise",
+      "shortDescription": "Angular service of Promise module.",
+      "keywords": "add angular api barneypromise component controller dependency function homepagecontroller import method methods_all methods_any methods_race mock module object promise race refer replacing service usage"
+    },
+    {
+      "section": "api",
       "id": "welcome",
       "shortName": "welcome",
       "type": "overview",
