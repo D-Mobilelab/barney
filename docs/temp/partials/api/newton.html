@@ -1,22 +1,118 @@
-<h1><code ng:non-bindable=""></code>
+<h1><code ng:non-bindable="">newton</code>
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="newton-page"><h2 id="newton">Newton</h2>
-<p>Newton is the module of Barney that allows you to track events and pages with Newton library</p>
-<h2 id="components">Components</h2>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="newton-page"><p>Newton is the module for Newton library.</p>
+<p>You can use it to:</p>
 <ul>
-<li><a href="#/api/newton.BarneyNewton">BarneyNewton</a></li>
+<li>track a page</li>
+<li>track an event</li>
+<li>track the timespent between two events (heartbeat, time spent on site/page)</li>
 </ul>
-<h2 id="usage">Usage</h2>
-<p>To use <strong>Newton</strong> module you have to include the <strong>Newton</strong> javascript file in your index.html:</p>
+<h3 id="description_import-&amp;-usage">Import &amp; Usage</h3>
+<h4 id="description_import-&amp;-usage_vanilla-js">Vanilla JS</h4>
+<p>Import this single file to use Newton module, in Vanilla JS:
+<pre class="prettyprint linenums">
+&lt;script type="text/javascript" src="./bower_components/barney/base/newton.js"&gt; 
+</pre>
+Now you can use global object <strong>barney.Newton</strong> and associated methods, described below. <br/>
+You can start by initializing it with <a href="#/api/newton#methods_init">init</a> method.</p>
+<h4 id="description_import-&amp;-usage_angular">Angular</h4>
+<p>Import this single file to use Newton module, in Angular framework:
+<pre class="prettyprint linenums">
+&lt;script type="text/javascript" src="./bower_components/barney/angular/newton.js"&gt; 
+</pre>
+Now you can import <strong>barney</strong> module for your Angular app.
+<pre class="prettyprint linenums">
+angular.module('yourApp', [ 'barney' ]);
+</pre>
+Newton module for Angular contains only <a href="#/api/newton.BarneyNewton">BarneyNewton service</a>.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_heartbeatslist">heartbeatsList()</h3>
+<div class="heartbeatslist"><div class="newton-heartbeatslist-page"><p>Get the list of all running heartbeats.</p>
+</div></div>
+</li>
+<li><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="newton-init-page"><p>Init newton module.</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-init-page"><p>list of options</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>enabled</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="newton-init-page"><p>enable/disable tracking on Newton</p>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>verbose</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="newton-init-page"><p>enable/disable verbose mode, with logging</p>
+</div> <p><em>(default: false)</em></p></td></tr><tr><td>logger</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-init-page"><p>logging methods to use for verbose mode</p>
+</div> <p><em>(default: {})</em></p></td></tr></tbody></table></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_isheartbeatenabled">isHeartbeatEnabled(keyword)</h3>
+<div class="isheartbeatenabled"><div class="newton-isheartbeatenabled-page"><p>Check if an heartbeat is enabled.</p>
+</div><h5 id="methods_isheartbeatenabled_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>keyword</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-isheartbeatenabled-page"><p>name of the heartbeat</p>
+</div></td></tr></tbody></table><h5 id="methods_isheartbeatenabled_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="newton-isheartbeatenabled-page"><p>true if heartbeat is enabled and running, else false</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_startheartbeat">startHeartbeat(keyword, options)</h3>
+<div class="startheartbeat"><div class="newton-startheartbeat-page"><p>Start a single heartbeat.</p>
+</div><h5 id="methods_startheartbeat_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>keyword</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-startheartbeat-page"><p>name of the heartbeat</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-startheartbeat-page"><p>parameters of the heartbeat</p>
+</div> <p><em>(default: {})</em></p></td></tr></tbody></table><h4 id="methods_startheartbeat_example">Example</h4>
+<div class="example"><div class="newton-startheartbeat-page"><h5 id="methods_startheartbeat_example_newton-startheartbeat">Newton startHeartbeat</h5>
+<p>Here is an example of the startHeartbeat method.
 <pre class="prettyprint linenums">
 
-  &lt;!-- Newton module --&gt;
-  &lt;script type="text/javascript" src="./bower_components/barney/dist/newton.min.js"&gt; 
+  barney.Newton.startHeartbeat('aTestHeart', {
+     label: 'page_title',
+     valuable: 'no',
+     action: 'no'
+  });
 
 </pre>
-<h2 id="init-newton">Init Newton</h2>
-<p>Before using Newton module, it must be initialized. 
-To initialize Newton you can use the Newton method <a href="#/api/newton.BarneyNewton#methods_init">init</a>.</p>
 </div></div>
+</div>
+</li>
+<li><h3 id="methods_stopallheartbeat">stopAllHeartbeat()</h3>
+<div class="stopallheartbeat"><div class="newton-stopallheartbeat-page"><p>Stop all running heartbeats.</p>
+</div></div>
+</li>
+<li><h3 id="methods_stopheartbeat">stopHeartbeat(keyword, options)</h3>
+<div class="stopheartbeat"><div class="newton-stopheartbeat-page"><p>Stop a single heartbeat.</p>
+</div><h5 id="methods_stopheartbeat_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>keyword</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-stopheartbeat-page"><p>name of the heartbeat</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-stopheartbeat-page"><p>parameters of the heartbeat</p>
+</div> <p><em>(default: {})</em></p></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_trackevent">trackEvent(event, options)</h3>
+<div class="trackevent"><div class="newton-trackevent-page"><p>Track an event.</p>
+</div><h5 id="methods_trackevent_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>event</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="newton-trackevent-page"><p>name of the event</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-trackevent-page"><p>parameters of the event</p>
+</div></td></tr></tbody></table><h4 id="methods_trackevent_example">Example</h4>
+<div class="example"><div class="newton-trackevent-page"><h5 id="methods_trackevent_example_newton-trackevent">Newton trackEvent</h5>
+<p>Here is an example of the trackEvent method.
+<pre class="prettyprint linenums">
+
+  barney.Newton.trackEvent('Click', {
+     category: 'Category Page',
+     label: 'Music',
+     valuable: 'yes'
+ });
+
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_trackpage">trackPage(options)</h3>
+<div class="trackpage"><div class="newton-trackpage-page"><p>Track a page view event.</p>
+</div><h5 id="methods_trackpage_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-trackpage-page"><p>details of the page</p>
+</div></td></tr></tbody></table><h4 id="methods_trackpage_example">Example</h4>
+<div class="example"><div class="newton-trackpage-page"><h5 id="methods_trackpage_example_newton-trackpage">Newton trackPage</h5>
+<p>Here is an example of the trackPage method.
+<pre class="prettyprint linenums">
+
+  barney.Newton.trackPage({
+     title: 'Category Page Title',
+     URL: 'category/7888'
+ });
+
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
