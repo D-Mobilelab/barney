@@ -59,6 +59,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "storage",
+      "shortName": "storage",
+      "type": "object",
+      "moduleName": "storage",
+      "shortDescription": "Storage is the module for all the type of storage.",
+      "keywords": "alert angular api app array associated attributes barney barneylogger barneystorage browser called check console cookie data default define defined delete deletes described example file framework function getmultiple global identify import init initializing islocalstoragesupported js jsobject key key1 key2 local localstorage log logger method methods methods_init module multiple object options param params save service set setmultiple sets single src start storage storages store stored stores support supported text type usage values vanilla window yourapp"
+    },
+    {
+      "section": "api",
+      "id": "storage.BarneyStorage",
+      "shortName": "storage.BarneyStorage",
+      "type": "object",
+      "moduleName": "storage",
+      "shortDescription": "Angular service of Storage module",
+      "keywords": "add angular api barneystorage component controller delete dependency function getmultiple homepagecontroller import init islocalstoragesupported method methods_delete methods_get methods_getmultiple methods_init methods_islocalstoragesupported methods_set methods_setmultiple mock module object refer replacing service set setmultiple storage usage"
+    },
+    {
+      "section": "api",
       "id": "welcome",
       "shortName": "welcome",
       "type": "overview",
