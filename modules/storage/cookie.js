@@ -1,6 +1,6 @@
-barney.StorageBiscuit = new function(){
+barney.StorageCookie = new function(){
 
-    // Biscuit: cookie-based storage
+    // Cookie: cookie-based storage
 
     var tryParse = function(value){
         try { 

@@ -1,4 +1,4 @@
-barney.StorageDepot = new function(){
+barney.StorageLocal = new function(){
 
     var tryParse = function(value){
         try { 
