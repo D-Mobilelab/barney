@@ -322,7 +322,7 @@ barney.Analytics = new function(){
  * </pre>
  */
 
- angular.module('barney').factory('BarneyAnalytics', [
+angular.module('barney').factory('BarneyAnalytics', [
     function(){
 
         /**
