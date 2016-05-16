@@ -36,9 +36,7 @@ module.exports = function(config) {
       "dist/angular/**/*.js",
 
       // test
-      // "test/modules/*.test.js",
-      "test/modules/analytics.test.js",      
-      "test/modules/newton.test.js",      
+      "test/modules/*.test.js"   
 
       // END YOUR JS FILES
     ],
