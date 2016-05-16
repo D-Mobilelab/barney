@@ -82,19 +82,19 @@
  * </pre>
  */
 
- barney.Promise = function(){
+barney.Promise = function(){
 
     var PROMISE_STATUS = {
         0: 'pending',
         1: 'fulfilled',
         2: 'rejected'
-    }
+    };
 
     var PASS = function(arg){
         return arg;
-    }
+    };
 
-    var PrivatePromise = function(executor, nextProm){
+    var PrivatePromise = function(executor, nextProm, resolveMaxTimes){
 
         // executor called at the end of the definition of Promise
         if (typeof executor !== 'undefined' && typeof executor !== 'function'){
@@ -105,15 +105,17 @@
         var promiseStatusIndex = 0;
         var promiseValue;
         var promiseReason;
+        var maxTimesResolved = resolveMaxTimes || 1;
+        var timesResolved = 0;
         var next = nextProm || [];
 
         var getValue = function(){
             return promiseValue;
-        }
+        };
 
         var getReason = function(){
             return promiseReason;
-        }
+        };
 
         /**
         * Returns whether the current PromiseLite instance is in a "pending" state
@@ -122,7 +124,7 @@
         */
         this.isPending = function(){
             return promiseStatusIndex === 0;
-        }
+        };
 
         /**
         * Returns whether the current PromiseLite instance is in a "fulfilled" state
@@ -131,7 +133,7 @@
         */
         this.isFulfilled = function(){
             return promiseStatusIndex === 1;
-        }
+        };
 
         /**
         * Returns whether the current PromiseLite instance is in a "rejected" state
@@ -140,7 +142,7 @@
         */
         this.isRejected = function(){
             return promiseStatusIndex === 2;
-        }
+        };
 
         /**
         * Returns whether the current PromiseLite instance is in a "settled" state (fulfilled or rejected)
@@ -149,7 +151,7 @@
         */
         this.isSettled = function(){
             return (promiseStatusIndex === 1) || (promiseStatusIndex === 2);
-        }
+        };
 
         /**
         * Returns the state of the current PromiseLite instance as a string
@@ -158,9 +160,9 @@
         */
         this.getStatus = function(){
             return PROMISE_STATUS[promiseStatusIndex];
-        }
+        };
 
-        var immediatelyFulfill = function(success, error){
+        var immediatelyFulfill = function(success, error, deferred){
 
             return new PrivatePromise(function(res, rej){
                 try {
@@ -169,31 +171,31 @@
                     // if we're trying to pass the error to the next node of the chain
                     // but the next node of the chain is undefined
                     // throw error, otherwise pass it forward through the chain
-                    if (error == PASS && next.length == 0){
+                    if (error === PASS && deferred.length === 0){
                         throw err;
                     } else {
                         rej(error(err));   
                     }
                 }
-            }, next);
+            }, deferred);
 
-        }
+        };
 
-        var immediatelyReject = function(error){
+        var immediatelyReject = function(error, deferred){
 
             return new PrivatePromise(function(res, rej){
                 try {
                     rej(error(getReason()));
                 } catch (err){
-                    if (next.length == 0){
+                    if (deferred.length === 0){
                         throw err;
                     } else {
                         rej(PASS(err));   
                     }
                 }
-            }, next);
+            }, deferred);
             
-        }
+        };
 
         /**
         * Resolves the current PromiseLite instance
@@ -202,21 +204,28 @@
         * @param {any} value to which the current PromiseLite instance is resolved
         */
         this.resolve = function(value){
-            if (promiseStatusIndex !== 0){
-                return;
+            if (promiseStatusIndex === 2){
+                return promiseInstance;
             }
+
+            var maxTimesResolvedReached = !!maxTimesResolved && (timesResolved >= maxTimesResolved);
+            if (promiseStatusIndex === 1 && maxTimesResolvedReached){
+                return promiseInstance;
+            }
+
+            timesResolved += 1;
             promiseStatusIndex = 1;
             promiseValue = value;
 
             if (next.length > 0){
-                var toDo = next.shift();
-
+                var toDo = next[0];
+                var deferred = next.slice(1, next.length);
                 if (toDo.onSuccess === toDo.onError){
                     toDo.onError = PASS;
                 }
-                return immediatelyFulfill(toDo.onSuccess, toDo.onError);   
+                return immediatelyFulfill(toDo.onSuccess, toDo.onError, deferred);   
             }
-        }
+        };
 
         /**
         * Rejects the current PromiseLite instance
@@ -226,16 +235,17 @@
         */
         this.reject = function(reason){
             if (promiseStatusIndex === 2){
-                return;
+                return promiseInstance;
             }
             promiseStatusIndex = 2;
             promiseReason = reason;
 
             if (next.length > 0){
-                var toDo = next.shift();
-                return immediatelyReject(toDo.onError);
+                var toDo = next[0];
+                var deferred = next.slice(1, next.length);
+                return immediatelyReject(toDo.onError, deferred);
             }
-        }
+        };
 
         var addNext = function(onSuccess, onError){
 
@@ -251,7 +261,7 @@
                 onSuccess: onSuccess,
                 onError: onError
             });
-        }
+        };
 
         /**
         * Adds a then block to the current PromiseLite instance
@@ -273,7 +283,7 @@
             if (promiseInstance.isRejected()){
                 return immediatelyReject(onError);
             }
-        }
+        };
 
         /**
         * Adds a fail (catch) block to the current PromiseLite instance
@@ -283,7 +293,7 @@
         */
         this.fail = function(onError){
             return promiseInstance.then(undefined, onError);
-        }
+        };
 
         /**
         * Adds a force (finally) block to the current PromiseLite instance
@@ -293,21 +303,25 @@
         */
         this.force = function(callback){
             return promiseInstance.then(callback, callback);
-        }
+        };
 
         if (typeof executor === 'function'){
             executor(promiseInstance.resolve, promiseInstance.reject);
         }
 
-    }
+    };
 
     /**
     * PromiseLite public constructor
     * @class PromiseLite
+    * @param {function(resolve, reject)} [executor] the executor of this promise
+    * @param {number} [resolveMaxTimes=1] max number of times this promise can be resolved 
+        (accepts <i>Infinity</i> for promises that can be resolved an unlimited number of times)
     */
-    var PublicPromise = function(executor){
-        return new PrivatePromise(executor);
-    }
+    var PublicPromise = function(executor, resolveMaxTimes){
+        return new PrivatePromise(executor, undefined, resolveMaxTimes);
+    };
+
 
     /**
      * @ngdoc function
@@ -344,14 +358,14 @@
                 }
             }
 
-            if (counted == promiseCount){
+            if (counted === promiseCount){
                 promiseAll.resolve(results);
             }
-        }
+        };
         
         var promise;
         
-        for (var i=0; i<promiseList.length; i++){
+        for (var i = 0; i < promiseList.length; i ++){
             promise = promiseList[i];
             
             (function(num, prom){
@@ -368,7 +382,7 @@
         }
 
         return promiseAll;
-    }
+    };
 
     /**
      * @ngdoc function
@@ -397,7 +411,7 @@
         var reasons = new Array(promiseCount);
         
         var promise;
-        for (var i=0; i<promiseList.length; i++){
+        for (var i = 0; i < promiseList.length; i ++){
             promise = promiseList[i];
             
             (function(num, prom){
@@ -412,7 +426,7 @@
         }
 
         return promiseRace;
-    }
+    };
 
     /**
      * @ngdoc function
@@ -443,16 +457,16 @@
         var values = new Array(promiseCount);
 
         var allRejected = function(){
-            for (var j=0; j<promiseCount; j++){
+            for (var j = 0; j < promiseCount; j ++){
                 if (!rejected[j]){
                     return false;
                 }
             }
             return true;
-        }
+        };
 
         var promise;
-        for (var i=0; i<promiseList.length; i++){
+        for (var i = 0; i < promiseList.length; i ++){
             promise = promiseList[i];
             
             (function(num, prom){
@@ -471,8 +485,8 @@
         }
 
         return promiseAny;
-    }
+    };
 
     return PublicPromise;
 
-}
+};
