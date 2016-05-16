@@ -71,8 +71,8 @@ angular.module('barney').factory('BarneyNewton', function(){
      *
      * @description Refer to {@link newton#methods_stopHeartbeat stopHeartbeat} method of Newton module, replacing *barney.Newton* to *BarneyNewton*.
      */
-    this.stopHeartbeat = function(keyword){
-        barney.Newton.stopHeartbeat(keyword);
+    this.stopHeartbeat = function(keyword, options){
+        barney.Newton.stopHeartbeat(keyword, options);
     };
 
     /**
