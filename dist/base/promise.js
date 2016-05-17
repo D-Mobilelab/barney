@@ -83,7 +83,7 @@ if(!barney) { var barney = {}; }
  * </pre>
  */
 
-barney.Promise = function(){
+barney.Promise = (function(){
 
     var PROMISE_STATUS = {
         0: 'pending',
@@ -490,4 +490,4 @@ barney.Promise = function(){
 
     return PublicPromise;
 
-};
+})();

@@ -84,7 +84,7 @@ if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
  * </pre>
  */
 
-barney.Promise = function(){
+barney.Promise = (function(){
 
     var PROMISE_STATUS = {
         0: 'pending',
@@ -491,7 +491,7 @@ barney.Promise = function(){
 
     return PublicPromise;
 
-};
+})();
 /**
  * @ngdoc object
  * @name promise.BarneyPromise
@@ -538,6 +538,6 @@ angular.module('barney').factory('BarneyPromise', function(){
      * @description Refer to {@link promise#methods_any any} method of Promise module, replacing *barney.Promise* to *BarneyPromise*.
      */
 
-    return new barney.Promise();
+    return barney.Promise;
 
 });
