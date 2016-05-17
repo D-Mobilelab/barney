@@ -214,7 +214,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pAll = new PromiseLite.all([p1, p2, p3]);
+				var pAll = PromiseLite.all([p1, p2, p3]);
 
 				expect(pAll.isPending()).toBe(true);
 				
@@ -243,7 +243,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pAll = new PromiseLite.all([p1, p2, p3]);
+				var pAll = PromiseLite.all([p1, p2, p3]);
 
 				expect(pAll.isPending()).toBe(true);
 				
@@ -268,7 +268,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pAll = new PromiseLite.all([p1, p2, p3]);
+				var pAll = PromiseLite.all([p1, p2, p3]);
 
 				expect(pAll.isPending()).toBe(true);
 				
@@ -289,7 +289,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pAll = new PromiseLite.all([p1, p2, p3]);
+				var pAll = PromiseLite.all([p1, p2, p3]);
 
 				expect(pAll.isPending()).toBe(true);
 				
@@ -311,7 +311,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pRace = new PromiseLite.race([p1, p2, p3]);
+				var pRace = PromiseLite.race([p1, p2, p3]);
 
 				expect(pRace.isPending()).toBe(true);
 				
@@ -329,7 +329,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pRace = new PromiseLite.race([p1, p2, p3]);
+				var pRace = PromiseLite.race([p1, p2, p3]);
 
 				expect(pRace.isPending()).toBe(true);
 				
@@ -347,7 +347,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pRace = new PromiseLite.race([p1, p2, p3]);
+				var pRace = PromiseLite.race([p1, p2, p3]);
 
 				expect(pRace.isPending()).toBe(true);
 				
@@ -368,7 +368,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pRace = new PromiseLite.race([p1, p2, p3]);
+				var pRace = PromiseLite.race([p1, p2, p3]);
 
 				expect(pRace.isPending()).toBe(true);
 				
@@ -386,7 +386,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pRace = new PromiseLite.race([p1, p2, p3]);
+				var pRace = PromiseLite.race([p1, p2, p3]);
 
 				expect(pRace.isPending()).toBe(true);
 				
@@ -404,7 +404,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pRace = new PromiseLite.race([p1, p2, p3]);
+				var pRace = PromiseLite.race([p1, p2, p3]);
 
 				expect(pRace.isPending()).toBe(true);
 				
@@ -429,7 +429,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pAny = new PromiseLite.any([p1, p2, p3]);
+				var pAny = PromiseLite.any([p1, p2, p3]);
 
 				expect(pAny.isPending()).toBe(true);
 				
@@ -452,7 +452,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pAny = new PromiseLite.any([p1, p2, p3]);
+				var pAny = PromiseLite.any([p1, p2, p3]);
 
 				expect(pAny.isPending()).toBe(true);
 				
@@ -474,7 +474,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pAny = new PromiseLite.any([p1, p2, p3]);
+				var pAny = PromiseLite.any([p1, p2, p3]);
 
 				expect(pAny.isPending()).toBe(true);
 				
@@ -497,7 +497,7 @@ describe('PROMISE -', function () {
 				var p2 = new PromiseLite();
 				var p3 = new PromiseLite();
 
-				var pAny = new PromiseLite.any([p1, p2, p3]);
+				var pAny = PromiseLite.any([p1, p2, p3]);
 
 				expect(pAny.isPending()).toBe(true);
 				
@@ -520,6 +520,8 @@ describe('PROMISE -', function () {
 			it('should be executed when the promise is resolved', function(){
 				
 				var p1 = new PromiseLite();
+
+				console.log(">>>>>>>>>>>>>>>>>>>>>", p1)
 				
 				p1.force(function(value){
 					expect(value).toEqual(1);
