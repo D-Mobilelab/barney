@@ -8,54 +8,56 @@ angular.module('example').controller('NewtonCtrl', [
 			enabled: true
 		});
 
-		Newton.getSharedInstanceWithConfig({ secret: '<local_host>' });
-		Newton.getSharedInstance().setDebug(true);
-
 		NewtonAdp.init({
 			enabled: true,
 			verbose: true,
-			logger: Logger
-		});
-		
-		NewtonAdp.trackPage({
-			page: '/homepage',
-			title: 'Home Page'
-		});
-	
-		NewtonAdp.trackEvent('Azione', {
-			category: 'Categoria',
-			label: 'Etichetta',
-			value: 6,
-			Valuable: 'yes',
-			Action: 'yes'
+			logger: Logger,
+			secretid: '<local_host>'
 		});
 
-		$scope.startBeat = function(keyword){
-			NewtonAdp.startHeartbeat(keyword, {
-				category: 'Heartbeat',
-	            label: '<test>',
-	            valuable: 'No',
-	            action: 'No',
-	        });
-		};
+		NewtonAdp.customLogin({
+			userprops: { 
+				msisdn: '+39123456789' 
+			},
+			userid: '123456789',
+			callback: function(){ 
 
-		$scope.startBeat('atestheart');
-
-
-		var stopAllBeat = function(){
-			NewtonAdp.stopAllHeartbeat();
-		};
-
-		setTimeout(function(){
-			$scope.startBeat('secondheart');
-			$scope.startBeat('atestheart');
+				NewtonAdp.trackPage({
+					page: '/homepage',
+					title: 'Home Page'
+				});
 			
-			var a = NewtonAdp.heartbeatsList()
-			console.log('List: ', a);
-		}, 5000);
+				NewtonAdp.trackEvent('Azione', {
+					category: 'Categoria',
+					label: 'Etichetta',
+					value: 6,
+					Valuable: 'yes',
+					Action: 'yes'
+				});
 
-		setTimeout(function(){
-			stopAllBeat();
-		}, 20000); 
+				var startBeat = function(keyword){
+					NewtonAdp.startHeartbeat(keyword, {
+						category: 'Heartbeat',
+			            label: '<test>',
+			            valuable: 'No',
+			            action: 'No',
+			        });
+				};
+
+				startBeat('firstHeart');
+
+				setTimeout(function(){
+					startBeat('secondHeart');
+					startBeat('thirdHeart');
+					
+					console.log('List: ', NewtonAdp.heartbeatsList());
+				}, 5000);
+
+				setTimeout(function(){
+					NewtonAdp.stopAllHeartbeat();
+				}, 10000); 
+				
+			}
+		});
 	}
 ]);

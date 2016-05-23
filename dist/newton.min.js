@@ -63,9 +63,8 @@ angular.module('barney').factory('BarneyNewton', function(){
      * - **true**: log all the work
      * - **false**: do nothing
      *
-     * @param {Object} [options.logger=null]
-     *
-     * Object used to log (i.e: window.console, BarneyLogger, ...)
+     * @param {Object} [options.logger={}] Object used to log (i.e: window.console, BarneyLogger, ...)
+     * @param {string} options.secretid secret id
      *
      * @example
      * # Logger 
@@ -74,7 +73,8 @@ angular.module('barney').factory('BarneyNewton', function(){
      *   Newton.init({
      *      enabled: true,
      *      verbose: true,
-     *      logger: BarneyLogger
+     *      logger: BarneyLogger,
+     *      secretid: '<local_host>'
      *  });
      * </pre>
      * 
@@ -89,7 +89,8 @@ angular.module('barney').factory('BarneyNewton', function(){
      *         Newton.init({
      *             enabled: true,
      *             verbose: true,
-     *             logger: Logger
+     *             logger: Logger,
+     *             secretid: '<local_host>'
      *         });
      *   
      *     }
@@ -111,9 +112,50 @@ angular.module('barney').factory('BarneyNewton', function(){
         }
 
         if(this.verbose){
-            this.logger.log('BarneyNewton', 'init', this);
+            this.logger.log('BarneyNewton', 'init', options);
+        }
+
+        if(this.enabled && typeof(options.secretid) !== 'undefined'){
+            Newton.getSharedInstanceWithConfig(options.secretid);
         }
     };
+
+    /**
+     * @ngdoc function
+     * @name newton.BarneyNewton#customLogin
+     * @methodOf newton.BarneyNewton
+     *
+     * @description 
+     * This method is used to make custom login on Newton.
+     *
+     * @param {Object} options (see attributes below)
+     * @param {string} options.userid user id
+     * @param {Object} options.userprops user properties
+     * @param {function} options.callback callback called when login is successful
+     *
+     * @example
+     * <pre>
+     *   Newton.customLogin({
+     *      userprops: { msisdn: '+39123456789' },
+     *      callback: function(){ console.log('login successful') },
+     *      userid: '123456789'
+     *  });
+     * </pre>
+     */
+    this.customLogin = function(options){
+        if(this.verbose){
+            this.logger.log('BarneyNewton', 'customLogin', options);
+        }
+
+        if(this.enabled){
+            Newton.getSharedInstance().getLoginBuilder()
+                .setCustomData( Newton.SimpleObject.fromJSONObject(options.userprops) )
+                .setOnFlowCompleteCallback(options.callback)
+                .setCustomID(options.userid)
+                .getCustomLoginFlow()
+                .startLoginFlow();
+        }
+    }
 
     /**
      * @ngdoc function
@@ -140,7 +182,7 @@ angular.module('barney').factory('BarneyNewton', function(){
 
     this.trackPage = function(options){
         if(this.verbose){
-            this.logger.log('BarneyNewton', 'track', 'pageview', options);
+            this.logger.log('BarneyNewton', 'track pageview', options);
         }
 
         if(this.enabled){
@@ -176,7 +218,7 @@ angular.module('barney').factory('BarneyNewton', function(){
     // - options: opzioni dell'evento (per esempio category e label) 
     this.trackEvent = function(event, options){
         if(this.verbose){
-            this.logger.log('BarneyNewton', 'track', event, options);
+            this.logger.log('BarneyNewton', 'track event', event, options);
         }
 
         if(this.enabled){
@@ -214,6 +256,10 @@ angular.module('barney').factory('BarneyNewton', function(){
     */
 
     this.startHeartbeat = function(keyword, params){
+        if(this.verbose){
+            this.logger.log('BarneyNewton', 'start heartbeat', keyword, params);
+        }
+
         if(this.enabled){
             if(!heartbeats[keyword]){
                 heartbeatProperties = Newton.SimpleObject.fromJSONObject(params);
@@ -221,14 +267,10 @@ angular.module('barney').factory('BarneyNewton', function(){
 
                 if(heartbeats[keyword]){
                     Newton.getSharedInstance().timedEventStart(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
-
-                    if(this.verbose){
-                        this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STARTED _______/\\_/\\_', heartbeats[keyword].properties);
-                    }
                 }
             } else {
                 if(this.verbose){
-                    this.logger.warn('An heartbeat with \'' + heartbeats[keyword].keyWord + '\' is already running!');
+                    this.logger.warn('BarneyNewton', 'start heartbeat', 'An heartbeat called \'' + heartbeats[keyword].keyWord + '\' is already running!');
                 }
             }
         }        
@@ -260,17 +302,18 @@ angular.module('barney').factory('BarneyNewton', function(){
     */
 
     this.stopHeartbeat = function(keyword){
+        if(this.verbose){
+            this.logger.log('BarneyNewton', 'stop heartbeat', keyword);
+        }
+
         if(this.enabled){
             if(heartbeats[keyword]){
                 Newton.getSharedInstance().timedEventStop(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
 
-                if(this.verbose){
-                    this.logger.log(heartbeats[keyword].keyWord, 'HEARTBEAT STOPPED _/\\_/\\_______', heartbeats[keyword].properties);
-                }
-
                 var deleted = delete heartbeats[keyword];
-                if(deleted && this.verbose){
-                    this.logger.log('An heartbeat has Been removed from heartbeats!', heartbeats);
+            } else {
+                if(this.verbose){
+                    this.logger.warn('BarneyNewton', 'stop heartbeat', 'An heartbeat called \'' + heartbeats[keyword].keyWord + '\' doesn\'t exist!');
                 }
             }
         }
@@ -302,12 +345,13 @@ angular.module('barney').factory('BarneyNewton', function(){
     */
 
     this.stopAllHeartbeat = function(){
+        if(this.verbose){
+            this.logger.log('BarneyNewton', 'stop all heartbeat');
+        }
+
         if(this.enabled){
             for(var key in heartbeats){
                 this.stopHeartbeat(heartbeats[key].keyWord);
-            }
-            if(this.verbose){
-                this.logger.log('All heartbeats has been stopped!');
             }
         }
     };
@@ -334,10 +378,6 @@ angular.module('barney').factory('BarneyNewton', function(){
 
     this.heartbeatsList = function(){
         if(this.enabled){
-            if(this.verbose){
-                this.logger.log('HEARTBEAT __/\\_/\\__: ', heartbeats);
-            }   
-
             return heartbeats;
         } else {
             return undefined;
@@ -369,10 +409,6 @@ angular.module('barney').factory('BarneyNewton', function(){
 
     this.getSingleHeartbeat = function(keyword){
         if(this.enabled){
-            if(this.verbose){
-                this.logger.log('Single Heartbeat __/\\_/\\__: ', heartbeats[keyword]);
-            }
-
             return heartbeats[keyword];
         } else {
             return undefined;

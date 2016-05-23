@@ -82,7 +82,7 @@ describe('NEWTON -', function () {
 				dimensionFour: 'premium'
 			});
 
-			expect(logger.log).toHaveBeenCalledWith('BarneyNewton', 'track', 'pageview', {
+			expect(logger.log).toHaveBeenCalledWith('BarneyNewton', 'track pageview', {
 				page: '/category',
 				title: 'Category Page',
 				dimensionOne: 'logged',
@@ -116,7 +116,7 @@ describe('NEWTON -', function () {
 				dimensionFour: 'premium'
 			});
 
-			expect(logger.log).toHaveBeenCalledWith('BarneyNewton', 'track', 'bigBang', {
+			expect(logger.log).toHaveBeenCalledWith('BarneyNewton', 'track event', 'bigBang', {
 				page: '/category',
 				title: 'Category Page',
 				dimensionOne: 'logged',
