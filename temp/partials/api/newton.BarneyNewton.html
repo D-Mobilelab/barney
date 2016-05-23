@@ -28,7 +28,24 @@ Note that I included BarneyNewton as dependency but I have renamed it as Newton 
 </ul>
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><h3 id="methods_getsingleheartbeat">getSingleHeartbeat(keyword)</h3>
+<ul class="methods"><li><h3 id="methods_customlogin">customLogin(options)</h3>
+<div class="customlogin"><div class="newton-barneynewton-customlogin-page"><p>This method is used to make custom login on Newton.</p>
+</div><h5 id="methods_customlogin_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-customlogin-page"><p>(see attributes below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>userid</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-barneynewton-customlogin-page"><p>user id</p>
+</div></td></tr><tr><td>userprops</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-customlogin-page"><p>user properties</p>
+</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="newton-barneynewton-customlogin-page"><p>callback called when login is successful</p>
+</div></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_customlogin_example">Example</h4>
+<div class="example"><div class="newton-barneynewton-customlogin-page"><pre class="prettyprint linenums">
+Newton.customLogin({
+   userprops: { msisdn: '+39123456789' },
+   callback: function(){ console.log('login successful') },
+   userid: '123456789'
+});
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getsingleheartbeat">getSingleHeartbeat(keyword)</h3>
 <div class="getsingleheartbeat"><div class="newton-barneynewton-getsingleheartbeat-page"><p>This method is used to <strong>get a single heartbeat information, with its initial properties</strong>. 
 You can use this method to retrieve all the information of an heartbeat.</p>
 </div><h5 id="methods_getsingleheartbeat_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>keyword</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-barneynewton-getsingleheartbeat-page"><p>Newton heartbeat identifier</p>
@@ -75,14 +92,16 @@ You can use this method to retrieve all the heartbeats information.</p>
 <li><strong>false</strong>: do nothing</li>
 </ul>
 </div> <p><em>(default: true)</em></p></td></tr><tr><td>logger</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-init-page"><p>Object used to log (i.e: window.console, BarneyLogger, ...)</p>
-</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+</div> <p><em>(default: {})</em></p></td></tr><tr><td>secretid</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-barneynewton-init-page"><p>secret id</p>
+</div></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
 <div class="example"><div class="newton-barneynewton-init-page"><h5 id="methods_init_example_logger">Logger</h5>
 <p>Logger with window.console
 <pre class="prettyprint linenums">
   Newton.init({
      enabled: true,
      verbose: true,
-     logger: BarneyLogger
+     logger: BarneyLogger,
+     secretid: '&lt;local_host&gt;'
  });
 </pre>
 <p>Logger with BarneyLogger
@@ -96,7 +115,8 @@ angular.module('mock').controller('HomePageController', [
         Newton.init({
             enabled: true,
             verbose: true,
-            logger: Logger
+            logger: Logger,
+            secretid: '&lt;local_host&gt;'
         });
   
     }
