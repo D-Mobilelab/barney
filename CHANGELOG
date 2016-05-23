@@ -1,3 +1,6 @@
+** 2.6.0 **
+- Newton init now accepts secret id and have a new method customLogin()
+
 ** 2.5.1 **
 - Enable/disable heartbeat on flag
 

@@ -155,7 +155,7 @@ angular.module('barney').factory('BarneyNewton', function(){
                 .getCustomLoginFlow()
                 .startLoginFlow();
         }
-    }
+    };
 
     /**
      * @ngdoc function
@@ -309,8 +309,7 @@ angular.module('barney').factory('BarneyNewton', function(){
         if(this.enabled){
             if(heartbeats[keyword]){
                 Newton.getSharedInstance().timedEventStop(heartbeats[keyword].keyWord, heartbeats[keyword].properties);
-
-                var deleted = delete heartbeats[keyword];
+                delete heartbeats[keyword];
             } else {
                 if(this.verbose){
                     this.logger.warn('BarneyNewton', 'stop heartbeat', 'An heartbeat called \'' + heartbeats[keyword].keyWord + '\' doesn\'t exist!');
