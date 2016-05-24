@@ -90,7 +90,7 @@ barney.Promise = (function(){
         2: 'rejected'
     };
 
-    var PASS = function(arg){
+    var pass = function(arg){
         return arg;
     };
 
@@ -98,7 +98,7 @@ barney.Promise = (function(){
 
         // executor called at the end of the definition of Promise
         if (typeof executor !== 'undefined' && typeof executor !== 'function'){
-            throw 'PromiseLite :: executor must be a function, got ' + typeof executor;
+            throw new Error('PromiseLite :: executor must be a function, got ' + typeof executor);
         }
         
         var promiseInstance = this;
@@ -171,7 +171,7 @@ barney.Promise = (function(){
                     // if we're trying to pass the error to the next node of the chain
                     // but the next node of the chain is undefined
                     // throw error, otherwise pass it forward through the chain
-                    if (error === PASS && deferred.length === 0){
+                    if (error === pass && deferred.length === 0){
                         throw err;
                     } else {
                         rej(error(err));   
@@ -190,7 +190,7 @@ barney.Promise = (function(){
                     if (deferred.length === 0){
                         throw err;
                     } else {
-                        rej(PASS(err));   
+                        rej(pass(err));   
                     }
                 }
             }, deferred);
@@ -221,7 +221,7 @@ barney.Promise = (function(){
                 var toDo = next[0];
                 var deferred = next.slice(1, next.length);
                 if (toDo.onSuccess === toDo.onError){
-                    toDo.onError = PASS;
+                    toDo.onError = pass;
                 }
                 return immediatelyFulfill(toDo.onSuccess, toDo.onError, deferred);   
             }
@@ -250,11 +250,11 @@ barney.Promise = (function(){
         var addNext = function(onSuccess, onError){
 
             if (typeof onError === 'undefined'){
-                onError = PASS;
+                onError = pass;
             }
 
             if (typeof onSuccess === 'undefined'){
-                onSuccess = PASS;
+                onSuccess = pass;
             }
 
             next.push({

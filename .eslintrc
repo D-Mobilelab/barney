@@ -11,6 +11,8 @@
 		"comma-dangle": [2, "never"],
 		// warning if you use "for in" loop and include prototype properties of object
 		"guard-for-in": 1,
+		// warning if make function in a loop
+		"no-loop-func": 1,
 
 		/*** VARIABLES ***/
 		// you can declare variables in more lines
