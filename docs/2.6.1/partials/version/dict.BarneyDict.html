@@ -1,0 +1,154 @@
+<h1><code ng:non-bindable="">BarneyDict</code>
+<div><span class="hint">service in module <code ng:non-bindable="">dict</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="dict-barneydict-page"><p>To use Dict provider, you have to add BarneyDict dependency to your component (directive, controller...).
+In this example, I have added dependency of BarneyDict to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyDict', '$scope',
+    function(Dict, $scope){
+        // we can use "Dict" object here
+    }
+]);
+</pre>
+Note that I included BarneyDict as dependency but I have renamed it as Dict 
+to use it more easily in controller code.</p>
+<h3 id="description_list-methods">List Methods:</h3>
+<ul>
+<li><a href="#/version/dict.BarneyDict#methods_get">get</a></li>
+<li><a href="#/version/dict.BarneyDict#methods_init">init</a></li>
+<li><a href="#/version/dict.BarneyDict#methods_list">list</a></li>
+</ul>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_get">get(key)</h3>
+<div class="get"><div class="dict-barneydict-get-page"><p>Get value from dictionary key</p>
+</div><h5 id="methods_get_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="dict-barneydict-get-page"><p>dictionary key</p>
+</div></td></tr></tbody></table><h4 id="methods_get_example">Example</h4>
+<div class="example"><div class="dict-barneydict-get-page"><h5 id="methods_get_example_dict-get">Dict get</h5>
+<p>Dict as a provider 
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+'BarneyDict', '$scope',
+  function(Dict, $scope){
+
+     console.log(Dict.get('VALUED_KEY'));
+
+ }
+]);
+</pre>  </p>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="dict-barneydict-init-page"><p>Init dict service</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="dict-barneydict-init-page"><p>(see attributes below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>showKey</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="dict-barneydict-init-page"><ul>
+<li><strong>default</strong>: the dictionary module prints the value of the dictionary key if it&#39;s valued, 
+else it prints nothing</li>
+<li><strong>all</strong>:  the dictionary module prints the name of the key, for all keys 
+(valued and not valued keys)</li>
+<li><strong>missing</strong>: the dictionary module prints the value of the dictionary key if it&#39;s valued, 
+else it prints the name of the key</li>
+</ul>
+</div> <p><em>(default: 'default')</em></p></td></tr><tr><td>dict</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="dict-barneydict-init-page"><p>Contains the dictionary keys</p>
+</div> <p><em>(default: '')</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="dict-barneydict-init-page"><h5 id="methods_init_example_dict-init">Dict Init</h5>
+<p>if: 
+<pre class="prettyprint linenums">
+// Dict.existKey = 'Hello';
+// Dict.notExistKey = undefined; 
+</pre>
+<p>Dict with <strong><em>default</em></strong> showKey
+<pre class="prettyprint linenums">
+
+angular.module('mock').controller('HomePageController', [
+    'BarneyDict', '$window', '$scope',
+    function(Dict, $window, $scope){
+  
+        Dict.init({
+           showKey : 'default',
+           dict : {
+              ...,
+              'VALUED_KEY': 'Hello world!',
+              ...
+           }
+        });
+    }
+]);
+
+// DICT PRINTS:
+// Dict.existKey -&gt; Hello
+// Dict.notExistKey -&gt; 
+</pre>
+<p>Dict with <strong><em>all</em></strong> showKey
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyDict', '$window', '$scope',
+    function(Dict, $window, $scope){
+  
+        Dict.init({
+           showKey : 'all',
+           dict : {
+              ...,
+              'VALUED_KEY': 'Hello world!',
+              ...
+           }
+        });
+  
+    }
+]);
+
+// DICT PRINTS:
+// Dict.existKey -&gt; [[existKey]]
+// Dict.notExistKey -&gt; [[notExistKey]]
+</pre>
+<p>Dict with <strong><em>missing</em></strong> showKey
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyDict', '$window', '$scope',
+    function(Dict, $window, $scope){
+  
+        Dict.init({
+           showKey : 'missing',
+           dict : {
+              ...,
+              'VALUED_KEY': 'Hello world!',
+              ...
+           }
+        });
+  
+    }
+]);
+
+// DICT PRINTS:
+// Dict.existKey -&gt; Hello
+// Dict.notExistKey -&gt; [[notExistKey]]
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_list">list()</h3>
+<div class="list"><div class="dict-barneydict-list-page"><p>Get list of dictionary keys</p>
+</div><h4 id="methods_list_example">Example</h4>
+<div class="example"><div class="dict-barneydict-list-page"><h5 id="methods_list_example_dict-list">Dict list</h5>
+<p>This is an example of how to use list method.
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+'BarneyDict', '$scope',
+  function(Dict, $scope){
+
+     console.log(Dict.list());
+
+ }
+]);
+</pre>  </p>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
