@@ -9,11 +9,10 @@ angular.module('barney').directive('liveHtml',
             },
             link: function($scope, $element) {
 
-                var unbindWatcher = $scope.$watch('liveHtml', function(liveHtml) {
+                $scope.$watch('liveHtml', function(liveHtml) {
                     if(liveHtml){
                         $element.html(liveHtml);
                         $compile($element.contents())($scope.$parent);
-                        unbindWatcher();
                     }
                     
                 });
