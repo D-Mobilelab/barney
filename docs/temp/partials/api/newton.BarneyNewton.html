@@ -17,6 +17,7 @@ angular.module('mock').controller('HomePageController', [
 Note that I included BarneyNewton as dependency but I have renamed it as Newton to use it more easily in controller code.</p>
 <h3 id="description_list-method">List Method</h3>
 <ul>
+<li><a href="#/api/newton.BarneyNewton#methods_customlogin">customLogin</a></li>
 <li><a href="#/api/newton.BarneyNewton#methods_getsingleheartbeat">getSingleHeartbeat</a></li>
 <li><a href="#/api/newton.BarneyNewton#methods_heartbeatslist">heartbeatsList</a></li>
 <li><a href="#/api/newton.BarneyNewton#methods_init">init</a></li>
@@ -29,17 +30,25 @@ Note that I included BarneyNewton as dependency but I have renamed it as Newton 
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
 <ul class="methods"><li><h3 id="methods_customlogin">customLogin(options)</h3>
-<div class="customlogin"><div class="newton-barneynewton-customlogin-page"><p>This method is used to make custom login on Newton.</p>
+<div class="customlogin"><div class="newton-barneynewton-customlogin-page"><p>This method is used to make custom login on Newton. <br/>
+It&#39;s mandatory call this method, for all other methods.</p>
 </div><h5 id="methods_customlogin_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-customlogin-page"><p>(see attributes below)</p>
-</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>userid</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-barneynewton-customlogin-page"><p>user id</p>
-</div></td></tr><tr><td>userprops</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-customlogin-page"><p>user properties</p>
-</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="newton-barneynewton-customlogin-page"><p>callback called when login is successful</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>logged</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="newton-barneynewton-customlogin-page"><p>indicates if user is logged</p>
+</div></td></tr><tr><td>userid</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="newton-barneynewton-customlogin-page"><p>user id (only if user is logged)</p>
+</div></td></tr><tr><td>userprops</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="newton-barneynewton-customlogin-page"><p>user properties (only if user is logged)</p>
+</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="newton-barneynewton-customlogin-page"><p>callback called when login is successful (both for logged and unlogged)</p>
 </div></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_customlogin_example">Example</h4>
 <div class="example"><div class="newton-barneynewton-customlogin-page"><pre class="prettyprint linenums">
 Newton.customLogin({
+   logged: true,
    userprops: { msisdn: '+39123456789' },
    callback: function(){ console.log('login successful') },
    userid: '123456789'
+});
+
+Newton.customLogin({
+   logged: false,
+   callback: function(){ console.log('user is not logged') }
 });
 </pre>
 </div></div>

@@ -16,48 +16,57 @@ angular.module('example').controller('NewtonCtrl', [
 		});
 
 		NewtonAdp.customLogin({
+			logged: true,
 			userprops: { 
 				msisdn: '+39123456789' 
 			},
 			userid: '123456789',
 			callback: function(){ 
 
-				NewtonAdp.trackPage({
-					page: '/homepage',
-					title: 'Home Page'
-				});
-			
-				NewtonAdp.trackEvent('Azione', {
+				NewtonAdp.trackEvent('Azione_Callback', {
 					category: 'Categoria',
 					label: 'Etichetta',
 					value: 6,
 					Valuable: 'yes',
 					Action: 'yes'
 				});
-
-				var startBeat = function(keyword){
-					NewtonAdp.startHeartbeat(keyword, {
-						category: 'Heartbeat',
-			            label: '<test>',
-			            valuable: 'No',
-			            action: 'No',
-			        });
-				};
-
-				startBeat('firstHeart');
-
-				setTimeout(function(){
-					startBeat('secondHeart');
-					startBeat('thirdHeart');
-					
-					console.log('List: ', NewtonAdp.heartbeatsList());
-				}, 5000);
-
-				setTimeout(function(){
-					NewtonAdp.stopAllHeartbeat();
-				}, 10000); 
 				
 			}
 		});
+
+		NewtonAdp.trackPage({
+			page: '/homepage',
+			title: 'Home Page'
+		});
+	
+		NewtonAdp.trackEvent('Azione_Promise', {
+			category: 'Categoria',
+			label: 'Etichetta',
+			value: 6,
+			Valuable: 'yes',
+			Action: 'yes'
+		});
+
+		var startBeat = function(keyword){
+			NewtonAdp.startHeartbeat(keyword, {
+				category: 'Heartbeat',
+	            label: '<test>',
+	            valuable: 'No',
+	            action: 'No',
+	        });
+		};
+
+		startBeat('firstHeart');
+		startBeat('secondHeart');
+		startBeat('thirdHeart');
+
+		setTimeout(function(){
+			console.log('List: ', NewtonAdp.heartbeatsList());
+			NewtonAdp.stopAllHeartbeat();
+		}, 5000);
+
+		setTimeout(function(){			
+			console.log('List: ', NewtonAdp.heartbeatsList());
+		}, 7500); 
 	}
 ]);
