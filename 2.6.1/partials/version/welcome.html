@@ -1,0 +1,39 @@
+<h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><div class="welcome-page"><h2 id="welcome-to-barney">Welcome to Barney!</h2>
+<p>To use Barney library first of all you have to include <strong>main.min.js</strong> in your index.html file.
+You can find this file in the <strong>dist</strong> folder of Barney.</p>
+<p><strong>index.html</strong>:</p>
+<pre class="prettyprint linenums">
+ //Include Barney script
+ &lt;script type="text/javascript" src="./bower_components/barney/dist/main.min.js"&gt; 
+</pre>
+<p>Once you have included Barney in to your index.html file remember that you have to import Barney module
+as a dependency in your <strong>app.js</strong> file.</p>
+<p><strong>app.js</strong>:
+<pre class="prettyprint linenums">
+angular
+.module('yourAngularApp', [
+  ...,
+  'barney',
+  ...
+])
+</pre>
+<h2 id="barney-components">Barney Components:</h2>
+<p>Here you can find a full list of the components of Barney: </p>
+<ul>
+<li><a href="#/version/analytics">analytics</a></li>
+<li><a href="#/version/callbacky">callbacky</a></li>
+<li><a href="#/version/config">config</a></li>
+<li><a href="#/version/dict">dict</a></li>
+<li><a href="#/version/history">history</a></li>
+<li><a href="#/version/infinite">infinite</a></li>
+<li><a href="#/version/logger">logger</a></li>
+<li><a href="#/version/meta">meta</a></li>
+<li><a href="#/version/newton">newton</a></li>
+<li><a href="#/version/storage">storage</a></li>
+<li><a href="#/version/utility">utility</a></li>
+</ul>
+</div></div>

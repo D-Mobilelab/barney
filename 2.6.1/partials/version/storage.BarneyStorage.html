@@ -1,0 +1,140 @@
+<h1><code ng:non-bindable="">BarneyStorage</code>
+<div><span class="hint">service in module <code ng:non-bindable="">storage</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="storage-barneystorage-page"><p>To use Storage service, you have to add BarneyStorage dependency to your component (i.e: directive, controller...).</p>
+<p>In this example, I have added dependency of BarneyStorage to a controller:
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyStorage', '$scope',
+    function(Storage, $scope){
+        // we can use "Storage" object here
+    }
+]);
+</pre>
+Note that I included BarneyStorage as dependency but I have renamed it as Storage to use it more easily in controller code.</p>
+<h3 id="description_list-method">List Method</h3>
+<ul>
+<li><a href="#/version/storage.BarneyStorage#methods_delete">delete</a></li>
+<li><a href="#/version/storage.BarneyStorage#methods_get">get</a></li>
+<li><a href="#/version/storage.BarneyStorage#methods_getmultiple">getMultiple</a></li>
+<li><a href="#/version/storage.BarneyStorage#methods_init">init</a></li>
+<li><a href="#/version/storage.BarneyStorage#methods_islocalstoragesupported">isLocalStorageSupported</a></li>
+<li><a href="#/version/storage.BarneyStorage#methods_set">set</a></li>
+<li><a href="#/version/storage.BarneyStorage#methods_setmultiple">setMultiple</a></li>
+</ul>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_delete">delete(key, options)</h3>
+<div class="delete"><div class="storage-barneystorage-delete-page"><p>This method is used to delete a stored value in the default Storage.</p>
+</div><h5 id="methods_delete_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-delete-page"><p>Key to identify value</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="storage-barneystorage-delete-page"><p>(see param below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-delete-page"><p>If options.type is defined, it deletes the key
+from defined storage, else it deletes it from the default storage (defined in init method before)</p>
+</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_delete_example">Example</h4>
+<div class="example"><div class="storage-barneystorage-delete-page"><h5 id="methods_delete_example_storage-delete">Storage delete</h5>
+<p>Here is an example of the delete method.</p>
+<p>In this example I delete from cookie the key called &#39;key&#39;;
+<pre class="prettyprint linenums">
+Storage.delete('key', {type: Cookie});
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_get">get(key, options)</h3>
+<div class="get"><div class="storage-barneystorage-get-page"><p>This method is used to get a value from the storage.</p>
+</div><h5 id="methods_get_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-get-page"><p>Key to identify value</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="storage-barneystorage-get-page"><p>(see param below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-get-page"><p>If options.type is defined, it gets value in the defined storage,
+else it gets in the default storage (defined in init method before)</p>
+</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_get_example">Example</h4>
+<div class="example"><div class="storage-barneystorage-get-page"><h5 id="methods_get_example_storage-get">Storage get</h5>
+<p>In this example I get the key &#39;key&#39; from cookie storage
+<pre class="prettyprint linenums">
+Storage.get('key', {type: 'cookie'});
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getmultiple">getMultiple(keys, options)</h3>
+<div class="getmultiple"><div class="storage-barneystorage-getmultiple-page"><p>This method is used to get multiple values in the Storage.</p>
+</div><h5 id="methods_getmultiple_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>keys</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="storage-barneystorage-getmultiple-page"><p>Array with keys to identify values</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="storage-barneystorage-getmultiple-page"><p>(see param below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-getmultiple-page"><p>If options.type is defined, it gets values from the defined storage,
+else it gets from the default storage (defined in init method before)</p>
+</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_getmultiple_example">Example</h4>
+<div class="example"><div class="storage-barneystorage-getmultiple-page"><h5 id="methods_getmultiple_example_storage-getmultiple">Storage getMultiple</h5>
+<pre class="prettyprint linenums">
+  Storage.getMultiple(['key1', 'key2', ...], {type: 'cookie'});
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_init">init(params)</h3>
+<div class="init"><div class="storage-barneystorage-init-page"><p>This method is used to initialize the Storage module.</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>params</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="storage-barneystorage-init-page"><p>(see attributes below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-init-page"><p>Define the storage type used to save and get data. It can be:</p>
+<ul>
+<li>localStorage,</li>
+<li>cookie,</li>
+<li>jsObject</li>
+</ul>
+</div> <p><em>(default: null)</em></p></td></tr><tr><td>logger</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="storage-barneystorage-init-page"><p>Object used to log (i.e: window.console, BarneyLogger, ...)</p>
+</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="storage-barneystorage-init-page"><p>In this example I set cookie as default storage and BarneyLogger as default logger</p>
+<pre class="prettyprint linenums">
+ Storage.init({
+   type: 'cookie',
+   logger: BarneyLogger
+});
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_islocalstoragesupported">isLocalStorageSupported()</h3>
+<div class="islocalstoragesupported"><div class="storage-barneystorage-islocalstoragesupported-page"><p>This method is used to know if the browser support the local storage</p>
+</div><h4 id="methods_islocalstoragesupported_example">Example</h4>
+<div class="example"><div class="storage-barneystorage-islocalstoragesupported-page"><pre class="prettyprint linenums">
+if(isLocalStorageSupported()) {
+     // store a localstorage key
+ } else {
+     alert('local storage is not supported');
+ }
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_set">set(key, value, options)</h3>
+<div class="set"><div class="storage-barneystorage-set-page"><p>This method is used to set a value in the storage.</p>
+</div><h5 id="methods_set_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-set-page"><p>Key to identify value</p>
+</div></td></tr><tr><td>value</td><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="storage-barneystorage-set-page"><p>Value to store</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="storage-barneystorage-set-page"><p>(see param below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-set-page"><p>If options.type is defined, it sets value in the defined storage,
+else it stores in the default storage (defined in init method before)</p>
+</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_set_example">Example</h4>
+<div class="example"><div class="storage-barneystorage-set-page"><p>In this example I set the key &#39;key&#39; with value &#39;value&#39;, in cookie storage
+<pre class="prettyprint linenums">
+Storage.set('key', 'value', {type: 'cookie'});
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_setmultiple">setMultiple(params, options)</h3>
+<div class="setmultiple"><div class="storage-barneystorage-setmultiple-page"><p>This method is used to set multiple values in the storage.</p>
+</div><h5 id="methods_setmultiple_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>params</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="storage-barneystorage-setmultiple-page"><p>Object with keys and values</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="storage-barneystorage-setmultiple-page"><p>(see param below)</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="storage-barneystorage-setmultiple-page"><p>If options.type is defined, it sets value in the defined storage,
+else it stores in the default storage (defined in init method before)</p>
+</div> <p><em>(default: null)</em></p></td></tr></tbody></table></td></tr></tbody></table><h4 id="methods_setmultiple_example">Example</h4>
+<div class="example"><div class="storage-barneystorage-setmultiple-page"><h5 id="methods_setmultiple_example_storage-setmultiple">Storage setMultiple</h5>
+<pre class="prettyprint linenums">
+  Storage.setMultiple({'key1':1, 'key2':2, ...},{type: 'cookie'});
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
