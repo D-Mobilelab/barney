@@ -12,10 +12,6 @@ angular.module('example', [
 		$locationProvider.hashPrefix("!");
 		
 		$routeProvider
-			.when('/logger', {
-				templateUrl: 'pages/logger.html',
-				controller: 'LoggerCtrl'
-			})
 			.when('/config', {
 				templateUrl: 'pages/config.html',
 				controller: 'ConfigCtrl'
@@ -24,13 +20,17 @@ angular.module('example', [
 				templateUrl: 'pages/dict.html',
 				controller: 'DictCtrl'
 			})
-			.when('/analytics', {
-				templateUrl: 'pages/analytics.html',
-				controller: 'AnalyticsCtrl'
+			.when('/history', {
+				templateUrl: 'pages/history.html',
+				controller: 'HistoryCtrl'
 			})
-			.when('/newton', {
-				templateUrl: 'pages/newton.html',
-				controller: 'NewtonCtrl'
+			.when('/infinite', {
+				templateUrl: 'pages/infinite.html',
+				controller: 'InfiniteCtrl'
+			})
+			.when('/livehtml', {
+				templateUrl: 'pages/livehtml.html',
+				controller: 'LivehtmlCtrl'
 			})
 			.when('/meta', {
 				templateUrl: 'pages/meta.html',
@@ -43,29 +43,6 @@ angular.module('example', [
 			.when('/utility', {
 				templateUrl: 'pages/utility.html',
 				controller: 'UtilityCtrl'
-			})
-			.when('/storage', {
-				templateUrl: 'pages/storage.html',
-				controller: 'StorageCtrl'
-			})
-			.when('/callbacky', {
-				templateUrl: 'pages/callbacky.html'
-			})
-			.when('/infinite', {
-				templateUrl: 'pages/infinite.html',
-				controller: 'InfiniteCtrl'
-			})
-			.when('/history', {
-				templateUrl: 'pages/history.html',
-				controller: 'HistoryCtrl'
-			})
-			.when('/livehtml', {
-				templateUrl: 'pages/livehtml.html',
-				controller: 'LivehtmlCtrl'
-			})
-			.when('/promise', {
-				templateUrl: 'pages/promise.html',
-				controller: 'PromiseCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'

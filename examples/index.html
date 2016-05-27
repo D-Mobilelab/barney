@@ -39,19 +39,13 @@
 	</head>
 	<body>
 		<nav>
-			<a href="#!/logger">Logger</a>
 			<a href="#!/config">Config</a>
 			<a href="#!/dict">Dict</a>
-			<a href="#!/analytics">Analytics</a>
-			<a href="#!/newton">Newton</a>
+			<a href="#!/history">History</a>
+			<a href="#!/infinite">Infinite</a>
+			<a href="#!/livehtml">LiveHtml</a>
 			<a href="#!/meta">Meta</a>
 			<a href="#!/utility?query=1">Utility</a>
-			<a href="#!/storage">Storage</a>
-			<a href="#!/callbacky">Callbacky</a>
-			<a href="#!/infinite">Infinite</a>
-			<a href="#!/history">History</a>
-			<a href="#!/livehtml">LiveHtml</a>
-			<a href="#!/promise">Promise</a>
 		</nav>
 
 		<div ng-view=""></div>
@@ -63,46 +57,22 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
 		<script src="../bower_components/angular-highlightjs/build/angular-highlightjs.js"></script>
 
-		<script src="../dist/angular/analytics.js"></script>
-		<script src="../dist/angular/callbacky.js"></script>
-		<script src="../dist/angular/config.js"></script>
-		<script src="../dist/angular/dict.js"></script>
-		<script src="../dist/angular/history.js"></script>
-		<script src="../dist/angular/infinite.js"></script>
-		<script src="../dist/angular/logger.js"></script>
-		<script src="../dist/angular/meta.js"></script>
-		<script src="../dist/angular/newton.js"></script>
-		<script src="../dist/angular/storage.js"></script>
-		<script src="../dist/angular/utility.js"></script>
-		<script src="../dist/angular/history.js"></script>
-		<script src="../dist/angular/livehtml.js"></script>
-		<script src="../dist/angular/promise.js"></script>
+		<script src="../dist/config.min.js"></script>
+		<script src="../dist/dict.min.js"></script>
+		<script src="../dist/history.min.js"></script>
+		<script src="../dist/infinite.min.js"></script>
+		<script src="../dist/livehtml.min.js"></script>
+		<script src="../dist/meta.min.js"></script>
+		<script src="../dist/utility.min.js"></script>
 
 		<script src="app.js"></script>
-		<script src="pages/analytics.js"></script>
-		<script src="pages/callbacky.js"></script>
 		<script src="pages/config.js"></script>
 		<script src="pages/dict.js"></script>
+		<script src="pages/history.js"></script>
 		<script src="pages/infinite.js"></script>
-		<script src="pages/logger.js"></script>
+		<script src="pages/livehtml.js"></script>
 		<script src="pages/meta.js"></script>
 		<script src="pages/meta2.js"></script>
-		<script src="pages/newton.js"></script>
-		<script src="pages/storage.js"></script>
 		<script src="pages/utility.js"></script>
-		<script src="pages/history.js"></script>
-		<script src="pages/livehtml.js"></script>
-		<script src="pages/promise.js"></script>
-		
-		<script src="//static.newton.pm/js/current/newton.min.js"></script>
-
-		<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-40538478-2', 'auto');
-		</script>
 	</body>
 </html>

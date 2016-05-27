@@ -22,29 +22,41 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // VARIABLES
         examplePath: 'examples/',
-        srcPath: 'src/',
+        modulesPath: 'modules/',
         testPath: 'test/',
-        coveragePath: 'test/coverage',
         docPath: 'docs/',
         distPath: 'dist/',
         newVersion: versionString,
         changeLog: '',
-        libraryName: '',
 
         // CLEAN
         clean: {
             docTemp: ["<%= docPath %>temp"],
             docVersion: ["<%= docPath %><%= newVersion %>"],
-            coverage: ["<%= coveragePath %>"],
+            coverage: ["<%= testPath %>coverage"],
             dist: ["<%= distPath %>"]
         },
 
         // CONNECT
         connect:{
-            main: {
+            coverage: {
                 options:{
                     hostname: 'localhost',
-                    port: 9000,
+                    port: 9010,
+                    livereload: true
+                }
+            },
+            docTemp: {
+                options:{
+                    hostname: 'localhost',
+                    port: 9020,
+                    livereload: true
+                }
+            },
+            server: {
+                options:{
+                    hostname: 'localhost',
+                    port: 9030,
                     livereload: true
                 }
             }
@@ -53,65 +65,78 @@ module.exports = function (grunt) {
         // OPEN
         open:{
             coverage:{
-                path: 'http://localhost:9000/<%= coveragePath %>'
+                path: 'http://localhost:9010/<%= testPath %>coverage/'
             },
             docTemp:{
-                path: 'http://localhost:9000/<%= docPath %>temp'
+                path: 'http://localhost:9020/<%= docPath %>temp/'
             },
             server:{
-                path: 'http://localhost:9000/<%= examplePath %>'
+                path: 'http://localhost:9030/<%= examplePath %>'
             }
         },
 
         // WATCH
         watch:{
-            coverage:{
+            lint:{
                 files:[
-                    '<%= srcPath %>**/*.*',
-                    '<%= testPath %>**/*.*',
-                    '!<%= testPath %>coverage/**/*.*',
-                    'karma.conf.js',
+                    '<%= modulesPath %>**/*.*'
+                ],
+                tasks: ['eslint']
+            },
+            test:{
+                files:[
+                    '<%= modulesPath %>**/*.*',
+                    '<%= testPath %>modules/*',
+                    '<%= testPath %>karma.conf.js',
                     'mock.js'
                 ],
-                tasks: ['clean:coverage', 'clean:dist', 'prepareModules', 'concat', 'karma'],
+                tasks: ['clean:dist', 'prepareModules', 'concat', 'karma']
+            },
+            coverage:{
+                files:[
+                    '<%= modulesPath %>**/*.*',
+                    '<%= testPath %>modules/*',
+                    '<%= testPath %>karma.conf.js',
+                    'mock.js'
+                ],
+                tasks: ['clean:dist', 'prepareModules', 'concat', 'clean:coverage', 'karma'],
                 options:{
                     livereload: 35729
                 }
             },
             docTemp:{
                 files:[
-                    '<%= docPath %>welcome.js',
-                    '<%= srcPath %>**/*.*'
+                    '<%= modulesPath %>**/*.*'
                 ],
                 tasks: ['clean:docTemp', 'ngdocs:api'],
                 options:{
-                    livereload: 35729
+                    livereload: 35730
                 }
             },
             server:{
                 files:[
                     'mock.js',
                     '<%= examplePath %>**/*.*',
-                    '<%= srcPath %>**/*.*'
+                    '<%= modulesPath %>**/*.*'
                 ],
                 tasks: ['clean:dist', 'prepareModules', 'concat'],
                 options:{
-                    livereload: 35729
+                    livereload: 35731
                 }
             }
         },
 
         // LINT
         eslint: {
-            main: [
-                '<%= srcPath %>**/*.js'
+            target: [
+                'modules/**/*.js'
             ]
         },
 
         // KARMA
         karma: {
             unit: {
-                configFile: 'karma.conf.js',
+                configFile: '<%= testPath %>/karma.conf.js',
                 singleRun: true
             }
         },
@@ -120,14 +145,14 @@ module.exports = function (grunt) {
         ngdocs: {
             options: {
                 html5Mode: false,
-                title: 'Documentation',
+                title: 'Barney',
             },
             api: {
                 options: {
                     dest: '<%= docPath %>temp',
                     startPage: '/api/welcome'
                 },
-                src: ['<%= docPath %>/welcome.js', '<%= srcPath %>/**/*.js'],
+                src: ['<%= docPath %>/welcome.js', '<%= modulesPath %>/**/*.js'],
                 title: 'API Reference',
                 api: true
             },
@@ -136,7 +161,7 @@ module.exports = function (grunt) {
                     dest: '<%= docPath %><%= newVersion %>',
                     startPage: '/version/welcome'
                 },
-                src: ['<%= docPath %>/welcome.js', '<%= srcPath %>/**/*.js'],
+                src: ['<%= docPath %>/welcome.js', '<%= modulesPath %>/**/*.js'],
                 title: 'API Reference',
                 api: true
             }
@@ -144,12 +169,12 @@ module.exports = function (grunt) {
 
         // PROMPT
         prompt: {
-            version: {
+            target: {
                 options: {
                     questions: [{
                         config: 'newVersion',
                         type: 'list',
-                        message: 'Current: ' + versionString + ' - Choose a new version for this library:',
+                        message: 'Current: ' + versionString + ' - Choose a new version for Barney:',
                         default: versionString,
                         choices: [
                             { name: 'No new version (press CTRL+C two times)', value: versionString },
@@ -214,9 +239,9 @@ module.exports = function (grunt) {
                 force: false
             },
             docs: {
-              src: '<%= coveragePath %>/**/lcov.info'
+              src: '<%= testPath %>coverage/**/lcov.info'
             },
-        }
+        },
     });
 
     grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
@@ -224,20 +249,55 @@ module.exports = function (grunt) {
         var concat = grunt.config.get('concat') || {};
 
         // get all module directories
-        grunt.file.expand("src/*").forEach(function (dir) {
+        grunt.file.expand("modules/*").forEach(function (dir) {
 
             // get the module name from the directory name
             var dirName = dir.substr(dir.lastIndexOf('/')+1);
 
-            concat[dirName] = {
-                src: [
-                    dir + '/*.js'
-                ],
-                dest: '<%= distPath %>' + dirName + '.min.js',
-                options: {
-                    banner: "if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }\n"
-                }
-            };
+            // some modules are only for Angular
+            var angularModules = ['infinite', 'livehtml', 'meta'];
+
+            // only angular modules
+            if(angularModules.indexOf(dirName) != -1){
+                concat['angular-' + dirName] = {
+                    src: [
+                        dir + '/*.js'
+                    ],
+                    dest: '<%= distPath %>angular/' + dirName + '.js',
+                    options: {
+                        banner: "if(!barney) { var barney = {}; }\n" + 
+                                "if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }\n"
+                    }
+                };
+
+            // angular and vanilla modules
+            } else {
+                concat['angular-' + dirName] = {
+                    src: [
+                        dir + '/*.js'
+                    ],
+                    dest: '<%= distPath %>angular/' + dirName + '.js',
+                    options: {
+                        banner: "if(!barney) { var barney = {}; }\n" + 
+                                "if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }\n"
+                    }
+                };
+                concat['base-' + dirName] = {
+                    src: [
+                        dir + '/*.js',
+                        '!' + dir + '/*.ser.js',
+                        '!' + dir + '/*.dir.js',
+                        '!' + dir + '/*.pro.js',
+                        '!' + dir + '/*.fil.js',
+                        '!' + dir + '/*.mod.js'
+                    ],
+                    dest: '<%= distPath %>base/' + dirName + '.js',
+                    options: {
+                        banner: "if(!barney) { var barney = {}; }\n"
+                    }
+                };
+
+            }
 
             // add module subtasks to the concat task in initConfig
             grunt.config.set('concat', concat);
@@ -253,11 +313,16 @@ module.exports = function (grunt) {
         'eslint'
     ]);
 
+    grunt.registerTask('lintx',[
+        // LINT
+        'eslint',
+        // WATCH
+        'watch:lint'
+    ]);
+
     /**********************************/
 
     grunt.registerTask('test',[
-        // CLEAN COVERAGE
-        'clean:coverage',
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
@@ -266,19 +331,39 @@ module.exports = function (grunt) {
         'karma'
     ]);
 
-    /**********************************/
-
-    grunt.registerTask('coverage',[
-        // CLEAN COVERAGE
-        'clean:coverage',
+    grunt.registerTask('testx',[
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
         'concat',
         // TEST
         'karma',
+        // WATCH
+        'watch:test'
+    ]);
+
+    /**********************************/
+
+    grunt.registerTask('coverage',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // TEST + COVERAGE
+        'clean:coverage',
+        'karma'
+    ]);
+
+    grunt.registerTask('coveragex',[
+        // CREATE BUILD
+        'clean:dist',
+        'prepareModules',
+        'concat',
+        // TEST + COVERAGE
+        'clean:coverage',
+        'karma',
         // CONNECT
-        'connect:main',
+        'connect:coverage',
         'open:coverage',
         // WATCH
         'watch:coverage'
@@ -289,9 +374,15 @@ module.exports = function (grunt) {
     grunt.registerTask('doc',[
         // DOC (TEMP)
         'clean:docTemp',
+        'ngdocs:api'
+    ]);
+
+    grunt.registerTask('docx',[
+        // DOC (TEMP)
+        'clean:docTemp',
         'ngdocs:api',
         // CONNECT
-        'connect:main',
+        'connect:docTemp',
         'open:docTemp',
         // WATCH
         'watch:docTemp'
@@ -309,13 +400,12 @@ module.exports = function (grunt) {
     /**********************************/
 
     grunt.registerTask('serve',[
-        // CLEAN DIST
-        'clean:dist',
         // CREATE BUILD
+        'clean:dist',
         'prepareModules',
         'concat',
         // CONNECT
-        'connect:main',
+        'connect:server',
         'open:server',
         'watch:server'
     ]);
@@ -323,13 +413,12 @@ module.exports = function (grunt) {
     /**********************************/    
 
     grunt.registerTask('travis',[
-        // CLEAN COVERAGE
-        'clean:coverage',
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
         'concat',
-        // TEST
+        // TEST + COVERAGE
+        'clean:coverage',
         'karma',
         // COVERALLS
         'coveralls',
@@ -341,18 +430,17 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('version',[
-        // CLEAN COVERAGE
-        'clean:coverage',
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
         'concat',
-        // TEST
+        // TEST + COVERAGE
+        'clean:coverage',
         'karma',
         // LINT
         'eslint',
         // PROMPT
-        'prompt:version',
+        'prompt',
         'string-replace:bower',
         'file_append:changelog',
         // DOC (OFFICIAL)
