@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('example').controller('ConfigCtrl', [
-	'BarneyConfig', 'BarneyLogger', '$scope',
-	function(Config, Logger, $scope){
+	'BarneyConfig', '$scope',
+	function(Config, $scope){
         $scope.listObject = "";
 		/*
 		Call init method to set notExistValue param
