@@ -157,3 +157,32 @@
  * You can use now the following components:
  * - {@link livehtml.directive:livehtml directive}
  */ 
+
+ /**
+ * @ngdoc overview
+ * @name meta
+ *
+ * @description
+ * # Meta
+ * Meta is the module of Barney to fill meta tags dinamically.
+ *
+ * Meta can be used to manage different metatags for each page.
+ * 
+ * ## Usage
+ * To use **Meta** module you have to include the following file:
+ * <pre>
+ *  <script type="text/javascript" src="./bower_components/barney/meta/meta.min.js">
+ * </pre>
+ * and include **barney** module to your Angular app:
+ * <pre>
+ *	angular.module('yourAngularApp', [
+ *   ...,
+ *   'barney',
+ *   ...
+ * ])
+ * </pre>
+ * 
+ * ## Components
+ * You can use now the following components:
+ * - {@link meta.BarneyMeta service}
+ */ 
