@@ -97,7 +97,10 @@ angular.module('barney').provider('BarneyDict', [
              * @name dict.BarneyDict#get
              * @methodOf dict.BarneyDict
              *
-             * @description Get value from dictionary key
+             * @description 
+             * Get value from dictionary key
+             *
+             * *To use this method, the init method must be called before.*
              *
              * @param {string} key dictionary key
              *
@@ -156,7 +159,10 @@ angular.module('barney').provider('BarneyDict', [
              * @name dict.BarneyDict#list
              * @methodOf dict.BarneyDict
              *
-             * @description Get list of dictionary keys
+             * @description 
+             * Get list of dictionary keys
+             *
+             * *To use this method, the init method must be called before.*
              *
              * @example 
              * <pre>

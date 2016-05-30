@@ -4,6 +4,8 @@
  *
  * @description
  * You can get a config value using the custom config filter
+ *
+ * @example
  * <pre>
  *  // javascript
  *  BarneyConfig.init({ 'ENABLE_LOGIN' : 1 });
