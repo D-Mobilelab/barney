@@ -4,41 +4,75 @@
  *
  * @description
  * # Welcome to Barney!
- * To use Barney library first of all you have to include **main.min.js** in your index.html file.
- * You can find this file in the **dist** folder of Barney.
+ * Barney is a set of Angular libraries, useful for various purposes.
  *
- * **index.html**:
+ * Barney is divided in various modules, every module performs an action and is indipendent.
  *
+ * To discover the purpose of every module and read instruction to include and use it, open related page:
+ * - {@link config config}
+ * - {@link dict dict}
+ * - {@link history history}
+ * - {@link infinite infinite}
+ * - {@link livehtml livehtml}
+ * - {@link meta meta}
+ * - {@link utility utility}
+ */
+
+/**
+ * @ngdoc overview
+ * @name config
+ *
+ * @description
+ * # Config
+ * Config is the Barney module used to get environment variables. 
+ *
+ * It reads a JSON object where all environment variables are stored.
+ * 
+ * ## Usage
+ * To use **Config** module you have to include the following file:
  * <pre>
- *  //Include Barney script
- *  <script type="text/javascript" src="./bower_components/barney/dist/main.min.js"> 
+ *  <script type="text/javascript" src="./bower_components/barney/dist/config.min.js">
  * </pre>
- *
- * Once you have included Barney in to your index.html file remember that you have to import Barney module
- * as a dependency in your **app.js** file.
- *
- * **app.js**:
+ * and include **barney** module to your Angular app:
  * <pre>
- *	angular
- * .module('yourAngularApp', [
+ *	angular.module('yourAngularApp', [
  *   ...,
  *   'barney',
  *   ...
  * ])
  * </pre>
+ * 
+ * ## Components
+ * You can use now the following components:
+ * - {@link config.BarneyConfig service}
+ * - {@link config.filter:config filter}
+ */ 
+
+/**
+ * @ngdoc overview
+ * @name dict
  *
- * # Barney Components:
- * Here you can find a full list of the components of Barney: 
- * - {@link analytics analytics}
- * - {@link callbacky callbacky}
- * - {@link config config}
- * - {@link dict dict}
- * - {@link history history}
- * - {@link infinite infinite}
- * - {@link logger logger}
- * - {@link meta meta}
- * - {@link newton newton}
- * - {@link storage storage}
- * - {@link utility utility}
- *
- */
+ * @description
+ * # Dict
+ * Dict is the module of Barney to show dictionary keys.
+ * 
+ * ## Usage
+ * To use **Dict** module you have to include the following file:
+ * <pre>
+ *  <script type="text/javascript" src="./bower_components/barney/dist/dict.min.js">
+ * </pre>
+ * and include **barney** module to your Angular app:
+ * <pre>
+ *	angular.module('yourAngularApp', [
+ *   ...,
+ *   'barney',
+ *   ...
+ * ])
+ * </pre>
+ * 
+ * ## Components
+ * You can use now the following components:
+ * - {@link dict.BarneyDict service}
+ * - {@link dict.filter:dict filter}
+ * - {@link dict.directive:dict directive}
+ */ 
