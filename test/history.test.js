@@ -59,7 +59,7 @@ describe('HISTORY -', function () {
 			expect(HistoryService.getPrevPath()).toEqual('/oldUrl/');
 		});
 
-		xit('just for getPrevState function', function(){
+		it('just for getPrevState function', function(){
 			HistoryService.init();
 			changePage();
 			expect(HistoryService.getPrevState()).toEqual(null);

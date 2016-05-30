@@ -70,8 +70,7 @@ module.exports = function (grunt) {
                     '<%= srcPath %>**/*.*',
                     '<%= testPath %>**/*.*',
                     '!<%= testPath %>coverage/**/*.*',
-                    'karma.conf.js',
-                    'mock.js'
+                    'karma.conf.js'
                 ],
                 tasks: ['clean:coverage', 'clean:dist', 'prepareModules', 'concat', 'karma'],
                 options:{
@@ -90,7 +89,6 @@ module.exports = function (grunt) {
             },
             server:{
                 files:[
-                    'mock.js',
                     '<%= examplePath %>**/*.*',
                     '<%= srcPath %>**/*.*'
                 ],
