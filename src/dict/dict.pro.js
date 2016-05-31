@@ -12,6 +12,9 @@
  *     }
  * ]);
  * </pre>
+ * 
+ * Remember that, before calling any other method, **the init method must be called first of all**.
+ *
  */
 
 angular.module('barney').provider('BarneyDict', [
@@ -100,8 +103,6 @@ angular.module('barney').provider('BarneyDict', [
              * @description 
              * Get value from dictionary key
              *
-             * *To use this method, the init method must be called before.*
-             *
              * @param {string} key dictionary key
              *
              * @example 
@@ -161,8 +162,6 @@ angular.module('barney').provider('BarneyDict', [
              *
              * @description 
              * Get list of dictionary keys
-             *
-             * *To use this method, the init method must be called before.*
              *
              * @example 
              * <pre>

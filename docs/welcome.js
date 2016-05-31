@@ -7,8 +7,17 @@
  * Barney is a set of Angular libraries, useful for various purposes.
  *
  * Barney is divided in various modules, every module performs an action and is indipendent.
+ * 
+ * Remember, before using a Barney module, to include **barney** to your Angular app:
+ * <pre>
+ *	angular.module('yourAngularApp', [
+ *   ...,
+ *   'barney',
+ *   ...
+ * ])
+ * </pre>
  *
- * To discover the purpose of every module and read instruction to include and use it, open related page:
+ * To discover the purpose of every module and to read the instruction to include and use it, open the related page:
  * - {@link config config}
  * - {@link dict dict}
  * - {@link history history}
@@ -33,14 +42,6 @@
  * <pre>
  *  <script type="text/javascript" src="./bower_components/barney/dist/config.min.js">
  * </pre>
- * and include **barney** module to your Angular app:
- * <pre>
- *	angular.module('yourAngularApp', [
- *   ...,
- *   'barney',
- *   ...
- * ])
- * </pre>
  * 
  * ## Components
  * You can use now the following components:
@@ -60,14 +61,6 @@
  * To use **Dict** module you have to include the following file:
  * <pre>
  *  <script type="text/javascript" src="./bower_components/barney/dist/dict.min.js">
- * </pre>
- * and include **barney** module to your Angular app:
- * <pre>
- *	angular.module('yourAngularApp', [
- *   ...,
- *   'barney',
- *   ...
- * ])
  * </pre>
  * 
  * ## Components
@@ -90,14 +83,6 @@
  * <pre>
  *  <script type="text/javascript" src="./bower_components/barney/history/history.min.js">
  * </pre>
- * and include **barney** module to your Angular app:
- * <pre>
- *	angular.module('yourAngularApp', [
- *   ...,
- *   'barney',
- *   ...
- * ])
- * </pre>
  * 
  * ## Components
  * You can use now the following components:
@@ -117,14 +102,6 @@
  * <pre>
  *  <script type="text/javascript" src="./bower_components/barney/infinite/infinite.min.js">
  * </pre>
- * and include **barney** module to your Angular app:
- * <pre>
- *	angular.module('yourAngularApp', [
- *   ...,
- *   'barney',
- *   ...
- * ])
- * </pre>
  * 
  * ## Components
  * You can use now the following components:
@@ -143,14 +120,6 @@
  * To use **Livehtml** module you have to include the following file:
  * <pre>
  *  <script type="text/javascript" src="./bower_components/barney/livehtml/livehtml.min.js">
- * </pre>
- * and include **barney** module to your Angular app:
- * <pre>
- *	angular.module('yourAngularApp', [
- *   ...,
- *   'barney',
- *   ...
- * ])
  * </pre>
  * 
  * ## Components
@@ -173,14 +142,6 @@
  * <pre>
  *  <script type="text/javascript" src="./bower_components/barney/meta/meta.min.js">
  * </pre>
- * and include **barney** module to your Angular app:
- * <pre>
- *	angular.module('yourAngularApp', [
- *   ...,
- *   'barney',
- *   ...
- * ])
- * </pre>
  * 
  * ## Components
  * You can use now the following components:
@@ -199,14 +160,6 @@
  * To use **Utility** module you have to include the following file:
  * <pre>
  *  <script type="text/javascript" src="./bower_components/barney/utility/utility.min.js">
- * </pre>
- * and include **barney** module to your Angular app:
- * <pre>
- *	angular.module('yourAngularApp', [
- *   ...,
- *   'barney',
- *   ...
- * ])
  * </pre>
  * 
  * ## Components
