@@ -12,6 +12,9 @@
  *     }
  * ]);
  * </pre>
+ * 
+ * Remember that, before calling any other method, **the init method must be called first of all**.
+ * 
  */
 
 angular.module('barney').provider('BarneyConfig', function(){   
@@ -56,8 +59,6 @@ angular.module('barney').provider('BarneyConfig', function(){
          *
          * @description 
          * This method is used to get the value of a specific configuration key
-         *
-         * *To use this method, the init method must be called before.*
          * 
          * @param {string} key specific key
          *
@@ -87,8 +88,6 @@ angular.module('barney').provider('BarneyConfig', function(){
          * @description 
          * This method returns the Configuration list.
          *
-         * *To use this method, the init method must be called before.*
-         * 
          * @example
          * <pre>
          * // BarneyConfig.init({ 'ENABLE_LOGIN': 1 })

@@ -12,6 +12,9 @@
  *     }
  * ]);
  * </pre>
+ * 
+ * Remember that, before calling any other method, **the init method must be called first of all**.
+ *
  */
 
 angular.module('barney').factory('BarneyHistory',
@@ -65,8 +68,6 @@ angular.module('barney').factory('BarneyHistory',
          * @description 
          * This method is used to get the path of the last visited page.
          *
-         * *To use this method, the init method must be called before.*
-         *
          * @example
          * <pre>
          *  // page: '#!/home'
@@ -90,8 +91,6 @@ angular.module('barney').factory('BarneyHistory',
          * @description 
          * This method is used to get the state of the last visited page.
          *
-         * *To use this method, the init method must be called before.*
-         *
          * @example
          * <pre>
          *  // state: 'home'
@@ -114,8 +113,6 @@ angular.module('barney').factory('BarneyHistory',
          *
          * @description 
          * This method is used to go back to the last visited page.
-         *
-         * *To use this method, the init method must be called before.*
          *
          * @example
          * <pre>

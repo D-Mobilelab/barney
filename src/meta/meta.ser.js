@@ -12,6 +12,9 @@
  *     }
  * ]);
  * </pre>
+ * 
+ * Remember that, before calling any other method, **the init method must be called first of all**.
+ *
  */
 
 angular.module('barney').factory('BarneyMeta', [
@@ -73,8 +76,6 @@ angular.module('barney').factory('BarneyMeta', [
          * @description 
          * To print a single current key, you can use Meta.get() method, passing key name.
          *
-         * *To use this method, the init method must be called before.*
-         *
          * @param {string} key name of key
          *
          * @example
@@ -98,8 +99,6 @@ angular.module('barney').factory('BarneyMeta', [
          * @description 
          * To set one or more keys for a page, pass an object with keys and their values.
          *
-         * *To use this method, the init method must be called before.*
-         *
          * @param {object} metatags new keys values
          *
          * @example
@@ -121,8 +120,6 @@ angular.module('barney').factory('BarneyMeta', [
          * @description 
          * To print a list of all current keys.
          *
-         * *To use this method, the init method must be called before.*
-         *
          * @example
          * <pre>
          *  Meta.list();
@@ -139,8 +136,6 @@ angular.module('barney').factory('BarneyMeta', [
          *
          * @description 
          * To print a list of all default keys.
-         *
-         * *To use this method, the init method must be called before.*
          *
          * @example
          * <pre>
@@ -160,8 +155,6 @@ angular.module('barney').factory('BarneyMeta', [
          * On routeChangeStart event, all keys are reverted, automatically.
          * 
          * If you want to revert them manually, you can call revert() method.
-         *
-         * *To use this method, the init method must be called before.*
          *
          * @example
          * <pre>
