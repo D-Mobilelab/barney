@@ -40,10 +40,6 @@ angular.module('example', [
 				templateUrl: 'pages/meta.html',
 				controller: 'MetaTwoCtrl'
 			})
-			.when('/utility', {
-				templateUrl: 'pages/utility.html',
-				controller: 'UtilityCtrl'
-			})
 			.otherwise({
 				redirectTo: '/'
 			});

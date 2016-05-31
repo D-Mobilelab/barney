@@ -1,6 +1,18 @@
 <div>
 	<p><strong>PREVPATH: </strong> {{prevpath}}</p>
 	<p><strong>PREVSTATE: </strong> {{prevstate}}</p>
+
+	<h1>addQueryParams</h1>
+	<p><strong>OLD: </strong> {{oldUrl}}</p>
+	<p><strong>NEW: </strong> {{newUrl}}</p>
+	<hr/>
+	<p><strong>OLD: </strong> {{oldUrlTwo}}</p>
+	<p><strong>NEW: </strong> {{newUrlTwo}}</p>
+	<h1>getCurrentQueryString</h1>
+	<button ng-click="getCurrentQueryString()">getCurrentQueryString</button>
+	<p ng-repeat="(key, value) in queryStrings">
+		{{key}} : {{value}}
+	</p>
 </div>
 
 <div hljs hljs-include="'pages/history.js'" hljs-language="JavaScript"></div>
