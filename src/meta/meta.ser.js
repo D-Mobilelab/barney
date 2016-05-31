@@ -11,6 +11,7 @@
  *         // we can use "BarneyMeta" object here
  *     }
  * ]);
+ * </pre>
  */
 
 angular.module('barney').factory('BarneyMeta', [
@@ -26,15 +27,24 @@ angular.module('barney').factory('BarneyMeta', [
          * @methodOf meta.BarneyMeta
          *
          * @description 
-         * **It's recommended call this method in your module run() phase**.
+         * You have to call init() method with standard values of meta tags.
          *
-         * You have to pass to init() an object will contain default keys 
-         * that you will use in your pages, if other keys are not defined.
+         * On route change, the meta tags will be reverted to standard values.
+         * 
+         * If you want different values of meta tags for a page, call set() method with different keys.
+         *
+         * **It's recommended call this method in your module run() phase**.
          *
          * @param {Object} metatags default keys
          *
          * @example
          * <pre>
+         *  // HTML
+         *  <title ng-bind='{{meta.title}}'></title>
+         *  <meta name="description" value="{{meta.description}}" />
+         *  <meta name="og:image" value="{{meta.image}}" />
+         *
+         *  // Javascript
          *  Meta.init({
          *      title: 'Standard title',
          *      description: 'Standard description',
@@ -47,6 +57,12 @@ angular.module('barney').factory('BarneyMeta', [
                 $rootScope.defaultMeta[key] = metatags[key];
                 $rootScope.meta[key] = metatags[key];
             }
+
+            // revert to default keys
+            var _this = this;
+            $rootScope.$on('$routeChangeStart', function(event, current, previous){
+                _this.revert();
+            });
         };
 
         /**
@@ -137,21 +153,19 @@ angular.module('barney').factory('BarneyMeta', [
 
         /**
          * @ngdoc function
-         * @name meta.BarneyMeta#defaults
+         * @name meta.BarneyMeta#revert
          * @methodOf meta.BarneyMeta
          *
          * @description 
-         * To revert all keys to default values.
+         * On routeChangeStart event, all keys are reverted, automatically.
+         * 
+         * If you want to revert them manually, you can call revert() method.
          *
          * *To use this method, the init method must be called before.*
          *
-         * **It's recommended to use it in routeChangeStart event**
-         *
          * @example
          * <pre>
-         *  $rootScope.$on('$routeChangeStart', function(event, current, previous){
-         *      Meta.revert();
-         *  });
+         *   Meta.revert();
          * </pre>
          */
         this.revert = function(){

@@ -64,10 +64,6 @@ angular.module('example', [
 			image: "standard-image.jpg"
 		});
 
-		$rootScope.$on('$routeChangeStart', function(){
-			Meta.revert();
-		});
-
 		HistoryAdp.init();
 
 	}

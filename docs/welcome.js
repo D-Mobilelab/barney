@@ -186,3 +186,30 @@
  * You can use now the following components:
  * - {@link meta.BarneyMeta service}
  */ 
+
+ /**
+ * @ngdoc overview
+ * @name utility
+ *
+ * @description
+ * # Utility
+ * Utility is the module of Barney used to provide commons utilities.
+ * 
+ * ## Usage
+ * To use **Utility** module you have to include the following file:
+ * <pre>
+ *  <script type="text/javascript" src="./bower_components/barney/utility/utility.min.js">
+ * </pre>
+ * and include **barney** module to your Angular app:
+ * <pre>
+ *	angular.module('yourAngularApp', [
+ *   ...,
+ *   'barney',
+ *   ...
+ * ])
+ * </pre>
+ * 
+ * ## Components
+ * You can use now the following components:
+ * - {@link utility.BarneyUtility service}
+ */ 
