@@ -364,6 +364,28 @@ angular.module('barney').factory('BarneyBrowser',
             }
         };
 
+        this.getQueryParams = function(newUrl){
+            var url = newUrl ? newUrl : $location.absUrl();
+            var vars = [];
+            var hash, hashbang;
+
+            if(url.indexOf('?') !== -1){
+                var querystring = url.slice(url.indexOf('?') + 1);
+                if(!!querystring){
+                    var hashes = querystring.split('&');
+                    for(var i = 0; i < hashes.length; i++){
+                        hash = hashes[i].split('=');
+                        if(hash[1].indexOf('#') != -1){
+                            hash[1] = hash[1].slice(0, hash[1].indexOf('#'));
+                        }
+                        vars[hash[0]] = hash[1];
+                    }
+                }
+            }
+
+            return vars;
+        }
+
 
         return this;
 

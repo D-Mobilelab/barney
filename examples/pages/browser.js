@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('example').controller('BrowserCtrl', [
-	'$scope', '$location', 'BarneyBrowser',
-	function($scope, $location, Browser){
+	'$scope', '$location', '$window', 'BarneyBrowser',
+	function($scope, $location, $window, Browser){
 
 		$scope.prevpath = Browser.getPrevPath();
 		console.log($scope.prevpath);
@@ -27,7 +27,11 @@ angular.module('example').controller('BrowserCtrl', [
 
 		Browser.mediaMatcher("(min-width: 1024px)", function(mql){
             console.log("Media query changes to:", mql, mql.matches); 
-        })
+        });
+
+        console.log($location.absUrl(), Browser.getQueryParams());
+        console.log('http://foo.bar/#!/ciao?pippo=no&nonsono=io&masono=pluto', Browser.getQueryParams('http://foo.bar/#!/ciao?pippo=no&nonsono=io&masono=pluto'));
+        console.log('http://foo.bar?pippo=no&nonsono=io&masono=pluto/#!/ciao', Browser.getQueryParams('http://foo.bar?pippo=no&nonsono=io&masono=pluto/#!/ciao'));
 
 	}
 ]);
