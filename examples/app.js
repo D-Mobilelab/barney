@@ -12,6 +12,10 @@ angular.module('example', [
 		$locationProvider.hashPrefix("!");
 		
 		$routeProvider
+			.when('/browser', {
+				templateUrl: 'pages/browser.html',
+				controller: 'BrowserCtrl'
+			})
 			.when('/config', {
 				templateUrl: 'pages/config.html',
 				controller: 'ConfigCtrl'
@@ -19,10 +23,6 @@ angular.module('example', [
 			.when('/dict', {
 				templateUrl: 'pages/dict.html',
 				controller: 'DictCtrl'
-			})
-			.when('/history', {
-				templateUrl: 'pages/history.html',
-				controller: 'HistoryCtrl'
 			})
 			.when('/infinite', {
 				templateUrl: 'pages/infinite.html',
@@ -51,8 +51,8 @@ angular.module('example', [
 
 }])
 
-.run(['$rootScope', 'BarneyMeta', 'BarneyHistory',
-	function ($rootScope, Meta, HistoryAdp) {
+.run(['$rootScope', 'BarneyMeta', 'BarneyBrowser',
+	function ($rootScope, Meta, Browser) {
 
 		Meta.init({
 			title: "standard title",
@@ -60,7 +60,7 @@ angular.module('example', [
 			image: "standard-image.jpg"
 		});
 
-		HistoryAdp.init();
+		Browser.init();
 
 	}
 ]);

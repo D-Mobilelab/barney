@@ -1,15 +1,14 @@
-if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
 /**
  * @ngdoc object
- * @name history.BarneyHistory
+ * @name browser.BarneyBrowser
  *
  * @description
- * To use History service, you have to add BarneyHistory dependency to your component (i.e: directive, controller...):
+ * To use Browser service, you have to add BarneyBrowser dependency to your component (i.e: directive, controller...):
  * <pre>
  * angular.module('mock').controller('HomePageController', [
- *     'BarneyHistory', '$scope',
- *     function(BarneyHistory, $scope){
- *         // we can use "BarneyHistory" object here
+ *     'BarneyBrowser', '$scope',
+ *     function(BarneyBrowser, $scope){
+ *         // we can use "BarneyBrowser" object here
  *     }
  * ]);
  * </pre>
@@ -18,7 +17,7 @@ if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
  *
  */
 
-angular.module('barney').factory('BarneyHistory',
+angular.module('barney').factory('BarneyBrowser',
     ['$location', '$rootScope', '$window',
     function($location, $rootScope, $window){
 
@@ -35,8 +34,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name history.BarneyHistory#init
-         * @methodOf history.BarneyHistory
+         * @name browser.BarneyBrowser#init
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * When this method is called, the last visited page is saved and 
@@ -44,7 +43,7 @@ angular.module('barney').factory('BarneyHistory',
          *
          * @example
          * <pre>
-         *  History.init();
+         *  BarneyBrowser.init();
          * </pre>
          */
         this.init = function() {
@@ -62,8 +61,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name history.BarneyHistory#getPrevPath
-         * @methodOf history.BarneyHistory
+         * @name browser.BarneyBrowser#getPrevPath
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * This method is used to get the path of the last visited page.
@@ -71,11 +70,11 @@ angular.module('barney').factory('BarneyHistory',
          * @example
          * <pre>
          *  // page: '#!/home'
-         *  History.init();
+         *  BarneyBrowser.init();
          *
          *  // change page to '#!/news'
          *
-         *  History.getPrevPath();
+         *  BarneyBrowser.getPrevPath();
          *  // it returns '#!/home'
          * </pre>
          */
@@ -85,8 +84,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name history.BarneyHistory#getPrevState
-         * @methodOf history.BarneyHistory
+         * @name browser.BarneyBrowser#getPrevState
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * This method is used to get the state of the last visited page.
@@ -94,11 +93,11 @@ angular.module('barney').factory('BarneyHistory',
          * @example
          * <pre>
          *  // state: 'home'
-         *  History.init();
+         *  BarneyBrowser.init();
          *
          *  // change state to 'news'
          *
-         *  History.getPrevState();
+         *  BarneyBrowser.getPrevState();
          *  // it returns 'home'
          * </pre>
          */
@@ -108,8 +107,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name history.BarneyHistory#goBack
-         * @methodOf history.BarneyHistory
+         * @name browser.BarneyBrowser#goBack
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * This method is used to go back to the last visited page.
@@ -117,11 +116,11 @@ angular.module('barney').factory('BarneyHistory',
          * @example
          * <pre>
          *  // page: '#!/home'
-         *  History.init();
+         *  BarneyBrowser.init();
          *
          *  // change page to '#!/news'
          *
-         *  History.goBack();
+         *  BarneyBrowser.goBack();
          *  // it returns to '#!/home'
          * </pre>
          */
@@ -131,8 +130,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name utility.BarneyUtility#brutalRedirect
-         * @methodOf utility.BarneyUtility
+         * @name browser.BarneyBrowser#brutalRedirect
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * This method make a brutal redirect to the given URL (it's useful for iOs).
@@ -141,7 +140,7 @@ angular.module('barney').factory('BarneyHistory',
          *
          * @example
          * <pre>
-         *   Utility.brutalRedirect('http://foo.bar')
+         *   BarneyBrowser.brutalRedirect('http://foo.bar')
          * </pre>
          */
         this.brutalRedirect = function(url){
@@ -154,8 +153,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name utility.BarneyUtility#clickAndGo
-         * @methodOf utility.BarneyUtility
+         * @name browser.BarneyBrowser#clickAndGo
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * When the user clicks on a link, even if the item clicked contains ***ng-click***, then this method
@@ -171,7 +170,7 @@ angular.module('barney').factory('BarneyHistory',
          *   // Javascript
          *   $scope.doSomething = function(event){
          *      // make "useful" something
-         *      Utility.clickAndGo(myEvent);
+         *      BarneyBrowser.clickAndGo(myEvent);
          *   }
          * </pre>
          * 
@@ -201,8 +200,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name utility.BarneyUtility#mediaMatcher
-         * @methodOf utility.BarneyUtility
+         * @name browser.BarneyBrowser#mediaMatcher
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * This method call a method when a media query is triggered
@@ -212,7 +211,7 @@ angular.module('barney').factory('BarneyHistory',
          *
          * @example
          * <pre>
-         *  Utility.mediaMatcher("(min-width: 1024px)", function(mql){
+         *  BarneyBrowser.mediaMatcher("(min-width: 1024px)", function(mql){
          *    console.log("Media query changes to:", mql, mql.matches); 
          *  })
          * </pre>
@@ -228,8 +227,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name utility.BarneyUtility#getCurrentQueryString
-         * @methodOf utility.BarneyUtility
+         * @name browser.BarneyBrowser#getCurrentQueryString
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * This method return the query string from the URL, before and after the hashbang (#!).
@@ -239,7 +238,7 @@ angular.module('barney').factory('BarneyHistory',
          *   // URL could be: 'http://foo.bar/?hello=world/#!/category'
          *   // or 'http://foo.bar/#!/category/?hello=world'
          *
-         *   Utility.getCurrentQueryString(); 
+         *   BarneyBrowser.getCurrentQueryString(); 
          *   // it returns { hello: 'world' }
          * </pre>
          * 
@@ -273,8 +272,8 @@ angular.module('barney').factory('BarneyHistory',
 
         /**
          * @ngdoc function
-         * @name utility.BarneyUtility#addQueryParams
-         * @methodOf utility.BarneyUtility
+         * @name browser.BarneyBrowser#addQueryParams
+         * @methodOf browser.BarneyBrowser
          *
          * @description 
          * This method add one or more query string params to the 
@@ -286,13 +285,13 @@ angular.module('barney').factory('BarneyHistory',
          * @example
          * <pre>
          *   //current URL =  http://foo.com?mars=earth 
-         *   Utility.addQueryParams({ hello: 'world' })
+         *   BarneyBrowser.addQueryParams({ hello: 'world' })
          *   //new URL =   http://foo.com?mars=earth&hello=world
          *
-         *   Utility.addQueryParams({ hello: 'world' }, 'http://var.com')
+         *   BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://var.com')
          *   //new URL = http://var.com?hello=world
          *
-         *   Utility.addQueryParams({ hello: 'world' }, 'http://var.com?venus=sun')
+         *   BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://var.com?venus=sun')
          *   //new URL = 'http://var.com?venus=sun&hello=world'
          * </pre>
          */ 

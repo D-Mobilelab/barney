@@ -1,17 +1,14 @@
 'use strict';
 
-describe('HISTORY -', function () {
+describe('BROWSER -', function () {
 
-	var HistoryService;
-	var HistoryMock;
+	var BrowserService;
 	var $rootScope;
-	var changePageEvent;
 	var newUrl = '#!/newUrl/';	
 	var oldUrl = '#!/oldUrl/';
-	var WindowProvider, LocationProvider;	
-	var windowSearch, locationSearch;
+	var WindowProvider;
 	var mockedEvent, mockedLocation;
-	var mockWindow, currentWidth = 805, currentHeight = 505;
+	var currentWidth = 805, currentHeight = 505;
 
 	var location;
 
@@ -47,9 +44,9 @@ describe('HISTORY -', function () {
 
 		module('barney');
 
-		inject(function (_$rootScope_, _BarneyHistory_, _$window_, _$location_) {
+		inject(function (_$rootScope_, _BarneyBrowser_, _$window_, _$location_) {
 			$rootScope = _$rootScope_;
-			HistoryService = _BarneyHistory_;
+			BrowserService = _BarneyBrowser_;
 			location = _$location_;
 			WindowProvider = _$window_;
 			mockedLocation = _$location_;
@@ -62,10 +59,7 @@ describe('HISTORY -', function () {
 		}
 
 		spyOn($rootScope, "$on").and.callFake(function(stringa, method) {
-			//changePageEvent = function(){
-				method.call(null, null, newUrl, oldUrl);
-			//}	    	
-
+			method.call(null, null, newUrl, oldUrl);
 	    });
 
 	    spyOn(location, 'url');
@@ -74,57 +68,57 @@ describe('HISTORY -', function () {
 
 	describe('Init method - ', function(){
 		it('expect $rootScope.$on has been called', function(){
-			HistoryService.init();
+			BrowserService.init();
 			expect($rootScope.$on).toHaveBeenCalled();
 		});
 
 		it('expect goBack() method to have been called', function(){
-			HistoryService.init();
+			BrowserService.init();
 			changePage();
-			HistoryService.goBack();
+			BrowserService.goBack();
 			expect(location.url).toHaveBeenCalledWith(oldUrl);
 		});
 
 		it('expect getPrevPath() method return old url, after multiple change page events', function(){
-			HistoryService.init();
+			BrowserService.init();
 			changePage();
-			expect(HistoryService.getPrevPath()).toEqual('/oldUrl/');
+			expect(BrowserService.getPrevPath()).toEqual('/oldUrl/');
 		});
 
 		it('just for getPrevState function', function(){
-			HistoryService.init();
+			BrowserService.init();
 			changePage();
-			expect(HistoryService.getPrevState()).toEqual(null);
+			expect(BrowserService.getPrevState()).toEqual(null);
 		});
 
 		it('getCurrentQueryString returns query string params before and after hashbang', function(){
-			expect(HistoryService.getCurrentQueryString()).toEqual({
+			expect(BrowserService.getCurrentQueryString()).toEqual({
 				hello: 'world',
 				earth: 'sun'
 			});
 		});
 
 		it('addQueryParams add a new query param to current URL', function(){
-			expect(HistoryService.addQueryParams({
+			expect(BrowserService.addQueryParams({
 				venus: 'mercury'
 			})).toEqual('http://www.google.com/#!/category?hello=world&venus=mercury');
 		});
 
 		it('addQueryParams add a new query param to clean URL passed to method', function(){
-			expect(HistoryService.addQueryParams({
+			expect(BrowserService.addQueryParams({
 				venus: 'mercury'
 			}, 'http://www.bing.com')).toEqual('http://www.bing.com?venus=mercury');
 		});
 
 		it('addQueryParams add a new query param to URL passed to method', function(){
-			expect(HistoryService.addQueryParams({
+			expect(BrowserService.addQueryParams({
 				venus: 'mercury'
 			}, 'http://www.bing.com?jupiter=saturn')).toEqual('http://www.bing.com?jupiter=saturn&venus=mercury');
 		});
 
 		it('brutalRedirect - location.href changed to url', function(){
 			var url = "http://www.google.it";
-			HistoryService.brutalRedirect(url);
+			BrowserService.brutalRedirect(url);
 			expect(WindowProvider.location.href).toEqual(url);
 		});
 
@@ -133,7 +127,7 @@ describe('HISTORY -', function () {
 			navigator = {
 				userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"
 			};
-			HistoryService.brutalRedirect(url);
+			BrowserService.brutalRedirect(url);
 			expect(WindowProvider.location.reload).toHaveBeenCalledWith(true);
 		});
 
@@ -142,7 +136,7 @@ describe('HISTORY -', function () {
 			navigator = {
 				userAgent: "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
 			};
-			HistoryService.brutalRedirect(url);
+			BrowserService.brutalRedirect(url);
 			expect(WindowProvider.location.reload).not.toHaveBeenCalled();
 		});
 
@@ -153,7 +147,7 @@ describe('HISTORY -', function () {
 					hash: '#!/category?hello=world'
 				}
 			};
-			HistoryService.clickAndGo(mockedEvent);
+			BrowserService.clickAndGo(mockedEvent);
 			expect(mockedLocation.url).toHaveBeenCalledWith('/category?hello=world');
 		});
 
@@ -164,7 +158,7 @@ describe('HISTORY -', function () {
 					hash: '#!/category?hello=world'
 				}
 			};
-			HistoryService.clickAndGo(mockedEvent);
+			BrowserService.clickAndGo(mockedEvent);
 			expect(mockedLocation.url).not.toHaveBeenCalledWith('#!/category?hello=world');
 		});
 
@@ -179,7 +173,7 @@ describe('HISTORY -', function () {
 					hash: '#!/category?hello=world'
 				}]
 			};
-			HistoryService.clickAndGo(mockedEvent);
+			BrowserService.clickAndGo(mockedEvent);
 			expect(mockedLocation.url).toHaveBeenCalledWith('/category?hello=world');
 		});
 
@@ -194,7 +188,7 @@ describe('HISTORY -', function () {
 					hash: '#!/category?hello=world'
 				},
 			};
-			HistoryService.clickAndGo(mockedEvent);
+			BrowserService.clickAndGo(mockedEvent);
 			expect(mockedLocation.url).toHaveBeenCalledWith('/category?hello=world');
 		});
 
@@ -209,7 +203,7 @@ describe('HISTORY -', function () {
 					hash: '#!/category?hello=world'
 				},
 			};
-			HistoryService.clickAndGo(mockedEvent);
+			BrowserService.clickAndGo(mockedEvent);
 			expect(mockedLocation.url).not.toHaveBeenCalled();
 		});
 
@@ -245,7 +239,7 @@ describe('HISTORY -', function () {
 			};
 			spyOn(mockObj, 'functionToCall');
 			if(window && window.matchMedia){
-				HistoryService.mediaMatcher("(min-width: 400px)", mockObj.foo)
+				BrowserService.mediaMatcher("(min-width: 400px)", mockObj.foo)
 			}
 			expect(mockObj.functionToCall).toHaveBeenCalled();
 		});
@@ -262,7 +256,7 @@ describe('HISTORY -', function () {
 			};
 			spyOn(mockObj, 'functionToCall');
 			if(window && window.matchMedia){
-				HistoryService.mediaMatcher("(min-width: 500px)", mockObj.foo)
+				BrowserService.mediaMatcher("(min-width: 500px)", mockObj.foo)
 			}
 			expect(mockObj.functionToCall).not.toHaveBeenCalled();
 		});
