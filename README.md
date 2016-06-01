@@ -5,7 +5,7 @@
 
 Barney is a collection of Angular micro-libraries, useful for various purposes.
 
-This is the list of Barney modules with related purpose:
+This is the list of Barney modules with related purpose: 
 
 <table>
   <tr>
