@@ -1,0 +1,150 @@
+<h1><code ng:non-bindable="">BarneyBrowser</code>
+<div><span class="hint">service in module <code ng:non-bindable="">browser</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="browser-barneybrowser-page"><p>To use Browser service, you have to add BarneyBrowser dependency to your component (i.e: directive, controller...):
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyBrowser', '$scope',
+    function(BarneyBrowser, $scope){
+        // we can use "BarneyBrowser" object here
+    }
+]);
+</pre>
+<p>Remember that, before calling any other method, <strong>the init method must be called first of all</strong>.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_addqueryparams">addQueryParams(newParams, newUrl)</h3>
+<div class="addqueryparams"><div class="browser-barneybrowser-addqueryparams-page"><p>This method add one or more query string params to the 
+current URL or to a new URL</p>
+</div><h5 id="methods_addqueryparams_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>newParams</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="browser-barneybrowser-addqueryparams-page"><p>params to add URL</p>
+</div></td></tr><tr><td>newUrl</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="browser-barneybrowser-addqueryparams-page"><p>new URL, if not current</p>
+</div></td></tr></tbody></table><h4 id="methods_addqueryparams_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-addqueryparams-page"><pre class="prettyprint linenums">
+//current URL =  http://foo.bar?mars=earth 
+BarneyBrowser.addQueryParams({ hello: 'world' })
+//new URL =   http://foo.bar?hello=world&mars=earth
+
+BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://foo.bar')
+//new URL = http://foo.bar?hello=world
+
+BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://foo.bar?venus=sun')
+//new URL = 'http://foo.bar?hello=world&venus=sun'
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_brutalredirect">brutalRedirect(url)</h3>
+<div class="brutalredirect"><div class="browser-barneybrowser-brutalredirect-page"><p>This method make a brutal redirect to the given URL (it&#39;s useful for iOs).</p>
+</div><h5 id="methods_brutalredirect_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="browser-barneybrowser-brutalredirect-page"><p>New url to redirect to</p>
+</div></td></tr></tbody></table><h4 id="methods_brutalredirect_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-brutalredirect-page"><pre class="prettyprint linenums">
+BarneyBrowser.brutalRedirect('http://foo.bar')
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_clickandgo">clickAndGo(event)</h3>
+<div class="clickandgo"><div class="browser-barneybrowser-clickandgo-page"><p>When the user clicks on a link, even if the item clicked contains <strong><em>ng-click</em></strong>, then this method
+makes sure that the link is followed by the browser.</p>
+</div><h5 id="methods_clickandgo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>event</td><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="browser-barneybrowser-clickandgo-page"><p>Event to catch</p>
+</div></td></tr></tbody></table><h4 id="methods_clickandgo_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-clickandgo-page"><pre class="prettyprint linenums">
+// HTML
+&lt;a href="http://foo.bar" ng-click="doSomething(event)"&gt;Hello&lt;/a&gt;
+
+// Javascript
+$scope.doSomething = function(event){
+   // make "useful" something
+   BarneyBrowser.clickAndGo(myEvent);
+}
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getprevpath">getPrevPath()</h3>
+<div class="getprevpath"><div class="browser-barneybrowser-getprevpath-page"><p>This method is used to get the path of the last visited page.</p>
+</div><h4 id="methods_getprevpath_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-getprevpath-page"><pre class="prettyprint linenums">
+// page: '#!/home'
+BarneyBrowser.init();
+
+// change page to '#!/news'
+
+BarneyBrowser.getPrevPath();
+// it returns '#!/home'
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getprevstate">getPrevState()</h3>
+<div class="getprevstate"><div class="browser-barneybrowser-getprevstate-page"><p>This method is used to get the state of the last visited page.</p>
+</div><h4 id="methods_getprevstate_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-getprevstate-page"><pre class="prettyprint linenums">
+// state: 'home'
+BarneyBrowser.init();
+
+// change state to 'news'
+
+BarneyBrowser.getPrevState();
+// it returns 'home'
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getqueryparams">getQueryParams()</h3>
+<div class="getqueryparams"><div class="browser-barneybrowser-getqueryparams-page"><p>This method return the query string from the URL, before and after the hashbang (#!).</p>
+</div><h4 id="methods_getqueryparams_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-getqueryparams-page"><pre class="prettyprint linenums">
+// URL could be: 'http://foo.bar/?hello=world/#!/category'
+// or 'http://foo.bar/#!/category/?hello=world'
+
+BarneyBrowser.getQueryParams(); 
+// it returns { hello: 'world' }
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_goback">goBack()</h3>
+<div class="goback"><div class="browser-barneybrowser-goback-page"><p>This method is used to go back to the last visited page.</p>
+</div><h4 id="methods_goback_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-goback-page"><pre class="prettyprint linenums">
+// page: '#!/home'
+BarneyBrowser.init();
+
+// change page to '#!/news'
+
+BarneyBrowser.goBack();
+// it returns to '#!/home'
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_init">init()</h3>
+<div class="init"><div class="browser-barneybrowser-init-page"><p>When this method is called, the last visited page is saved and 
+it can be used by getPrevPath(), getPrevState() and goBack() methods.</p>
+</div><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-init-page"><pre class="prettyprint linenums">
+BarneyBrowser.init();
+</pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_mediamatcher">mediaMatcher(mediaquery, callback)</h3>
+<div class="mediamatcher"><div class="browser-barneybrowser-mediamatcher-page"><p>This method call a method when a media query is triggered</p>
+</div><h5 id="methods_mediamatcher_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mediaquery</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="browser-barneybrowser-mediamatcher-page"><p>media query to trigger</p>
+</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="browser-barneybrowser-mediamatcher-page"><p>method called when media query is triggered</p>
+</div></td></tr></tbody></table><h4 id="methods_mediamatcher_example">Example</h4>
+<div class="example"><div class="browser-barneybrowser-mediamatcher-page"><pre class="prettyprint linenums">
+BarneyBrowser.mediaMatcher("(min-width: 1024px)", function(mql){
+  console.log("Media query changes to:", mql, mql.matches); 
+})
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
