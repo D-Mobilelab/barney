@@ -5,7 +5,7 @@
  * @restrict A
  *
  * @description
- * With live-html directive, you can print html code, without any pre-controls.
+ * With live-html directive, you can print html code without any pre-controls.
  *
  * @example
  * <pre>
