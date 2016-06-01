@@ -23,6 +23,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "callbacky",
+      "shortName": "callbacky",
+      "type": "object",
+      "moduleName": "callbacky",
+      "shortDescription": "You can use callbacky to bind and trigger a function from different points in your code (i.e: controllers, services, ...).",
+      "keywords": "angular api app arg arguments associated attributes barney barneycallbacky barneylogger bind bound call callbacky called clean code console controllers corresponding described enable event example file framework function global hello identify import init initializing js key log logger logs method methods methods_init mode module object options pass points relative remove saved second service services set single src start string text trigger triggered type unique usage vanilla verbose window work world yourapp"
+    },
+    {
+      "section": "api",
+      "id": "callbacky.BarneyCallbacky",
+      "shortName": "callbacky.BarneyCallbacky",
+      "type": "object",
+      "moduleName": "callbacky",
+      "shortDescription": "Angular service of Callbacky module",
+      "keywords": "add analytics angular api barneycallbacky bind callbacky clean component controller dependency function homepagecontroller import init method methods_bind methods_clean methods_init methods_trigger mock module object refer replacing service trigger usage"
+    },
+    {
+      "section": "api",
       "id": "newton",
       "shortName": "newton",
       "type": "object",
