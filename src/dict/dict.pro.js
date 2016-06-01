@@ -88,7 +88,7 @@ angular.module('barney').provider('BarneyDict', [
              *  // BarneyDict.get('existKey') -> Hello
              *  // BarneyDict.get('notExistKey') -> [[notExistKey]]
              * </pre>
-             */            
+             */
             init: function(options){
                 if(options){
                     parameters = options;
