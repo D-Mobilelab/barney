@@ -245,7 +245,7 @@ angular.module('barney').factory('BarneyBrowser',
          */
         this.getQueryParams = function(newUrl){
             var url = newUrl ? newUrl : $location.absUrl();
-            var vars = [];
+            var vars = {};
             var hash;
 
             if(url.indexOf('?') !== -1){
@@ -254,7 +254,7 @@ angular.module('barney').factory('BarneyBrowser',
                     var hashes = querystring.split('&');
                     for(var i = 0; i < hashes.length; i++){
                         hash = hashes[i].split('=');
-                        if(hash[1].indexOf('#') != -1){
+                        if(hash[1].indexOf('#') !== -1){
                             hash[1] = hash[1].slice(0, hash[1].indexOf('#'));
                         }
                         vars[hash[0]] = hash[1];
@@ -292,7 +292,7 @@ angular.module('barney').factory('BarneyBrowser',
          */ 
         this.addQueryParams = function(newParams, newUrl){
             var url = newUrl ? newUrl : $location.absUrl();
-            var newQueryString = "";
+            var newQueryString = '';
 
             // reate encoded query string
             for(var key in newParams){
@@ -301,10 +301,10 @@ angular.module('barney').factory('BarneyBrowser',
             newQueryString = newQueryString.slice(0, -1);
 
             var questionMarkIndex = url.indexOf('?');
-            if(questionMarkIndex == -1){
+            if(questionMarkIndex === -1){
                 url += '?' + newQueryString;
             } else {
-                url = url.substr(0, questionMarkIndex+1) + newQueryString + '&' + url.substr(questionMarkIndex+1);
+                url = url.substr(0, questionMarkIndex + 1) + newQueryString + '&' + url.substr(questionMarkIndex + 1);
             }
 
             return url;
@@ -316,7 +316,7 @@ angular.module('barney').factory('BarneyBrowser',
                     return string;
                 }
             }
-        }
+        };
 
         return this;
 

@@ -104,7 +104,7 @@
  * 
  * ## Components
  * You can use now the following components:
- * - {@link infinite.directive:infinite directive}
+ * - {@link infinite.directive:InfiniteScroll directive}
  */ 
 
 /**
