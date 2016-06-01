@@ -92,16 +92,15 @@ describe('BROWSER -', function () {
 		});
 
 		it('getCurrentQueryString returns query string params before and after hashbang', function(){
-			expect(BrowserService.getCurrentQueryString()).toEqual({
-				hello: 'world',
-				earth: 'sun'
-			});
+			expect(BrowserService.getQueryParams()).toEqual([
+				hello: 'world'				
+			]);
 		});
 
 		it('addQueryParams add a new query param to current URL', function(){
 			expect(BrowserService.addQueryParams({
 				venus: 'mercury'
-			})).toEqual('http://www.google.com/#!/category?hello=world&venus=mercury');
+			})).toEqual('http://www.google.com/#!/category?venus=mercury&hello=world');
 		});
 
 		it('addQueryParams add a new query param to clean URL passed to method', function(){
@@ -113,7 +112,7 @@ describe('BROWSER -', function () {
 		it('addQueryParams add a new query param to URL passed to method', function(){
 			expect(BrowserService.addQueryParams({
 				venus: 'mercury'
-			}, 'http://www.bing.com?jupiter=saturn')).toEqual('http://www.bing.com?jupiter=saturn&venus=mercury');
+			}, 'http://www.bing.com?jupiter=saturn')).toEqual('http://www.bing.com?venus=mercury&jupiter=saturn');
 		});
 
 		it('brutalRedirect - location.href changed to url', function(){

@@ -2,7 +2,7 @@
  * @ngdoc directive
  * @name livehtml.directive:livehtml
  * 
- * @restrict E
+ * @restrict A
  *
  * @description
  * With live-html directive, you can print html code, without any pre-controls.
@@ -11,7 +11,7 @@
  * <pre>
  *  // "UNSAFE_CODE": '<form action="go.php"><input type="text" name="name" /><iframe src="go.mp4" /></form>'
  *  
- *  <live-html key="UNSAFE_CODE"></live-html>
+ *      <div live-html="UNSAFE_CODE"></div>
  *  // the directive prints '<form action="go.php"><input type="text" name="name" /><iframe src="go.mp4" /></form>'
  * </pre>
  */
