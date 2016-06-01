@@ -227,7 +227,7 @@ angular.module('barney').factory('BarneyBrowser',
 
         /**
          * @ngdoc function
-         * @name browser.BarneyBrowser#getCurrentQueryString
+         * @name browser.BarneyBrowser#getQueryParams
          * @methodOf browser.BarneyBrowser
          *
          * @description 
@@ -238,35 +238,30 @@ angular.module('barney').factory('BarneyBrowser',
          *   // URL could be: 'http://foo.bar/?hello=world/#!/category'
          *   // or 'http://foo.bar/#!/category/?hello=world'
          *
-         *   BarneyBrowser.getCurrentQueryString(); 
+         *   BarneyBrowser.getQueryParams(); 
          *   // it returns { hello: 'world' }
          * </pre>
          * 
          */
-        this.getCurrentQueryString = function(){
-            // get normalized query string after #!
-            var vars = $location.search();
-            
-            // get un-normalized query string before #!
-            var queryStringBef = $window.location.search;
-            
-            // check if window.location is empty
-            if(queryStringBef !== ''){
-                // remove ? from querystring
-                queryStringBef = queryStringBef.slice(1);
-                // queryStringBef = queryStringBef.slice(queryStringBef.indexOf('?') + 1);
+        this.getQueryParams = function(newUrl){
+            var url = newUrl ? newUrl : $location.absUrl();
+            var vars = [];
+            var hash;
 
-                if(!!queryStringBef){
-                    // create an array of query strings
-                    var hashes = queryStringBef.split('&');
-                    
-                    // loop query strings to split them
+            if(url.indexOf('?') !== -1){
+                var querystring = url.slice(url.indexOf('?') + 1);
+                if(!!querystring){
+                    var hashes = querystring.split('&');
                     for(var i = 0; i < hashes.length; i++){
-                        var hash = hashes[i].split('=');
+                        hash = hashes[i].split('=');
+                        if(hash[1].indexOf('#') != -1){
+                            hash[1] = hash[1].slice(0, hash[1].indexOf('#'));
+                        }
                         vars[hash[0]] = hash[1];
                     }
                 }
             }
+
             return vars;
         };
 
@@ -284,61 +279,36 @@ angular.module('barney').factory('BarneyBrowser',
          *
          * @example
          * <pre>
-         *   //current URL =  http://foo.com?mars=earth 
+         *   //current URL =  http://foo.bar?mars=earth 
          *   BarneyBrowser.addQueryParams({ hello: 'world' })
-         *   //new URL =   http://foo.com?mars=earth&hello=world
+         *   //new URL =   http://foo.bar?hello=world&mars=earth
          *
-         *   BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://var.com')
-         *   //new URL = http://var.com?hello=world
+         *   BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://foo.bar')
+         *   //new URL = http://foo.bar?hello=world
          *
-         *   BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://var.com?venus=sun')
-         *   //new URL = 'http://var.com?venus=sun&hello=world'
+         *   BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://foo.bar?venus=sun')
+         *   //new URL = 'http://foo.bar?hello=world&venus=sun'
          * </pre>
          */ 
         this.addQueryParams = function(newParams, newUrl){
-            // get existing query params
-            var queryString;
-            if(!!newUrl){
-                queryString = getQueryString(newUrl);
-            } else {
-                queryString = $location.search();
-            }
-            
-            // encode and add newParams to query params
-            var key;
-            for(key in newParams){
-                var value = newParams[key];
-                key = encode(key);
-                value = encode(value);
-                queryString[key] = value;
-            }
-            
-            // get url without query string and add ? to url
-            var url;
-            if(!!newUrl){
-                url = newUrl;
-            } else {
-                url = $location.absUrl();
-            }
-            if(url.indexOf('?') > -1){
-                url = url.substr(0, url.indexOf('?') + 1);
-            } else {
-                url += '?';
-            }           
+            var url = newUrl ? newUrl : $location.absUrl();
+            var newQueryString = "";
 
-            // add all query params to url
-            var first = true;
-            for(key in queryString){
-                if(!first){ 
-                    url += '&'; 
-                } else {
-                    first = false;
-                }
-                url += key + '=' + queryString[key];
+            // reate encoded query string
+            for(var key in newParams){
+                newQueryString += encode(key) + '=' + encode(newParams[key]) + '&';
+            }
+            newQueryString = newQueryString.slice(0, -1);
+
+            var questionMarkIndex = url.indexOf('?');
+            if(questionMarkIndex == -1){
+                url += '?' + newQueryString;
+            } else {
+                url = url.substr(0, questionMarkIndex+1) + newQueryString + '&' + url.substr(questionMarkIndex+1);
             }
 
             return url;
-            
+
             function encode(string){
                 try {
                     return encodeURIComponent(string);
@@ -346,46 +316,7 @@ angular.module('barney').factory('BarneyBrowser',
                     return string;
                 }
             }
-
-            function getQueryString(_url) {
-                var vars = [], hash;
-                if(_url.indexOf('?') !== -1){
-                    var querystring = _url.slice(_url.indexOf('?') + 1);
-                    if(!!querystring){
-                        var hashes = querystring.split('&');
-                        for(var i = 0; i < hashes.length; i++){
-                            hash = hashes[i].split('=');
-                            // vars.push(hash[0]);
-                            vars[hash[0]] = hash[1];
-                        }
-                    }
-                }
-                return vars;
-            }
-        };
-
-        this.getQueryParams = function(newUrl){
-            var url = newUrl ? newUrl : $location.absUrl();
-            var vars = [];
-            var hash, hashbang;
-
-            if(url.indexOf('?') !== -1){
-                var querystring = url.slice(url.indexOf('?') + 1);
-                if(!!querystring){
-                    var hashes = querystring.split('&');
-                    for(var i = 0; i < hashes.length; i++){
-                        hash = hashes[i].split('=');
-                        if(hash[1].indexOf('#') != -1){
-                            hash[1] = hash[1].slice(0, hash[1].indexOf('#'));
-                        }
-                        vars[hash[0]] = hash[1];
-                    }
-                }
-            }
-
-            return vars;
         }
-
 
         return this;
 

@@ -9,29 +9,53 @@ angular.module('example').controller('BrowserCtrl', [
 		$scope.prevstate = Browser.getPrevState();
 		console.log($scope.prevstate);
 
-		$scope.oldUrl = $location.absUrl();
-		$scope.newUrl = Browser.addQueryParams({
-			ciao: 'mondo',
-			pippo: 'pluto'
-		});
-
-		$scope.oldUrlTwo = 'http://www.google.com';
-		$scope.newUrlTwo = Browser.addQueryParams({
-			ciao: 'mondo',
-			pippo: 'pluto'
-		}, 'http://www.google.com');
+		$scope.goBack = function(){
+			Browser.goBack();
+		}
 		
-		$scope.getCurrentQueryString = function(){
-			$scope.queryStrings = Browser.getCurrentQueryString();
+		$scope.getQueryParams = function(){
+			$scope.queryStrings = Browser.getQueryParams();
+			console.log($scope.queryStrings);
+		}
+
+		$scope.getQueryParamsVoid = function(){
+			$scope.queryStrings = Browser.getQueryParams('http://foo.bar');
+			console.log($scope.queryStrings);
+		}
+
+		$scope.getQueryParamsAfter = function(){
+			$scope.queryStrings = Browser.getQueryParams('http://foo.bar/#!/ciao?pippo=no&nonsono=io&masono=pluto');
+			console.log($scope.queryStrings);
+		}
+
+		$scope.getQueryParamsBefore = function(){
+			$scope.queryStrings = Browser.getQueryParams('http://foo.bar?pippo=no&nonsono=io&masono=pluto/#!/ciao');
+			console.log($scope.queryStrings);
+		}
+
+		$scope.addQueryParams = function(){
+			$scope.queryStrings = Browser.addQueryParams({ hello: 'world' });
+			console.log($scope.queryStrings);
+		}
+
+		$scope.addQueryParamsVoid = function(){
+			$scope.queryStrings = Browser.addQueryParams({ hello: 'world' }, 'http://foo.bar');
+			console.log($scope.queryStrings);
+		}
+
+		$scope.addQueryParamsAfter = function(){
+			$scope.queryStrings = Browser.addQueryParams({ hello: 'world' }, 'http://foo.bar/#!/ciao?pippo=no&nonsono=io&masono=pluto');
+			console.log($scope.queryStrings);
+		}
+
+		$scope.addQueryParamsBefore = function(){
+			$scope.queryStrings = Browser.addQueryParams({ hello: 'world' }, 'http://foo.bar?pippo=no&nonsono=io&masono=pluto/#!/ciao');
+			console.log($scope.queryStrings);
 		}
 
 		Browser.mediaMatcher("(min-width: 1024px)", function(mql){
             console.log("Media query changes to:", mql, mql.matches); 
         });
-
-        console.log($location.absUrl(), Browser.getQueryParams());
-        console.log('http://foo.bar/#!/ciao?pippo=no&nonsono=io&masono=pluto', Browser.getQueryParams('http://foo.bar/#!/ciao?pippo=no&nonsono=io&masono=pluto'));
-        console.log('http://foo.bar?pippo=no&nonsono=io&masono=pluto/#!/ciao', Browser.getQueryParams('http://foo.bar?pippo=no&nonsono=io&masono=pluto/#!/ciao'));
 
 	}
 ]);
