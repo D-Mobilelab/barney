@@ -63,7 +63,7 @@ angular.module('barney').factory('BarneyMeta', [
 
             // revert to default keys
             var _this = this;
-            $rootScope.$on('$routeChangeStart', function(event, current, previous){
+            $rootScope.$on('$routeChangeStart', function(){
                 _this.revert();
             });
         };

@@ -18,13 +18,12 @@
  * </pre>
  *
  * To discover the purpose of every module and to read the instruction to include and use it, open the related page:
+ * - {@link browser browser}
  * - {@link config config}
  * - {@link dict dict}
- * - {@link history history}
  * - {@link infinite infinite}
  * - {@link livehtml livehtml}
  * - {@link meta meta}
- * - {@link utility utility}
  */
 
 /**
@@ -72,21 +71,21 @@
 
 /**
  * @ngdoc overview
- * @name history
+ * @name browser
  *
  * @description
- * # History
- * History is the module of Barney to manage browser history.
+ * # Browser
+ * Browser is the module of Barney to manage browser.
  * 
  * ## Usage
- * To use **History** module you have to include the following file:
+ * To use **Browser** module you have to include the following file:
  * <pre>
- *  <script type="text/javascript" src="./bower_components/barney/history/history.min.js">
+ *  <script type="text/javascript" src="./bower_components/barney/browser/browser.min.js">
  * </pre>
  * 
  * ## Components
  * You can use now the following components:
- * - {@link history.BarneyHistory service}
+ * - {@link browser.BarneyBrowser service}
  */ 
 
 /**
@@ -146,23 +145,4 @@
  * ## Components
  * You can use now the following components:
  * - {@link meta.BarneyMeta service}
- */ 
-
- /**
- * @ngdoc overview
- * @name utility
- *
- * @description
- * # Utility
- * Utility is the module of Barney used to provide commons utilities.
- * 
- * ## Usage
- * To use **Utility** module you have to include the following file:
- * <pre>
- *  <script type="text/javascript" src="./bower_components/barney/utility/utility.min.js">
- * </pre>
- * 
- * ## Components
- * You can use now the following components:
- * - {@link utility.BarneyUtility service}
- */ 
+ */
