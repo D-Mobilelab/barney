@@ -12,9 +12,9 @@ angular.module('example', [
 		$locationProvider.hashPrefix("!");
 		
 		$routeProvider
-			.when('/logger', {
-				templateUrl: 'pages/logger.html',
-				controller: 'LoggerCtrl'
+			.when('/browser', {
+				templateUrl: 'pages/browser.html',
+				controller: 'BrowserCtrl'
 			})
 			.when('/config', {
 				templateUrl: 'pages/config.html',
@@ -24,13 +24,13 @@ angular.module('example', [
 				templateUrl: 'pages/dict.html',
 				controller: 'DictCtrl'
 			})
-			.when('/analytics', {
-				templateUrl: 'pages/analytics.html',
-				controller: 'AnalyticsCtrl'
+			.when('/infinite', {
+				templateUrl: 'pages/infinite.html',
+				controller: 'InfiniteCtrl'
 			})
-			.when('/newton', {
-				templateUrl: 'pages/newton.html',
-				controller: 'NewtonCtrl'
+			.when('/livehtml', {
+				templateUrl: 'pages/livehtml.html',
+				controller: 'LivehtmlCtrl'
 			})
 			.when('/meta', {
 				templateUrl: 'pages/meta.html',
@@ -39,29 +39,6 @@ angular.module('example', [
 			.when('/meta2', {
 				templateUrl: 'pages/meta.html',
 				controller: 'MetaTwoCtrl'
-			})
-			.when('/utility', {
-				templateUrl: 'pages/utility.html',
-				controller: 'UtilityCtrl'
-			})
-			.when('/storage', {
-				templateUrl: 'pages/storage.html',
-				controller: 'StorageCtrl'
-			})
-			.when('/callbacky', {
-				templateUrl: 'pages/callbacky.html'
-			})
-			.when('/infinite', {
-				templateUrl: 'pages/infinite.html',
-				controller: 'InfiniteCtrl'
-			})
-			.when('/history', {
-				templateUrl: 'pages/history.html',
-				controller: 'HistoryCtrl'
-			})
-			.when('/livehtml', {
-				templateUrl: 'pages/livehtml.html',
-				controller: 'LivehtmlCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
@@ -74,8 +51,8 @@ angular.module('example', [
 
 }])
 
-.run(['$rootScope', 'BarneyMeta', 'BarneyHistory',
-	function ($rootScope, Meta, HistoryAdp) {
+.run(['$rootScope', 'BarneyMeta', 'BarneyBrowser',
+	function ($rootScope, Meta, Browser) {
 
 		Meta.init({
 			title: "standard title",
@@ -83,11 +60,7 @@ angular.module('example', [
 			image: "standard-image.jpg"
 		});
 
-		$rootScope.$on('$routeChangeStart', function(){
-			Meta.revert();
-		});
-
-		HistoryAdp.init();
+		Browser.init();
 
 	}
 ]);

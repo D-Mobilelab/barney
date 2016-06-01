@@ -1,4 +1,20 @@
-if(!barneyAngular) { var barneyAngular = angular.module('barney', []); }
+/**
+ * @ngdoc directive
+ * @name livehtml.directive:livehtml
+ * 
+ * @restrict A
+ *
+ * @description
+ * With live-html directive, you can print html code without any pre-controls.
+ *
+ * @example
+ * <pre>
+ *  // "UNSAFE_CODE": '<form action="go.php"><input type="text" name="name" /><iframe src="go.mp4" /></form>'
+ *  
+ *      <div live-html="UNSAFE_CODE"></div>
+ *  // the directive prints '<form action="go.php"><input type="text" name="name" /><iframe src="go.mp4" /></form>'
+ * </pre>
+ */
 
 angular.module('barney').directive('liveHtml', 
     ['$compile',
