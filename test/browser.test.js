@@ -92,9 +92,9 @@ describe('BROWSER -', function () {
 		});
 
 		it('getCurrentQueryString returns query string params before and after hashbang', function(){
-			expect(BrowserService.getQueryParams()).toEqual([
+			expect(BrowserService.getQueryParams()).toEqual({
 				hello: 'world'				
-			]);
+			});
 		});
 
 		it('addQueryParams add a new query param to current URL', function(){
