@@ -289,7 +289,8 @@ angular.module('barney').factory('BarneyBrowser',
          *   BarneyBrowser.addQueryParams({ hello: 'world' }, 'http://foo.bar?venus=sun')
          *   //new URL = 'http://foo.bar?hello=world&venus=sun'
          * </pre>
-         */ 
+         *
+         */
         this.addQueryParams = function(newParams, newUrl){
             var url = newUrl ? newUrl : $location.absUrl();
             var newQueryString = '';
