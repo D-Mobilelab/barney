@@ -214,7 +214,18 @@ module.exports = function (grunt) {
             docs: {
               src: '<%= coveragePath %>/**/lcov.info'
             },
-        }
+        },
+
+        // STRIP COMMENTS
+        comments: {
+            your_target: {
+                options: {
+                    singleline: false,
+                    multiline: true
+                },
+                src: '<%= distPath %>*.js'
+            },
+        },
     });
 
     grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
@@ -301,7 +312,8 @@ module.exports = function (grunt) {
         // CREATE BUILD
         'clean:dist',
         'prepareModules',
-        'concat'
+        'concat',
+        'comments'
     ]);
 
     /**********************************/
