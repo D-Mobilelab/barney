@@ -1,0 +1,22 @@
+<h1><code ng:non-bindable="">livehtml</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">livehtml</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="livehtml-directive-page livehtml-directive-livehtml-page"><p>With live-html directive, you can print html code without any pre-controls.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY livehtml&gt;
+   ...
+&lt;/ANY&gt;</pre>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="livehtml-directive-page livehtml-directive-livehtml-page"><pre class="prettyprint linenums">
+// "UNSAFE_CODE": '&lt;form action="go.php"&gt;&lt;input type="text" name="name" /&gt;&lt;iframe src="go.mp4" /&gt;&lt;/form&gt;'
+
+    &lt;div live-html="UNSAFE_CODE"&gt;&lt;/div&gt;
+// the directive prints '&lt;form action="go.php"&gt;&lt;input type="text" name="name" /&gt;&lt;iframe src="go.mp4" /&gt;&lt;/form&gt;'
+</pre>
+</div></div>
+</div>

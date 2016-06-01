@@ -1,3 +1,8 @@
+** 4.0.0 **
+- Lite version (browser, config, dict, infinite, livehtml, meta)
+- New Browser module
+- Refactored Gruntfile
+
 ** 3.0.0 **
 - Vanilla and Angular wrapper
 
