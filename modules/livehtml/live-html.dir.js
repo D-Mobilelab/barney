@@ -14,8 +14,41 @@ angular.module('barney').directive('liveHtml',
                         $element.html(liveHtml);
                         $compile($element.contents())($scope.$parent);
                     }
-                    
                 });
+
+            }
+        };
+    }]
+);
+
+angular.module('barney').directive('liveScript', 
+    [function() {
+
+        return {
+            restrict: 'A',
+            scope: false,
+            link: function($scope, $element) {
+
+                var s = document.createElement('script');
+                s.src = $element[0].src;
+                document.body.appendChild(s);
+
+            }
+        };
+    }]
+);
+
+angular.module('barney').directive('liveJs', 
+    [function() {
+
+        return {
+            restrict: 'A',
+            scope: false,
+            link: function($scope, $element) {
+
+                var code = $element[0].innerHTML;
+                var f = new Function(code);
+                f();
 
             }
         };
