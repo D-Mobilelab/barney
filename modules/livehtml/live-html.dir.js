@@ -7,7 +7,7 @@ angular.module('barney').directive('liveHtml',
             scope: {
                 liveHtml: '='
             },
-            link: function($scope, $element) {
+            controller: function($scope, $element) {
 
                 $scope.$watch('liveHtml', function(liveHtml) {
                     if(liveHtml){
@@ -16,39 +16,44 @@ angular.module('barney').directive('liveHtml',
                     }
                 });
 
-            }
-        };
-    }]
-);
+                this.liveScript = function(jsLink){
+                    var s = document.createElement('script');
+                    s.src = jsLink;
+                    document.body.appendChild(s);
+                };
 
-angular.module('barney').directive('liveScript', 
-    [function() {
-
-        return {
-            restrict: 'A',
-            scope: false,
-            link: function($scope, $element) {
-
-                var s = document.createElement('script');
-                s.src = $element[0].src;
-                document.body.appendChild(s);
+                this.liveJs = function(jsCode){
+                    Function(jsCode)();
+                };
 
             }
         };
     }]
 );
 
-angular.module('barney').directive('liveJs', 
+angular.module('barney').directive('script', 
     [function() {
 
         return {
-            restrict: 'A',
+            restrict: 'E',
             scope: false,
-            link: function($scope, $element) {
+            require: '?^^liveHtml',
+            link: function($scope, $element, $attrs, liveHtmlCtrl) {
 
-                var code = $element[0].innerHTML;
-                var f = new Function(code);
-                f();
+                // if <script> is child of live-html directive
+                if(liveHtmlCtrl){
+
+                    // if <script src="..."></script>
+                    if($element[0].src){
+                        liveHtmlCtrl.liveScript($element[0].src);
+                    }
+                    
+                    // if <script>...</script>
+                    if($element[0].innerHTML){
+                        liveHtmlCtrl.liveJs($element[0].innerHTML);
+                    }
+
+                }
 
             }
         };

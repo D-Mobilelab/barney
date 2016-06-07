@@ -27,6 +27,8 @@
 		"no-param-reassign": 1,
 		// you can use "else" after a return
 		"no-else-return": 0,
+		// you can create new anonymous function with "new Function(...)"
+		"no-new-func": 0,
 
 		/*** SPACES ***/
 		// indent 4 spaces
