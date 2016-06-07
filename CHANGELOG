@@ -1,3 +1,6 @@
+** 4.0.1 **
+- NPM module
+
 ** 4.0.0 **
 - Lite version (browser, config, dict, infinite, livehtml, meta)
 - New Browser module

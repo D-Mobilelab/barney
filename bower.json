@@ -1,21 +1,24 @@
 {
   "name": "barney",
-  "version": "4.0.0",
-  "authors": [
+  "version": "4.0.1",
+  "author": [
     "aurelio.merenda@buongiorno.com",
     "fabio.fognani@buongiorno.com",
     "lorenzo.mussi@buongiorno.com",
     "flavia.calzecchi@buongiorno.com"
   ],
-  "description": "Common lib for Buongiorno products",
+  "description": "Barney is a collection of Angular micro-libraries, useful for various purposes.",
+  "keywords": [
+    "buongiorno",
+    "dmobilelab",
+    "angular",
+    "utilities"
+  ],
+  "license": "MIT",
   "main": [],
   "moduleType": [
     "globals"
   ],
-  "keywords": [
-    "buongiorno"
-  ],
-  "license": "MIT",
   "ignore": [
     "**/*",
     "!dist/**/*",
