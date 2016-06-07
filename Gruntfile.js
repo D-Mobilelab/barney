@@ -180,9 +180,10 @@ module.exports = function (grunt) {
 
         // STRING-REPLACE
         'string-replace': {
-            bower: {
+            bowerpackage: {
                 files: {
-                    'bower.json': 'bower.json'
+                    'bower.json': 'bower.json',
+                    'package.json': 'package.json'
                 },
                 options: {
                     replacements: [{
@@ -368,7 +369,7 @@ module.exports = function (grunt) {
         'eslint',
         // PROMPT
         'prompt:version',
-        'string-replace:bower',
+        'string-replace:bowerpackage',
         'file_append:changelog',
         // DOC (OFFICIAL)
         'clean:docVersion',

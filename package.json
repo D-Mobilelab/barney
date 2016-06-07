@@ -1,8 +1,30 @@
 {
-  "name": "barney",
-  "version": "0.0.0",
+  "name": "barneyjs",
+  "version": "4.0.0",
+  "author": [
+    "aurelio.merenda@buongiorno.com",
+    "flavia.calzecchi@buongiorno.com",
+    "fabio.fognani@buongiorno.com",
+    "lorenzo.mussi@buongiorno.com",
+    "pasqualemangialavori@buongiorno.com"
+  ],
+  "description": "Barney is a collection of Angular micro-libraries, useful for various purposes.",
+  "keywords": [
+    "buongiorno",
+    "dmobilelab",
+    "angular",
+    "utilities"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D-Mobilelab/barney"
+  },
+  "bugs": {
+    "url": "https://github.com/D-Mobilelab/barney/issues"
+  },
+  "homepage": "https://github.com/D-Mobilelab/barney#readme",
   "dependencies": {},
-  "repository": {},
   "devDependencies": {
     "babel-eslint": "^4.1.4",
     "eslint-config-airbnb": "^0.1.0",
@@ -35,6 +57,5 @@
   },
   "engines": {
     "node": "0.10.25"
-  },
-  "scripts": {}
+  }
 }
