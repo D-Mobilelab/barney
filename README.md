@@ -47,9 +47,24 @@ This is the list of Barney libreries with related description:
 ```
 bower install --save barney
 ```
-- Add barney files you want use to index.html file, according to Barney documentation. For example, for infinite module add:
+- Add barney files you want use to index.html file, according to Barney documentation.<br/>For example, for infinite module add:
 ```
 <script src="bower_components/barney/dist/infinite.min.js"></script>
+```
+- Add barney main module to your app.js file
+```
+angular.module('myproject', [ ..., 'barney'])
+```
+
+### NPM
+
+- Install Barney with NPM
+```
+npm install --save barneyjs
+```
+- Add barney files you want use to index.html file, according to Barney documentation.<br/>For example, for infinite module add:
+```
+<script src="node_modules/barneyjs/dist/infinite.min.js"></script>
 ```
 - Add barney main module to your app.js file
 ```
@@ -137,7 +152,7 @@ grunt version
 ```
 ? Features for version 1.2.0 (use ";" to separate features): ()
 ```
-- Commit and push all modified files (<i>bower.json</i> and <i>CHANGELOG</i> certainly)
+- Commit and push all modified files (<i>bower.json</i>, <i>package.json</i> and <i>CHANGELOG</i> certainly)
 ```
 git commit -a -m "New feature"
 git push origin master
@@ -150,5 +165,9 @@ git push --tags origin
 - Push new documentation
 ```
 git subtree push --prefix docs origin gh-pages
+```
+- Push new NPM package version
+```
+npm publish
 ```
 - The new Barney version is ready!
