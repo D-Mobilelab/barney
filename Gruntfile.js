@@ -227,6 +227,20 @@ module.exports = function (grunt) {
                 src: '<%= distPath %>*.js'
             },
         },
+
+        // SHELL
+        shell: {
+            options: {
+                stderr: false
+            },
+            add_docs: 'git add <%= docPath %>',
+            commit_version: 'git commit -a -m "Version <%= newVersion %>"',
+            add_tag: 'git tag <%= newVersion %>',
+            push_version: 'git push origin master',
+            push_tag: 'git push origin --tags',
+            push_docs: 'git subtree push --prefix docs origin gh-pages',
+            npm_publish: 'npm publish'
+        }
     });
 
     grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
@@ -373,7 +387,15 @@ module.exports = function (grunt) {
         'file_append:changelog',
         // DOC (OFFICIAL)
         'clean:docVersion',
-        'ngdocs:version'
+        'ngdocs:version',
+        // SHELL
+        'shell:add_docs',
+        'shell:commit_version',
+        'shell:add_tag',
+        'shell:push_version',
+        'shell:push_tag',
+        'shell:push_docs',
+        'shell:npm_publish'
     ]);
    
 }
