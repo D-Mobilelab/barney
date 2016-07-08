@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/D-Mobilelab/barney.svg?branch=master)](https://travis-ci.org/D-Mobilelab/barney)
 [![Coverage Status](https://coveralls.io/repos/github/D-Mobilelab/barney/badge.svg?branch=master)](https://coveralls.io/github/D-Mobilelab/barney?branch=master)
+[![npm version](https://badge.fury.io/js/barneyjs.svg)](https://badge.fury.io/js/barneyjs)
+[![Bower version](https://badge.fury.io/bo/barney.svg)](https://badge.fury.io/bo/barney)
+[![GitHub version](https://badge.fury.io/gh/D-Mobilelab%2Fbarney.svg)](https://badge.fury.io/gh/D-Mobilelab%2Fbarney)
 
 Barney is a collection of Angular micro-libraries, useful for various purposes.
 
