@@ -118,7 +118,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "livehtml",
       "shortDescription": "With live-html directive, you can print html code without any pre-controls.",
-      "keywords": "action api code directive html live-html livehtml mp4 php pre-controls print prints src text type unsafe_code"
+      "keywords": "action alert api code directive executes html inside javascript js live-html livehtml loads mp4 php pre-controls print prints src tag test text type unsafe_code widget"
     },
     {
       "section": "api",
