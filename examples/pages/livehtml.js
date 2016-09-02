@@ -7,7 +7,7 @@ angular.module('example').controller('LivehtmlCtrl',
         $scope.content = '<div>';
         $scope.content += '<a ng-click="test()">TEST ME</a>';
         $scope.content += '<script>console.log("it is inside (one)");</script>';
-        $scope.content += '<script src="//widgets.infostradasports.com/gns.widget.loader.js" data-widget_id="buongiorno-euro2016-schedule-it">console.log("it is inside (two)");</script>';
+        $scope.content += '<script src="//event.sports.gracenote.com/gns.frame.loader.js" data-client_id="football-buongiorno-ita">console.log("it is inside (two)");</script>';
         $scope.content += '</div>';
 
         $scope.test = function(){
