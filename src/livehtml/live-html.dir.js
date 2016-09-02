@@ -53,7 +53,7 @@ angular.module('barney').directive('liveHtml',
                 };
 
                 this.liveJs = function(jsCode){
-                    Function(jsCode)();
+                    Function(jsCode)();             // eslint-disable-line no-new-func
                 };
 
             }
