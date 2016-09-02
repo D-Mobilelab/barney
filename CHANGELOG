@@ -1,3 +1,6 @@
+** 4.1.1 **
+- LiveHtml creates script element in same place and with same attributes of previous element
+
 ** 4.1.0 **
 - Livehtml now execute script tag (with src field and with js code inside)
 
