@@ -7,10 +7,19 @@ branches:
  only:
    - master
 
+before_install:
+  - npm install -g bower 
+  - npm install -g grunt
+  - npm install -g npm@3
+  - npm -v
+  - node -v
+
 install:
   - npm install
-  - npm install -g bower grunt
   - bower install
 
+after_install:
+  - ls -la node_modules/ 
+
 script:
-  - grunt travis
+  - grunt travis -v
