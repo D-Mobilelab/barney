@@ -1,0 +1,27 @@
+<a href="https://github.com/D-Mobilelab/barney/edit/master/src/config/config.fil.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/D-Mobilelab/barney/blob/55b1f87/src/config/config.fil.js#L18" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">config</code>
+<div><span class="hint">filter in module <code ng:non-bindable="">config</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="config-filter-page config-filter-config-page"><p>You can get a config value using the custom config filter</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><h3 id="usage_in-html-template-binding">In HTML Template Binding</h3>
+<div class="in-html-template-binding"><code ng:non-bindable=""><span>{{</span> config_expression | config <span>}}</span></code>
+</div>
+<h3 id="usage_in-javascript">In JavaScript</h3>
+<div class="in-javascript"><code ng:non-bindable="">$filter('config')()</code>
+</div>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="config-filter-page config-filter-config-page"><pre class="prettyprint linenums">
+// javascript
+BarneyConfig.init({ 'ENABLE_LOGIN' : 1 });
+
+// html
+{{'ENABLE_LOGIN' | config}}
+// it prints 1
+</pre>
+</div></div>
+</div>

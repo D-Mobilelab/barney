@@ -1,3 +1,6 @@
+** 4.1.0 **
+- Livehtml now execute script tag (with src field and with js code inside)
+
 ** 4.0.1 **
 - NPM module
 
