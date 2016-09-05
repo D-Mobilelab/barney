@@ -6,7 +6,8 @@ module.exports = function (grunt) {
     ****         REQUIREMENTS         ****
     *************************************/
 
-    require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
+    require('load-grunt-tasks')(grunt, {config: 'node_modules/dml-js-boilerplate/package.json', scope: 'dependencies'});
+    require('load-grunt-tasks')(grunt, {config: __dirname + '/package.json', scope: 'devDependencies'});
 
     /*************************************
     ****         SINGLE TASKS         ****
