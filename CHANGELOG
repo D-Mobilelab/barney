@@ -1,3 +1,6 @@
+** 4.1.2 **
+- Added encodeURIComponent to Browser.getQueryParams
+
 ** 4.1.1 **
 - LiveHtml creates script element in same place and with same attributes of previous element
 
