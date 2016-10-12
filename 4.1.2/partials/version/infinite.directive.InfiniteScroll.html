@@ -1,0 +1,57 @@
+<a href="https://github.com/D-Mobilelab/barney/edit/master/src/infinite/infinite-scroll.dir.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/D-Mobilelab/barney/blob/87f130f/src/infinite/infinite-scroll.dir.js#L55" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">InfiniteScroll</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">infinite</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="infinite-directive-page infinite-directive-infinitescroll-page"><p>Allow infinite scroll on your page.</p>
+<p>To use infinite scroll, you have to add <strong>infinite-scroll</strong> directive
+to the element that will contain the list of elements.</p>
+<p>Furthermore, you have to pass a method to <strong>infinite-callback</strong> attribute: 
+it will be executed when the bottom of the page will be reached.</p>
+<p>If you want to reenable infinite scroll you have get first argument of this 
+method and call it (see example below).</p>
+<p>Furthermore, you can pass a boolean to <strong>infinite-enable</strong> to enable or disable infinite scroll; and
+an offset to <strong>infinite-offset</strong> to activate infinite scroll
+before the reaching of the end of the page.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY infinite-scroll&gt;
+   ...
+&lt;/ANY&gt;</pre>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="infinite-directive-page infinite-directive-infinitescroll-page"><p>In this example, I have added infinite-scroll to a div that contains an ng-repeat:
+<pre class="prettyprint linenums">
+ // HTML
+ &lt;div infinite-scroll infinite-callback="functionToCall"  
+  infinite-enable="flag" infinite-offset="100"&gt;
+     &lt;p ng-repeat="item in data"&gt;
+          {{item}}
+      &lt;/p&gt;
+ &lt;/div&gt;
+
+ // javascript
+ $scope.flag = true; 
+
+ $scope.functionToCall = function(reenableInfinite){
+
+     // here infinite is disabled
+
+     // here I call an API, wait response and choose if 
+     // re-enable infinite scroll or not
+     callApiMethod(function(){
+         // add elements to list
+
+         if(youWantToReenable) {
+             // re-enable infinite scroll
+             reenableInfinite(); 
+         } else {
+             // do nothing
+         }
+     });
+
+ }
+</pre>
+</div></div>
+</div>
