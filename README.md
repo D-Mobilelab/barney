@@ -160,15 +160,14 @@ grunt version
 - The new Barney version is ready!
 
 ### Problems publishing a new npm version?
- - Try running the following commands 
+ Try running the following commands 
  
  ```
 npm login
 ```
- - Enter your credentials
- - Run
+- Enter your credentials
  
  ```
 npm publish
 ```
-- The new version will be now update on npm!
+- The new version will be now published on npm!
