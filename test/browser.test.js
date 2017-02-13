@@ -97,6 +97,10 @@ describe('BROWSER -', function () {
 			});
 		});
 
+		it('getCurrentQueryString returns query string params before hashbang before #!', function(){
+			expect(BrowserService.getQueryParams('http://www.google.com/?error=404&pippo=303#!/')).toEqual({error: '404', pippo: '303'});
+		});
+
 		it('addQueryParams add a new query param to current URL', function(){
 			expect(BrowserService.addQueryParams({
 				venus: 'mercury'
@@ -258,6 +262,17 @@ describe('BROWSER -', function () {
 				BrowserService.mediaMatcher("(min-width: 500px)", mockObj.foo)
 			}
 			expect(mockObj.functionToCall).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('url with uncomplete query parameters - ', function(){ 
+			
+		it('getQueryParams manage uncomplete parameters ', function(){
+			expect(BrowserService.getQueryParams('http://www.google.com/?error')).toEqual({});
+		});
+
+		it('getQueryParams manage an uncomplete parameters and a correct parameters', function(){
+			expect(BrowserService.getQueryParams('http://www.google.com/?error=404&pippo')).toEqual({error: '404'});
 		});
 	});
 
