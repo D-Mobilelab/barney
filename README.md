@@ -155,6 +155,6 @@ grunt version
 ```
 ? Features for version 1.2.0 (use ";" to separate features): ()
 ```
-- Commit, Push, Tag, Docs and NPM version will be automatically updated during the grunt version process!
+- Commit, Push, Tag, Docs and NPM version will be automatically updated during the grunt version process
 
 - The new Barney version is ready!
