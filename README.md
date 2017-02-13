@@ -158,3 +158,15 @@ grunt version
 - Commit, Push, Tag, Docs and NPM version will be automatically updated during the grunt version process
 
 - The new Barney version is ready!
+
+### Problems publishing a new npm version?
+ - Try running the following commands 
+ ```
+npm login
+```
+ - Enter your credentials
+ - Run
+ ```
+npm publish
+```
+- The new version will be now update on npm!
