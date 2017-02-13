@@ -155,22 +155,6 @@ grunt version
 ```
 ? Features for version 1.2.0 (use ";" to separate features): ()
 ```
-- Commit and push all modified files (<i>bower.json</i>, <i>package.json</i> and <i>CHANGELOG</i> certainly)
-```
-git commit -a -m "New feature"
-git push origin master
-```
-- If travis build is successful, create a new git tag with the name of new version and push this
-```
-git tag 1.2.0
-git push --tags origin
-```
-- Push new documentation
-```
-git subtree push --prefix docs origin gh-pages
-```
-- Push new NPM package version
-```
-npm publish
-```
+- Commit, Push, Tag, Docs and NPM version will be automatically updated during the grunt version process!
+
 - The new Barney version is ready!
