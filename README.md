@@ -161,11 +161,13 @@ grunt version
 
 ### Problems publishing a new npm version?
  - Try running the following commands 
+ 
  ```
 npm login
 ```
  - Enter your credentials
  - Run
+ 
  ```
 npm publish
 ```
