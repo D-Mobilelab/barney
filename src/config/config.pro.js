@@ -88,7 +88,7 @@ angular.module('barney').provider('BarneyConfig', function(){
         get: function(value){
             var falseValues = ['', 0, '0', null, 'null', false, 'false'];
             value = value.toUpperCase();
-            var confValue = value.indexOf('.')!==-1 ? getNestedKey(config, value) : config[value];
+            var confValue = value.indexOf('.') !== -1 ? getNestedKey(config, value) : config[value];
             if(falseValues.indexOf(confValue) !== -1){
                 return false;
             } else {
