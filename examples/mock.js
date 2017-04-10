@@ -12,7 +12,12 @@ var CONFIG = {
 	'KEY_NULL': null,
 	'KEY_NULL_STRING': 'null',
 	'KEY_FALSE': false,
-	'KEY_FALSE_STRING': 'false'
+	'KEY_FALSE_STRING': 'false',
+	'GRANDFATHER': {
+		'FATHER': {
+			'SON': '123456789'
+		}
+	}
 };
 var DICTIONARY = {
 	'VALUED_KEY': 'Hello world!',
