@@ -54,15 +54,24 @@ describe('CONFIG -', function () {
 		expect(ConfigProvider.get('key_value')).toBe(CONFIG.KEY_VALUE);
 	});
 
+	it('if you ask a nested key, then return it', function () {
+		expect(ConfigProvider.get('GRANDFATHER.FATHER.SON')).toBe(CONFIG.GRANDFATHER.FATHER.SON);
+	});
+
+	it('if you ask a nested void key, then return it', function () {
+		expect(ConfigProvider.get('GRANDFATHER.MOTHER.SON')).toBe(undefined);
+	});
+
+
 	it('if you ask the list of config keys, then return it', function () {
 		expect(ConfigProvider.list()).toBe(CONFIG);
 	});
 
-	it('if a key value is false applied to a fiter, then return false ', inject(function ($filter) {
+	it('if a key value is false applied to a filter, then return false ', inject(function ($filter) {
 		expect($filter('config')('KEY_FALSE')).toBe(false);
 	}));
 
-	it('if a key value has a value applied to a filder, then return that value', inject(function ($filter) {
+	it('if a key value has a value applied to a filter, then return that value', inject(function ($filter) {
 		expect($filter('config')('NEWTON_SECRET_KEY')).toBe('<sec_ret>');
 	}));
 });
