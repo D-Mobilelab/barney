@@ -1,0 +1,64 @@
+<a href="https://github.com/{{repo}}/edit/master/{{file}}" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/{{repo}}/blob/{{sha}}/{{file}}#L{{codeline}}" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">BarneyConfig</code>
+<div><span class="hint">service in module <code ng:non-bindable="">config</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="config-barneyconfig-page"><p>To use Config service, you have to add BarneyConfig dependency to your component (directive, controller...):
+<pre class="prettyprint linenums">
+angular.module('mock').controller('HomePageController', [
+    'BarneyConfig', '$scope',
+    function(BarneyConfig, $scope){
+        // we can use "BarneyConfig" object here
+    }
+]);
+</pre>
+<p>Remember that, before calling any other method, <strong>the init method must be called first of all</strong>.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><a href="https://github.com/{{repo}}/blob/{{sha}}/{{file}}#L{{codeline}}" class="view-source icon-eye-open"> </a><h3 id="methods_get">get(key)</h3>
+<div class="get"><div class="config-barneyconfig-get-page"><p>This method is used to get the value of a specific configuration key</p>
+</div><h5 id="methods_get_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="config-barneyconfig-get-page"><p>specific key</p>
+</div></td></tr></tbody></table><h4 id="methods_get_example">Example</h4>
+<div class="example"><div class="config-barneyconfig-get-page"><pre class="prettyprint linenums">
+// BarneyConfig.init({ 'ENABLE_LOGIN': 1 })
+
+BarneyConfig.get('ENABLE_LOGIN');
+// it returns 1
+</pre>
+</div></div>
+</div>
+</li>
+<li><a href="https://github.com/{{repo}}/blob/{{sha}}/{{file}}#L{{codeline}}" class="view-source icon-eye-open"> </a><h3 id="methods_init">init(options)</h3>
+<div class="init"><div class="config-barneyconfig-init-page"><p>This method requires an object that contains all keys and their values.</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="config-barneyconfig-init-page"><p>config object</p>
+</div></td></tr></tbody></table><h4 id="methods_init_example">Example</h4>
+<div class="example"><div class="config-barneyconfig-init-page"><pre class="prettyprint linenums">
+BarneyConfig.init(
+    config: {
+        'KEY_ZERO': 0,
+        'ENABLE_LOGIN': 1,
+        'NEWTON_SECRET_KEY': '&lt;sec_ret&gt;',
+        'KEY_TRUE': true,
+        'KEY_FALSE': false
+    }
+});
+</pre>
+</div></div>
+</div>
+</li>
+<li><a href="https://github.com/{{repo}}/blob/{{sha}}/{{file}}#L{{codeline}}" class="view-source icon-eye-open"> </a><h3 id="methods_list">list()</h3>
+<div class="list"><div class="config-barneyconfig-list-page"><p>This method returns the Configuration list.</p>
+</div><h4 id="methods_list_example">Example</h4>
+<div class="example"><div class="config-barneyconfig-list-page"><pre class="prettyprint linenums">
+// BarneyConfig.init({ 'ENABLE_LOGIN': 1 })
+
+BarneyConfig.list();
+// it returns { 'ENABLE_LOGIN': 1 }
+</pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
