@@ -1,3 +1,6 @@
+** 5.0.0 **
+- Config module: uppercase transformation only passing 'uppercase:true' to init() method
+
 ** 4.2.0 **
 - Config supports nested key (i.e. grandfather.father.son)
 

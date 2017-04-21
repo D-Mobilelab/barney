@@ -19,7 +19,7 @@
 
 angular.module('barney').provider('BarneyConfig', function(){   
 
-    var config = {};  
+    var config = {}, upperCase = false;  
 
     var getNestedKey = function(object, key) {
         key = key.replace(/\[(\w+)\]/g, '.$1');
@@ -46,7 +46,8 @@ angular.module('barney').provider('BarneyConfig', function(){
          * @description 
          * This method requires an object that contains all keys and their values.
          * 
-         * @param {Object} options config object
+         * @param {Object} config config object
+         * @param {Object} upperCase convert all keys to uppercase
          *
          * @example
          * <pre>
@@ -57,13 +58,15 @@ angular.module('barney').provider('BarneyConfig', function(){
          *          'NEWTON_SECRET_KEY': '<sec_ret>',
          *          'KEY_TRUE': true,
          *          'KEY_FALSE': false
-         *      }
+         *      },
+         *      upperCase: true
          *  });
          * </pre>
          */
         init: function(options){
             if(options && options.config){
                 config = options.config;
+                upperCase = options.upperCase || false;
             }
         },
 
@@ -87,7 +90,7 @@ angular.module('barney').provider('BarneyConfig', function(){
          */
         get: function(value){
             var falseValues = ['', 0, '0', null, 'null', false, 'false'];
-            value = value.toUpperCase();
+            value = upperCase ? value.toUpperCase() : value;
             var confValue = value.indexOf('.') !== -1 ? getNestedKey(config, value) : config[value];
             if(falseValues.indexOf(confValue) !== -1){
                 return false;

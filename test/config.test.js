@@ -50,9 +50,17 @@ describe('CONFIG -', function () {
 		expect(ConfigProvider.get('KEY_VALUE')).toBe(CONFIG.KEY_VALUE);
 	});
 
-	it('if you use a lowercase key, then return the value of uppercase key', function () {
+	it('if you use a lowercase key (and set upperCase: true) then return the value of uppercase key', function () {
+		ConfigProvider.init({
+			config: CONFIG,
+			upperCase: true
+		});
 		expect(ConfigProvider.get('key_value')).toBe(CONFIG.KEY_VALUE);
-	});
+	});	
+
+	it('if you use a lowercase key (and don\'t set upperCase), then return the value of lowercase key', function () {
+		expect(ConfigProvider.get('lowercase_key')).toBe(CONFIG.lowercase_key);
+	});	
 
 	it('if you ask a nested key, then return it', function () {
 		expect(ConfigProvider.get('GRANDFATHER.FATHER.SON')).toBe(CONFIG.GRANDFATHER.FATHER.SON);

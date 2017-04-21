@@ -5,6 +5,7 @@ var CONFIG = {
 
 	'KEY_TRUE': true,
 	'KEY_VALUE': 'hello_world',
+	'lowercase_key': 'lowercase_key',
 	
 	'KEY_VOID_STRING': '',
 	'KEY_ZERO': 0,
