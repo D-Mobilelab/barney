@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/D-Mobilelab/barney#readme",
   "dependencies": {
-    "babel-runtime": "^6.11.6"
+    "angular": "^1.6.8"
   },
   "main": "index.js",
   "jsnext:main": "index.es.js"

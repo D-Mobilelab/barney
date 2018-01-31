@@ -20,31 +20,6 @@ export default () => {
     
     var myProvider = {
         
-        /**
-         * @ngdoc function
-         * @name config.BarneyConfig#init
-         * @methodOf config.BarneyConfig
-         *
-         * @description 
-         * This method requires an object that contains all keys and their values.
-         * 
-         * @param {Object} config config object
-         * @param {Object} upperCase convert all keys to uppercase
-         *
-         * @example
-         * <pre>
-         *  BarneyConfig.init(
-         *      config: {
-         *          'KEY_ZERO': 0,
-         *          'ENABLE_LOGIN': 1,
-         *          'NEWTON_SECRET_KEY': '<sec_ret>',
-         *          'KEY_TRUE': true,
-         *          'KEY_FALSE': false
-         *      },
-         *      upperCase: true
-         *  });
-         * </pre>
-         */
         init: function(options){
             if(options && options.config){
                 config = options.config;
@@ -52,24 +27,6 @@ export default () => {
             }
         },
 
-        /**
-         * @ngdoc function
-         * @name config.BarneyConfig#get
-         * @methodOf config.BarneyConfig
-         *
-         * @description 
-         * This method is used to get the value of a specific configuration key
-         * 
-         * @param {string} key specific key
-         *
-         * @example
-         * <pre>
-         * // BarneyConfig.init({ 'ENABLE_LOGIN': 1 })
-         *
-         * BarneyConfig.get('ENABLE_LOGIN');
-         * // it returns 1
-         * </pre>
-         */
         get: function(value){
             var falseValues = ['', 0, '0', null, 'null', false, 'false'];
             value = upperCase ? value.toUpperCase() : value;
@@ -81,22 +38,6 @@ export default () => {
             }
         },
 
-        /**
-         * @ngdoc function
-         * @name config.BarneyConfig#list
-         * @methodOf config.BarneyConfig
-         *
-         * @description 
-         * This method returns the Configuration list.
-         *
-         * @example
-         * <pre>
-         * // BarneyConfig.init({ 'ENABLE_LOGIN': 1 })
-         *
-         * BarneyConfig.list();
-         * // it returns { 'ENABLE_LOGIN': 1 }
-         * </pre>
-         */
         list: function(){
             return config;
         }
