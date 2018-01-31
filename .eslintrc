@@ -1,6 +1,0 @@
-{
-	"extends": [
-		"airbnb",
-		"./node_modules/dml-js-boilerplate/.eslintrc"
-	]
-}
