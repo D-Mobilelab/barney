@@ -56,7 +56,7 @@
     "start": "easystatic start docs"
   },
   "main": "dist/index.js",
-  "jsnext:main": "index.es.js",
+  "jsnext:main": "dist/index.es.js",
   "babel": {
     "presets": [
       "latest",
