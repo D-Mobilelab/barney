@@ -1,7 +1,7 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('angular'), require('babel-runtime/helpers/classCallCheck'), require('babel-runtime/helpers/createClass')) :
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('angular'), require('babel-runtime/helpers/classCallCheck'), require('babel-runtime/helpers/createClass')) :
     typeof define === 'function' && define.amd ? define(['angular', 'babel-runtime/helpers/classCallCheck', 'babel-runtime/helpers/createClass'], factory) :
-    (factory(global.angular,global._classCallCheck,global._createClass));
+    (global.barneyjs = factory(global.angular,global._classCallCheck,global._createClass));
 }(this, (function (angular,_classCallCheck,_createClass) { 'use strict';
 
 angular = 'default' in angular ? angular['default'] : angular;
@@ -454,9 +454,11 @@ var BarneyMeta = (function ($rootScope) {
     return service;
 });
 
-var appName = 'barney';
+var appName = 'barneyjs';
 
-angular.module(appName).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
+var angularModule = angular.module(appName).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
+
+return angularModule;
 
 })));
 //# sourceMappingURL=index.umd.js.map
