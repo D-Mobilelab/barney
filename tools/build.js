@@ -36,6 +36,11 @@ promise = promise.then(() => del(['dist/*']));
     format,
     sourceMap: true,
     moduleName: format === 'umd' ? pkg.name : undefined,
+    globals: {
+      angular: 'angular',
+      'babel-runtime/helpers/classCallCheck': '_classCallCheck',
+      'babel-runtime/helpers/createClass': '_createClass'
+    }
   })));
 });
 
