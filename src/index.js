@@ -11,9 +11,9 @@ import BarneyLiveHtmlDirective from './livehtml/live-html.dir';
 import BarneyLiveHtmlScriptDirective from './livehtml/script.dir';
 import BarneyMeta from './meta/meta.ser';
 
-const appName = 'barney';
+const appName = 'barneyjs';
 
-angular.module(appName)
+const angularModule = angular.module(appName)
     .factory('BarneyBrowser', BarneyBrowser)
 
     .provider('BarneyConfig', BarneyConfig)
@@ -30,3 +30,5 @@ angular.module(appName)
 
     .factory('BarneyMeta', BarneyMeta)  
 ;
+
+export default angularModule;

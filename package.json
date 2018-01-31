@@ -55,7 +55,7 @@
     "publish:docs": "easystatic deploy docs --repo kriasoft/babel-starter-kit",
     "start": "easystatic start docs"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
   "jsnext:main": "index.es.js",
   "babel": {
     "presets": [
