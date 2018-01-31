@@ -1,6 +1,7 @@
 export default class {
-    /*@ngInject*/
-    $get($http) {
+    constructor() {}
+
+    $get() {
         var config = {}, upperCase = false;  
 
         var getNestedKey = function(object, key) {
@@ -18,7 +19,7 @@ export default class {
             return object;
         };
 
-        return {
+        return Object.create(this, {
             init: function(options){
                 if(options && options.config){
                     config = options.config;
@@ -40,6 +41,6 @@ export default class {
             list: function(){
                 return config;
             }
-        };
+        });
     }
 };

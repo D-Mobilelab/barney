@@ -1,10 +1,11 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('angular'), require('babel-runtime/helpers/classCallCheck'), require('babel-runtime/helpers/createClass')) :
-    typeof define === 'function' && define.amd ? define(['angular', 'babel-runtime/helpers/classCallCheck', 'babel-runtime/helpers/createClass'], factory) :
-    (global.barneyjs = factory(global.angular,global._classCallCheck,global._createClass));
-}(this, (function (angular,_classCallCheck,_createClass) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('angular'), require('babel-runtime/core-js/object/create'), require('babel-runtime/helpers/classCallCheck'), require('babel-runtime/helpers/createClass')) :
+    typeof define === 'function' && define.amd ? define(['angular', 'babel-runtime/core-js/object/create', 'babel-runtime/helpers/classCallCheck', 'babel-runtime/helpers/createClass'], factory) :
+    (global.barneyjs = factory(global.angular,global._Object$create,global._classCallCheck,global._createClass));
+}(this, (function (angular,_Object$create,_classCallCheck,_createClass) { 'use strict';
 
 angular = 'default' in angular ? angular['default'] : angular;
+_Object$create = 'default' in _Object$create ? _Object$create['default'] : _Object$create;
 _classCallCheck = 'default' in _classCallCheck ? _classCallCheck['default'] : _classCallCheck;
 _createClass = 'default' in _createClass ? _createClass['default'] : _createClass;
 
@@ -150,9 +151,7 @@ var _class = function () {
 
     _createClass(_class, [{
         key: '$get',
-
-        /*@ngInject*/
-        value: function $get($http) {
+        value: function $get() {
             var config = {},
                 upperCase = false;
 
@@ -171,7 +170,7 @@ var _class = function () {
                 return object;
             };
 
-            return {
+            return _Object$create(this, {
                 init: function init(options) {
                     if (options && options.config) {
                         config = options.config;
@@ -193,7 +192,7 @@ var _class = function () {
                 list: function list() {
                     return config;
                 }
-            };
+            });
         }
     }]);
 
@@ -456,9 +455,9 @@ var BarneyMeta = (function ($rootScope) {
 
 var appName = 'barneyjs';
 
-var index = angular.module(appName, []).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
+angular.module(appName, []).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
 
-return index;
+return appName;
 
 })));
 //# sourceMappingURL=index.umd.js.map

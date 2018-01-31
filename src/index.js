@@ -13,7 +13,7 @@ import BarneyMeta from './meta/meta.ser';
 
 const appName = 'barneyjs';
 
-export default angular.module(appName, [])
+angular.module(appName, [])
     .factory('BarneyBrowser', BarneyBrowser)
 
     .provider('BarneyConfig', BarneyConfig)
@@ -30,3 +30,5 @@ export default angular.module(appName, [])
 
     .factory('BarneyMeta', BarneyMeta)  
 ;
+
+export default appName;

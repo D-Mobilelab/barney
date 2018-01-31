@@ -3,6 +3,7 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var angular = _interopDefault(require('angular'));
+var _Object$create = _interopDefault(require('babel-runtime/core-js/object/create'));
 var _classCallCheck = _interopDefault(require('babel-runtime/helpers/classCallCheck'));
 var _createClass = _interopDefault(require('babel-runtime/helpers/createClass'));
 
@@ -148,9 +149,7 @@ var _class = function () {
 
     _createClass(_class, [{
         key: '$get',
-
-        /*@ngInject*/
-        value: function $get($http) {
+        value: function $get() {
             var config = {},
                 upperCase = false;
 
@@ -169,7 +168,7 @@ var _class = function () {
                 return object;
             };
 
-            return {
+            return _Object$create(this, {
                 init: function init(options) {
                     if (options && options.config) {
                         config = options.config;
@@ -191,7 +190,7 @@ var _class = function () {
                 list: function list() {
                     return config;
                 }
-            };
+            });
         }
     }]);
 
@@ -454,7 +453,7 @@ var BarneyMeta = (function ($rootScope) {
 
 var appName = 'barneyjs';
 
-var index = angular.module(appName, []).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
+angular.module(appName, []).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
 
-module.exports = index;
+module.exports = appName;
 //# sourceMappingURL=index.js.map

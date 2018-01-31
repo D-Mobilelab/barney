@@ -39,7 +39,8 @@ promise = promise.then(() => del(['dist/*']));
     globals: {
       angular: 'angular',
       'babel-runtime/helpers/classCallCheck': '_classCallCheck',
-      'babel-runtime/helpers/createClass': '_createClass'
+      'babel-runtime/helpers/createClass': '_createClass',
+      'babel-runtime/core-js/object/create': '_Object$create'
     }
   })));
 });
