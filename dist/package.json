@@ -1,0 +1,28 @@
+{
+  "name": "barneyjs",
+  "version": "5.0.0",
+  "author": [
+    "aurelio.merenda@buongiorno.com",
+    "lorenzo.mussi@buongiorno.com"
+  ],
+  "description": "Barney is a collection of Angular micro-libraries, useful for various purposes.",
+  "keywords": [
+    "docomo",
+    "angular",
+    "utilities"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D-Mobilelab/barney"
+  },
+  "bugs": {
+    "url": "https://github.com/D-Mobilelab/barney/issues"
+  },
+  "homepage": "https://github.com/D-Mobilelab/barney#readme",
+  "dependencies": {
+    "babel-runtime": "^6.11.6"
+  },
+  "main": "index.js",
+  "jsnext:main": "index.es.js"
+}

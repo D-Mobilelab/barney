@@ -4,3 +4,5 @@ node_modules/
 test/coverage/
 docs/temp/
 .DS_*
+coverage
+docs/dist
