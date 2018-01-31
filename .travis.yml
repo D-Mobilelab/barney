@@ -8,18 +8,20 @@ branches:
    - master
 
 before_install:
-  - npm install -g bower 
-  - npm install -g grunt
+  - npm install -g gulp
   - npm install -g npm@3
   - npm -v
   - node -v
 
 install:
   - npm install
-  - bower install
 
 after_install:
   - ls -la node_modules/ 
 
 script:
-  - grunt travis -v
+  - gulp webpack
+  - gulp eslint
+  # - gulp test
+  # - gulp coveralls
+  - gulp doc

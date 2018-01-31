@@ -1,37 +1,52 @@
 {
-  "name": "barneyjs",
-  "version": "5.0.0",
-  "author": [
-    "aurelio.merenda@buongiorno.com",
-    "flavia.calzecchi@buongiorno.com",
-    "fabio.fognani@buongiorno.com",
-    "lorenzo.mussi@buongiorno.com",
-    "pasqualemangialavori@buongiorno.com"
-  ],
-  "description": "Barney is a collection of Angular micro-libraries, useful for various purposes.",
-  "keywords": [
-    "buongiorno",
-    "dmobilelab",
-    "angular",
-    "utilities"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/D-Mobilelab/barney"
-  },
-  "bugs": {
-    "url": "https://github.com/D-Mobilelab/barney/issues"
-  },
-  "homepage": "https://github.com/D-Mobilelab/barney#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "dml-js-boilerplate": "~2.1.0",
-    "eslint-config-angular": "^0.4.0",
-    "eslint-plugin-angular": "^1.3.1",
-    "grunt-contrib-concat": "^0.5.1"
-  },
-  "engines": {
-    "node": "0.10.25"
-  }
+	"name": "barneyjs",
+	"version": "6.0.0",
+	"description": "Barney is a collection of Angular micro-libraries, useful for various purposes.",
+	"keywords": ["angular","utilities","docomo","dmobilelab"],
+	"license": "MIT",
+	"contributors": [{"name":"Lorenzo Mussi","email":"lorenzo.mussi@docomodigital.com"},{"name":"Aurelio Merenda","email":"aurelio.merenda@docomodigital.com"}],
+	"files": [
+		"dist/",
+		"CHANGELOG.md",
+		"package.json",
+		"README.md"  
+	],
+	"main": "dist/main.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/D-Mobilelab/barney"
+	},
+	"scripts": {},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"browser-sync": "^2.18.12",
+		"del": "^2.2.2",
+		"eslint": "^3.19.0",
+		"eslint-config-airbnb-base": "^11.2.0",
+		"eslint-plugin-import": "^2.3.0",
+		"gulp": "^3.9.1",
+		"gulp-coveralls": "^0.1.4",
+		"gulp-eslint": "^3.0.1",
+		"gulp-insert": "^0.5.0",
+		"gulp-jsdoc3": "^1.0.1",
+		"gulp-shell": "^0.5.2",
+		"gulp-webpack": "^1.5.0",
+		"istanbul-instrumenter-loader": "^2.0.0",
+		"istanbul-lib-coverage": "^1.1.1",
+		"jasmine-core": "^2.6.2",
+		"karma": "^1.7.0",
+		"karma-coverage": "^1.1.1",
+		"karma-coverage-istanbul-reporter": "^1.3.0",
+		"karma-jasmine": "^1.1.0",
+		"karma-phantomjs-launcher": "^1.0.4",
+		"karma-spec-reporter": "0.0.31",
+		"karma-webpack": "^2.0.2",
+		"webpack": "^2.6.1",
+		"yargs": "^8.0.1"
+	},
+	"engines": {
+		"node": "6.11.3"
+	},
+	"private": false
 }

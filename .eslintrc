@@ -1,6 +1,32 @@
 {
 	"extends": [
-		"airbnb",
-		"./node_modules/dml-js-boilerplate/.eslintrc"
-	]
+		"airbnb-base/legacy"
+	],
+	"rules": {
+		"indent": [2, 4],
+
+		"space-before-function-paren": 0,
+		"space-before-blocks": 0,
+		"padded-blocks": 0,
+		"one-var": 0,
+		"one-var-declaration-per-line": 0,
+		"keyword-spacing": 0,
+		"no-lonely-if": 0,
+		"func-names": 0,
+		"no-trailing-spaces": 0,
+		"no-else-return": 0,
+		"eol-last": 0,
+		"new-parens": 0,
+		"no-plusplus": 0,
+
+		"no-unused-vars": 1,
+		"vars-on-top": 1,
+		"no-param-reassign": 1,
+		"no-undef": 1,
+		"max-len": 1,
+		"no-extra-boolean-cast": 1,
+		"no-underscore-dangle": 1,
+		"no-loop-func": 1,
+		"global-require": 1
+	}
 }
