@@ -3,9 +3,6 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var angular = _interopDefault(require('angular'));
-var _Object$create = _interopDefault(require('babel-runtime/core-js/object/create'));
-var _classCallCheck = _interopDefault(require('babel-runtime/helpers/classCallCheck'));
-var _createClass = _interopDefault(require('babel-runtime/helpers/createClass'));
 
 var BarneyBrowser = (function ($location, $rootScope, $window) {
     var previousPath = null;
@@ -142,60 +139,56 @@ var BarneyBrowser = (function ($location, $rootScope, $window) {
     return service;
 });
 
-var _class = function () {
-    function _class() {
-        _classCallCheck(this, _class);
-    }
+var myFunction = function myFunction() {
+    var config = {},
+        upperCase = false;
 
-    _createClass(_class, [{
-        key: '$get',
-        value: function $get() {
-            var config = {},
-                upperCase = false;
-
-            var getNestedKey = function getNestedKey(object, key) {
-                key = key.replace(/\[(\w+)\]/g, '.$1');
-                key = key.replace(/^\./, '');
-                var a = key.split('.');
-                for (var i = 0, n = a.length; i < n; ++i) {
-                    var k = a[i];
-                    if (k in object) {
-                        object = object[k];
-                    } else {
-                        return undefined;
-                    }
-                }
-                return object;
-            };
-
-            return _Object$create(this, {
-                init: function init(options) {
-                    if (options && options.config) {
-                        config = options.config;
-                        upperCase = options.upperCase || false;
-                    }
-                },
-
-                get: function get(value) {
-                    var falseValues = ['', 0, '0', null, 'null', false, 'false'];
-                    value = upperCase ? value.toUpperCase() : value;
-                    var confValue = value.indexOf('.') !== -1 ? getNestedKey(config, value) : config[value];
-                    if (falseValues.indexOf(confValue) !== -1) {
-                        return false;
-                    } else {
-                        return confValue;
-                    }
-                },
-
-                list: function list() {
-                    return config;
-                }
-            });
+    var getNestedKey = function getNestedKey(object, key) {
+        key = key.replace(/\[(\w+)\]/g, '.$1');
+        key = key.replace(/^\./, '');
+        var a = key.split('.');
+        for (var i = 0, n = a.length; i < n; ++i) {
+            var k = a[i];
+            if (k in object) {
+                object = object[k];
+            } else {
+                return undefined;
+            }
         }
-    }]);
+        return object;
+    };
 
-    return _class;
-}();
+    var myProvider = {
+
+        init: function init(options) {
+            if (options && options.config) {
+                config = options.config;
+                upperCase = options.upperCase || false;
+            }
+        },
+
+        get: function get(value) {
+            var falseValues = ['', 0, '0', null, 'null', false, 'false'];
+            value = upperCase ? value.toUpperCase() : value;
+            var confValue = value.indexOf('.') !== -1 ? getNestedKey(config, value) : config[value];
+            if (falseValues.indexOf(confValue) !== -1) {
+                return false;
+            } else {
+                return confValue;
+            }
+        },
+
+        list: function list() {
+            return config;
+        }
+
+    };
+
+    angular.extend(this, myProvider);
+    this.$get = [function () {
+        return this;
+    }];
+};
 
 var BarneyConfigFilter = (function (BarneyConfig) {
     return function (input) {
@@ -203,69 +196,63 @@ var BarneyConfigFilter = (function (BarneyConfig) {
     };
 });
 
-var _class$1 = function () {
-    function _class() {
-        _classCallCheck(this, _class);
-    }
+var myFunction$1 = function myFunction$1() {
+    var parameters = {
+        showKey: false
+    };
 
-    _createClass(_class, [{
-        key: '$get',
+    var myProvider = {
 
-        /*@ngInject*/
-        value: function $get($http) {
-            var parameters = {
-                showKey: false
-            };
+        init: function init(options) {
+            if (options) {
+                parameters = options;
+            }
+        },
 
-            return {
-                init: function init(options) {
-                    if (options) {
-                        parameters = options;
-                    }
-                },
+        get: function get(key) {
+            // convert key to upper case
+            key = key.toUpperCase();
 
-                get: function get(key) {
-                    // convert key to upper case
-                    key = key.toUpperCase();
+            if (parameters.showKey === 'all') {
 
-                    if (parameters.showKey === 'all') {
+                // 'all case': 
+                // valued keys : show key name
+                // void keys : show key name
+                return '[[' + key + ']]';
+            } else if (parameters.showKey === 'missing') {
 
-                        // 'all case': 
-                        // valued keys : show key name
-                        // void keys : show key name
-                        return '[[' + key + ']]';
-                    } else if (parameters.showKey === 'missing') {
-
-                        // 'missing' case:
-                        // valued keys : show value of key
-                        // void keys : show key name
-                        if (!!parameters.dict[key]) {
-                            return parameters.dict[key];
-                        } else {
-                            return '[[' + key + ']]';
-                        }
-                    } else {
-
-                        // standard case
-                        // valued keys : show value of key
-                        // void keys : show void string
-                        if (!!parameters.dict[key]) {
-                            return parameters.dict[key];
-                        } else {
-                            return '';
-                        }
-                    }
-                },
-
-                list: function list() {
-                    return parameters.dict;
+                // 'missing' case:
+                // valued keys : show value of key
+                // void keys : show key name
+                if (!!parameters.dict[key]) {
+                    return parameters.dict[key];
+                } else {
+                    return '[[' + key + ']]';
                 }
-            };
-        }
-    }]);
+            } else {
 
-    return _class;
-}();
+                // standard case
+                // valued keys : show value of key
+                // void keys : show void string
+                if (!!parameters.dict[key]) {
+                    return parameters.dict[key];
+                } else {
+                    return '';
+                }
+            }
+        },
+
+        list: function list() {
+            return parameters.dict;
+        }
+
+    };
+
+    angular.extend(this, myProvider);
+    this.$get = [function () {
+        return this;
+    }];
+};
 
 var BarneyDictFilter = (function (BarneyDict) {
     return function (key) {
@@ -453,7 +440,7 @@ var BarneyMeta = (function ($rootScope) {
 
 var appName = 'barneyjs';
 
-angular.module(appName, []).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
+angular.module(appName, []).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', myFunction).filter('config', BarneyConfigFilter).provider('BarneyDict', myFunction$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
 
 module.exports = appName;
 //# sourceMappingURL=index.js.map
