@@ -456,9 +456,9 @@ var BarneyMeta = (function ($rootScope) {
 
 var appName = 'barneyjs';
 
-var angularModule = angular.module(appName).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
+var index = angular.module(appName, []).factory('BarneyBrowser', BarneyBrowser).provider('BarneyConfig', _class).filter('config', BarneyConfigFilter).provider('BarneyDict', _class$1).filter('dict', BarneyDictFilter).directive('dict', BarneyDictDirective).directive('infiniteScroll', BarneyInfiniteScrollDirective).directive('liveHtml', BarneyLiveHtmlDirective).directive('script', BarneyLiveHtmlScriptDirective).factory('BarneyMeta', BarneyMeta);
 
-return angularModule;
+return index;
 
 })));
 //# sourceMappingURL=index.umd.js.map
