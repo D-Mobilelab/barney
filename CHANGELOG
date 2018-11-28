@@ -1,3 +1,6 @@
+** 4.3.0 **
+- Meta.set takes an option callback
+
 ** 4.2.0 **
 - Config supports nested key (i.e. grandfather.father.son)
 
