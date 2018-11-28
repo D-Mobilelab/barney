@@ -100,15 +100,19 @@ angular.module('barney').factory('BarneyMeta', [
          * To set one or more keys for a page, pass an object with keys and their values.
          *
          * @param {object} metatags new keys values
+         * @param {object} callback callback called when meta keys are set
          *
          * @example
          * <pre>
-         *  Meta.set({ title: 'Zoom Title', description: 'This is new description' });
+         *  Meta.set({ title: 'Zoom Title', description: 'This is new description' }, function(){ console.log('meta set'); });
          * </pre>
          */
-        this.set = function(metatags){
+        this.set = function(metatags, callback){
             for(var key in metatags){
                 $rootScope.meta[key] = metatags[key];
+            }
+            if(callback){
+                callback();
             }
         };
 
