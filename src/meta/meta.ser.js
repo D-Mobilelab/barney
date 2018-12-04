@@ -112,7 +112,9 @@ angular.module('barney').factory('BarneyMeta', [
                 $rootScope.meta[key] = metatags[key];
             }
             if(callback){
-                callback();
+                window.setTimeout(function(){
+                    callback();
+                }, 1000);
             }
         };
 
