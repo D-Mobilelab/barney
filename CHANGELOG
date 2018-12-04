@@ -1,6 +1,9 @@
 ** 5.0.0 **
 - Config module: uppercase transformation only passing 'uppercase:true' to init() method
 
+** 4.3.1 **
+- Added timeout to meta.set callback
+
 ** 4.3.0 **
 - Meta.set takes an option callback
 
