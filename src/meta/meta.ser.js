@@ -30,17 +30,17 @@ angular.module('barney').factory('BarneyMeta', [
         };
 
         var isCanonicalTagPresent = function() {
-            return document.querySelector("link[rel='canonical']") ? true : false
-        }
+            return document.querySelector("link[rel='canonical']") ? true : false;
+        };
 
         var addCanonicalTag = function() {
-            if(!isCanonicalTagPresent) {
+            if(!isCanonicalTagPresent && withCanonical) {
                 var canonicalTag = document.createElement('link');
                 canonicalTag.setAttribute('rel', 'canonical');
-                canonicalTag.setAttribute('href', $rootScope.meta['canonical']);
+                canonicalTag.setAttribute('href', $rootScope.meta.canonical);
                 document.head.appendChild(canonicalTag);
             }
-        }
+        };
 
         $rootScope.meta = {};
         $rootScope.defaultMeta = {};
@@ -97,7 +97,7 @@ angular.module('barney').factory('BarneyMeta', [
                     } else {
                         // remove canonical tag;
 
-                        console.warn(['BarneyMeta',  'Canonical is disabled']);
+                        console.warn(['BarneyMeta', 'Canonical is disabled']);
 
                         removeCanonicalTag();
                     }
@@ -155,7 +155,7 @@ angular.module('barney').factory('BarneyMeta', [
                 if(key !== 'canonical') {
                     $rootScope.meta[key] = metatags[key];
                 } else if(withCanonical && key === 'canonical'){
-                    $rootScope.meta['canonical'] = metatags['canonical'];
+                    $rootScope.meta.canonical = metatags.canonical;
 
                     if(metatags.canonical === '') {
                         removeCanonicalTag();
@@ -224,7 +224,7 @@ angular.module('barney').factory('BarneyMeta', [
             for(var key in $rootScope.defaultMeta){
                 $rootScope.meta[key] = $rootScope.defaultMeta[key];
 
-                if(key === 'canonical' && withCanonical && $rootScope.defaultMeta['canonical'] === '') {
+                if(key === 'canonical' && withCanonical && $rootScope.defaultMeta.canonical === '') {
                     removeCanonicalTag();
                 }
             }
